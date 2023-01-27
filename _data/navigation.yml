@@ -1,0 +1,12 @@
+header:
+  - title:  About
+    url:    /about
+
+  - title:  Posts
+    url:    /posts
+
+  - title:  Highlights
+    url:    /highlights
+
+  - title:  Sponsors
+    url:    /sponsors
