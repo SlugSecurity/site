@@ -25,8 +25,14 @@
           {%- for _item in site.data.navigation.header -%}
             {%- include snippets/get-nav-url.html path=_item.url -%}
             {%- assign _nav_url = __return -%}
+
             {%- include snippets/get-nav-url.html path=page.url -%}
-            {%- assign _page_url = __return -%}
+            {%- if _nav_url contains ".html" -%}
+                {%- assign _page_url = __return -%}
+            {%- else -%}
+                {%- assign _page_url = __return | remove: ".html" -%}
+            {%- endif -%}
+            
             {%- include snippets/get-string-from-locale-config.html locale=_item.titles -%}
             {%- if _nav_url == _page_url or page.nav_key and _item.key and page.nav_key == _item.key -%}
               <li class="navigation__item navigation__item--active"><a href="{{ _nav_url }}">{%- if _item.title -%}{{ _item.title }}{%- else -%}{{ __return }}{%- endif -%}</a></li>
