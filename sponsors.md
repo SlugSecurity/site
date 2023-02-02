@@ -2,6 +2,7 @@
 layout: article
 aside:
   toc: true
+title: Sponsors
 show_title: false
 ---
 
