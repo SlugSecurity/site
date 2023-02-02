@@ -33,7 +33,9 @@ If you are interested in supporting the UCSC Cybersecurity Club, please contact 
 
 ### Current Sponsors
 <div class="sponsor-container">
-  <div class="sponsor-item">
-    <img src="/assets/images/sponsors/UCSC_BaskinEng_Logo_White_RGB.svg" alt="UCSC Baskin Engineering Logo" loading="lazy" href="https://engineering.ucsc.edu/">
-  </div>
+	{% for sponsor in site.data.sponsors %}
+		<div class="sponsor-item">
+			<img src="{{ sponsor.LogoPath }}" alt="{{ sponsor.Name }} Logo" loading="lazy" href="{{ sponsor.Link }}" title="{{ sponsor.Name }}">
+		</div>
+	{% endfor %}
 </div>
