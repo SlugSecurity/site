@@ -5,7 +5,7 @@ aside:
 tags: CBC Announcement Competition
 ---
 
-Following the academic tradition of participating in the [National Security Agency's Codebreaker Challenge](https://nsa-codebreaker.org/home), UCSC's Cybersecurity Club is proud to announce that we have won 3rd place in the 2022 Codebreaker Challenge. This is the second year in a row that UCSC has placed in the top 10. We are very proud of our team's accomplishments, and we look forward to participating in the 2023 Codebreaker Challenge!
+Following the academic tradition of participating in the [National Security Agency's Codebreaker Challenge](https://nsa-codebreaker.org/home), UCSC's Cybersecurity Club is proud to announce that we have won 3rd place in the 2022 Codebreaker Challenge. This is the third year in a row that UCSC has placed in the top 10. We are very proud of our team's accomplishments, and we look forward to participating in the 2023 Codebreaker Challenge!
 
 ### About the Codebreaker Challenge
 The Codebreaker Challenge is a competition hosted by the National Security Agency (NSA) for students to raise awareness of cybersecurity and to encourage students to pursue careers in cybersecurity. The competition consists of multiple challenges, each of which is a real-world cybersecurity problem. The challenges are designed to be accessible to students of all skill levels, and the competition is open to all students in the United States. 
