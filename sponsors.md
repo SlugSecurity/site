@@ -2,6 +2,7 @@
 layout: article
 aside:
   toc: true
+show_title: false
 ---
 
 ### Why Sponsor?
