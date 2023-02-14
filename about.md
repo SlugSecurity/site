@@ -20,4 +20,4 @@ More information can be found at [CTFD's "What's a CTF?"](https://ctfd.io/whats-
 **No!** No matter your background or experience, we encourage you to join, especially if you are new to the field and want to get a feel for computer security.
 
 ### How Do I Join?
-We primarily communicate via our <a href="https://discord.gg/NUVZCumQXB">Discord server</a>. Visit our meetings page to find a meeting to attend. You can also get in touch with us using the details on the meetings page if you have any questions or inquiries.
+We primarily communicate via our [Discord server](https://discord.gg/NUVZCumQXB). Visit our meetings page to find a meeting to attend. You can also get in touch with us using the details on the meetings page if you have any questions or inquiries.
