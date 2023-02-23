@@ -34,7 +34,7 @@ timezone: America/Los_Angeles
 ##############################
 author:
   type      : organization
-  email     : slugsec-group@ucsc.edu
+  email     : slugsec@ucsc.edu
   twitter   : SlugSec
   linkedin  : SlugSec
   github    : ucsc-security
