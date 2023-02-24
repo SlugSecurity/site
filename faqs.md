@@ -7,7 +7,7 @@ show_title: false
 ---
 
 ### How Do I Join
-Because we prioritise building a community, we heavily suggest that you join [our Discord server](https://discord.gg/NUVZCumQXB), and attend any workshops you find interesting.
+Because we prioritise building a community, we heavily suggest that you join [our Discord server](https://discord.gg/NUVZCumQXB), and attend any workshops you find interesting. To expedite any competition registrations, please also fill out [our registration form](https://forms.gle/zjV6hUx6UVPpHAWm7).
 
 ### When Are Meetings
 We try to hold a workshop every week, Monday 1-2 PM at E2-506. All workshop resources and practice challenges will be available online.
