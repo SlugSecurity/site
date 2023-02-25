@@ -31,7 +31,7 @@ By supporting the UCSC Security Club, sponsors will gain a number of benefits, i
 - Opportunities to recruit top talent for internships and full-time positions
 - The satisfaction of supporting a valuable educational and professional development opportunity for students
 
-If you are interested in supporting the UCSC Cybersecurity Club, please contact us via `slugsec@ucsc.edu`. We would be happy to discuss sponsorship opportunities and tailor a package that meets your needs and goals.
+If you are interested in supporting the UCSC Cybersecurity Club, please contact us via [slugsec@ucsc.edu](mailto:slugsec@ucsc.edu). We would be happy to discuss sponsorship opportunities and tailor a package that meets your needs and goals.
 
 ### Current Sponsors
 <div class="sponsor-container">
