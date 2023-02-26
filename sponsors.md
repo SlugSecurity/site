@@ -7,7 +7,7 @@ show_title: false
 ---
 
 ### Why Sponsor?
-UC Santa Cruz is home to a vibrant community of students with a passion for both cybersecurity. Slug Security provides students with the opportunity to learn about the latest developments in the field, as well as hands-on experience through real-world projects and competitions.
+UC Santa Cruz is home to a vibrant community of students with a passion for cybersecurity. Slug Security provides students with the opportunity to learn about the latest developments in the field, as well as hands-on experience through real-world projects and competitions.
 
 By supporting us, sponsors have the opportunity to invest in the future of cybersecurity and make a positive impact on the students who will shape the industry.
 
@@ -21,7 +21,7 @@ The funds provided by our sponsors will be used to support a variety of activiti
 - Purchasing equipment and materials for projects and activities
 
 ### What Do You Get?
-By supporting Slug Security, sponsors will gain a number of benefits, including:
+By supporting Slug Security, sponsors will gain several benefits, including:
 
 - Access to a talented and motivated group of students
 - Visibility and recognition through club events and activities, such as:
