@@ -30,7 +30,7 @@ By supporting Slug Security, sponsors will gain a number of benefits, including:
 - Opportunities to recruit top talent for internships and full-time positions
 - The satisfaction of supporting a valuable educational and professional development opportunity for students
 
-If you are interested in supporting, please contact us via [slugsec@ucsc.edu](mailto:slugsec@ucsc.edu).
+If you are interested in supporting us, please contact us via [slugsec@ucsc.edu](mailto:slugsec@ucsc.edu).
 
 ### Current Sponsors
 <div class="sponsor-container">
