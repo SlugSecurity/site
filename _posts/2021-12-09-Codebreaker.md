@@ -5,7 +5,7 @@ aside:
 tags: CBC Announcement Competition
 ---
 
-Continuing the tradition of participating in the [National Security Agency's Codebreaker Challenge](https://nsa-codebreaker.org/home), UCSC has placed 9th in the 2021 Codebreaker Challenge. This is the second year in a row that UCSC has placed in the top 10. We are proud to represent UCSC in this competition.
+Continuing the tradition of participating in the [National Security Agency's Codebreaker Challenge](https://nsa-codebreaker.org/home), UC Santa Cruz has placed 9th in the 2021 Codebreaker Challenge. This is the second year in a row that UCSC has placed in the top 10. Slug Security is proud of our team's accomplishments this year, especially of the new members who are new to cybersecurity.
 
 ### About the Challenge
 The National Security Agency (NSA) hosts the Codebreaker Challenge (CBC) for students in order to raise cybersecurity awareness and encourage students to pursue careers in cybersecurity. Each challenge in the competition is a real-world cybersecurity problem. The challenges are aimed at students of all skill levels, and the competition is open to all students in the United States.
