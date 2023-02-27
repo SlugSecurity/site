@@ -11,4 +11,5 @@ Concluded Nov 8, 2021
 To be updated.
 
 ### More Information
+- [Baskin Engineering News on CyberForce 2021](https://engineering.ucsc.edu/news/news-story-ucsc-team-cybersecurity-competition/)
 - [UCSC News on US CYBERCOM Inviting UCSC](https://news.ucsc.edu/2022/02/ucsc-joins-cybercom-aen.html)
