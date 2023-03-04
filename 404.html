@@ -1,3 +1,23 @@
 ---
 layout: 404
 ---
+
+<script>
+	let srcs = [
+		"cat_campfire.gif",
+		"ring_cat_campfire.gif",
+		"horde_cat_campfire.gif"
+	]
+	
+	let alts = [
+		"cats are often found around campfires",
+		"a group of cats is called a clowder",
+		"cats use their whiskers to measure distances",
+		"the world's richest cat inherited $13 million from its owner"
+	]
+	
+	let src = "/assets/animated/" + srcs[Math.floor(Math.random() * srcs.length)];
+	let alt = alts[Math.floor(Math.random() * alts.length)];
+	
+	document.write('<img src="' + src + '" alt="' + src + '" title="' + alt + '">');
+</script>
