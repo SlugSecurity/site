@@ -12,7 +12,9 @@ layout: 404
 		"mc_cat_campfire.gif",
 		"musical_cat_campfire.gif",
 		"scattered_cat_campfire.gif",
-		"blocks_cat_campfire.gif"
+		"blocks_cat_campfire.gif",
+		"seige_cat_campfire.gif",
+		"musical_reverse_cat_campfire.gif"
 	]
 	
 	let alts = [
@@ -23,8 +25,8 @@ layout: 404
 		"did you know we have " + srcs.length + " variations of this gif?",
 	]
 	
-	let src = "/assets/animated/" + srcs[Math.floor(Math.random() * srcs.length)];
+	let src = "/assets/animated/404/" + srcs[Math.floor(Math.random() * srcs.length)];
 	let alt = alts[Math.floor(Math.random() * alts.length)];
 	
-	document.write('<img src="' + src + '" alt="' + src + '" title="' + alt + '" style="max-width: 100%;"/>');
+	document.write('<img src="' + src + '" alt="' + src + '" title="' + alt + '" style="max-width: 100%; max-height: 45vh;"/>');
 </script>
