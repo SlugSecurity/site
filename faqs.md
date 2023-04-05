@@ -6,11 +6,11 @@ title: Frequently Asked Questions
 show_title: false
 ---
 
-### How Do I Join
+### How to Become a Member
 Because we prioritize building a community, we heavily suggest that you join [our Discord server](https://discord.gg/NUVZCumQXB), and attend any workshops you find interesting. To expedite any competition registrations, please also fill out [our registration form](https://forms.gle/zjV6hUx6UVPpHAWm7).
 
 ### When Are Meetings
-We try to hold a workshop every week, Monday 2-4 PM at E2-506. All workshop resources and practice challenges will be available online.
+We try to hold a workshop every week, Monday 2-4 PM at E2-506. All workshop resources and practice challenges will be accessible online.
 
 ### What Happens at a Meeting
 When we do host a meeting, it is usually centered on a central idea or topic, such as reverse engineering. A single speaker will typically prepare slides and a demonstration of the topic, going over the fundamentals and any prerequisites. Throughout the workshop, we will take breaks to allow you to practice the new skills you learned by completing [short *and optional* challenges](./faqs#what-is-a-ctf-competition) to see how well you understand them (this also helps us know if we're going too fast or too slow), such as obtaining a password from a password-protected file. Workshops are open to discussion and questions, so if you're curious about why something happened or what key was pressed to bring up that screen, just ask!
@@ -26,13 +26,13 @@ More information can be found at [CTFD's "What's a CTF?"](https://ctfd.io/whats-
 If you're reading this, it means we haven't finished our "Getting Started" page yet. In the meantime, you can look into downloading [Kali Linux WSL2](https://www.kali.org/docs/wsl/win-kex/). All of our workshops will notify you of any prerequisites that you need and a guide on how to install them.
 
 ### I'm Not a CS Major
-That's fine! We welcome anyone who is interested in learning about computer security, regardless of major. We even have an economics major on our CTF team!
+No worries! We gladly welcome anyone interested in learning about computer security, regardless of their major. In fact, we have an economics major on our CTF team!
 
 ### I Missed a Workshop
 If you miss a workshop, don't worry! All workshop resources and practice challenges will be available online, so you can catch up at your own pace. You can also join [our Discord server](https://discord.gg/NUVZCumQXB) to ask questions and get help from other members.
 
-### What Topics Do You Cover
-We cover a wide range of cybersecurity topics, including but not limited to: web security, reverse engineering, cryptography, forensics, and more. Our workshops and events are designed to be informative and engaging, and we strive to cover both fundamental and advanced topics to appeal to a variety of skill levels.
+### Topics We Cover
+Our club explores a diverse array of cybersecurity topics, such as web security, reverse engineering, cryptography, forensics, and beyond. We design our workshops and events to be both informative and engaging while addressing fundamental and advanced subjects to cater to various skill levels.
 
-### I Have More Questions
-If you have any further questions, please ask them on [our Discord server](https://discord.gg/NUVZCumQXB) or contact us via any of the accounts listed at the bottom of any page.
+### Additional Questions?
+For any further inquiries, feel free to reach out on [our Discord server](https://discord.gg/NUVZCumQXB) or contact us through the accounts provided at the bottom of each page.
