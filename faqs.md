@@ -10,7 +10,7 @@ show_title: false
 Because we prioritize building a community, we heavily suggest that you join [our Discord server](https://discord.gg/NUVZCumQXB), and attend any workshops you find interesting. To expedite any competition registrations, please also fill out [our registration form](https://forms.gle/zjV6hUx6UVPpHAWm7).
 
 ### When Are Meetings
-We try to hold a workshop every week, Monday 1-2 PM at E2-506. All workshop resources and practice challenges will be available online.
+We try to hold a workshop every week, Monday 2-4 PM at E2-506. All workshop resources and practice challenges will be available online.
 
 ### What Happens at a Meeting
 When we do host a meeting, it is usually centered on a central idea or topic, such as reverse engineering. A single speaker will typically prepare slides and a demonstration of the topic, going over the fundamentals and any prerequisites. Throughout the workshop, we will take breaks to allow you to practice the new skills you learned by completing [short *and optional* challenges](./faqs#what-is-a-ctf-competition) to see how well you understand them (this also helps us know if we're going too fast or too slow), such as obtaining a password from a password-protected file. Workshops are open to discussion and questions, so if you're curious about why something happened or what key was pressed to bring up that screen, just ask!
