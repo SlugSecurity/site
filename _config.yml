@@ -21,7 +21,7 @@ highlight_theme: tomorrow-night # "default" (default), "tomorrow", "tomorrow-nig
 url     : https://slugsec.ucsc.edu
 baseurl : # does not include hostname
 title   : Slug Security
-description: The premiere cyber and physical security club at UC Santa Cruz, no experience required!
+description: The student-run cybersecurity club at UC Santa Cruz. Empowering the next generation of cybersecurity experts.
 
 
 ## => Language and Timezone
