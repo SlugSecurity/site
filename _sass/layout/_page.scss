@@ -5,6 +5,12 @@ html,
   height: 100%;
 }
 
+@media (min-width: 1024px) {
+  body {
+    zoom: 125%;
+  }
+}
+
 .layout--page {
   &.layout--page--sidebar {
     .page__viewport,
