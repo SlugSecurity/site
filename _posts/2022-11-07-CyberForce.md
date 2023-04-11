@@ -5,15 +5,14 @@ aside:
 tags: CF Announcement Competition
 ---
 
-Slug Security is proud to announce that, representing UC Santa Cruz, we placed 9th out of 170 teams in the 2022 CyberForce Competition. This is the second year in a row that UCSC has placed in the top 10 in the [Department of Energy's CyberForce Competition](https://cyberforce.energy.gov/). We want to especially congratulate our 3 CTF teams that represented us this year, "Slug Sec", "Bing Chilling", and "Cyber Slugs". All three teams were supervised by Professor [Alvaro A. Cardenas](https://users.soe.ucsc.edu/~alacarde/) and [Sebastián Castro](https://twitter.com/r4wd3r).
+Slug Security is thrilled to share that UC Santa Cruz secured 9th place out of 170 teams in the 2022 CyberForce Competition. This marks the second consecutive year that UCSC has ranked in the top 10 in the [Department of Energy's CyberForce Competition](https://cyberforce.energy.gov/). We want to congratulate the 3 teams that represented us this year, "Slug Sec", "Bing Chilling", and "Cyber Slugs". All three teams were supervised by Professor [Alvaro A. Cardenas](https://users.soe.ucsc.edu/~alacarde/) and [Sebastián Castro](https://twitter.com/r4wd3r).
 
 ### About the Competition
 The CyberForce Competition is a mixed cybersecurity competition that combines both Capture the Flag (CTF) and cyber defense/offense exercises. The competition is part of the US Government's Cybersecurity Workforce Development Program to help develop the next generation of cybersecurity professionals.
 
-Over 850 students from 170 teams in 35 different US states participated in the tournament, which is available to undergraduate college students. The competition ran from late September to November 7th.
-
+The tournament saw participation from over 850 students across 170 teams in 35 different US states. The competition, open to undergraduate college students, took place from late September to November 7th.
 ### About UCSC's Team
-Slug Security had a total of 15 participants spread across 3 teams this year. All teams were student-led with the addition of faculty advisors. About 75% of the team members were exposed to cybersecurity for the first time during the competition. These are our teams and their respective notable rankings:
+Slug Security fielded a total of 15 participants across 3 teams this year. Each team was student-led, with faculty advisors providing guidance. Approximately 75% of the team members experienced their first exposure to cybersecurity during the competition. Our teams and their notable rankings include:
 
 - Team #128 - "*Slug Sec*"
 	* 9th overall
@@ -23,6 +22,49 @@ Slug Security had a total of 15 participants spread across 3 teams this year. Al
 	* 27th overall
 	* 1st in challenges (tied w/ UCF)
 - Team #126 - "*Cyber Slugs*" 
+
+### This Year's Challenge
+This year's competition scenario was divided into two parts: an attack-defense scenario and a [Capture The Flag portion](/faqs#what-is-a-ctf-competition). The attack-and-defend portion of the competition centered around a simulated cyberattack on a solar-powered electric vehicle manufacturing plant. The fictional electric vehicle manufacturer, "Vita Vehiculum", had recently acquired a solar and energy storage company called "Sole-Zon-Solis" and found themselves in an escalating conflict with a rival firm. As the security team, participants were tasked with evaluating the current infrastructure, the new acquisition, and the existing threat landscape to protect the company's assets.
+
+A vital part of this process involved creating documentation tailored for the company's executives, along with an actionable plan for the security team to implement. Participants were then required to evaluate the current infrastructure using various network scans and vulnerability assessments while maintaining access to critical services and devices. This dynamic and engaging challenge provided students with the opportunity to demonstrate their skills and knowledge in a realistic, hands-on blue team scenario.
+
+<div style="text-align: center">
+	<img 
+		src="/assets/images/posts/cyberforce2022/example_triage.png"
+		alt="Example Security Report"
+		class="rounded"
+	>
+	<br>
+	<i>Our Triage Logs for the Defense Phase</i>
+</div>
+
+As the competition's defense phase came to an end, competitors moved on to the attack phase. The company merger was underway at the time, and the rival firm's offensive strategy included a variety of attacks aimed at disrupting operations and services. Participants were required to monitor multiple machines at the same time using various logs and intrusion detection systems (IDS) to identify potential sources of compromise. Participants were required to report to the white team (competition scorekeepers) during each attack and provide them with various details such as:
+
+* Include as much specific, technical detail as possible, for example:
+	- IP addresses / domain names
+	- Protocols / services used
+	- Full file paths / hashes
+	- Process IDs / process list entries
+	- Evidence to support your claims (log file snippets, screenshots, file hashes, etc.)
+* Reconstruct and describe the actions of the attacker, for example:
+	- Where and how did the attacker initially gain access?
+	- What did they do next?
+	- What was the total scope of the compromise?
+	- What accounts / credentials have been compromised?
+	- What was the impact on the ICS system (if any)?
+	- What did they leave behind?
+
+<div style="text-align: center">
+	<img 
+		src="/assets/images/posts/cyberforce2022/example_attack.png"
+		alt="Example Attack Report"
+		class="rounded"
+	>
+	<br>
+	<i>One of Our Attack Reports</i>
+</div>
+
+After the attack-defense scenario, the competition moved on to the exciting Capture The Flag (CTF) phase. On a dedicated Saturday, all participating teams worked independently to complete 42 cybersecurity-related challenges. The CTF challenges added variety to the competition by requiring participants to solve cryptography puzzles, reverse engineer source code, and handle digital forensics tasks. During this portion of the competition, each team was able to demonstrate their skills and knowledge while addressing a variety of real-world cybersecurity problems.
 
 ### More Information
 - [Department of Energy's Announcement](https://www.energy.gov/ceser/articles/doe-announces-winners-2022-cyberforce-competitionr)
