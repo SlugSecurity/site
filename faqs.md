@@ -20,7 +20,7 @@ When we do host a meeting, it is usually centered on a central idea or topic, su
 
 <div>{%- include extensions/youtube.html id='8ev9ZX9J45A' title='What is CTF? An introduction to security Capture The Flag competitions' -%}</div>
 
-More information can be found at [CTFD's "What's a CTF?"](https://ctfd.io/whats-a-ctf/).
+More information can be found at [CTFd's "What's a CTF?"](https://ctfd.io/whats-a-ctf/).
 
 ### How Can I Prepare
 If you're reading this, it means we haven't finished our "Getting Started" page yet. In the meantime, you can look into downloading [Kali Linux WSL2](https://www.kali.org/docs/wsl/win-kex/). All of our workshops will notify you of any prerequisites that you need and a guide on how to install them.
