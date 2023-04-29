@@ -18,7 +18,7 @@ This year, UCSC was represented by a total of 94 participants, including 86 stud
 Participants that solved all challenges were awarded a medallion and a signed letter from Paul M. Nakasone, the director of the National Security Agency and chief of the Central Security Service. Those solvers representing UCSC are Jeffrey Zhang, Brian Mak, Steven Mak, Nancy Lau, Iakov Taranenko, Jackson Kohls, Maxwell Kunes, and Victor Ho.
 
 ### This Year's Challenge
-This year's challenge scenario was a ransomware attack on a fictional company. Participants, acting as NSA analysts, worked with the FBI to investigate the attack through 9 challenges of varying difficulty. The investigation started with analyzing VPN logs to determine the compromised account, and then progressed to studying the ransomware software used in the attack. The next step involved finding a hackers' forum that served as a market and platform for ransomware.
+This year's challenge scenario was a ransomware attack on a fictional company. Participants, acting as NSA analysts, worked with the FBI to investigate the attack through 9 challenges of varying difficulty. The investigation started with analyzing VPN logs to determine the compromised account and then progressed to studying the ransomware software used in the attack. The next step involved finding a hackers' forum that served as a market and platform for ransomware.
 
 To further the investigation, participants needed to leverage SQL injection vulnerabilities on the forum's website to access the administrator's account and the attackers' key database. Finally, participants reverse-engineered the ransomware software to uncover the encryption key and recover the victim's data.
 
