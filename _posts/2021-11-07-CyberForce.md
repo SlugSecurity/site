@@ -9,6 +9,7 @@ We are pleased to share that UC Santa Cruz placed second in the [Department of E
 
 ### About the Competition
 The CyberForce Competition is a highly respected event in cybersecurity hosted by the Department of Energy (DoE). Its main goal is to train and cultivate the next batch of cybersecurity experts. The competition involves a blend of Capture the Flag (CTF) and cyber defense/offense exercises, providing participants with an authentic and stimulating learning environment to improve their skills and knowledge. The event also promotes cooperation between academia, industry, and government to advance cybersecurity research and education, thus facilitating the growth of the cybersecurity workforce.
+
 ### About UCSC's Team
 During the CyberForce event held in 2021, UCSC participated in a competition with other universities to safeguard a virtual energy infrastructure from cyberattacks. Our team was responsible for developing efficient cybersecurity tactics, ensuring the smooth functioning of the system, and safeguarding sensitive data from potential threats. UCSC's team showcased their exceptional abilities and knowledge, securing second place, trailing only behind the University of Central Florida and ahead of Pennsylvania State University.
 
