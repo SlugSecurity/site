@@ -7,9 +7,9 @@ show_title: false
 ---
 
 ### Why Sponsor?
-The cybersecurity field is in need of more skilled professionals to tackle the ever-growing challenges faced by businesses, governments, and individuals alike. UC Santa Cruz has a dedicated group of students eager to develop their skills and contribute to the industry. By sponsoring Slug Security, you can help empower these students to learn and grow, ultimately strengthening the field of cybersecurity.
+The cybersecurity industry requires more skilled professionals to handle the increasing challenges faced by businesses, governments, and individuals. UC Santa Cruz has a group of enthusiastic students who are eager to improve their skills and contribute to the field. You can support these students by sponsoring Slug Security, which will help them learn and grow, ultimately strengthening the cybersecurity industry.
 
-As a sponsor, you'll have the opportunity to invest in the future of cybersecurity and make a positive impact on the students who will shape the industry.
+As a sponsor, you'll have the chance to invest in the future of cybersecurity and positively impact the students who will shape the industry.
 
 *Slug Security is a 501(c)(3) nonprofit organization.*
 
