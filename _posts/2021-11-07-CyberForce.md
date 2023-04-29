@@ -5,13 +5,12 @@ aside:
 tags: CF Announcement Competition
 ---
 
-UC Santa Cruz is proud to announce our outstanding 2nd place finish in the [Department of Energy's CyberForce 2021](https://cyberforce.energy.gov/) competition. This marked UCSC's first time participating in CyberForce, and our team proved their mettle by securing a top position among 120 teams from 105 universities across 33 states.
+We are pleased to share that UC Santa Cruz placed second in the [Department of Energy's CyberForce 2021](https://cyberforce.energy.gov/) competition. This was our first time participating in the event, and our team performed exceptionally well to secure a top position among 120 teams from 105 universities across 33 states.
 
 ### About the Competition
-The CyberForce Competition is a prestigious cybersecurity event hosted by the Department of Energy (DoE) aimed at training and developing the next generation of cybersecurity professionals. By combining Capture the Flag (CTF) and cyber defense/offense exercises, this competition allows participants to hone their skills and knowledge in a realistic and engaging environment. The event also fosters collaboration between academia, industry, and government to advance cybersecurity research and education, thus promoting the growth of the cybersecurity workforce.
-
+The CyberForce Competition is a highly respected event in cybersecurity hosted by the Department of Energy (DoE). Its main goal is to train and cultivate the next batch of cybersecurity experts. The competition involves a blend of Capture the Flag (CTF) and cyber defense/offense exercises, providing participants with an authentic and stimulating learning environment to improve their skills and knowledge. The event also promotes cooperation between academia, industry, and government to advance cybersecurity research and education, thus facilitating the growth of the cybersecurity workforce.
 ### About UCSC's Team
-In the 2021 edition of CyberForce, UCSC competed against other universities to defend a simulated energy infrastructure against cyberattacks. The challenge required our team to implement effective cybersecurity strategies, maintain system functionality, and protect sensitive information from adversaries. UCSC's team demonstrated exceptional skills and expertise, earning second place behind the University of Central Florida and ahead of Pennsylvania State University.
+During the CyberForce event held in 2021, UCSC participated in a competition with other universities to safeguard a virtual energy infrastructure from cyberattacks. Our team was responsible for developing efficient cybersecurity tactics, ensuring the smooth functioning of the system, and safeguarding sensitive data from potential threats. UCSC's team showcased their exceptional abilities and knowledge, securing second place, trailing only behind the University of Central Florida and ahead of Pennsylvania State University.
 
 <div style="text-align: center">
 	<img 
