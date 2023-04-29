@@ -35,10 +35,16 @@ By supporting Slug Security, sponsors will gain several benefits depending on th
 If you are interested in supporting us, please contact us via [slugsec@ucsc.edu](mailto:slugsec@ucsc.edu).
 
 ### Current Sponsors
+<p style="text-align: center;">
+	A big thanks to all our sponsors! Your support truly makes a difference and helps us create awesome experiences.
+</p>
+
 <div class="sponsor-container">
 	{% for sponsor in site.data.sponsors %}
 		<div class="sponsor-item">
-			<img src="{{ sponsor.LogoPath }}" alt="{{ sponsor.Name }} Logo" loading="lazy" href="{{ sponsor.Link }}" title="{{ sponsor.Name }}">
+			<a href="{{ sponsor.Link }}" title="{{ sponsor.Name }}">
+				<img src="{{ sponsor.LogoPath }}" alt="{{ sponsor.Name }} Logo" loading="lazy">
+			</a>
 		</div>
 	{% endfor %}
 </div>
