@@ -7,7 +7,7 @@ show_title: false
 ---
 
 ### How to Become a Member
-To foster a sense of community, we highly recommend joining [our Discord server](https://discord.gg/NUVZCumQXB) and attending any workshops that pique your interest. To speed up your registration process during competitions, please complete [our registration form](https://forms.gle/zjV6hUx6UVPpHAWm7) as well.
+To foster a sense of community, we highly recommend joining [our Discord server](https://discord.gg/NUVZCumQXB) and attending any workshops you find interesting. To speed up your registration process during competitions, please complete [our registration form](https://forms.gle/zjV6hUx6UVPpHAWm7) as well.
 
 ### When Are Meetings
 We try to hold a workshop every week, Monday 2-4 PM at E2-506. All workshop resources and practice challenges will be accessible online.
