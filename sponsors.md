@@ -7,21 +7,23 @@ show_title: false
 ---
 
 ### Why Sponsor?
-UC Santa Cruz is home to a vibrant community of students with a passion for cybersecurity. Slug Security offers students the chance to learn about the latest developments in the field, as well as gain hands-on experience through real-world projects and competitions.
+The cybersecurity field is in need of more skilled professionals to tackle the ever-growing challenges faced by businesses, governments, and individuals alike. UC Santa Cruz has a dedicated group of students eager to develop their skills and contribute to the industry. By sponsoring Slug Security, you can help empower these students to learn and grow, ultimately strengthening the field of cybersecurity.
 
-By supporting us, sponsors have the opportunity to invest in the future of cybersecurity and make a positive impact on the students who will shape the industry.
+As a sponsor, you'll have the opportunity to invest in the future of cybersecurity and make a positive impact on the students who will shape the industry.
+
+*Slug Security is a 501(c)(3) nonprofit organization.*
 
 ### Use of Resources
-The funds provided by our sponsors will be used to support a variety of activities, including:
+The support we receive from our sponsors, such as equipment, subscriptions, or funding, will be used to support a variety of activities, including:
 
 - Hosting guest speakers from industry and academia
-- Organizing workshops and training sessions
 - Participating in cybersecurity competitions and hackathons
-- Covering travel and lodging for club members attending conferences and events
+- Organizing workshops and training sessions
+- Providing training materials and tools through subscription-based resources
 - Purchasing equipment and materials for projects and activities
 
 ### What Do You Get?
-By supporting Slug Security, sponsors will gain several benefits, including:
+By supporting Slug Security, sponsors will gain several benefits depending on the level of support, including:
 
 - Access to a talented and motivated group of students
 - Visibility and recognition through club events and activities, such as:
