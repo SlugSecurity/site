@@ -8,11 +8,12 @@ tags: CF Announcement Competition
 Slug Security is thrilled to share that UC Santa Cruz secured 9th place out of 170 teams in the 2022 CyberForce Competition. This marks the second consecutive year that UCSC has ranked in the top 10 in the [Department of Energy's CyberForce Competition](https://cyberforce.energy.gov/). We want to congratulate the 3 teams that represented us this year, "Slug Sec", "Bing Chilling", and "Cyber Slugs". All three teams were supervised by Professor [Alvaro A. Cardenas](https://users.soe.ucsc.edu/~alacarde/) and [Sebastián Castro](https://twitter.com/r4wd3r).
 
 ### About the Competition
-The CyberForce Competition is a mixed cybersecurity competition that combines both Capture the Flag (CTF) and cyber defense/offense exercises. The competition is part of the US Government's Cybersecurity Workforce Development Program to help develop the next generation of cybersecurity professionals.
+The CyberForce Competition is a cybersecurity competition that includes both Capture the Flag (CTF) and cyber defense/offense exercises. It is designed to help develop the next generation of cybersecurity professionals as part of the US government's Cybersecurity Workforce Development Program.
 
-The tournament saw participation from over 850 students across 170 teams in 35 different US states. The competition, open to undergraduate college students, took place from late September to November 7th.
+Over 850 students from 35 US states and 170 teams participated in the competition, which was open to undergraduate college students. The competition took place from late September to November 7th.
+
 ### About UCSC's Team
-Slug Security fielded a total of 15 participants across 3 teams this year. Each team was student-led, with faculty advisors providing guidance. Approximately 75% of the team members experienced their first exposure to cybersecurity during the competition. Our teams and their notable rankings include:
+This year, Slug Security had 15 participants divided into 3 student-led teams. The faculty advisors supported and provided guidance to each team. Around 75% of the team members had their first experience with cybersecurity during the competition. Here are the notable rankings of our teams:
 
 - Team #128 - "*Slug Sec*"
 	* 9th overall
@@ -24,9 +25,9 @@ Slug Security fielded a total of 15 participants across 3 teams this year. Each 
 - Team #126 - "*Cyber Slugs*" 
 
 ### This Year's Challenge
-This year's competition scenario was divided into two parts: an attack-defense scenario and a [Capture The Flag portion](/faqs#what-is-a-ctf-competition). The attack-and-defend portion of the competition centered around a simulated cyberattack on a solar-powered electric vehicle manufacturing plant. The fictional electric vehicle manufacturer, "Vita Vehiculum", had recently acquired a solar and energy storage company called "Sole-Zon-Solis" and found themselves in an escalating conflict with a rival firm. As the security team, participants were tasked with evaluating the current infrastructure, the new acquisition, and the existing threat landscape to protect the company's assets.
+The competition had two parts: attack and defend and [Capture The Flag](/faqs#what-is-a-ctf-competition). The attack and defend portion focused on a simulated cyberattack on a solar-powered electric vehicle manufacturing plant owned by "Vita Vehiculum". They recently acquired a solar and energy storage company called "Sole-Zon-Solis" and conflicted with a rival firm. Participants were responsible for evaluating the infrastructure, new acquisition, and threat landscape to safeguard the company's assets.
 
-A vital part of this process involved creating documentation tailored for the company's executives, along with an actionable plan for the security team to implement. Participants were then required to evaluate the current infrastructure using various network scans and vulnerability assessments while maintaining access to critical services and devices. This dynamic and engaging challenge provided students with the opportunity to demonstrate their skills and knowledge in a realistic, hands-on blue team scenario.
+As part of the process, it was essential to create customized documentation for the company's executives, along with a realistic plan for the security team to implement. Participants had to assess the current infrastructure using different network scans and vulnerability assessments while ensuring access to critical services and devices. This dynamic and engaging challenge provided students with the opportunity to demonstrate their skills and knowledge in a realistic, hands-on blue team scenario.
 
 <div style="text-align: center">
 	<img 
