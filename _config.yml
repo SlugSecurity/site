@@ -172,7 +172,7 @@ analytics:
 ##############################
 markdown    : kramdown
 highlighter : rouge
-permalink   : date
+permalink   : /:year/:month/:title
 
 exclude:
   - Gemfile
