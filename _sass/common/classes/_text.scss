@@ -35,3 +35,7 @@
 .text--dark {
   @include text-dark();
 }
+
+.text--center {
+  text-align: center;
+}
