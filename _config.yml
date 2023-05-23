@@ -56,7 +56,6 @@ paths:
   root    : # title link url, "/" (default)
   home    : # home layout url, "/" (default)
   archive : /posts # "/archive.html" (default)
-  rss     : # "/feed.xml" (default)
 
 
 ## => Post
@@ -192,14 +191,12 @@ defaults:
       aside:
         toc: true
       show_edit_on_github: false
-      show_subscribe: false
       pageview: true
 
 
 ## => Plugins
 ##############################
 plugins:
-  - jekyll-feed
   - jekyll-paginate
   - jekyll-sitemap
   - jemoji
