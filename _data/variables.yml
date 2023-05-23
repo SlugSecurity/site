@@ -6,7 +6,6 @@ default:
     root: /
     home: /
     archive:  /archive.html
-    rss:  /feed.xml
   mathjax: false
   mathjax_autoNumber: false
   mermaid: false
@@ -31,7 +30,6 @@ default:
     show_date: true
     show_tags: true
     show_author_profile: false
-    show_subscribe: false
     full_width: false
     sharing: false
     comment: true
