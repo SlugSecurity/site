@@ -5,6 +5,9 @@ header:
   - title:  Posts
     url:    /posts
 
+  - title:  Writeups
+    url:    /writeups
+
   - title:  Highlights
     url:    /highlights
 
