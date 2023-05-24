@@ -2,9 +2,9 @@ require 'fileutils'
 require 'safe_yaml'
 require 'front_matter_parser'
 
-ROOT_DIR = '/writeups'
-TARGET_DIR = '/_writeups'
-NAV_FILE = '/_data/writeupNav.yml'
+ROOT_DIR = './writeups'
+TARGET_DIR = './_writeups'
+NAV_FILE = './_data/writeupNav.yml'
 
 SafeYAML::OPTIONS[:default_mode] = :safe
 SafeYAML::OPTIONS[:deserialize_symbols] = true
