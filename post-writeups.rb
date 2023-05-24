@@ -7,7 +7,7 @@ TARGET_DIR = './_writeups'
 NAV_FILE = './_data/writeupNav.yml'
 
 def move_and_update_index_file(index_file, new_file_path, event_key)
-	puts "Moving and updating #{index_file} to #{new_file_path}"
+	puts "Moved and updated index file, now at #{new_file_path}"
 
 	parsed = FrontMatterParser::Parser.parse_file(index_file)
 
@@ -35,6 +35,12 @@ def process_event_dir(event_dir, year, nav_content)
 	event_key = "#{year}-#{event_title}"
 
 	puts "\nFound event #{event_title} (#{year})"
+	
+	index_file = File.join(event_dir, 'index.md')
+	unless File.exist?(index_file)
+		puts "Index file not found, skipping..."
+		return
+	end
 
 	# Add event to nav_content with "Home" entry
 	nav_content[event_key] = [{ 'title' => 'Home', 'url' => '/' }]
@@ -102,7 +108,7 @@ def main()
 
 	# Write nav_content to NAV_FILE
 	File.open(NAV_FILE, 'w') do |file|
-		file.write(nav_content.to_yaml.gsub('---', ''))
+		file.write(nav_content.to_yaml)
 	end
 end
 	
