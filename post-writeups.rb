@@ -10,16 +10,15 @@ SafeYAML::OPTIONS[:default_mode] = :safe
 SafeYAML::OPTIONS[:deserialize_symbols] = true
 SafeYAML::OPTIONS[:allow_date] = true
 
-def createIndex(index_file, new_file_path, event_key)
-	file_content = File.read(index_file)
-	
+def updateFrontMatter(file_path, event_key)
+	file_content = File.read(file_path)
+
 	# Extract the existing front matter from the file
 	existing_front_matter = file_content[/---(.*?)---/m, 1]
 
 	# If there's no front matter, we can't proceed
 	if existing_front_matter.nil?
-		puts "No front matter found in #{index_file}, skipping..."
-		return
+		raise "No front matter found in #{file_path}"
 	end
 
 	# Parse the existing front matter as YAML
@@ -31,16 +30,22 @@ def createIndex(index_file, new_file_path, event_key)
 	if front_matter['sidebar'] && front_matter['sidebar'].key?('nav')
 		front_matter['sidebar'].delete('nav')
 	else
-		front_matter['sidebar'] ||= {} 
+		front_matter['sidebar'] ||= {}
 		front_matter['sidebar']['nav'] = event_key
 	end
 
 	new_front_matter = front_matter.to_yaml.strip
 	new_file_content = file_content.sub(/---.*?---/m, new_front_matter + "\n---")
-	
-	File.open(new_file_path, 'w') { |f| f.write(new_file_content) }
-	FileUtils.rm(index_file)
 
+	File.open(file_path, 'w') { |f| f.write(new_file_content) }
+
+	true
+end
+
+def createIndex(index_file, new_file_path, event_key)
+	return unless updateFrontMatter(index_file, event_key)
+
+	FileUtils.rm(index_file)
 	puts "Moved and updated index file, now at #{new_file_path}"
 end
 
@@ -78,6 +83,7 @@ def processEvent(event_dir, year, nav_content)
 					'url' => "/Writeups/#{year}/#{event_title}/#{category}/#{challenge_title}"
 				}
 				category_entry['children'].push(challenge_entry)
+				updateFrontMatter(challenge_file, event_key)
 			end
 		elsif File.file?(subdir_or_file) && File.basename(subdir_or_file) != 'index.md'
 			category = File.basename(subdir_or_file, '.md')
@@ -85,6 +91,7 @@ def processEvent(event_dir, year, nav_content)
 			# Add category to nav_content without children (challenges)
 			category_entry = { 'title' => category, 'url' => "/Writeups/#{year}/#{event_title}/#{category}" }
 			nav_content[event_key].push(category_entry)
+			updateFrontMatter(subdir_or_file, event_key)
 			
 			puts "Lone item found \"#{category}\" in event \"#{File.basename(event_dir)}\" (#{year})"
 		end
