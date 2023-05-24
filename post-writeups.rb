@@ -34,7 +34,7 @@ def process_event_dir(event_dir, year, nav_content)
 	event_title = File.basename(event_dir).gsub(' ', '-')
 	event_key = "#{year}-#{event_title}"
 
-	puts "\nFound event #{event_title} (#{year})"
+	puts "\nEvent found \"#{File.basename(event_dir)}\" (#{year})"
 	
 	index_file = File.join(event_dir, 'index.md')
 	unless File.exist?(index_file)
@@ -48,7 +48,7 @@ def process_event_dir(event_dir, year, nav_content)
 	Dir.glob(File.join(event_dir, '*')) do |subdir_or_file|
 		if File.directory?(subdir_or_file)
 			category = File.basename(subdir_or_file)
-			puts "Found sub-category #{category} in event #{event_title} (#{year})"
+			puts "Sub-Category found \"#{category}\""
 
 			# Add category to nav_content with its children (challenges)
 			category_entry = { 'title' => category, 'children' => [] }
@@ -56,7 +56,7 @@ def process_event_dir(event_dir, year, nav_content)
 
 			Dir.glob(File.join(subdir_or_file, '*.md')) do |challenge_file|
 				challenge_title = File.basename(challenge_file, '.md')
-				puts "Found child #{challenge_title} in sub-category #{category}"
+				puts "Child found \"#{challenge_title}\""
 
 				# Add challenge to category's children in nav_content
 				challenge_entry = {
@@ -72,7 +72,7 @@ def process_event_dir(event_dir, year, nav_content)
 			category_entry = { 'title' => category, 'url' => "/Writeups/#{year}/#{event_title}/#{category}" }
 			nav_content[event_key].push(category_entry)
 			
-			puts "Found lone category #{category} in event #{event_title} (#{year})"
+			puts "Lone item found \"#{category}\" in event \"#{File.basename(event_dir)}\" (#{year})"
 		end
 	end
 
