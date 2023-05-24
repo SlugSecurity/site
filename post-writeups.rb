@@ -10,7 +10,7 @@ SafeYAML::OPTIONS[:default_mode] = :safe
 SafeYAML::OPTIONS[:deserialize_symbols] = true
 SafeYAML::OPTIONS[:allow_date] = true
 
-def move_and_update_index_file(index_file, new_file_path, event_key)
+def createIndex(index_file, new_file_path, event_key)
 	file_content = File.read(index_file)
 	
 	# Extract the existing front matter from the file
@@ -44,7 +44,7 @@ def move_and_update_index_file(index_file, new_file_path, event_key)
 	puts "Moved and updated index file, now at #{new_file_path}"
 end
 
-def process_event_dir(event_dir, year, nav_content)
+def processEvent(event_dir, year, nav_content)
 	event_title = File.basename(event_dir).gsub(' ', '-')
 	event_key = "#{year}-#{event_title}"
 
@@ -94,7 +94,7 @@ def process_event_dir(event_dir, year, nav_content)
 	index_file = File.join(event_dir, 'index.md')
 	new_file_path = File.join(TARGET_DIR, "#{year}-#{event_title}.md")
 
-	move_and_update_index_file(index_file, new_file_path, event_key)
+	createIndex(index_file, new_file_path, event_key)
 end
 
 def main()
@@ -116,7 +116,7 @@ def main()
 		Dir.glob(File.join(year_dir, '*')) do |event_dir|
 			next unless File.directory?(event_dir)
 
-			process_event_dir(event_dir, year, nav_content)
+			processEvent(event_dir, year, nav_content)
 		end
 	end
 
