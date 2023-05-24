@@ -41,7 +41,8 @@ end
 
 def createIndex(index_file, new_file_path, event_key)
 	return unless updateFrontMatter(index_file, event_key)
-
+	
+	FileUtils.mkdir_p(File.dirname(new_file_path))
 	FileUtils.mv(index_file, new_file_path)
 	puts "Moved and updated index file, now at #{new_file_path}"
 end
@@ -104,7 +105,7 @@ def processEvent(event_dir, year, nav_content)
 
 	# Moving and updating index files
 	index_file = File.join(event_dir, 'index.md')
-	new_file_path = File.join(TARGET_DIR, "#{year}-#{event_title}.md")
+	new_file_path = File.join(TARGET_DIR, "#{year}/#{event_title}.md")
 
 	createIndex(index_file, new_file_path, event_key)
 end
@@ -137,6 +138,7 @@ def main()
 	File.open(NAV_FILE, 'w') do |file|
 		file.write(nav_content.to_yaml)
 	end
+	puts "\nNav file written to #{NAV_FILE}"
 end
 	
 main()
