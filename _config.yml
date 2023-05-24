@@ -180,6 +180,11 @@ exclude:
   - /node_modules
   - /vendor
 
+collections:
+  writeups:
+    output: true
+    permalink: /:year/:month/:title-Writeup
+
 defaults:
   - scope:
       path: ""
@@ -191,6 +196,16 @@ defaults:
       aside:
         toc: true
       show_edit_on_github: false
+      pageview: true
+  - scope:
+      path: ""
+      type: writeups
+    values:
+      layout: article
+      aside:
+        toc: true
+      values:
+        nav_key: writeups
       pageview: true
 
 
