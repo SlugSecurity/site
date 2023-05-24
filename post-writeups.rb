@@ -45,8 +45,41 @@ end
 def createIndex(index_file, new_file_path, event_key)
 	return unless updateFrontMatter(index_file, event_key)
 
-	FileUtils.rm(index_file)
+	FileUtils.mv(index_file, new_file_path)
 	puts "Moved and updated index file, now at #{new_file_path}"
+end
+
+def processSubdirectory(subdir, event_key, nav_content, year, event_title)
+	category = File.basename(subdir)
+	puts "Sub-Category found \"#{category}\""
+
+	# Add category to nav_content with its children (challenges)
+	category_entry = { 'title' => category, 'children' => [] }
+	nav_content[event_key].push(category_entry)
+
+	Dir.glob(File.join(subdir, '*.md')) do |challenge_file|
+		challenge_title = File.basename(challenge_file, '.md')
+		puts "Child found \"#{challenge_title}\""
+
+		# Add challenge to category's children in nav_content
+		challenge_entry = {
+			'title' => challenge_title,
+			'url' => "/Writeups/#{year}/#{event_title}/#{category}/#{challenge_title}"
+		}
+		category_entry['children'].push(challenge_entry)
+		updateFrontMatter(challenge_file, event_key)
+	end
+end
+
+def processFile(file, event_key, nav_content, year, event_title)
+	category = File.basename(file, '.md')
+
+	# Add category to nav_content without children (challenges)
+	category_entry = { 'title' => category, 'url' => "/Writeups/#{year}/#{event_title}/#{category}" }
+	nav_content[event_key].push(category_entry)
+	updateFrontMatter(file, event_key)
+	
+	puts "Lone item found \"#{category}\" in event \"#{File.basename(file)}\" (#{year})"
 end
 
 def processEvent(event_dir, year, nav_content)
@@ -66,34 +99,9 @@ def processEvent(event_dir, year, nav_content)
 
 	Dir.glob(File.join(event_dir, '*')) do |subdir_or_file|
 		if File.directory?(subdir_or_file)
-			category = File.basename(subdir_or_file)
-			puts "Sub-Category found \"#{category}\""
-
-			# Add category to nav_content with its children (challenges)
-			category_entry = { 'title' => category, 'children' => [] }
-			nav_content[event_key].push(category_entry)
-
-			Dir.glob(File.join(subdir_or_file, '*.md')) do |challenge_file|
-				challenge_title = File.basename(challenge_file, '.md')
-				puts "Child found \"#{challenge_title}\""
-
-				# Add challenge to category's children in nav_content
-				challenge_entry = {
-					'title' => challenge_title,
-					'url' => "/Writeups/#{year}/#{event_title}/#{category}/#{challenge_title}"
-				}
-				category_entry['children'].push(challenge_entry)
-				updateFrontMatter(challenge_file, event_key)
-			end
+			processSubdirectory(subdir_or_file, event_key, nav_content, year, event_title)
 		elsif File.file?(subdir_or_file) && File.basename(subdir_or_file) != 'index.md'
-			category = File.basename(subdir_or_file, '.md')
-
-			# Add category to nav_content without children (challenges)
-			category_entry = { 'title' => category, 'url' => "/Writeups/#{year}/#{event_title}/#{category}" }
-			nav_content[event_key].push(category_entry)
-			updateFrontMatter(subdir_or_file, event_key)
-			
-			puts "Lone item found \"#{category}\" in event \"#{File.basename(event_dir)}\" (#{year})"
+			processFile(subdir_or_file, event_key, nav_content, year, event_title)
 		end
 	end
 
@@ -103,6 +111,7 @@ def processEvent(event_dir, year, nav_content)
 
 	createIndex(index_file, new_file_path, event_key)
 end
+
 
 def main()
 	# clean up TARGET_DIR and NAV_FILE
