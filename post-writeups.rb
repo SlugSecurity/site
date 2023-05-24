@@ -7,8 +7,6 @@ NAV_FILE = './_data/navigation.yml'
 
 Dir.mkdir(TARGET_DIR) unless Dir.exist?(TARGET_DIR)
 
-FileUtils.rm(File.join(ROOT_DIR, 'README.md')) if File.exist?(File.join(ROOT_DIR, 'README.md'))
-
 nav_content = YAML.load_file(NAV_FILE)
 
 Dir.glob(File.join(ROOT_DIR, '*')) do |year_dir|
