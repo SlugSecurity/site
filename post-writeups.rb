@@ -1,33 +1,40 @@
 require 'fileutils'
-require 'yaml'
+require 'safe_yaml'
 require 'front_matter_parser'
 
 ROOT_DIR = './writeups'
 TARGET_DIR = './_writeups'
 NAV_FILE = './_data/writeupNav.yml'
 
+SafeYAML::OPTIONS[:default_mode] = :safe
+SafeYAML::OPTIONS[:deserialize_symbols] = true
+SafeYAML::OPTIONS[:allow_date] = true
+
 def move_and_update_index_file(index_file, new_file_path, event_key)
-	puts "Moved and updated index file, now at #{new_file_path}"
+	file_content = File.read(index_file)
+	
+	# Extract the existing front matter from the file
+	existing_front_matter = file_content[/---(.*?)---/m, 1]
 
-	parsed = FrontMatterParser::Parser.parse_file(index_file)
+	# If there's no front matter, we can't proceed
+	if existing_front_matter.nil?
+		puts "No front matter found in #{index_file}, skipping..."
+		return
+	end
 
-	parsed.front_matter['aside'] = {} unless parsed.front_matter['aside']
-	parsed.front_matter['aside']['toc'] = true unless parsed.front_matter['aside']['toc']
+	# Parse the existing front matter as YAML
+	front_matter = YAML.load(existing_front_matter)
 
-	parsed.front_matter['sidebar'] = {} unless parsed.front_matter['sidebar']
-	parsed.front_matter['sidebar']['nav'] = event_key unless parsed.front_matter['sidebar']['nav']
+	front_matter['aside'] = { 'toc' => true }
+	front_matter['sidebar'] = { 'nav' => event_key }
 
-	new_content = parsed.front_matter.to_yaml + "---\n" + parsed.content
-
-	# Remove any leading "---"
-	new_content.sub!(/^---\n/, '')
-
-	# Ensure the YAML front matter is properly delimited
-	new_content = "---\n" + new_content unless new_content.start_with?('---\n')
-
-	File.open(new_file_path, 'w') { |f| f.write(new_content) }
-
+	new_front_matter = front_matter.to_yaml.strip
+	new_file_content = file_content.sub(/---.*?---/m, "---\n" + new_front_matter + "\n---")
+	
+	File.open(new_file_path, 'w') { |f| f.write(new_file_content) }
 	FileUtils.rm(index_file)
+
+	puts "Moved and updated index file, now at #{new_file_path}"
 end
 
 def process_event_dir(event_dir, year, nav_content)
