@@ -61,7 +61,7 @@ def processSubdirectory(subdir, event_key, nav_content, year, event_title)
 		# Add challenge to category's children in nav_content
 		challenge_entry = {
 			'title' => challenge_title,
-			'url' => "#{ROOT_DIR}/#{year}/#{event_title}/#{category}/#{challenge_title}"
+			'url' => "/writeups/#{year}/#{event_title}/#{category}/#{challenge_title}"
 		}
 		category_entry['children'].push(challenge_entry)
 		updateFrontMatter(challenge_file, event_key)
@@ -72,7 +72,7 @@ def processFile(file, event_key, nav_content, year, event_title)
 	category = File.basename(file, '.md')
 
 	# Add category to nav_content without children (challenges)
-	category_entry = { 'title' => category, 'url' => "#{ROOT_DIR}/#{year}/#{event_title}/#{category}" }
+	category_entry = { 'title' => category, 'url' => "/writeups/#{year}/#{event_title}/#{category}" }
 	nav_content[event_key].push(category_entry)
 	updateFrontMatter(file, event_key)
 	
