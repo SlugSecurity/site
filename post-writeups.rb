@@ -25,8 +25,15 @@ def move_and_update_index_file(index_file, new_file_path, event_key)
 	# Parse the existing front matter as YAML
 	front_matter = YAML.load(existing_front_matter)
 
-	front_matter['aside'] = { 'toc' => true }
-	front_matter['sidebar'] = { 'nav' => event_key }
+	front_matter['aside'] = {} unless front_matter['aside']
+	front_matter['aside']['toc'] = true unless front_matter['aside'].key?('toc')
+
+	if front_matter['sidebar'] && front_matter['sidebar'].key?('nav')
+		front_matter['sidebar'].delete('nav')
+	else
+		front_matter['sidebar'] ||= {} 
+		front_matter['sidebar']['nav'] = event_key
+	end
 
 	new_front_matter = front_matter.to_yaml.strip
 	new_file_content = file_content.sub(/---.*?---/m, new_front_matter + "\n---")
