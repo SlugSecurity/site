@@ -2,9 +2,9 @@ require 'fileutils'
 require 'safe_yaml'
 require 'front_matter_parser'
 
-ROOT_DIR = './writeups'
-TARGET_DIR = './_writeups'
-NAV_FILE = './_data/writeupNav.yml'
+ROOT_DIR = '/writeups'
+TARGET_DIR = '/_writeups'
+NAV_FILE = '/_data/writeupNav.yml'
 
 SafeYAML::OPTIONS[:default_mode] = :safe
 SafeYAML::OPTIONS[:deserialize_symbols] = true
@@ -64,7 +64,7 @@ def processSubdirectory(subdir, event_key, nav_content, year, event_title)
 		# Add challenge to category's children in nav_content
 		challenge_entry = {
 			'title' => challenge_title,
-			'url' => "/Writeups/#{year}/#{event_title}/#{category}/#{challenge_title}"
+			'url' => "#{ROOT_DIR}#{year}/#{event_title}/#{category}/#{challenge_title}"
 		}
 		category_entry['children'].push(challenge_entry)
 		updateFrontMatter(challenge_file, event_key)
