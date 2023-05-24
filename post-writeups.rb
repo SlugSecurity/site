@@ -29,7 +29,7 @@ def move_and_update_index_file(index_file, new_file_path, event_key)
 	front_matter['sidebar'] = { 'nav' => event_key }
 
 	new_front_matter = front_matter.to_yaml.strip
-	new_file_content = file_content.sub(/---.*?---/m, "---\n" + new_front_matter + "\n---")
+	new_file_content = file_content.sub(/---.*?---/m, new_front_matter + "\n---")
 	
 	File.open(new_file_path, 'w') { |f| f.write(new_file_content) }
 	FileUtils.rm(index_file)
