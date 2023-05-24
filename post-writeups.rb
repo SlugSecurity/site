@@ -24,9 +24,6 @@ def updateFrontMatter(file_path, event_key)
 	# Parse the existing front matter as YAML
 	front_matter = YAML.load(existing_front_matter)
 
-	front_matter['aside'] = {} unless front_matter['aside']
-	front_matter['aside']['toc'] = true unless front_matter['aside'].key?('toc')
-
 	if front_matter['sidebar'] && front_matter['sidebar'].key?('nav')
 		front_matter['sidebar'].delete('nav')
 	else
@@ -75,7 +72,7 @@ def processFile(file, event_key, nav_content, year, event_title)
 	category = File.basename(file, '.md')
 
 	# Add category to nav_content without children (challenges)
-	category_entry = { 'title' => category, 'url' => "/Writeups/#{year}/#{event_title}/#{category}" }
+	category_entry = { 'title' => category, 'url' => "#{ROOT_DIR}#{year}/#{event_title}/#{category}" }
 	nav_content[event_key].push(category_entry)
 	updateFrontMatter(file, event_key)
 	
