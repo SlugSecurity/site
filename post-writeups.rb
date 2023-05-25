@@ -105,7 +105,15 @@ def processEvent(event_dir, year, nav_content)
 
 	# Moving and updating index files
 	index_file = File.join(event_dir, 'index.md')
-	new_file_path = File.join(TARGET_DIR, "#{year}/#{event_title}.md")
+	parsed = FrontMatterParser::Parser.parse_file(index_file)
+	front_matter = parsed.front_matter
+
+	if front_matter['date']
+		date = front_matter['date'].strftime("%Y-%m-%d")
+		new_file_path = File.join(TARGET_DIR, "#{date}-#{event_title}.md")
+	else
+		raise "No date found in front matter of #{index_file}"
+	end
 
 	createIndex(index_file, new_file_path, event_key)
 end
