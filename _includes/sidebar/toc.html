@@ -1,6 +1,10 @@
 {%- if page.sidebar.nav -%}
   <div class="sidebar-toc">
     {%- assign _sidebar_nav = site.data.navigation[page.sidebar.nav] -%}
+    {%- if _sidebar_nav == nil -%}
+        {%- assign _sidebar_nav = site.data.writeupNav[page.sidebar.nav] -%}
+    {%- endif -%}
+
     {%- if _sidebar_nav -%}
     <ul class="toc toc--navigator">
       {%- for _item in _sidebar_nav -%}

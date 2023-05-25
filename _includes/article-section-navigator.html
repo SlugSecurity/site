@@ -1,5 +1,9 @@
 {%- if page.sidebar.nav -%}
-  {%- assign _sidebar_nav = site.data.navigation[page.sidebar.nav] -%}
+    {%- assign _sidebar_nav = site.data.navigation[page.sidebar.nav] -%}
+    {%- if _sidebar_nav == nil -%}
+        {%- assign _sidebar_nav = site.data.writeupNav[page.sidebar.nav] -%}
+    {%- endif -%}
+
   {%- if _sidebar_nav -%}
     {%- assign _find_cur = false -%}
     {%- assign _find_next = false -%}
