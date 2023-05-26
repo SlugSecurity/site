@@ -15,14 +15,14 @@ Over 850 students from 35 US states and 170 teams participated in the competitio
 ### About UCSC's Team
 This year, Slug Security had 15 participants divided into 3 student-led teams. The faculty advisors supported and provided guidance to each team. Around 75% of the team members had their first experience with cybersecurity during the competition. Here are the notable rankings of our teams:
 
-- Team #128 - "*Slug Sec*"
+- Team #126 - "*Slug Sec*"
 	* 9th overall
 	* 7th in challenges
 	* 12th in offense
 - Team #127 - "*Bing Chilling*"
 	* 27th overall
 	* 1st in challenges (tied w/ UCF)
-- Team #126 - "*Cyber Slugs*" 
+- Team #128 - "*Cyber Slugs*" 
 
 ### This Year's Challenge
 The competition had two parts: attack and defend and [Capture The Flag](/faqs#what-is-a-ctf-competition). The attack and defend portion focused on a simulated cyberattack on a solar-powered electric vehicle manufacturing plant owned by "Vita Vehiculum". They recently acquired a solar and energy storage company called "Sole-Zon-Solis" and conflicted with a rival firm. Participants were responsible for evaluating the infrastructure, new acquisition, and threat landscape to safeguard the company's assets.
