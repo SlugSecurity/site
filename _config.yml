@@ -179,6 +179,7 @@ exclude:
   - jekyll-text-theme.gemspec
   - /node_modules
   - /vendor
+  - post-writeups.rb
 
 collections:
   writeups:
