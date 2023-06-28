@@ -6,6 +6,7 @@ ROOT_DIR = './writeups'
 TARGET_DIR = './_writeups'
 NAV_FILE = './_data/writeupNav.yml'
 
+WRITEUP_ROOT = '_index.md'
 IGNORE_CATEGORY_DIR = ['_sources', '_assets']
 REMOVE_FILES = ['README.md', 'CONTRIBUTING.md']
 
@@ -89,7 +90,7 @@ def processEvent(event_dir, year, nav_content)
 
 	puts "\nEvent found \"#{File.basename(event_dir)}\" (#{year})"
 	
-	index_file = File.join(event_dir, 'index.md')
+	index_file = File.join(event_dir, WRITEUP_ROOT)
 	unless File.exist?(index_file)
 		puts "Index file not found, skipping..."
 		return
@@ -101,13 +102,13 @@ def processEvent(event_dir, year, nav_content)
 	Dir.glob(File.join(event_dir, '*')) do |subdir_or_file|
 		if File.directory?(subdir_or_file)
 			processSubdirectory(subdir_or_file, event_key, nav_content, year, event_title)
-		elsif File.file?(subdir_or_file) && File.basename(subdir_or_file) != 'index.md'
+		elsif File.file?(subdir_or_file) && File.basename(subdir_or_file) != WRITEUP_ROOT
 			processFile(subdir_or_file, event_key, nav_content, year, event_title)
 		end
 	end
 
 	# Moving and updating index files
-	index_file = File.join(event_dir, 'index.md')
+	index_file = File.join(event_dir, WRITEUP_ROOT)
 	parsed = FrontMatterParser::Parser.parse_file(index_file)
 	front_matter = parsed.front_matter
 
