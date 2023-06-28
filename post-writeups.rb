@@ -6,6 +6,9 @@ ROOT_DIR = './writeups'
 TARGET_DIR = './_writeups'
 NAV_FILE = './_data/writeupNav.yml'
 
+IGNORE_CATEGORY_DIR = ['_sources', '_assets']
+REMOVE_FILES = ['README.md', 'CONTRIBUTING.md']
+
 SafeYAML::OPTIONS[:default_mode] = :safe
 SafeYAML::OPTIONS[:deserialize_symbols] = true
 SafeYAML::OPTIONS[:allow_date] = true
@@ -126,7 +129,7 @@ def main()
 
 	Dir.mkdir(TARGET_DIR) unless Dir.exist?(TARGET_DIR)
 
-	FileUtils.rm(File.join(ROOT_DIR, 'README.md')) if File.exist?(File.join(ROOT_DIR, 'README.md'))
+	REMOVE_FILES.each { |file| FileUtils.rm(File.join(ROOT_DIR, file)) if File.exist?(File.join(ROOT_DIR, file)) }
 
 	nav_content = {}
 
