@@ -176,7 +176,6 @@ permalink   : /:year/:month/:title
 exclude:
   - Gemfile
   - Gemfile.lock
-  - jekyll-text-theme.gemspec
   - /node_modules
   - /vendor
   - post-writeups.rb
