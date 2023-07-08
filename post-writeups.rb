@@ -7,7 +7,6 @@ TARGET_DIR = './_writeups'
 NAV_FILE = './_data/writeupNav.yml'
 
 WRITEUP_ROOT = '_index.md'
-IGNORE_CATEGORY_DIR = ['_sources', '_assets']
 REMOVE_FILES = ['README.md', 'CONTRIBUTING.md']
 
 SafeYAML::OPTIONS[:default_mode] = :safe
@@ -33,6 +32,13 @@ def updateFrontMatter(file_path, event_key)
 	else
 		front_matter['sidebar'] ||= {}
 		front_matter['sidebar']['nav'] = event_key
+	end
+
+	# Root only front matter changes
+	if file_path.include?(WRITEUP_ROOT)
+		cover_image = "./writeups/#{file_path.split('/')[2..-2].join('/')}/assets_/cover.jpg"
+		raise "Cover image not found at #{event_key}, checked #{cover_image}" unless File.exist?(cover_image)
+		front_matter['cover'] = cover_image
 	end
 
 	new_front_matter = front_matter.to_yaml.strip
@@ -95,12 +101,23 @@ def processEvent(event_dir, year, nav_content)
 		puts "Index file not found, skipping..."
 		return
 	end
+	
+	# Rename reserved folders from _name to name_
+	Dir.glob(File.join(event_dir, '*')) do |subdir_or_file|
+		if File.directory?(subdir_or_file)
+			if File.basename(subdir_or_file).start_with?('_')
+				new_name = File.join(File.dirname(subdir_or_file), File.basename(subdir_or_file)[1..-1] + '_')
+				FileUtils.mv(subdir_or_file, new_name)
+				puts "Renamed subdir \"#{subdir_or_file}\" to \"#{new_name}\""
+			end
+		end
+	end
 
 	# Add event to nav_content with "Home" entry
 	nav_content[event_key] = [{ 'title' => 'Home', 'url' => '/' }]
 
 	Dir.glob(File.join(event_dir, '*')) do |subdir_or_file|
-		if File.directory?(subdir_or_file)
+		if File.directory?(subdir_or_file) && !File.basename(subdir_or_file).end_with?('_')
 			processSubdirectory(subdir_or_file, event_key, nav_content, year, event_title)
 		elsif File.file?(subdir_or_file) && File.basename(subdir_or_file) != WRITEUP_ROOT
 			processFile(subdir_or_file, event_key, nav_content, year, event_title)
