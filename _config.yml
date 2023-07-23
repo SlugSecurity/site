@@ -178,7 +178,6 @@ exclude:
   - Gemfile.lock
   - /node_modules
   - /vendor
-  - post-writeups.rb
 
 collections:
   writeups:
