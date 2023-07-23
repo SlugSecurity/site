@@ -1,7 +1,4 @@
 header:
-  - title:  FAQs
-    url:    /faqs
-
   - title:  Posts
     url:    /posts
 
@@ -10,6 +7,9 @@ header:
 
   - title:  Highlights
     url:    /highlights
+
+  - title:  FAQs
+    url:    /faqs
 
   - title:  Sponsors
     url:    /sponsors
