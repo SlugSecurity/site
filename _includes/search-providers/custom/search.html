@@ -1,3 +1,8 @@
 <!-- start custom search snippet -->
 
+{%- include snippets/get-sources.html -%}
+{%- assign _sources = __return -%}
+
+<script type="text/javascript" src="{{ _sources.lunrjs }}" async></script>
+
 <!-- end custom search snippet -->
