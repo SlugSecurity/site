@@ -13,7 +13,7 @@ The CyberForce Competition is a highly respected event in cybersecurity hosted b
 ### About UCSC's Team
 During the CyberForce event held in 2021, UCSC participated in a competition with other universities to safeguard a virtual energy infrastructure from cyberattacks. Our team was responsible for developing efficient cybersecurity tactics, ensuring the smooth functioning of the system, and safeguarding sensitive data from potential threats. UCSC's team showcased their exceptional abilities and knowledge, securing second place, trailing only behind the University of Central Florida and ahead of Pennsylvania State University.
 
-![UCSC CyberForce 2021 Team](https://lh3.googleusercontent.com/drive-viewer/AFGJ81r33CAmuwVaZdZiwWCG32DMCNp0u_n2QcNqtNSgWgrOd5fbUTMq5KzVEIQrMYD0-oPDLxy98NJTf677e0D4WG7_f15v){:.rounded.image--center}
+![UCSC CyberForce 2021 Team](/assets/images/FGld9ceXEAEI-Od.jpg){:.rounded.image--center}
 
 {:.text--center}
 *UCSC CyberForce 2021 Team*
