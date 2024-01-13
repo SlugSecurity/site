@@ -35,4 +35,4 @@ If you miss a workshop, don't worry! All workshop resources and practice challen
 Our club explores a diverse array of cybersecurity topics, such as web security, reverse engineering, cryptography, forensics, and beyond. We design our workshops and events to be both informative and engaging while addressing fundamental and advanced subjects to cater to various skill levels.
 
 ### Additional Questions?
-For any further inquiries, feel free to reach out on [our Discord server](https://discord.gg/NUVZCumQXB) or contact us through the accounts provided at the bottom of each page.
+For any further inquiries, feel free to reach out on [our Discord server](https://discord.gg/NUVZCumQXB) or contact us [officers](https://slugsec.ucsc.edu/officers) through the accounts provided at the bottom of each page.
