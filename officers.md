@@ -14,7 +14,7 @@ show_title: false
 **Vice President**: Ex Taranenko
 
 
-**Operations Officer**: Brian Mak, Jaden Maxwell
+**Operations Officer**: Brian Mak, Jaden Provost Maxwell-Comfort
 
 
 **Outreach Officers**: Kevin Sun, Ian Phan, Rudy Chavez
