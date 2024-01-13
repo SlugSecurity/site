@@ -34,7 +34,7 @@ If you miss a workshop, don't worry! All workshop resources and practice challen
 ### Topics We Cover
 Our club explores a diverse array of cybersecurity topics, such as web security, reverse engineering, cryptography, forensics, and beyond. We design our workshops and events to be both informative and engaging while addressing fundamental and advanced subjects to cater to various skill levels.
 
-## Who are the officers?
+### Who are the officers?
 Check out who the officers are for the 2023-24 term linked [here](https://slugsec.ucsc.edu/officers)!
 
 ### Additional Questions?
