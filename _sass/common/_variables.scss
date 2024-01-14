@@ -1,6 +1,16 @@
+@font-face {
+	font-family: 'High Speed';
+	src: url('/assets/fonts/High-Speed.woff2') format('woff2'),
+		url('/assets/fonts/High-Speed.woff') format('woff'),
+		url('/assets/fonts/High-Speed.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
 $base: (
   font-family:            (-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif),
   font-family-code:       (Menlo, Monaco, Consolas, Andale Mono, lucida console, Courier New, monospace),
+  high-speed-font-family: ('High Speed', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif),
 
   font-size-root:         16px,
   font-size-root-sm:      14px,
