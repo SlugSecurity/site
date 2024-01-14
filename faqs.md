@@ -10,7 +10,7 @@ show_title: false
 You can become a member by joining [our Discord server](https://discord.gg/NUVZCumQXB) and attending any workshops you find interesting. To speed up your registration process during competitions, please complete [our registration form](https://forms.gle/zjV6hUx6UVPpHAWm7) as well.
 
 ### When Are Meetings
-We try to hold a workshop every week, Monday 2-4 PM at E2-506. All workshop resources and practice challenges will be accessible online.
+We try to hold a workshop every week, **TBD for Winter 2024 Quarter**. All workshop resources and practice challenges will be accessible online.
 
 ### What Happens at a Meeting
 When we do host a meeting, it is usually centered on a central idea or topic, such as reverse engineering. A single speaker will typically prepare slides and a demonstration of the topic, going over the fundamentals and any prerequisites. Throughout the workshop, we will take breaks to allow you to practice the new skills you learned by completing [short *and optional* challenges](./faqs#what-is-a-ctf-competition) to see how well you understand them (this also helps us know if we're going too fast or too slow), such as obtaining a password from a password-protected file. Workshops are open to discussion and questions, so if you're curious about why something happened or what key was pressed to bring up that screen, just ask!
@@ -34,5 +34,8 @@ If you miss a workshop, don't worry! All workshop resources and practice challen
 ### Topics We Cover
 Our club explores a diverse array of cybersecurity topics, such as web security, reverse engineering, cryptography, forensics, and beyond. We design our workshops and events to be both informative and engaging while addressing fundamental and advanced subjects to cater to various skill levels.
 
+### Who are the officers?
+Check out who the officers are for the 2023-24 term linked [here](https://slugsec.ucsc.edu/officers)!
+
 ### Additional Questions?
-For any further inquiries, feel free to reach out on [our Discord server](https://discord.gg/NUVZCumQXB) or contact us through the accounts provided at the bottom of each page.
+For any further inquiries, feel free to reach out on [our Discord server](https://discord.gg/NUVZCumQXB) or contact us [officers](https://slugsec.ucsc.edu/officers) through the accounts provided at the bottom of each page.

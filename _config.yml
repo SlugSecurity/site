@@ -108,6 +108,7 @@ exclude:
   - Gemfile.lock
   - /node_modules
   - /vendor
+  - CONTRIBUTING.md
 
 collections:
   writeups:
