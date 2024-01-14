@@ -20,3 +20,5 @@ show_title: false
 ## Former Officers
 - **Operations**:
 	* Jeffrey Zhang
+- **Outreach & Finance**:
+	* Jackson Khols
