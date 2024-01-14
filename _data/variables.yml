@@ -46,17 +46,7 @@ sources:
     gitalk:
       js: 'https://cdn.bootcss.com/gitalk/1.2.2/gitalk.min.js'
       css: 'https://cdn.bootcss.com/gitalk/1.2.2/gitalk.min.css'
-    valine: 'https://unpkg.com/valine/dist/Valine.min.js' # bootcdn not available
+    valine: 'https://unpkg.com/valine/dist/Valine.min.js'
     mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
     mermaid: 'https://cdn.bootcss.com/mermaid/9.2.2/mermaid.min.js'
-  unpkg:
-    font_awesome: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css'
-    jquery: 'https://unpkg.com/jquery@3.3.1/dist/jquery.min.js'
-    leancloud_js_sdk: 'https://cdn.jsdelivr.net/npm/leancloud-storage@3.13.2/dist/av-min.js'
-    chart: 'https://unpkg.com/chart.js@2.9.3/dist/Chart.min.js'
-    gitalk:
-      js: 'https://unpkg.com/gitalk@1.2.2/dist/gitalk.min.js'
-      css: 'https://unpkg.com/gitalk@1.2.2/dist/gitalk.css'
-    valine: 'https://unpkg.com/valine/dist/Valine.min.js'
-    mathjax: 'https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js'
-    mermaid: 'https://cdn.bootcss.com/mermaid/9.2.2/mermaid.min.js'
+    lunrjs: https://cdn.bootcdn.net/ajax/libs/lunr.js/2.3.9/lunr.js

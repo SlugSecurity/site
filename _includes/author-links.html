@@ -53,11 +53,11 @@
     {%- endif -%}
 
     {%- if _author.instagram -%}
-    <li title="{{ _locale_string_follow | replace: '[NAME]', 'Instagram' }}">
-      <a class="button button--circle instagram-button" itemprop="sameAs" rel="me noopener noreferrer" href="https://www.instagram.com/{{ _author.instagram }}" target="_blank">
-      <div class="icon">{%- include svg/icon/social/instagram.svg -%}</div>
-      </a>
-    </li>
+      <li title="{{ _locale_string_follow | replace: '[NAME]', 'Instagram' }}">
+        <a class="button button--circle instagram-button" itemprop="sameAs" rel="me noopener noreferrer" href="https://www.instagram.com/{{ _author.instagram }}" target="_blank">
+          <div class="icon">{%- include svg/icon/social/instagram.svg -%}</div>
+        </a>
+      </li>
     {%- endif -%}
 
     {%- if _author.weibo -%}
@@ -133,11 +133,11 @@
     {%- endif -%}
 
     {%- if _author.mastodon -%}
-    <li title="{{ _locale_string_follow | replace: '[NAME]', 'Mastodon' }}">
-      <a class="button button--circle mastodon-button" itemprop="sameAs" rel="me noopener noreferrer" href="https://{{ _author.mastodon }}" target="_blank">
-      <div class="icon">{%- include svg/icon/social/mastodon.svg -%}</div>
-      </a>
-    </li>
+      <li title="{{ _locale_string_follow | replace: '[NAME]', 'Mastodon' }}">
+        <a class="button button--circle mastodon-button" itemprop="sameAs" rel="me noopener noreferrer" href="https://{{ _author.mastodon }}" target="_blank">
+          <div class="icon">{%- include svg/icon/social/mastodon.svg -%}</div>
+        </a>
+      </li>
     {%- endif -%}
 
   </ul>

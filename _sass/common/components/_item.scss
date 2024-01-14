@@ -7,6 +7,8 @@
 
 .item__image {
   margin-right: map-get($spacers, 3);
+  width: map-get($image, width);
+  height: map-get($image, width);
   & + .item__content {
     & > :first-child {
       margin-top: 0;
@@ -17,6 +19,12 @@
   }
   @include media-breakpoint-down(md) {
     margin-right: 0;
+  }
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 }
 

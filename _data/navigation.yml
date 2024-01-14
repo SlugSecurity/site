@@ -1,17 +1,18 @@
 header:
-  - title:  FAQs
-    url:    /faqs
-
   - title:  Posts
     url:    /posts
+
+  - title:  Writeups
+    url:    /writeups
 
   - title:  Highlights
     url:    /highlights
 
+  - title:  FAQs
+    url:    /faqs
+ 
   - title:  Officers
     url:    /officers
 
   - title:  Sponsors
     url:    /sponsors
-
-  
