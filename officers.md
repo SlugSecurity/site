@@ -6,16 +6,17 @@ title: Officers
 show_title: false
 ---
 
-## Slug Security Officers:
+## Current Officers
+- **President**: Nancy Lau
+- **Vice President**: Ex Taranenko
+- **Operations**:
+	* Brian Mak
+	* Jaden Provost Maxwell-Comfort
+- **Outreach & Finance**:
+	* Ian Phan
+	* Kevin Sun
+	* Rudy Chavez
 
-**President** : Nancy Lau   
-
-
-**Vice President**: Ex Taranenko
-
-
-**Operations Officer**: Brian Mak, Jaden Provost Maxwell-Comfort
-
-
-**Outreach Officers**: Kevin Sun, Ian Phan, Rudy Chavez
-
+## Former Officers
+- **Operations**:
+	* Jeffrey Zhang
