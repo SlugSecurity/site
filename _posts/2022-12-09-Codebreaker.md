@@ -24,4 +24,4 @@ In order to continue the investigation, participants were required to use SQL in
 
 ### More Information
 - [Baskin Engineering News on CBC 2022](https://news.ucsc.edu/2022/12/nsa-codebreaker-challenge.html)
-- [NSA Codebreaker Challenge Leaderboard 2022](https://nsa-codebreaker.org/leaderboard)
+- [NSA Codebreaker Challenge Leaderboard 2022](https://nsa-codebreaker.org/leaderboard_2022)
