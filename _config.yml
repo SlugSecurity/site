@@ -109,6 +109,9 @@ exclude:
   - /node_modules
   - /vendor
   - CONTRIBUTING.md
+  - README.md
+  - CNAME
+  - LICENSE
 
 collections:
   writeups:
