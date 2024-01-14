@@ -4,7 +4,6 @@ require 'front_matter_parser'
 
 ROOT_DIR = './writeups'
 TARGET_DIR = './_writeups'
-NAV_FILE = './_data/writeupNav.yml'
 
 WRITEUP_ROOT = '_index.md'
 REMOVE_FILES = ['README.md', 'CONTRIBUTING.md']
@@ -27,13 +26,6 @@ def updateFrontMatter(file_path, event_key)
 	# Parse the existing front matter as YAML
 	front_matter = YAML.load(existing_front_matter)
 
-	if front_matter['sidebar'] && front_matter['sidebar'].key?('nav')
-		front_matter['sidebar'].delete('nav')
-	else
-		front_matter['sidebar'] ||= {}
-		front_matter['sidebar']['nav'] = event_key
-	end
-
 	# Root only front matter changes
 	if file_path.include?(WRITEUP_ROOT)
 		cover_image = "./writeups/#{file_path.split('/')[2..-2].join('/')}/assets_/cover.jpg"
@@ -51,46 +43,13 @@ end
 
 def createIndex(index_file, new_file_path, event_key)
 	return unless updateFrontMatter(index_file, event_key)
-	
+
 	FileUtils.mkdir_p(File.dirname(new_file_path))
 	FileUtils.mv(index_file, new_file_path)
 	puts "Moved and updated index file, now at #{new_file_path}"
 end
 
-def processSubdirectory(subdir, event_key, nav_content, year, event_title)
-	category = File.basename(subdir)
-	puts "Sub-Category found \"#{category}\""
-
-	# Add category to nav_content with its children (challenges)
-	category_entry = { 'title' => category, 'children' => [] }
-	nav_content[event_key].push(category_entry)
-
-	Dir.glob(File.join(subdir, '*.md')) do |challenge_file|
-		challenge_title = File.basename(challenge_file, '.md')
-		puts "Child found \"#{challenge_title}\""
-
-		# Add challenge to category's children in nav_content
-		challenge_entry = {
-			'title' => challenge_title,
-			'url' => "/writeups/#{year}/#{event_title}/#{category}/#{challenge_title}"
-		}
-		category_entry['children'].push(challenge_entry)
-		updateFrontMatter(challenge_file, event_key)
-	end
-end
-
-def processFile(file, event_key, nav_content, year, event_title)
-	category = File.basename(file, '.md')
-
-	# Add category to nav_content without children (challenges)
-	category_entry = { 'title' => category, 'url' => "/writeups/#{year}/#{event_title}/#{category}" }
-	nav_content[event_key].push(category_entry)
-	updateFrontMatter(file, event_key)
-	
-	puts "Lone item found \"#{category}\" in event \"#{File.basename(file)}\" (#{year})"
-end
-
-def processEvent(event_dir, year, nav_content)
+def processEvent(event_dir, year)
 	event_title = File.basename(event_dir).gsub(' ', '-')
 	event_key = "#{year}-#{event_title}"
 
@@ -101,7 +60,7 @@ def processEvent(event_dir, year, nav_content)
 		puts "Index file not found, skipping..."
 		return
 	end
-	
+
 	# Rename reserved folders from _name to name_
 	Dir.glob(File.join(event_dir, '*')) do |subdir_or_file|
 		if File.directory?(subdir_or_file)
@@ -110,17 +69,6 @@ def processEvent(event_dir, year, nav_content)
 				FileUtils.mv(subdir_or_file, new_name)
 				puts "Renamed subdir \"#{subdir_or_file}\" to \"#{new_name}\""
 			end
-		end
-	end
-
-	# Add event to nav_content with "Home" entry
-	nav_content[event_key] = [{ 'title' => 'Home', 'url' => '/' }]
-
-	Dir.glob(File.join(event_dir, '*')) do |subdir_or_file|
-		if File.directory?(subdir_or_file) && !File.basename(subdir_or_file).end_with?('_')
-			processSubdirectory(subdir_or_file, event_key, nav_content, year, event_title)
-		elsif File.file?(subdir_or_file) && File.basename(subdir_or_file) != WRITEUP_ROOT
-			processFile(subdir_or_file, event_key, nav_content, year, event_title)
 		end
 	end
 
@@ -141,15 +89,10 @@ end
 
 
 def main()
-	# clean up TARGET_DIR and NAV_FILE
 	FileUtils.rm_rf(TARGET_DIR) if Dir.exist?(TARGET_DIR)
-	FileUtils.rm(NAV_FILE) if File.exist?(NAV_FILE)
-
 	Dir.mkdir(TARGET_DIR) unless Dir.exist?(TARGET_DIR)
 
 	REMOVE_FILES.each { |file| FileUtils.rm(File.join(ROOT_DIR, file)) if File.exist?(File.join(ROOT_DIR, file)) }
-
-	nav_content = {}
 
 	Dir.glob(File.join(ROOT_DIR, '*')) do |year_dir|
 		next unless File.directory?(year_dir)
@@ -159,15 +102,9 @@ def main()
 		Dir.glob(File.join(year_dir, '*')) do |event_dir|
 			next unless File.directory?(event_dir)
 
-			processEvent(event_dir, year, nav_content)
+			processEvent(event_dir, year)
 		end
 	end
-
-	# Write nav_content to NAV_FILE
-	File.open(NAV_FILE, 'w') do |file|
-		file.write(nav_content.to_yaml)
-	end
-	puts "\nNav file written to #{NAV_FILE}"
 end
 	
 main()
