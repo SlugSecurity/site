@@ -21,4 +21,4 @@ show_title: false
 - **Operations**:
 	* Jeffrey Zhang
 - **Outreach & Finance**:
-	* Jackson Khols
+	* Jackson Kohls
