@@ -74,8 +74,9 @@
     }
   }
   & > a {
+    font-family: map-get($base, font-family-hacked);
     display: inline-block;
-    font-size: map-get($base, font-size-h4);
+    font-size: map-get($base, font-size-h2);
     @include media-breakpoint-down(md) {
       font-size: map-get($base, font-size-h4-small);
     }
