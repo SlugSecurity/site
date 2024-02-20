@@ -1,8 +1,8 @@
 @font-face {
-	font-family: 'HACKED';
-	src: url('/assets/fonts/HACKED.woff2') format('woff2'),
-		url('/assets/fonts/HACKED.woff') format('woff'),
-		url('/assets/fonts/HACKED.ttf') format('truetype');
+	font-family: 'Hacked';
+	src: url('/assets/fonts/Hacked.woff2') format('woff2'),
+		url('/assets/fonts/Hacked.woff') format('woff'),
+		url('/assets/fonts/Hacked.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -10,7 +10,7 @@
 $base: (
   font-family:            (-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif),
   font-family-code:       (Menlo, Monaco, Consolas, Andale Mono, lucida console, Courier New, monospace),
-  font-family-hacked:     ('HACKED', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif),
+  font-family-hacked:     ('Hacked', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif),
 
   font-size-root:         16px,
   font-size-root-sm:      14px,
