@@ -75,6 +75,7 @@
   }
   & > a {
     font-family: map-get($base, font-family-hacked);
+    text-transform: uppercase;
     display: inline-block;
     font-size: map-get($base, font-size-h2);
     @include media-breakpoint-down(md) {
