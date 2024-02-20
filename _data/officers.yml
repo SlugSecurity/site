@@ -1,0 +1,112 @@
+Administration:
+  - Name: Nancy Lau
+    Title: President & Founder
+    Handle: nachoyawn
+    Description: Undergrad engineering student, interests in cybersecurity, hardware, and AI
+    Image: /assets/images/officers/nachoyawn.png
+    Website:
+    LinkedIn: nancyjlau
+    GitHub: nancyjlau
+    Twitter:
+
+  - Name: Ex Taranenko
+    Title: Vice President & Founder
+    Handle: fbad
+    Description: Dual undergraduate computer engineering and cybersecurity student. Interested in vulnerability analysis, reverse engineering, and cybersecurity education.
+    Image: /assets/images/officers/fbad.png
+
+    Website: https://fbad.me
+    LinkedIn:
+    GitHub: 0xfbad
+    Twitter:
+
+  - Name: Alvaro A. Cardenas
+    Title: Founding Faculty Advisor
+    Handle: chibchachum
+    Description: Alvaro A. Cardenas is an Associate Professor of Computer Science and Engineering at the University of California, Santa Cruz.
+    Image: /assets/images/officers/chibchachum.png
+
+    Website: https://users.soe.ucsc.edu/~alacarde/index.php
+    LinkedIn:
+    GitHub:
+    Twitter:
+
+Operations:
+  - Name: Brian Mak
+    Title: Operations & Infrastructure
+    Handle: asian.eggroll
+    Description: Undergraduate computer science student, interested in cybersecurity and systems programming, with a proven track record in numerous cybersecurity competitions. Led the '23 & '24 UCSC eCTF team.
+    Image: /assets/images/officers/asian.eggroll.png
+
+    Website: https://bmak.me/
+    LinkedIn: brian-mak
+    GitHub: eggroll-bot
+    Twitter:
+
+  - Name: Jaden P. Maxwell-Comfort
+    Title: Operations
+    Handle: maxwell
+    Description: Undergraduate Computer Science student, Cybersecurity Researcher, and Programmer. Main focuses include malware analysis, incident response, and Emacs.
+    Image: /assets/images/officers/maxwell.png
+
+    Website: https://randomctf.com
+    LinkedIn: jaden-provost-maxwell-comfort-09a54718a
+    GitHub: Random936
+    Twitter:
+
+Outreach & Finance:
+  - Name: Ian Phan
+    Title: Outreach
+    Handle: heythatsillegal
+    Description: Current Psychology/Cognitive science student, interested in applied cognitive psychology, HCI, human factors engineering, and social engineering. Busy teaching new hackers at the moment!!
+    Image: /assets/images/officers/heythatsillegal.png
+
+    Website: https://sites.google.com/view/ianphan/home
+    LinkedIn: ian-phan
+    GitHub:
+    Twitter:
+
+  - Name: Rudy Chavez
+    Title: Outreach
+    Handle: rudy.chavez
+    Description: Interested in social engineering and cryptography, feel free to talk to me about project ideas and software.
+    Image: /assets/images/officers/rudy.chavez.png
+
+    Website:
+    LinkedIn:
+    GitHub: rudedude2015501
+    Twitter:
+
+  - Name: Kevin Sun
+    Title: Finance
+    Handle: kevin.sun
+    Description: Double major in Computer Science and Biomolecular Engineering and Bioinformatics. Curiosity killed the cat, and saved humanity. Loves discussing ethics.
+    Image: /assets/images/officers/kevin.sun.png
+
+    Website:
+    LinkedIn: kevin-i-sun
+    GitHub: KevinISun
+    Twitter:
+
+Alumni:
+  - Name: Jeffrey Zhang
+    Title: Operations
+    Handle: ferns
+    Description: not fish. UCSC '23.
+    Image: /assets/images/officers/ferns.png
+
+    Website:
+    LinkedIn:
+    GitHub: jzhan357
+    Twitter:
+
+  - Name: Jackson Kohls
+    Title: Finance
+    Handle: jdkohls
+    Description: Math/Econ double major who fell into the joys of cybersecurity and CTFs. UCSC '23.
+    Image: /assets/images/officers/jdkohls.png
+
+    Website:
+    LinkedIn: jackson-d-kohls
+    GitHub: Jdkohls
+    Twitter:
