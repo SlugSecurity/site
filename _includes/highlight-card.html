@@ -1,0 +1,29 @@
+<div class="highlight-card">
+	<div class="card-top">
+		<div class="placement-icon">
+			{% assign placement = include.data['Placement'] %}
+			{% case placement %}
+			{% when 1 %}
+				<i class="fas fa-trophy first-place"></i>
+			{% when 2 %}
+				<i class="fas fa-trophy second-place"></i>
+			{% when 3 %}
+				<i class="fas fa-trophy third-place"></i>
+			{% else %}
+				<i class="fas fa-certificate other-place"></i>
+			{% endcase %}
+			
+		</div>
+
+		<div class="highlight-info">
+			<p class="highlight-type">{{ include.data['Type'] }}</p>
+			<p class="highlight-name">{{ include.data['Name'] }}</p>
+			<p class="highlight-date"><i class="fas fa-calendar-alt"></i> {{ include.data['Date'] | date: "%b %d, %Y" }}</p>
+			<p class="highlight-location"><i class="fas fa-map-marker-alt"></i> {{ include.data['Location'] }}</p>
+			
+		</div>
+	</div>
+	<div class="highlight-details">
+		<a href="{{ include.data['Article'] | default: '#' }}" class="highlight-article-link{% unless include.data['Article'] %} no-link{% endunless %}">Related Article</a>
+	</div>
+</div>
