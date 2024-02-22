@@ -1,144 +1,95 @@
 {%- assign _author = include.author -%}
 
 <div class="author-links">
-  <ul class="menu menu--nowrap menu--inline">
+	<ul class="menu menu--nowrap menu--inline">
 
-    {%- if _author.url -%}
-      <link itemprop="url" rel="noopener noreferrer" href="{{ _author.url }}">
-    {%- endif -%}
+		{%- if _author.url -%}
+			<link itemprop="url" rel="noopener noreferrer" href="{{ _author.url }}">
+		{%- endif -%}
 
-    {%- if _author.type == 'organization' -%}
-      {%- include snippets/get-locale-string.html key='EMAIL_US' -%}
-      {%- assign _locale_string_email = __return -%}
-      {%- include snippets/get-locale-string.html key='FOLLOW_US' -%}
-      {%- assign _locale_string_follow = __return -%}
-    {%- else -%}
-      {%- include snippets/get-locale-string.html key='EMAIL_ME' -%}
-      {%- assign _locale_string_email = __return -%}
-      {%- include snippets/get-locale-string.html key='FOLLOW_ME' -%}
-      {%- assign _locale_string_follow = __return -%}
-    {%- endif -%}
+		{%- if _author.type == 'organization' -%}
+			{%- include snippets/get-locale-string.html key='EMAIL_US' -%}
+			{%- assign _locale_string_email = __return -%}
+			{%- include snippets/get-locale-string.html key='FOLLOW_US' -%}
+			{%- assign _locale_string_follow = __return -%}
+		{%- else -%}
+			{%- include snippets/get-locale-string.html key='EMAIL_ME' -%}
+			{%- assign _locale_string_email = __return -%}
+			{%- include snippets/get-locale-string.html key='FOLLOW_ME' -%}
+			{%- assign _locale_string_follow = __return -%}
+		{%- endif -%}
 
-    {%- if _author.discord -%}
-      <li title="Join our Discord.">
-        <a class="button button--circle discord-button" itemprop="sameAs" rel="noopener noreferrer" href="https://discord.gg/{{ _author.discord }}" target="_blank">
-          <div class="icon">{%- include svg/icon/social/discord.svg -%}</div>
-        </a>
-      </li>
-    {%- endif -%}
+	{%- if _author.discord -%}
+	<li title="Join our Discord.">
+		<a href="https://discord.gg/{{ _author.discord }}" class="icon discord-button" itemprop="sameAs" rel="noopener noreferrer" target="_blank">
+		<i class="fa-brands fa-discord"></i>
+		</a>
+	</li>
+	{%- endif -%}
+	
+	{%- include snippets/get-locale-string.html key='EMAIL_ME' -%}
+	{%- if _author.email -%}
+	<li title="{{ _locale_string_email }}">
+		<a href="mailto:{{ _author.email }}" class="icon mail-button" itemprop="email" rel="noopener noreferrer" target="_blank">
+		<i class="fa-solid fa-envelope"></i>
+		</a>
+	</li>
+	{%- endif -%}
+	
+	{%- if _author.facebook -%}
+	<li title="{{ _locale_string_follow | replace: '[NAME]', 'Facebook' }}">
+		<a href="https://www.facebook.com/{{ _author.facebook }}" class="icon facebook-button" itemprop="sameAs" rel="noopener noreferrer" target="_blank">
+		<i class="fa-brands fa-facebook-f"></i>
+		</a>
+	</li>
+	{%- endif -%}
+	
+	{%- if _author.twitter -%}
+	<li title="{{ _locale_string_follow | replace: '[NAME]', 'Twitter' }}">
+		<a href="https://twitter.com/{{ _author.twitter }}" class="icon twitter-button" itemprop="sameAs" rel="noopener noreferrer" target="_blank">
+		<i class="fa-brands fa-twitter"></i>
+		</a>
+	</li>
+	{%- endif -%}
+	
+	{%- if _author.instagram -%}
+	<li title="{{ _locale_string_follow | replace: '[NAME]', 'Instagram' }}">
+		<a href="https://www.instagram.com/{{ _author.instagram }}" class="icon instagram-button" itemprop="sameAs" rel="me noopener noreferrer" target="_blank">
+		<i class="fa-brands fa-instagram"></i>
+		</a>
+	</li>
+	{%- endif -%}
+	
+	{%- if _author.medium -%}
+	<li title="{{ _locale_string_follow | replace: '[NAME]', 'Medium' }}">
+		<a href="https://medium.com/{{ _author.medium }}" class="icon medium-button" itemprop="sameAs" rel="noopener noreferrer" target="_blank">
+		<i class="fa-brands fa-medium-m"></i>
+		</a>
+	</li>
+	{%- endif -%}
 
-    {%- include snippets/get-locale-string.html key='EMAIL_ME' -%}
-    {%- if _author.email -%}
-      <li title="{{ _locale_string_email }}">
-        <a class="button button--circle mail-button" itemprop="email" rel="noopener noreferrer" href="mailto:{{ _author.email }}" target="_blank">
-          <div class="icon">{%- include svg/icon/social/mail.svg -%}</div>
-        </a>
-      </li>
-    {%- endif -%}
+		{%- if _author.linkedin -%}
+		<li title="{{ _locale_string_follow | replace: '[NAME]', 'Linkedin' }}">
+		<a href="https://www.linkedin.com/company/{{ _author.linkedin }}" class="icon linkedin-button" itemprop="sameAs" rel="noopener noreferrer" target="_blank">
+			<i class="fa-brands fa-linkedin-in"></i>
+		</a>
+		</li>
+	{%- endif -%}
 
-    {%- if _author.facebook -%}
-      <li title="{{ _locale_string_follow | replace: '[NAME]', 'Facebook' }}">
-        <a class="button button--circle facebook-button" itemprop="sameAs" rel="noopener noreferrer" href="https://www.facebook.com/{{ _author.facebook }}" target="_blank">
-          <div class="icon">{%- include svg/icon/social/facebook.svg -%}</div>
-        </a>
-      </li>
-    {%- endif -%}
+	{%- if _author.github -%}
+		<li title="{{ _locale_string_follow | replace: '[NAME]', 'Github' }}">
+		<a href="https://github.com/{{ _author.github }}" class="icon github-button" itemprop="sameAs" rel="noopener noreferrer" target="_blank">
+			<i class="fa-brands fa-github"></i>
+		</a>
+		</li>
+	{%- endif -%}
 
-    {%- if _author.twitter -%}
-      <li title="{{ _locale_string_follow | replace: '[NAME]', 'Twitter' }}">
-        <a class="button button--circle twitter-button" itemprop="sameAs" rel="noopener noreferrer" href="https://twitter.com/{{ _author.twitter }}" target="_blank">
-          <div class="icon">{%- include svg/icon/social/twitter.svg -%}</div>
-        </a>
-      </li>
-    {%- endif -%}
-
-    {%- if _author.instagram -%}
-      <li title="{{ _locale_string_follow | replace: '[NAME]', 'Instagram' }}">
-        <a class="button button--circle instagram-button" itemprop="sameAs" rel="me noopener noreferrer" href="https://www.instagram.com/{{ _author.instagram }}" target="_blank">
-          <div class="icon">{%- include svg/icon/social/instagram.svg -%}</div>
-        </a>
-      </li>
-    {%- endif -%}
-
-    {%- if _author.weibo -%}
-      <li title="{{ _locale_string_follow | replace: '[NAME]', 'Weibo' }}">
-        <a class="button button--circle weibo-button" itemprop="sameAs" rel="noopener noreferrer" href="https://weibo.com/{{ _author.weibo }}" target="_blank">
-          <div class="icon">{%- include svg/icon/social/weibo.svg -%}</div>
-        </a>
-      </li>
-    {%- endif -%}
-
-    {%- if _author.googleplus -%}
-      <li title="{{ _locale_string_follow | replace: '[NAME]', 'Google+' }}">
-        <a class="button button--circle googlepluse-button" itemprop="sameAs" rel="noopener noreferrer" href="https://plus.google.com/u/0/{{ _author.googleplus }}" target="_blank">
-          <div class="icon">{%- include svg/icon/social/googleplus.svg -%}</div>
-        </a>
-      </li>
-    {%- endif -%}
-
-    {%- if _author.telegram -%}
-      <li title="{{ _locale_string_follow | replace: '[NAME]', 'Telegram' }}">
-        <a class="button button--circle telegram-button" itemprop="sameAs" rel="noopener noreferrer" href="https://t.me/{{ _author.telegram }}" target="_blank">
-          <div class="icon">{%- include svg/icon/social/telegram.svg -%}</div>
-        </a>
-      </li>
-    {%- endif -%}
-
-    {%- if _author.medium -%}
-      <li title="{{ _locale_string_follow | replace: '[NAME]', 'Medium' }}">
-        <a class="button button--circle medium-button" itemprop="sameAs" rel="noopener noreferrer" href="https://medium.com/{{ _author.medium }}" target="_blank">
-          <div class="icon">{%- include svg/icon/social/medium.svg -%}</div>
-        </a>
-      </li>
-    {%- endif -%}
-
-    {%- if _author.zhihu -%}
-      <li title="{{ _locale_string_follow | replace: '[NAME]', 'Zhihu' }}">
-        <a class="button button--circle zhihu-button" itemprop="sameAs" rel="noopener noreferrer" href="https://www.zhihu.com/people/{{ _author.zhihu }}" target="_blank">
-          <div class="icon">{%- include svg/icon/social/zhihu.svg -%}</div>
-        </a>
-      </li>
-    {%- endif -%}
-
-    {%- if _author.douban -%}
-      <li title="{{ _locale_string_follow | replace: '[NAME]', 'Douban' }}">
-        <a class="button button--circle douban-button" itemprop="sameAs" rel="noopener noreferrer" href="https://www.douban.com/people/{{ _author.douban }}" target="_blank">
-          <div class="icon">{%- include svg/icon/social/douban.svg -%}</div>
-        </a>
-      </li>
-    {%- endif -%}
-
-    {%- if _author.linkedin -%}
-      <li title="{{ _locale_string_follow | replace: '[NAME]', 'Linkedin' }}">
-        <a class="button button--circle linkedin-button" itemprop="sameAs" rel="noopener noreferrer" href="https://www.linkedin.com/company/{{ _author.linkedin }}" target="_blank">
-          <div class="icon">{%- include svg/icon/social/linkedin.svg -%}</div>
-        </a>
-      </li>
-    {%- endif -%}
-
-    {%- if _author.github -%}
-      <li title="{{ _locale_string_follow | replace: '[NAME]', 'Github' }}">
-        <a class="button button--circle github-button" itemprop="sameAs" rel="noopener noreferrer" href="https://github.com/{{ _author.github }}" target="_blank">
-          <div class="icon">{%- include svg/icon/social/github.svg -%}</div>
-        </a>
-      </li>
-    {%- endif -%}
-
-    {%- if _author.npm -%}
-      <li title="{{ _locale_string_follow | replace: '[NAME]', 'npm' }}">
-        <a class="button button--circle npm-button" itemprop="sameAs" rel="noopener noreferrer" href="https://www.npmjs.com/~{{ _author.npm }}" target="_blank">
-          <div class="icon">{%- include svg/icon/social/npm.svg -%}</div>
-        </a>
-      </li>
-    {%- endif -%}
-
-    {%- if _author.mastodon -%}
-      <li title="{{ _locale_string_follow | replace: '[NAME]', 'Mastodon' }}">
-        <a class="button button--circle mastodon-button" itemprop="sameAs" rel="me noopener noreferrer" href="https://{{ _author.mastodon }}" target="_blank">
-          <div class="icon">{%- include svg/icon/social/mastodon.svg -%}</div>
-        </a>
-      </li>
-    {%- endif -%}
-
-  </ul>
+	{%- if _author.mastodon -%}
+		<li title="{{ _locale_string_follow | replace: '[NAME]', 'Mastodon' }}">
+		<a href="https://{{ _author.mastodon }}" class="icon mastodon-button" itemprop="sameAs" rel="me noopener noreferrer" target="_blank">
+			<i class="fa-brands fa-mastodon"></i>
+		</a>
+		</li>
+	{%- endif -%}
+	</ul>
 </div>
