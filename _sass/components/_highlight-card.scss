@@ -1,5 +1,3 @@
-
-
 .highlight-container {
 	display: flex;
 	flex-wrap: wrap;
@@ -64,7 +62,8 @@
 			.highlight-type,
 			.highlight-name,
 			.highlight-location,
-			.highlight-date {
+			.highlight-date,
+			.highlight-ranking {
 				white-space: nowrap;
 				overflow: hidden;
 				text-overflow: ellipsis;
@@ -83,22 +82,25 @@
 			}
 
 			.highlight-location,
-			.highlight-date {
+			.highlight-date,
+			.highlight-ranking {
 				color: $text-color-l;
 			}
 		}
 	}
 
-	.highlight-article-link {
+	.highlight-details {
+		text-align: center;
 		font-size: small;
 
-		&.no-link {
-			color: rgba(#888, .4);
-			pointer-events: none;
-			cursor: default;
+		.highlight-link {
+			&.no-link {
+				color: rgba(#888, .4);
+				pointer-events: none;
+				cursor: default;
+			}
 		}
 	}
-
 }
 
 @media (max-width: 750px) {
