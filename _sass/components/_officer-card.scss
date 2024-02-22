@@ -91,3 +91,10 @@
 		font-size: small;
 	}
 }
+
+@media (max-width: 650px) {
+	.officer-card {
+		flex: 1 1 calc(100% - 1rem);
+		max-width: calc(100% - 1rem);
+	}
+}
