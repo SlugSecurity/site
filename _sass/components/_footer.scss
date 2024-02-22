@@ -7,6 +7,7 @@
 	@include align-items(center);
 	color: $footer-text-color;
 	background: $footer-background;
+	height: map-get($layout, footer-height);
 
 	a {
 		@include link-colors ($footer-text-color, $main-color-1);
