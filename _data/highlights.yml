@@ -1,0 +1,102 @@
+'2024':
+  - Name: WRCCDC Quals
+    Date: 2024-02-18
+    Type: Cyber Defensive
+    
+    Location: Virtual
+    Placement: 8
+    Participants: 22
+    Article:
+
+'2023':
+  - Name: NSA Codebreaker
+    Date: 2024-01-11
+    Type: Capture the Flag
+    
+    Location: Virtual
+    Placement: 4
+    Participants: 348
+    Article:
+
+  - Name: CPTC WEST
+    Date: 2023-12-11
+    Type: Cyber Offensive
+    
+    Location: Stanford University
+    Placement: 8
+    Participants: 22
+    Article: 
+
+  - Name: ImaginaryCTF
+    Date: 2023-07-23
+    Type: Capture the Flag
+    
+    Location: Virtual
+    Placement: 61
+    Participants: 800
+    Article:
+
+  - Name: Google CTF
+    Date: 2023-06-25
+    Type: Capture the Flag
+    
+    Location: Virtual
+    Placement: 111
+    Participants: 676
+    Article:
+
+  - Name: Grey CTF Quals
+    Date: 2023-05-21
+    Type: Capture the Flag
+    
+    Location: Virtual
+    Placement: 43
+    Participants: 454
+    Article:
+
+  - Name: MITRE eCTF
+    Date: 2023-04-19
+    Type: Attack & Defend
+    
+    Location: Virtual
+    Placement: 2
+    Participants: 80
+    Article: https://slugsec.ucsc.edu/2023/04/eCTF
+
+'2022':
+  - Name: NSA Codebreaker
+    Date: 2022-12-09
+    Type: Capture the Flag
+    
+    Location: Virtual
+    Placement: 3
+    Participants: 348
+    Article: https://slugsec.ucsc.edu/2022/12/Codebreaker
+
+  - Name: DoE CyberForce
+    Date: 2022-11-07
+    Type: Attack & Defend
+    
+    Location: Santa Cruz, CA
+    Placement: 9
+    Participants: 170
+    Article: https://slugsec.ucsc.edu/2022/11/CyberForce
+
+'2021':
+  - Name: NSA Codebreaker
+    Date: 2021-12-09
+    Type: Capture the Flag
+    
+    Location: Virtual
+    Placement: 9
+    Participants: 630
+    Article: https://slugsec.ucsc.edu/2021/12/Codebreaker
+
+  - Name: DoE CyberForce
+    Date: 2021-11-07
+    Type: Attack & Defend
+    
+    Location: Santa Cruz, CA
+    Placement: 2
+    Participants: 120
+    Article: https://slugsec.ucsc.edu/2021/11/CyberForce

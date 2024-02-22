@@ -1,32 +1,32 @@
 <div class="officer-card">
 	<div class="card-top">
-		<img src="{{ include['Image'] }}" alt="Profile Picture" class="officer-image">
+		<img src="{{ include.data['Image'] }}" alt="Profile Picture" class="officer-image">
 		<div class="officer-content">
 			<div class="officer-info">
-				<p class="officer-title">{{ include['Title'] }}</p>
-				<p class="officer-name">{{ include['Name'] }}</p>
-				<p class="officer-handle">@{{ include['Handle'] }}</p>
+				<p class="officer-title">{{ include.data['Title'] }}</p>
+				<p class="officer-name">{{ include.data['Name'] }}</p>
+				<p class="officer-handle">@{{ include.data['Handle'] }}</p>
 			</div>
 
 			<div class="social-links">
 				<div class="social-links">
-					{% if include['Website'] %}
-						<a href="{{ include['Website'] }}" class="icon website-button" itemprop="sameAs" rel="noopener noreferrer" target="_blank">
+					{% if include.data['Website'] %}
+						<a href="{{ include.data['Website'] }}" class="icon website-button" itemprop="sameAs" rel="noopener noreferrer" target="_blank">
 							<i class="fa-solid fa-globe"></i>
 						</a>
 					{% endif %}
-					{% if include['LinkedIn'] %}
-						<a href="https://www.linkedin.com/in/{{ include['LinkedIn'] }}" class="icon linkedin-button" itemprop="sameAs" rel="noopener noreferrer" target="_blank">
+					{% if include.data['LinkedIn'] %}
+						<a href="https://www.linkedin.com/in/{{ include.data['LinkedIn'] }}" class="icon linkedin-button" itemprop="sameAs" rel="noopener noreferrer" target="_blank">
 							<i class="fa-brands fa-linkedin-in"></i>
 						</a>
 					{% endif %}
-					{% if include['GitHub'] %}
-						<a href="https://github.com/{{ include['GitHub'] }}" class="icon github-button" itemprop="sameAs" rel="noopener noreferrer" target="_blank">
+					{% if include.data['GitHub'] %}
+						<a href="https://github.com/{{ include.data['GitHub'] }}" class="icon github-button" itemprop="sameAs" rel="noopener noreferrer" target="_blank">
 							<i class="fa-brands fa-github"></i>
 						</a>
 					{% endif %}
-					{% if include['Twitter'] %}
-						<a href="https://twitter.com/{{ include['Twitter'] }}" class="icon twitter-button" itemprop="sameAs" rel="noopener noreferrer" target="_blank">
+					{% if include.data['Twitter'] %}
+						<a href="https://twitter.com/{{ include.data['Twitter'] }}" class="icon twitter-button" itemprop="sameAs" rel="noopener noreferrer" target="_blank">
 							<i class="fa-brands fa-twitter"></i>
 						</a>
 					{% endif %}
@@ -36,5 +36,5 @@
 		</div>
 	</div>
 
-	<p class="officer-description">{{ include['Description'] }}</p>
+	<p class="officer-description">{{ include.data['Description'] }}</p>
 </div>

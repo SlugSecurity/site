@@ -108,6 +108,7 @@
 }
 
 .navigation__item {
+  font-family: map-get($base, font-family-pexico);
   &::after {
     display: block;
     margin-bottom: -4px;

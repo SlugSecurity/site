@@ -12,27 +12,27 @@ Are you interested in helping make Slug Security better? Join our administrative
 ### Executive
 <div class="officer-container">
 	{% for officer in site.data.officers.Administration %}
-		{% include officer-card.html Name=officer.Name Title=officer.Title Handle=officer.Handle Description=officer.Description Image=officer.Image Website=officer.Website LinkedIn=officer.LinkedIn GitHub=officer.GitHub Twitter=officer.Twitter %}
+		{% include officer-card.html data=officer %}
 	{% endfor %}
 </div>
 
 ### Operations
 <div class="officer-container">
 	{% for officer in site.data.officers.Operations %}
-		{% include officer-card.html Name=officer.Name Title=officer.Title Handle=officer.Handle Description=officer.Description Image=officer.Image Website=officer.Website LinkedIn=officer.LinkedIn GitHub=officer.GitHub Twitter=officer.Twitter %}
+		{% include officer-card.html data=officer %}
 	{% endfor %}
 </div>
 
 ### Outreach & Finance
 <div class="officer-container">
 	{% for officer in site.data.officers['Outreach & Finance'] %}
-		{% include officer-card.html Name=officer.Name Title=officer.Title Handle=officer.Handle Description=officer.Description Image=officer.Image Website=officer.Website LinkedIn=officer.LinkedIn GitHub=officer.GitHub Twitter=officer.Twitter %}
+		{% include officer-card.html data=officer %}
 	{% endfor %}
 </div>
 
 ### Alumni
 <div class="officer-container">
 	{% for officer in site.data.officers.Alumni %}
-		{% include officer-card.html Name=officer.Name Title=officer.Title Handle=officer.Handle Description=officer.Description Image=officer.Image Website=officer.Website LinkedIn=officer.LinkedIn GitHub=officer.GitHub Twitter=officer.Twitter %}
+		{% include officer-card.html data=officer %}
 	{% endfor %}
 </div>
