@@ -29,3 +29,10 @@ Curious about what we've been up to? Here are some of our highlights that showca
 		{% include highlight-card.html data=highlight %}
 	{% endfor %}
 </div>
+
+### 2021
+<div class="highlight-container">
+	{% for highlight in site.data.highlights['2021'] %}
+		{% include highlight-card.html data=highlight %}
+	{% endfor %}
+</div>
