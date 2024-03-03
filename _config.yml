@@ -3,9 +3,8 @@
 text_skin: dark
 highlight_theme: tomorrow-night
 url     : https://slugsec.ucsc.edu
-baseurl : # does not include hostname
 title   : Slug Security
-description: The student-run cybersecurity club at UC Santa Cruz. Empowering the next generation of cybersecurity experts.
+description: The student-run cybersecurity club at UC Santa Cruz.
 
 ## => Language and Timezone
 ##############################
@@ -92,12 +91,11 @@ search:
 ## => Analytics
 ##############################
 analytics:
-  provider: google # false (default), "google", "custom"
+  provider: google
 
-  ## Google Analytics
   google:
-    tracking_id : G-YFR850WSX3 # Google Analytics id for the site
-    anonymize_ip: false # Anonymize IP tracking for Analytics
+    tracking_id : G-YFR850WSX3
+    anonymize_ip: false
 
 ## => Build
 ##############################
@@ -105,15 +103,8 @@ markdown    : kramdown
 highlighter : rouge
 permalink   : /:year/:month/:title
 
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - /node_modules
-  - /vendor
-  - CONTRIBUTING.md
-  - README.md
-  - CNAME
-  - LICENSE
+#exclude:
+source: src/
 
 collections:
   writeups:
