@@ -2,8 +2,8 @@ require 'fileutils'
 require 'safe_yaml'
 require 'front_matter_parser'
 
-ROOT_DIR = './writeups'
-TARGET_DIR = './_writeups'
+ROOT_DIR = 'src/writeups'
+TARGET_DIR = 'src/_writeups'
 
 WRITEUP_ROOT = '_index.md'
 REMOVE_FILES = ['README.md', 'CONTRIBUTING.md']
@@ -28,7 +28,7 @@ def updateFrontMatter(file_path, event_key)
 
 	# Root only front matter changes
 	if file_path.include?(WRITEUP_ROOT)
-		cover_image = "./writeups/#{file_path.split('/')[2..-2].join('/')}/assets_/cover.jpg"
+		cover_image = "src/writeups/#{file_path.split('/')[2..-2].join('/')}/assets_/cover.jpg"
 		raise "Cover image not found at #{event_key}, checked #{cover_image}" unless File.exist?(cover_image)
 		front_matter['cover'] = cover_image
 	end
@@ -107,4 +107,4 @@ def main()
 	end
 end
 	
-main()
+#main()
