@@ -47,7 +47,7 @@
 	{%- if _author.twitter -%}
 	<li title="{{ _locale_string_follow | replace: '[NAME]', 'Twitter' }}">
 		<a href="https://twitter.com/{{ _author.twitter }}" class="icon twitter-button" itemprop="sameAs" rel="noopener noreferrer" target="_blank">
-		<i class="fa-brands fa-twitter"></i>
+		<i class="fa-brands fa-x-twitter"></i>
 		</a>
 	</li>
 	{%- endif -%}
@@ -68,7 +68,7 @@
 	</li>
 	{%- endif -%}
 
-		{%- if _author.linkedin -%}
+	{%- if _author.linkedin -%}
 		<li title="{{ _locale_string_follow | replace: '[NAME]', 'Linkedin' }}">
 		<a href="https://www.linkedin.com/company/{{ _author.linkedin }}" class="icon linkedin-button" itemprop="sameAs" rel="noopener noreferrer" target="_blank">
 			<i class="fa-brands fa-linkedin-in"></i>
