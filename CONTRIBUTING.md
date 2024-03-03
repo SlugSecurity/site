@@ -1,10 +1,14 @@
 ## Setting up your development environment
 
 ### 1. Install Ruby and other dependencies
+Start off by installing [rvm (ruby version manager)](https://rvm.io/). Verify ruby and gem are at the following versions or higher:
 ```
-$ sudo apt install ruby-full build-essential zlib1g-dev
+$ ruby -v
+ruby 3.3.0 ...
+
+$ gem -v
+3.5.3
 ```
-For non Debian-based Linux distributions, see [here](https://jekyllrb.com/docs/installation/).
 
 ### 2. Install Bundler and Jekyll
 ```
@@ -13,7 +17,7 @@ $ sudo gem install bundler jekyll
 
 ### 3. Install project dependencies
 ```
-$ bundle install --path vendor/bundle
+$ bundle install
 ```
 
 ### 4. Serve the website locally
