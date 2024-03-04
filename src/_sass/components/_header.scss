@@ -111,7 +111,7 @@
 	}
 
 	&::after {
-		@include split-line(bottom, 4px, $main-color-1);
+		@include split-line(bottom, 2px, $main-color-1);
 	}
 }
 
