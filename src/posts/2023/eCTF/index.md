@@ -1,10 +1,9 @@
 ---
 title: Slug Security Debuts 2nd Place in eCTF 2023
+date: 2023-04-26
 aside:
   toc: true
 tags: eCTF Announcement Competition
-author: fbad
-modify_date: 2024-02-03
 ---
 
 In our first year of participation, Slug Security has secured 2nd place in [MITRE's 2023 Embedded Capture the Flag competition](https://ectf.mitre.org/)! Our team, representing the University of California, Santa Cruz, consisting of 10 students, was advised by [Alvaro A. Cardenas](https://users.soe.ucsc.edu/~alacarde/). With what we learned from this year, we are excited to continue our participation in the competition next year.

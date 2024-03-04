@@ -1,5 +1,6 @@
 ---
 title: UCSC Takes 9th Place in Codebreaker 2021
+date: 2021-12-09
 aside:
   toc: true
 tags: CBC Announcement Competition

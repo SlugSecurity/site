@@ -1,5 +1,6 @@
 ---
 title: UCSC Places 9th at CyberForce 2022
+date: 2022-11-07
 aside:
   toc: true
 tags: CF Announcement Competition

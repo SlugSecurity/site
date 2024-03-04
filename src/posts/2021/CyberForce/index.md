@@ -1,5 +1,6 @@
 ---
 title: UCSC Wins 2nd at CyberForce 2021
+date: 2021-11-07
 aside:
   toc: true
 tags: CF Announcement Competition

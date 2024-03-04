@@ -1,5 +1,6 @@
 ---
 title: UCSC Wins 3rd Place in Codebreaker 2022
+date: 2022-12-09
 aside:
   toc: true
 tags: CBC Announcement Competition
