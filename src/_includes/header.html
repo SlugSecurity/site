@@ -7,7 +7,7 @@
 			{%- if _item.brand -%}
 				<div class="header__title">
 					<div class="header__brand">
-					{%- assign _paths_root = site.paths.root | default: site.data.variables.default.paths.root  -%}
+					{%- assign _paths_root = site.paths.root | default: site.data.variables.default.paths.root -%}
 					{%- include snippets/get-nav-url.html path=_paths_root -%}
 					{%- if site.title -%}
 						<a title="{{ site.description }}" href="{{ __return }}">
