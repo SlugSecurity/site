@@ -52,9 +52,9 @@
 		font-family: map-get($base, font-family-hacked);
 		text-transform: uppercase;
 		display: inline-block;
-		font-size: map-get($base, font-size-h2);
+		font-size: 2.2em;
 		text-align: center;
-		line-height: 1;
+		line-height: 0.8;
 
 		@include media-breakpoint-down(md) {
 			font-size: map-get($base, font-size-h4-small);
@@ -121,7 +121,8 @@
 		background-color: darken($main-color-1, 10%);
 		color: $text-color-1;
 
-		&:hover, &:focus {
+		&:hover,
+		&:focus {
 			background-color: darken($main-color-1, 10%);
 			color: $text-color-1;
 		}
