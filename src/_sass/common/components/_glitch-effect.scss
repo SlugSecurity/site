@@ -56,6 +56,46 @@
 	}
 }
 
+.glitch-effect-hover--child {
+	position: relative;
+	display: inline-block;
+
+	&:hover::before {
+		@include glitchEffectCopy;
+		left: 17px;
+		text-shadow: -2px 0 $main-color-3;
+		clip: rect(44px, 450px, 56px, 0);
+		animation: glitch-animation-1 5s infinite step-end alternate-reverse;
+	}
+
+	&:hover::after {
+		@include glitchEffectCopy;
+		left: 13px;
+		text-shadow: -2px 0 $main-color-1, 2px 2px $main-color-3;
+		animation: glitch-animation-2 2s infinite step-start alternate-reverse;
+	}
+}
+
+.glitch-effect-hover--button {
+	position: relative;
+	display: inline-block;
+
+	&:hover::before {
+		@include glitchEffectCopy;
+		left: calc(0.5em + 2px);
+		text-shadow: -2px 0 $main-color-3;
+		clip: rect(44px, 450px, 56px, 0);
+		animation: glitch-animation-1 5s infinite step-end alternate-reverse;
+	}
+
+	&:hover::after {
+		@include glitchEffectCopy;
+		left: calc(0.5em - 2px);
+		text-shadow: -2px 0 $main-color-1, 2px 2px $main-color-3;
+		animation: glitch-animation-2 2s infinite step-start alternate-reverse;
+	}
+}
+
 @keyframes glitch-animation-1 {
 	$steps: 20;
 

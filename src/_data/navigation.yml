@@ -22,13 +22,13 @@ header:
     description:  Learn more about the club and its members.
     children:
       - title:  /FAQs
-        url:    /faqs
+        url:    /about/faqs
         description:  Frequently asked questions about the club.
       - title:  /Officers
-        url:    /officers
+        url:    /about/officers
         description:  Meet the club's officers.
       - title:  /Sponsors
-        url:    /sponsors
+        url:    /about/sponsors
         description:  Learn more about our sponsors.
 
   - title:  /Join
