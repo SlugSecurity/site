@@ -38,7 +38,7 @@
 							{%- for child in _item.children -%}
 								{%- include snippets/get-nav-url.html path=child.url -%}
 								{%- assign _nav_url = __return -%}
-								
+
 								<li>
 									<a class="glitch-effect-hover--child" data-text="{{ child.title }}" title="{{ child.description }}" href="{{ _nav_url }}">{{ child.title }}</a>
 								</li>

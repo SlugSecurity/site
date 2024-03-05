@@ -18,7 +18,7 @@ header:
     description:  Accomplishments and awards from the club.
 
   - title:  /About/
-    url:    /about
+    url:    /about/
     description:  Learn more about the club and its members.
     children:
       - title:  /FAQs
