@@ -3,6 +3,8 @@ title: UCSC Wins 2nd at CyberForce 2021
 aside:
   toc: true
 tags: CF Announcement Competition
+redirect_from:
+  - /2021/11/CyberForce
 ---
 
 We are pleased to share that UC Santa Cruz placed second in the [Department of Energy's CyberForce 2021](https://cyberforce.energy.gov/) competition. This was our first time participating in the event, and our team performed exceptionally well to secure a top position among 120 teams from 105 universities across 33 states.
@@ -13,7 +15,7 @@ The CyberForce Competition is a highly respected event in cybersecurity hosted b
 ### About UCSC's Team
 During the CyberForce event held in 2021, UCSC participated in a competition with other universities to safeguard a virtual energy infrastructure from cyberattacks. Our team was responsible for developing efficient cybersecurity tactics, ensuring the smooth functioning of the system, and safeguarding sensitive data from potential threats. UCSC's team showcased their exceptional abilities and knowledge, securing second place, trailing only behind the University of Central Florida and ahead of Pennsylvania State University.
 
-![UCSC CyberForce 2021 Team](/assets/images/FGld9ceXEAEI-Od.jpg){:.rounded.image--center}
+![UCSC CyberForce 2021 Team](/assets/cyberforce2021/team_photo.jpg){:.rounded.image--center}
 
 {:.text--center}
 *UCSC CyberForce 2021 Team*

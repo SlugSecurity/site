@@ -3,6 +3,8 @@ title: UCSC Wins 3rd Place in Codebreaker 2022
 aside:
   toc: true
 tags: CBC Announcement Competition
+redirect_from:
+  - /2022/12/Codebreaker
 ---
 
 Following the academic tradition of participating in the [National Security Agency's Codebreaker Challenge](https://nsa-codebreaker.org/home), Slug Security is proud to announce that we have won 3rd place in the 2022 Codebreaker Challenge. This is the third year in a row that UC Santa Cruz has placed in the top 10. We are very proud of our team's accomplishments, and we look forward to participating in the 2023 Codebreaker Challenge!

@@ -3,6 +3,8 @@ title: UCSC Takes 9th Place in Codebreaker 2021
 aside:
   toc: true
 tags: CBC Announcement Competition
+redirect_from:
+  - /2021/12/Codebreaker
 ---
 
 Continuing the tradition of participating in the [National Security Agency's Codebreaker Challenge](https://nsa-codebreaker.org/home), UC Santa Cruz has placed 9th in the 2021 Codebreaker Challenge. This is the second year in a row that UCSC has placed in the top 10. Slug Security is proud of our team's accomplishments this year, especially of the new members who are new to cybersecurity.
