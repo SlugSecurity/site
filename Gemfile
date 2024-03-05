@@ -9,7 +9,8 @@ gem "jekyll-sass-converter"
 gem "jekyll-seo-tag"
 gem "safe_yaml"
 gem "front_matter_parser"
-gem 'csv'
+gem "csv"
+gem "jekyll-redirect-from"
 
 group :development do
   gem "bundler"

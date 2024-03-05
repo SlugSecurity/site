@@ -1,0 +1,8 @@
+- origin: /faqs
+  destination: /about/faqs
+- origin: /officers
+  destination: /about/officers
+- origin: /sponsors
+  destination: /about/sponsors
+- origin: /discord
+  destination: https://discord.gg/NUVZCumQXB
