@@ -3,7 +3,6 @@ module Jekyll
 		def initialize(site, base, origin, redirect_to)
 			@site = site
 			@base = base
-			@dir  = ''
 			@name = "#{origin}.html"
 
 			self.process(@name)
