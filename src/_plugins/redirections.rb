@@ -4,12 +4,13 @@ module Jekyll
 			@site = site
 			@base = base
 			@dir  = ''
-			@name = origin.gsub(/^\//, '').gsub('/', '-') + '.html'
+			@name = "#{origin}.html"
 
 			self.process(@name)
 			self.data = {
-			'layout' => 'redirect',
-			'redirect_to' => redirect_to
+				'layout' => 'redirect',
+				'redirect_to' => redirect_to,
+				'sitemap' => false
 			}
 		end
 	end
@@ -20,9 +21,9 @@ module Jekyll
 
 		def generate(site)
 			if site.layouts.key? 'redirect'
-			site.data['redirections'].each do |redirection|
-				site.pages << RedirectionPage.new(site, site.source, redirection['origin'], redirection['destination'])
-			end
+				site.data['redirections'].each do |redirection|
+					site.pages << RedirectionPage.new(site, site.source, redirection['origin'], redirection['destination'])
+				end
 			end
 		end
 	end
