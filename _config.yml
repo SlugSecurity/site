@@ -108,7 +108,7 @@ source: src/
 collections:
   posts:
     output: true
-    permalink: /posts/:path
+    permalink: /posts/:title-:year
   writeups:
     output: true
     permalink: /writeups/:title-:year
