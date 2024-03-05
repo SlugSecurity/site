@@ -3,7 +3,7 @@
 	position: absolute;
 }
 
-.glitch-hover-slight {
+.glitch-effect-slight {
 	position: relative;
 	display: inline-block;
 
@@ -16,7 +16,27 @@
 	}
 }
 
-.glitch-hover-effect {
+.glitch-effect {
+	position: relative;
+	display: inline-block;
+
+	&::before {
+		@include glitchEffectCopy;
+		left: 2px;
+		text-shadow: -2px 0 $main-color-3;
+		clip: rect(44px, 450px, 56px, 0);
+		animation: glitch-animation-1 5s infinite step-end alternate-reverse;
+	}
+
+	&::after {
+		@include glitchEffectCopy;
+		left: -2px;
+		text-shadow: -2px 0 $main-color-1, 2px 2px $main-color-3;
+		animation: glitch-animation-2 2s infinite step-start alternate-reverse;
+	}
+}
+
+.glitch-effect-hover {
 	position: relative;
 	display: inline-block;
 
