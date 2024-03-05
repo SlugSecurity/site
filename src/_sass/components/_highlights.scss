@@ -72,6 +72,7 @@
 
 			.highlight-type {
 				font-weight: bold;
+				font-family: map-get($base, font-family-pexico);
 				text-transform: uppercase;
 				color: $main-color-1;
 				font-size: small;

@@ -7,7 +7,7 @@ show_title: false
 ---
 
 ### Highlights
-Curious about what we've been up to? Here are some of our highlights that showcase our achievements and activities. For more information on how to get involved, please visit our [Frequently Asked Questions](/faqs) page.
+Curious about what we've been up to? Here are some of our highlights that showcase our achievements and activities. For more information on how to get involved, please visit our [Frequently Asked Questions](/about/faqs) page.
 
 ### 2024
 <div class="highlight-container">
