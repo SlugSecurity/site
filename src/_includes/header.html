@@ -27,7 +27,9 @@
 
 				{%- assign is_active = false -%}
 				{%- if _nav_url == _page_url or page.nav_key and _item.key and page.nav_key == _item.key -%}
-					{%- assign is_active = true -%}
+					{%- if _item.button == null -%}
+						{%- assign is_active = true -%}
+					{%- endif -%}
 				{%- endif -%}
 
 				<li class="navigation__item {% if is_active %}navigation__item--active{% endif %} {% if _item.children %}navigation__item--has-children{% endif %} {% if _item.button %}navigation__item--button{% endif %}">
