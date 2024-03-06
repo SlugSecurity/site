@@ -154,7 +154,7 @@
 	}
 }
 
-@media (max-width: map-get($layout, header-max-width)) {
+@media (max-width: 750px) {
 	.navigation {
 		@include overflow(scroll, "x");
 	}
