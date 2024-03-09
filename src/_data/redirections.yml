@@ -6,3 +6,13 @@
   destination: /about/sponsors
 - origin: /discord
   destination: https://discord.gg/NUVZCumQXB
+- origin: /2021/11/CyberForce
+  destination: /posts/CyberForce-2021
+- origin: /2021/12/Codebreaker
+  destination: /posts/Codebreaker-2021
+- origin: /2022/11/CyberForce
+  destination: /posts/CyberForce-2022
+- origin: /2022/12/Codebreaker
+  destination: /posts/Codebreaker-2022
+- origin: /2023/04/eCTF
+  destination: /posts/eCTF-2023

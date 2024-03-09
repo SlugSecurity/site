@@ -3,13 +3,14 @@ layout: none
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 
 <head>
+	<title>Redirecting</title>
 	<meta charset="UTF-8">
-	<meta http-equiv="refresh" content="0;url={{ page.redirect_to }}">
-	<link rel="canonical" href="{{ page.redirect_to }}" />
-	<title>Redirecting...</title>
+
+	<link rel="canonical" href="{{ page.redirect_to }}">
+	<meta http-equiv="refresh" content="0; url={{ page.redirect_to }}">
 </head>
 
 <body>

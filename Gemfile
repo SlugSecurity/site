@@ -11,6 +11,7 @@ gem "safe_yaml"
 gem "front_matter_parser"
 gem "csv"
 gem "jekyll-redirect-from"
+gem "jekyll-last-modified-at"
 
 group :development do
   gem "bundler"

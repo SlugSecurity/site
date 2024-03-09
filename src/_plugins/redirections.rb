@@ -7,7 +7,7 @@ module Jekyll
 
 			self.process(@name)
 			self.data = {
-				'layout' => 'redirect',
+				'layout' => 'redir',
 				'redirect_to' => redirect_to,
 				'sitemap' => false
 			}

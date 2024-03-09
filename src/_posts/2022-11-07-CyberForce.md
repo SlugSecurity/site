@@ -3,8 +3,6 @@ title: UCSC Places 9th at CyberForce 2022
 aside:
   toc: true
 tags: CF Announcement Competition
-redirect_from:
-  - /2022/11/CyberForce
 ---
 
 Slug Security is thrilled to share that UC Santa Cruz secured 9th place out of 170 teams in the 2022 CyberForce Competition. This marks the second consecutive year that UCSC has ranked in the top 10 in the [Department of Energy's CyberForce Competition](https://cyberforce.energy.gov/). We want to congratulate the 3 teams that represented us this year, "Slug Sec", "Bing Chilling", and "Cyber Slugs". All three teams were supervised by Professor [Alvaro A. Cardenas](https://users.soe.ucsc.edu/~alacarde/) and [Sebastián Castro](https://twitter.com/r4wd3r).
