@@ -4,6 +4,7 @@ aside:
   toc: true
 title: Sponsors
 show_title: false
+permalink: /about/sponsors
 ---
 
 ### Why Sponsor?

@@ -101,15 +101,17 @@ analytics:
 ##############################
 markdown    : kramdown
 highlighter : rouge
-permalink   : /:year/:month/:title
 
 #exclude:
 source: src/
 
 collections:
+  posts:
+    output: true
+    permalink: /posts/:title-:year
   writeups:
     output: true
-    permalink: /:year/:month/:title-Writeup
+    permalink: /writeups/:title-:year
 
 defaults:
   - scope:
@@ -130,8 +132,6 @@ defaults:
       layout: article
       aside:
         toc: true
-      values:
-        nav_key: writeups
       pageview: true
 
 ## => Plugins
@@ -141,3 +141,4 @@ plugins:
   - jekyll-sitemap
   - jemoji
   - jekyll-seo-tag
+  - jekyll-redirect-from

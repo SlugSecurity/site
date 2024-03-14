@@ -1,126 +1,161 @@
 .header {
-  background: $header-background;
-  a {
-    font-weight: map-get($base, font-weight);
-    text-decoration: none !important;
-    @include link-colors($header-text-color, $main-color-1);
-  }
-  .main {
-    @include flexbox();
-    @include media-breakpoint-down(md) {
-      @include flex-direction(column);
-    }
-  }
-}
+	background: $header-background;
 
-.header--dark {
-  @extend .text--dark;
-  background: rgba(#000, .15);
-  .navigation__item--active {
-    &::after {
-      @include split-line(bottom, 4px, $text-color-theme-dark);
-    }
-  }
-}
+	a {
+		font-weight: map-get($base, font-weight);
+		text-decoration: none !important;
+		@include link-colors($header-text-color, $main-color-1);
+	}
 
-.header--light {
-  @extend .text--light;
-  background: rgba(#fff, .15);
-  .navigation__item--active {
-    &::after {
-      @include split-line(bottom, 4px, $text-color-theme-light);
-    }
-  }
+	.main {
+		@include flexbox();
+		@include align-items(center);
+		@include justify-content(center);
+		max-width: map-get($layout, header-max-width);
+
+		@include media-breakpoint-down(md) {
+			@include flex-direction(column);
+		}
+	}
 }
 
 .header__title {
-  @include menu(3, 0);
-  @include align-items(center);
-  @include flex-wrap(nowrap);
-  @include flex(1);
-  height: map-get($layout, header-height);
-  margin-right: map-get($spacers, 3);
-  white-space: nowrap;
-  @include media-breakpoint-down(md) {
-    height: auto;
-    margin-right: 0;
-  }
-  & > .header__brand {
-    @include flex(1);
-    @include media-breakpoint-down(md) {
-      height: map-get($layout, header-height-sm);
-    }
-  }
-  & > .search-button {
-    display: none;
-    margin-left: map-get($spacers, 2);
-    @include media-breakpoint-down(md) {
-      @include flexbox();
-    }
-  }
+	@include menu(3, 0);
+	@include align-items(center);
+	@include flex-wrap(nowrap);
+
+	height: map-get($layout, header-height);
+	margin-right: map-get($spacers, 3);
 }
 
 .header__brand {
-  @include flexbox();
-  @include align-items(center);
-  & > svg {
-    width: map-get($base, font-size-h4) * 1.6;
-    height: map-get($base, font-size-h4) * 1.6;
-    margin-right: map-get($spacers, 3);
-    vertical-align: middle;
-    @include media-breakpoint-down(md) {
-      width: map-get($base, font-size-h4) * 1.2;
-      height: map-get($base, font-size-h4) * 1.2;
-    }
-  }
-  & > a {
-    font-family: map-get($base, font-family-hacked);
-    text-transform: uppercase;
-    display: inline-block;
-    font-size: map-get($base, font-size-h2);
-    @include media-breakpoint-down(md) {
-      font-size: map-get($base, font-size-h4-small);
-    }
-  }
+	@include flexbox();
+
+	&>a {
+		font-family: map-get($base, font-family-hacked);
+		text-transform: uppercase;
+		display: inline-block;
+		font-size: 2.2em;
+		text-align: center;
+		line-height: 0.8;
+
+		@include media-breakpoint-down(md) {
+			font-size: map-get($base, font-size-h4-small);
+		}
+	}
 }
 
 .navigation {
-  @include overflow(auto, "x");
-  & > ul {
-    height: map-get($layout, header-height);
-    padding-bottom: 0;
-    margin: 0;
-    @include media-breakpoint-down(md) {
-      padding-bottom: 4px;
-      margin: -4px 0 0 0;
-    }
-    @include menu(3, 2, nowrap);
-    @include align-items(center);
-    @include media-breakpoint-down(md) {
-      height: auto;
-    }
-    .search-button {
-      @include media-breakpoint-down(md) {
-        display: none;
-      }
-    }
-  }
+	@include overflow(visible, "y");
+	width: 100%;
+
+	&>ul {
+		height: map-get($layout, header-height);
+		padding-bottom: 0;
+		margin: 0;
+
+		@include menu(3, 2, nowrap);
+		@include flexbox();
+		@include align-items(center);
+		@include justify-content(space-between);
+
+		.search-button {
+			@include media-breakpoint-down(md) {
+				display: none;
+			}
+		}
+	}
 }
 
 .navigation__item {
-  font-family: map-get($base, font-family-pexico);
-  &::after {
-    display: block;
-    margin-bottom: -4px;
-    content: "";
-    @include split-line(bottom, 4px, transparent);
-  }
+	position: relative;
+	font-family: map-get($base, font-family-pexico);
+	text-transform: uppercase;
+
+	&::after {
+		display: block;
+		margin-bottom: -4px;
+		content: "";
+		@include split-line(bottom, 4px, transparent);
+	}
+
+	&--active {
+		>a {
+			@include link-colors($main-color-1, $main-color-1);
+		}
+
+		&::after {
+			@include split-line(bottom, 2px, $main-color-1);
+		}
+	}
+
+	&--has-children:hover .navigation__dropdown {
+		display: block;
+	}
+
+	&--button a {
+		padding: 0.5em 0.5em;
+		background-color: darken($main-color-1, 10%);
+		color: $text-color-1;
+
+		&:hover,
+		&:focus {
+			background-color: darken($main-color-1, 15%);
+			color: $text-color-1;
+		}
+	}
 }
-.navigation__item--active {
-  a {
-    @include link-colors($main-color-1, $main-color-1);
-  }
-  &::after {
-    @include split-line(bottom, 4px, $main-color-1);
-  }
+
+.navigation__dropdown {
+	z-index: 1000;
+
+	display: none;
+	position: absolute;
+	background-color: $header-background;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+
+	top: 100%;
+	margin-top: 0;
+	padding-top: 5px;
+	padding-left: 0.5rem;
+
+	li {
+		list-style: none;
+		position: relative;
+		padding-left: 0.5rem;
+
+		&:before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			border-left: 2px solid darken($text-color-1, 40%);
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 50%;
+			width: 15px;
+			border-bottom: 2px solid darken($text-color-1, 40%);
+		}
+
+		&:last-child:before {
+			bottom: 50%;
+		}
+
+		a {
+			position: inherit;
+			padding: 10px 15px;
+			text-align: left;
+		}
+	}
+}
+
+@media (max-width: 750px) {
+	.navigation {
+		@include overflow(scroll, "x");
+	}
 }

@@ -1,11 +1,12 @@
 ---
 layout: articles
-title: Writeups
+title: Posts
 show_title: false
 articles:
-  data_source: site.writeups
+  data_source: site.posts
   show_excerpt: true
   show_readmore: true
   show_info: true
-  reverse: true
+  reverse: false
+permalink: /posts
 ---

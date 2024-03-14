@@ -1,15 +1,37 @@
 header:
-  - title:  Posts
+  - title:  /Posts
     url:    /posts
+    description:  The latest news and updates from the club.
 
-  - title:  Highlights
-    url:    /highlights
+  - title:  /Writeups
+    url:    /writeups
+    description:  Writeups from past events and competitions.
 
-  - title:  FAQs
-    url:    /faqs
+  - title:  /Events
+    url:    /events
+    description:  Upcoming events and competitions.
+
+  - brand: true
  
-  - title:  Officers
-    url:    /officers
+  - title:  /Highlights
+    url:    /highlights
+    description:  Accomplishments and awards from the club.
 
-  - title:  Sponsors
-    url:    /sponsors
+  - title:  /About/
+    url:    /about/
+    description:  Learn more about the club and its members.
+    children:
+      - title:  /FAQs
+        url:    /about/faqs
+        description:  Frequently asked questions about the club.
+      - title:  /Officers
+        url:    /about/officers
+        description:  Meet the club's officers.
+      - title:  /Sponsors
+        url:    /about/sponsors
+        description:  Learn more about our sponsors.
+
+  - title:  /Join
+    url:    /join
+    description:  Learn how to join the club.
+    button: true

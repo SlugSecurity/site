@@ -1,0 +1,119 @@
+@mixin glitchEffectCopy {
+	content: attr(data-text);
+	position: absolute;
+}
+
+.glitch-effect-slight {
+	position: relative;
+	display: inline-block;
+
+	&::before {
+		@include glitchEffectCopy;
+		left: 2px;
+		text-shadow: -2px 0 $main-color-3;
+		clip: rect(44px, 450px, 56px, 0);
+		animation: glitch-animation-1 10s infinite linear alternate-reverse;
+	}
+}
+
+.glitch-effect {
+	position: relative;
+	display: inline-block;
+
+	&::before {
+		@include glitchEffectCopy;
+		left: 2px;
+		text-shadow: -2px 0 $main-color-3;
+		clip: rect(44px, 450px, 56px, 0);
+		animation: glitch-animation-1 5s infinite step-end alternate-reverse;
+	}
+
+	&::after {
+		@include glitchEffectCopy;
+		left: -2px;
+		text-shadow: -2px 0 $main-color-1, 2px 2px $main-color-3;
+		animation: glitch-animation-2 2s infinite step-start alternate-reverse;
+	}
+}
+
+.glitch-effect-hover {
+	position: relative;
+	display: inline-block;
+
+	&:hover::before {
+		@include glitchEffectCopy;
+		left: 2px;
+		text-shadow: -2px 0 $main-color-3;
+		clip: rect(44px, 450px, 56px, 0);
+		animation: glitch-animation-1 5s infinite step-end alternate-reverse;
+	}
+
+	&:hover::after {
+		@include glitchEffectCopy;
+		left: -2px;
+		text-shadow: -2px 0 $main-color-1, 2px 2px $main-color-3;
+		animation: glitch-animation-2 2s infinite step-start alternate-reverse;
+	}
+}
+
+.glitch-effect-hover--child {
+	position: relative;
+	display: inline-block;
+
+	&:hover::before {
+		@include glitchEffectCopy;
+		left: 17px;
+		text-shadow: -2px 0 $main-color-3;
+		clip: rect(44px, 450px, 56px, 0);
+		animation: glitch-animation-1 5s infinite step-end alternate-reverse;
+	}
+
+	&:hover::after {
+		@include glitchEffectCopy;
+		left: 13px;
+		text-shadow: -2px 0 $main-color-1, 2px 2px $main-color-3;
+		animation: glitch-animation-2 2s infinite step-start alternate-reverse;
+	}
+}
+
+.glitch-effect-hover--button {
+	position: relative;
+	display: inline-block;
+
+	&:hover::before {
+		@include glitchEffectCopy;
+		left: calc(0.5em + 2px);
+		text-shadow: -2px 0 $main-color-3;
+		clip: rect(44px, 450px, 56px, 0);
+		animation: glitch-animation-1 5s infinite step-end alternate-reverse;
+	}
+
+	&:hover::after {
+		@include glitchEffectCopy;
+		left: calc(0.5em - 2px);
+		text-shadow: -2px 0 $main-color-1, 2px 2px $main-color-3;
+		animation: glitch-animation-2 2s infinite step-start alternate-reverse;
+	}
+}
+
+@keyframes glitch-animation-1 {
+	$steps: 20;
+
+	@for $i from 0 through $steps {
+		#{percentage($i*math.div(1,$steps))} {
+			clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+			transform: skew(math.div(random(100), 100) + deg);
+		}
+	}
+}
+
+@keyframes glitch-animation-2 {
+	$steps: 20;
+
+	@for $i from 0 through $steps {
+		#{percentage($i*math.div(1,$steps))} {
+			clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+			transform: skew(math.div(random(100), 100) + deg);
+		}
+	}
+}

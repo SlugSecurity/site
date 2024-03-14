@@ -29,15 +29,10 @@ The competition had two parts: attack and defend and [Capture The Flag](/faqs#wh
 
 As part of the process, it was essential to create customized documentation for the company's executives, along with a realistic plan for the security team to implement. Participants had to assess the current infrastructure using different network scans and vulnerability assessments while ensuring access to critical services and devices. This dynamic and engaging challenge provided students with the opportunity to demonstrate their skills and knowledge in a realistic, hands-on blue team scenario.
 
-<div style="text-align: center">
-	<img 
-		src="/assets/images/posts/cyberforce2022/example_triage.png"
-		alt="Example Security Report"
-		class="rounded"
-	>
-	<br>
-	<i>Our Triage Logs for the Defense Phase</i>
-</div>
+![Example Security Report](/assets/cyberforce2022/example_triage.png){:.rounded.image--center}
+
+{:.text--center}
+*Our Triage Logs for the Defense Phase*
 
 As the competition's defense phase came to an end, competitors moved on to the attack phase. The company merger was underway at the time, and the rival firm's offensive strategy included a variety of attacks aimed at disrupting operations and services. Participants were required to monitor multiple machines at the same time using various logs and intrusion detection systems (IDS) to identify potential sources of compromise. Participants were required to report to the white team (competition scorekeepers) during each attack and provide them with various details such as:
 
@@ -55,15 +50,10 @@ As the competition's defense phase came to an end, competitors moved on to the a
 	- What was the impact on the ICS system (if any)?
 	- What did they leave behind?
 
-<div style="text-align: center">
-	<img 
-		src="/assets/images/posts/cyberforce2022/example_attack.png"
-		alt="Example Attack Report"
-		class="rounded"
-	>
-	<br>
-	<i>One of Our Attack Reports</i>
-</div>
+![Example Attack Report](/assets/cyberforce2022/example_attack.png){:.rounded.image--center}
+
+{:.text--center}
+One of Our Attack Reports
 
 After the attack-defense scenario, the competition moved on to the exciting Capture The Flag (CTF) phase. On a dedicated Saturday, all participating teams worked independently to complete 42 cybersecurity-related challenges. The CTF challenges added variety to the competition by requiring participants to solve cryptography puzzles, reverse engineer source code, and handle digital forensics tasks. During this portion of the competition, each team was able to demonstrate their skills and knowledge while addressing a variety of real-world cybersecurity problems.
 
