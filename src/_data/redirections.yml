@@ -16,3 +16,5 @@
   destination: /posts/Codebreaker-2022
 - origin: /2023/04/eCTF
   destination: /posts/eCTF-2023
+- origin: /register
+  destination: https://forms.gle/Ae97RjFZ8M2JJgF87
