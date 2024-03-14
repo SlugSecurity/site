@@ -4,6 +4,7 @@ aside:
   toc: true
 title: Officers
 show_title: false
+permalink: /officers
 ---
 
 ### Interested In Joining?

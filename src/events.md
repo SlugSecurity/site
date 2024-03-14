@@ -2,6 +2,7 @@
 layout: article
 title: Events
 show_title: false
+permalink: /events
 ---
 
 ### Events

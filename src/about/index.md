@@ -4,6 +4,7 @@ aside:
   toc: true
 title: About
 show_title: false
+permalink: /about/
 ---
 
 ### Who We Are

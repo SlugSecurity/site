@@ -8,4 +8,5 @@ articles:
   show_readmore: true
   show_info: true
   reverse: true
+permalink: /writeups
 ---

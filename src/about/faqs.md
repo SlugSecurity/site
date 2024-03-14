@@ -4,6 +4,7 @@ aside:
   toc: true
 title: Frequently Asked Questions
 show_title: false
+permalink: /about/faqs
 ---
 
 ### How to Become a Member

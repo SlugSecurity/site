@@ -4,6 +4,7 @@ aside:
   toc: true
 title: Highlights
 show_title: false
+permalink: /highlights
 ---
 
 ### Highlights

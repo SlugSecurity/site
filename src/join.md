@@ -4,6 +4,7 @@ aside:
   toc: true
 title: Join
 show_title: false
+permalink: /join
 ---
 
 ### Becoming A Member
