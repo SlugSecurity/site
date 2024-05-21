@@ -1,4 +1,64 @@
 '2024':
+  - Name: eCitadel
+    Date: 2024-05-19
+    Type: Cyber Defensive
+
+    Location: Virtual
+    Placement: 32
+    Participants: 159
+    Article:
+    Writeup:
+
+  - Name: cr3 CTF
+    Date: 2024-04-26
+    Type: Capture the Flag
+
+    Location: Virtual
+    Placement: 210
+    Participants: 398
+    Article:
+    Writeup:
+
+  - Name: GreyCTF Quals
+    Date: 2024-04-19
+    Type: Capture the Flag
+
+    Location: Virtual
+    Placement: 52
+    Participants: 407
+    Article:
+    Writeup:
+
+  - Name: MITRE eCTF
+    Date: 2023-04-17
+    Type: Attack & Defend
+    
+    Location: Virtual
+    Placement: 34
+    Participants: 97
+    Article:
+    Writeup:
+
+  - Name: WRCCDC
+    Date: 2024-04-05
+    Type: Cyber Defensive
+    
+    Location: Coastline College
+    Placement: 7
+    Participants: 8
+    Article:
+    Writeup:
+
+  - Name: CursedCTF Quals
+    Date: 2024-03-29
+    Type: Capture the Flag
+
+    Location: Virtual
+    Placement: 124
+    Participants: 11058 # wtf
+    Article:
+    Writeup:
+
   - Name: osu!gaming CTF
     Date: 2024-03-03
     Type: Capture the Flag
@@ -7,6 +67,7 @@
     Placement: 21
     Participants: 984
     Article:
+    Writeup:
 
   - Name: WRCCDC Quals
     Date: 2024-02-18
@@ -16,6 +77,7 @@
     Placement: 8
     Participants: 22
     Article:
+    Writeup:
 
 '2023':
   - Name: NSA Codebreaker
@@ -26,6 +88,7 @@
     Placement: 4
     Participants: 348
     Article:
+    Writeup:
 
   - Name: CPTC WEST
     Date: 2023-11-12
@@ -35,6 +98,7 @@
     Placement: 4
     Participants: 10
     Article: 
+    Writeup:
 
   - Name: ImaginaryCTF
     Date: 2023-07-23
@@ -44,6 +108,7 @@
     Placement: 61
     Participants: 800
     Article:
+    Writeup:
 
   - Name: Google CTF
     Date: 2023-06-25
@@ -53,6 +118,7 @@
     Placement: 111
     Participants: 676
     Article:
+    Writeup:
 
   - Name: Grey CTF Quals
     Date: 2023-05-21
@@ -62,6 +128,7 @@
     Placement: 43
     Participants: 454
     Article:
+    Writeup:
 
   - Name: MITRE eCTF
     Date: 2023-04-19
@@ -71,6 +138,7 @@
     Placement: 2
     Participants: 80
     Article: https://slugsec.ucsc.edu/2023/04/eCTF
+    Writeup:
 
 '2022':
   - Name: NSA Codebreaker
@@ -81,6 +149,7 @@
     Placement: 3
     Participants: 348
     Article: https://slugsec.ucsc.edu/2022/12/Codebreaker
+    Writeup:
 
   - Name: DoE CyberForce
     Date: 2022-11-07
@@ -90,6 +159,7 @@
     Placement: 9
     Participants: 170
     Article: https://slugsec.ucsc.edu/2022/11/CyberForce
+    Writeup:
 
 '2021':
   - Name: NSA Codebreaker
@@ -100,6 +170,7 @@
     Placement: 9
     Participants: 630
     Article: https://slugsec.ucsc.edu/2021/12/Codebreaker
+    Writeup:
 
   - Name: DoE CyberForce
     Date: 2021-11-07
@@ -109,3 +180,4 @@
     Placement: 2
     Participants: 120
     Article: https://slugsec.ucsc.edu/2021/11/CyberForce
+    Writeup:
