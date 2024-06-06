@@ -1,0 +1,45 @@
+@font-face {
+	font-family: 'Hacked';
+	src: url('/_assets/fonts/Hacked/Hacked.woff2') format('woff2'),
+		url('/_assets/fonts/Hacked/Hacked.woff') format('woff'),
+		url('/_assets/fonts/Hacked/Hacked.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'PexicoMicro-Regular';
+	src: url('/_assets/fonts/Pexico/PexicoMicro-Regular.woff2') format('woff2'),
+		url('/_assets/fonts/Pexico/PexicoMicro-Regular.woff') format('woff'),
+		url('/_assets/fonts/Pexico/PexicoMicro-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'HelveticaNeue-Medium';
+	src: url('/_assets/fonts/HelveticaNeue/HelveticaNeueMedium.woff2') format('woff2'),
+		url('/_assets/fonts/HelveticaNeue/HelveticaNeueMedium.woff') format('woff'),
+		url('/_assets/fonts/HelveticaNeue/HelveticaNeueMedium.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'JetBrainsMono-Nerd';
+	src: url('/_assets/fonts/JetBrainsMono-Nerd/JetBrainsMonoNLNerdFont-Regular.woff2') format('woff2'),
+		url('/_assets/fonts/JetBrainsMono-Nerd/JetBrainsMonoNLNerdFont-Regular.woff') format('woff'),
+		url('/_assets/fonts/JetBrainsMono-Nerd/JetBrainsMonoNLNerdFont-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.md-content strong {
+	font-weight: bolder;
+	color: var(--md-primary-fg-color--light);
+}
+
+.md-content a:hover {
+	transition: filter 0.3s ease;
+	filter: brightness(80%);
+}

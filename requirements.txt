@@ -1,0 +1,8 @@
+mkdocs-material[imaging]
+mkdocs-git-revision-date-localized-plugin
+mkdocs-kroki-plugin
+mkdocs-inline-svg-plugin
+mkdocs-minify-plugin
+mkdocs-open-in-new-tab
+mkdocs-add-teaser
+mkdocs-plotly-plugin

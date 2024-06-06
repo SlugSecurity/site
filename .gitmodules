@@ -1,0 +1,6 @@
+[submodule "src/writeups"]
+	path = src/writeups
+	url = https://github.com/SlugSecurity/writeups
+[submodule "src/posts"]
+	path = src/posts
+	url = https://github.com/SlugSecurity/posts

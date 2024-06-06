@@ -1,0 +1,90 @@
+.md-header {
+	--dotSize: 0.13rem;
+	--bgSize: 0.80rem;
+	--bgPosition: calc(var(--bgSize) / 2);
+
+	background: linear-gradient(to top right,
+		rgba(0, 0, 0, 1) 0%,
+		rgba(220, 70, 25, 1) 50%,
+		rgba(248, 239, 19, 1) 100%
+	);
+}
+
+.md-header::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+
+	background: 
+		radial-gradient(
+			circle at center,
+			black var(--dotSize),
+			transparent 0
+		),
+		radial-gradient(
+			circle at center,
+			black var(--dotSize),
+			transparent 0
+		);
+
+	background-size: 
+		var(--bgSize) var(--bgSize),
+		var(--bgSize) var(--bgSize);
+
+	background-position: 
+		0 0,
+		var(--bgPosition) var(--bgPosition);
+
+	mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.md-tabs {
+	background-color: transparent;
+}
+
+.md-tabs__list {
+	padding-left: 0.5rem;
+}
+
+.md-tabs__item {
+	height: auto;
+}
+
+.md-tabs__item--active {
+	text-decoration: underline;
+	text-underline-position: under;
+}
+
+.md-tabs a {
+	font-family: 'PexicoMicro-Regular', system-ui, 'Roboto';
+	text-transform: uppercase;
+	margin-top: 0.25rem;
+	margin-bottom: 0.5rem;
+}
+
+[dir="ltr"] .md-tabs__link svg {
+	padding-bottom: 0.10rem;
+	margin-right: 0;
+}
+
+.md-header__button.md-logo img {
+	height: 2rem;
+}
+
+.md-header__ellipsis {
+	line-height: 2.6rem;
+}
+
+.md-header__topic span {
+	font-family: 'Hacked', system-ui, 'Roboto';
+	font-size: 2em;
+	font-weight: normal;
+}
+
+.md-search__form {
+	backdrop-filter: blur(2px);
+}
