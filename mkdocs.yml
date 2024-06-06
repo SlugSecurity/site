@@ -7,11 +7,11 @@ docs_dir: src
 
 nav:
   - '': index.md
-  - Posts: 
+  - '/Posts': 
       - posts/index.md
-  - Writeups: 
+  - '/Writeups': 
       - writeups/index.md
-  - Highlights: highlights.md
+  - '/Highlights': highlights.md
 
 not_in_nav: |
   /_assets/*
@@ -102,6 +102,11 @@ plugins:
         teaser_class: 'teaser'
         add_to_meta: true
   - plotly
+  - rss:
+      match_path: "posts/data/.*|writeups/data/.*"
+      date_from_meta:
+        as_creation: date.created
+        as_update: date.updated
 
 markdown_extensions:
   - abbr
@@ -156,18 +161,7 @@ markdown_extensions:
 extra:
   analytics: 
     provider: google
-    property: G-KB714KY04R
-    feedback:
-      title: Was this page helpful?
-      ratings:
-        - icon: material/emoticon-happy-outline
-          name: This page was helpful
-          data: 1
-          note: Thanks for your feedback!
-        - icon: material/emoticon-sad-outline
-          name: This page could be improved
-          data: 0
-          note: Thanks for your feedback!
+    property: G-YFR850WSX3
   generator: false
   social:
     - icon: fontawesome/brands/discord
