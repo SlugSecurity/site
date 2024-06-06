@@ -19,10 +19,11 @@ document.addEventListener("DOMContentLoaded", function() {
 	function initializeImageOverlay() {
 		const images = document.querySelectorAll('.md-content__inner img');
 		images.forEach(image => {
-			image.addEventListener('click', function(event) {
-				if (!event.target.closest('.md-post__content')) {
-					createOverlay(this);
-				}
+			if (image.closest('.md-author')) return;
+			if (window.getComputedStyle(image).cursor !== 'zoom-in') return;
+
+			image.addEventListener('click', function() {
+				createOverlay(this);
 			});
 		});
 	}
