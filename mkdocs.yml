@@ -69,14 +69,14 @@ plugins:
       blog_toc: true
       pagination_if_single_page: true
       post_url_format: '{slug}'
-      authors_file: src/_data/authors.yml
+      authors_file: _data/authors.yml
   - blog:
       blog_dir: writeups
       post_dir: '{blog}/data'
       blog_toc: true
       pagination_if_single_page: true
       post_url_format: '{slug}'
-      authors_file: src/_data/authors.yml
+      authors_file: _data/authors.yml
   - search
   - meta
   - optimize:
@@ -171,7 +171,7 @@ extra:
   generator: false
   social:
     - icon: fontawesome/brands/discord
-      link: https://discord.com/NUVZCumQXB
+      link: https://discord.gg/NUVZCumQXB
       name: Join our Discord
     - icon: fontawesome/regular/envelope
       link: 'mailto:slugsec@ucsc.edu'
@@ -180,23 +180,27 @@ extra:
       link: https://twitter.com/SlugSec
       name: Follow us on Twitter
     - icon: fontawesome/brands/instagram
-      link: https://www.instagram.com/SlugSec
+      link: https://instagram.com/SlugSec
       name: Follow us on Instagram
     - icon: fontawesome/brands/youtube
-      link: https://www.youtube.com/user/SlugSec
-      name: Subscribe to our YouTube channel
+      link: https://youtube.com/@SlugSec
+      name: Subscribe to our YouTube
     - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/in/SlugSec
+      link: https://linkedin.com/company/SlugSec
       name: Connect with us on LinkedIn
     - icon: fontawesome/brands/github
       link: https://github.com/SlugSecurity
       name: Follow us on GitHub
-
+    - icon: fontawesome/solid/flag
+      link: https://ctftime.org/team/228068
+      name: Join us on CTFtime
+  msg: 'Slug Security is a 501(c)(3) nonprofit organization (EIN 94-1539563).'
 copyright: '&copy; 2024 Regents of the University of California'
 
 extra_css:
   - _assets/css/extra-fonts.css
   - _assets/css/custom-header.css
+  - _assets/css/custom-footer.css
   - _assets/css/image-viewer.css
   - _assets/css/blog-listing.css
   - _assets/css/extras.css
