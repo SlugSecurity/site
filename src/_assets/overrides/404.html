@@ -1,5 +1,44 @@
 {% extends "main.html" %}
 {% block content %}
-	<h1>404 - Not found</h1>
-	<p>Sorry, the page you are looking for does not exist.</p>
+	<div style="text-align: center;">
+		<h1>404</h1>
+		<p>nothing here but us cats</p>
+	</div>
+
+	<div style="text-align: center; padding: 3rem 0;">
+		<script>
+			document.title = "404 - " + document.title;
+
+			let srcs = [
+				"cat_campfire.gif",
+				"ring_cat_campfire.gif",
+				"horde_cat_campfire.gif",
+				"globe_cat_campfire.gif",
+				"hordeWall_cat_campfire.gif",
+				"mc_cat_campfire.gif",
+				"musical_cat_campfire.gif",
+				"scattered_cat_campfire.gif",
+				"blocks_cat_campfire.gif",
+				"seige_cat_campfire.gif",
+				"musical_reverse_cat_campfire.gif",
+				"spin_cat_campfire.gif"
+			];
+
+			let alts = [
+				"cats are often found around campfires",
+				"a group of cats is called a clowder",
+				"cats use their whiskers to measure distances",
+				"the world's richest cat inherited $13 million from its owner",
+				"did you know we have " + srcs.length + " variations of this gif?",
+				"the CIA tried to train cats as spies in the 1960s",
+				"stubbs the cat was the mayor of talkeetna, alaska for 20 years",
+				"cats only meow to communicate with humans, not other cats"
+			];
+
+			let src = "/_assets/animated/404/" + srcs[Math.floor(Math.random() * srcs.length)];
+			let alt = alts[Math.floor(Math.random() * alts.length)];
+
+			document.write('<img src="' + src + '" alt="' + alt + '" title="' + alt + '" style="max-width: 100%; max-height: 45vh; box-shadow: none; cursor: auto;"/>');
+		</script>
+	</div>
 {% endblock %}
