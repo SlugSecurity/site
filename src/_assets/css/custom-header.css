@@ -1,60 +1,63 @@
-.md-header {
-	--dotSize: 0.13rem;
-	--bgSize: 0.80rem;
-	--bgPosition: calc(var(--bgSize) / 2);
-
-	background: linear-gradient(to top right,
-		rgba(0, 0, 0, 1) 0%,
-		rgba(220, 70, 25, 1) 50%,
-		rgba(248, 239, 19, 1) 100%
-	);
+@media screen and (min-width: 76em) {
+	.md-header__title {
+		display: none;
+	}
 }
 
-.md-header::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: -1;
+.md-tabs__link.md-tabs__link--banner,
+.md-header__topic span,
+.md-sidebar--primary .md-nav .md-nav__title {
+	font-family: 'Hacked', system-ui, 'Roboto';
+	text-transform: uppercase;
+	font-size: 2em;
+}
 
-	background: 
-		radial-gradient(
-			circle at center,
-			black var(--dotSize),
-			transparent 0
-		),
-		radial-gradient(
-			circle at center,
-			black var(--dotSize),
-			transparent 0
-		);
-
-	background-size: 
-		var(--bgSize) var(--bgSize),
-		var(--bgSize) var(--bgSize);
-
-	background-position: 
-		0 0,
-		var(--bgPosition) var(--bgPosition);
-
-	mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+.md-tabs__link.md-tabs__link--banner {
+	text-align: center;
+	font-size: 4em;
+	line-height: 0.8;
 }
 
 .md-tabs {
 	background-color: transparent;
+	display: flex;
+	justify-content: center;
+}
+
+.md-tabs__link:hover:not(.md-tabs__link--banner):not(.md-tabs__link--button) {
+	color: var(--md-accent-fg-color);
+}
+
+.md-tabs__link:hover {
+	
+}
+
+@media screen and (max-width: 76em) {
+	.md-tabs {
+		display: none;
+	}
 }
 
 .md-tabs__list {
-	padding-left: 0.5rem;
+	display: flex;
+	justify-content: center;
+	width: 100%;
 }
 
 .md-tabs__item {
 	height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.md-tabs__item--active {
+.md-tabs__item--active .md-tabs__link:not(.md-tabs__link--banner):not(.md-tabs__link--button) {
+	text-decoration: underline;
+	text-underline-position: under;
+	color: var(--md-accent-fg-color);
+}
+
+.md-tabs__item--active .md-tabs__link.md-tabs__link--button {
 	text-decoration: underline;
 	text-underline-position: under;
 }
@@ -62,29 +65,12 @@
 .md-tabs a {
 	font-family: 'PexicoMicro-Regular', system-ui, 'Roboto';
 	text-transform: uppercase;
-	margin-top: 0.25rem;
+	margin-top: 0.5rem;
 	margin-bottom: 0.5rem;
+	font-size: 1.8em;
 }
 
-[dir="ltr"] .md-tabs__link svg {
-	padding-bottom: 0.10rem;
-	margin-right: 0;
-}
-
-.md-header__button.md-logo img {
-	height: 2rem;
-}
-
-.md-header__ellipsis {
-	line-height: 2.6rem;
-}
-
-.md-header__topic span {
-	font-family: 'Hacked', system-ui, 'Roboto';
-	font-size: 2em;
-	font-weight: normal;
-}
-
-.md-search__form {
-	backdrop-filter: blur(2px);
+.md-tabs__link--button {
+	background-color: var(--md-accent-fg-color);
+	padding: 0.5em 0.5em;
 }

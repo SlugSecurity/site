@@ -6,12 +6,15 @@ site_description: 'The student-run cybersecurity club at UC Santa Cruz.'
 docs_dir: src
 
 nav:
-  - '': index.md
-  - '/Posts': 
+  - Posts:
       - posts/index.md
-  - '/Writeups': 
+  - Writeups: 
       - writeups/index.md
-  - '/Highlights': highlights.md
+  - Events: events.md
+  - Home: index.md
+  - Highlights: highlights.md
+  - About: about.md
+  - Join: join.md
 
 not_in_nav: |
   /_assets/*
@@ -41,23 +44,11 @@ theme:
     - content.code.annotate
     - content.code.copy
     - content.tooltips
-    - search.suggest
-    - search.highlight
-    - search.share
     - toc.follow
   palette:
     - scheme: slate
       primary: deep orange
       accent: deep orange
-      toggle:
-        icon: material/weather-night
-        name: Switch to light mode
-    - scheme: default
-      primary: deep orange
-      accent: deep orange
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to dark mode
 
 plugins:
   - git-revision-date-localized:
@@ -77,7 +68,6 @@ plugins:
       pagination_if_single_page: true
       post_url_format: '{slug}'
       authors_file: _data/authors.yml
-  - search
   - meta
   - optimize:
       enabled: !ENV [CI, false]
@@ -169,7 +159,7 @@ extra:
       name: Join our Discord
     - icon: fontawesome/regular/envelope
       link: 'mailto:slugsec@ucsc.edu'
-      name: Send us an email.
+      name: Send us an email
     - icon: fontawesome/brands/x-twitter
       link: https://twitter.com/SlugSec
       name: Follow us on Twitter
