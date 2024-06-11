@@ -7,3 +7,4 @@ mkdocs-open-in-new-tab
 mkdocs-add-teaser
 mkdocs-plotly-plugin
 mkdocs-rss-plugin
+mkdocs-glightbox
