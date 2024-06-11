@@ -11,3 +11,7 @@
 	--md-footer-bg-color--dark: #1F1F1F;
 	--md-default-bg-color: #121212;
 }
+
+.md-main__inner.md-grid {
+	max-width: 70rem;
+}
