@@ -191,3 +191,6 @@ extra_css:
   - _assets/css/custom-footer.css
   - _assets/css/blog-listing.css
   - _assets/css/extras.css
+
+hooks:
+  - src/_assets/hooks/images.py
