@@ -29,7 +29,3 @@ body[data-md-color-scheme="slate"] .md-post__content.md-typeset::after {
 body[data-md-color-scheme="default"] .md-post__content.md-typeset::after {
 	background: linear-gradient(to bottom, transparent, var(--md-primary-bg-color) 80%, transparent 80%);
 }
-
-.md-post__content img {
-	cursor: auto;
-}

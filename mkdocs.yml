@@ -13,7 +13,10 @@ nav:
   - Events: events.md
   - Home: index.md
   - Highlights: highlights.md
-  - About: about.md
+  - About:
+    - FAQs: about/faq.md
+    - Officers: about/officers.md
+    - Sponsors: about/sponsors.md
   - Join: join.md
 
 not_in_nav: |
@@ -59,6 +62,7 @@ plugins:
       post_dir: '{blog}/data'
       blog_toc: true
       pagination_if_single_page: true
+      pagination_per_page: 5
       post_url_format: '{slug}'
       authors_file: _data/authors.yml
   - blog:
@@ -66,6 +70,7 @@ plugins:
       post_dir: '{blog}/data'
       blog_toc: true
       pagination_if_single_page: true
+      pagination_per_page: 5
       post_url_format: '{slug}'
       authors_file: _data/authors.yml
   - meta
@@ -97,6 +102,10 @@ plugins:
       date_from_meta:
         as_creation: date.created
         as_update: date.updated
+  - glightbox:
+      draggable: false
+      auto_caption: true
+      caption_position: bottom
 
 markdown_extensions:
   - abbr
@@ -120,11 +129,6 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.keys
-  - pymdownx.magiclink:
-      normalize_issue_symbols: true
-      repo_url_shorthand: true
-      user: squidfunk
-      repo: mkdocs-material
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences:
@@ -185,9 +189,5 @@ extra_css:
   - _assets/css/extra-fonts.css
   - _assets/css/custom-header.css
   - _assets/css/custom-footer.css
-  - _assets/css/image-viewer.css
   - _assets/css/blog-listing.css
   - _assets/css/extras.css
-
-extra_javascript:
-  - _assets/js/image-viewer.js
