@@ -63,6 +63,7 @@ plugins:
       blog_toc: true
       pagination_if_single_page: true
       pagination_per_page: 5
+      post_excerpt_max_authors: 2
       post_url_format: '{slug}'
       authors_file: _data/authors.yml
   - blog:
@@ -71,6 +72,8 @@ plugins:
       blog_toc: true
       pagination_if_single_page: true
       pagination_per_page: 5
+      post_excerpt_max_authors: 2
+      authors_profiles: true
       post_url_format: '{slug}'
       authors_file: _data/authors.yml
   - meta
