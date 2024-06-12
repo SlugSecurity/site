@@ -39,7 +39,7 @@
 	color: var(--md-primary-fg-color--light);
 }
 
-.md-content a:hover {
+.md-content a:hover:not(.officer-card a) {
 	transition: filter 0.3s ease;
 	filter: brightness(80%);
 }

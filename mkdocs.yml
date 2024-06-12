@@ -128,6 +128,7 @@ plugins:
       include_yaml:
           - src/_data/sponsors.yml
           - src/_data/highlights.yml
+          - src/_data/officers.yml
 
 markdown_extensions:
   - abbr
@@ -215,6 +216,7 @@ extra_css:
   - _assets/css/extras.css
   - _assets/css/sponsors.css
   - _assets/css/highlights.css
+  - _assets/css/officers.css
 
 hooks:
   - src/_assets/hooks/images.py
