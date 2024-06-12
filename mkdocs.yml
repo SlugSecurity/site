@@ -109,6 +109,21 @@ plugins:
       draggable: false
       auto_caption: true
       caption_position: bottom
+  - redirects:
+      redirect_maps:
+        'discord.md': 'https://discord.gg/NUVZCumQXB'
+        'register.md': 'https://forms.gle/Ae97RjFZ8M2JJgF87'
+        '2021/11/CyberForce.md': 'posts/data/2021/cyberforce/index.md'
+        'posts/CyberForce-2021.md': 'posts/data/2021/cyberforce/index.md'
+        '2021/12/Codebreaker.md': 'posts/data/2021/codebreaker/index.md'
+        'posts/Codebreaker-2021.md': 'posts/data/2021/codebreaker/index.md'
+        '2022/11/CyberForce.md': 'posts/data/2022/cyberforce/index.md'
+        'posts/CyberForce-2022.md': 'posts/data/2022/cyberforce/index.md'
+        '2022/12/Codebreaker.md': 'posts/data/2022/codebreaker/index.md'
+        'posts/Codebreaker-2022.md': 'posts/data/2022/codebreaker/index.md'
+        '2023/04/eCTF.md': 'posts/data/2023/eCTF/index.md'
+        'posts/eCTF-2023.md': 'posts/data/2023/eCTF/index.md'
+        'posts/Laundry-2024.md': 'posts/data/2024/laundry/index.md'
 
 markdown_extensions:
   - abbr
