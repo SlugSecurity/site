@@ -28,21 +28,8 @@ tags:
 
 size: { width: 1200, height: 630 }
 layers:
-
-  # Site Name
-  - size: { width: 1100, height: 30 }
-    offset: { x: 50, y: 30 }
-    typography:
-      content: "{{ config.site_name }} - {{ config.site_description }}"
-      align: start
-      color: white
-      line:
-        amount: 1
-        height: 0.25
-      font:
-        family: JetBrains Mono
-        style: Bold
-
+  - background:
+        image: src/_assets/images/Social-Card-BG.png
   # Title
   - size: { width: 1100, height: 250 }
     offset: { x: 50, y: 60 }
@@ -67,7 +54,7 @@ layers:
         {%- endif -%}
       color: white
 
-  - size: { width: 400, height: 50 }
+  - size: { width: 800, height: 50 }
     offset: { x: 110, y: 310 }
     typography:
       content: >-
@@ -93,7 +80,7 @@ layers:
         {%- endif -%}
       color: white
 
-  - size: { width: 400, height: 50 }
+  - size: { width: 800, height: 50 }
     offset: { x: 110, y: 360 }
     typography:
       content: >-
@@ -109,8 +96,34 @@ layers:
         family: JetBrains Mono
         style: Regular
 
+  # Post Authors
+  - size: { width: 50, height: 50 }
+    offset: { x: 50, y: 410 }
+    icon:
+      value: >-
+        {%- if page.meta.authors -%}
+          material/account-multiple
+        {%- endif -%}
+      color: white
+
+  - size: { width: 800, height: 50 }
+    offset: { x: 110, y: 410 }
+    typography:
+      content: >-
+        {%- if page.meta.authors -%}
+          {{ page.meta.authors | join(', ') }}
+        {%- endif -%}
+      align: start
+      color: white
+      line:
+        amount: 1
+        height: 0.5
+      font:
+        family: JetBrains Mono
+        style: Regular
+
   # Description
-  - size: { width: 1100, height: 100 }
+  - size: { width: 1100, height: 130 }
     offset: { x: 50, y: 480 }
     typography:
       content: "{{ page.meta.description }}"
@@ -118,7 +131,7 @@ layers:
       color: white
       line:
         amount: 3
-        height: 0.75
+        height: 0.7
       font:
         family: JetBrains Mono
         style: Regular
