@@ -127,6 +127,7 @@ plugins:
   - macros:
       include_yaml:
           - src/_data/sponsors.yml
+          - src/_data/highlights.yml
 
 markdown_extensions:
   - abbr
@@ -213,6 +214,7 @@ extra_css:
   - _assets/css/blog-listing.css
   - _assets/css/extras.css
   - _assets/css/sponsors.css
+  - _assets/css/highlights.css
 
 hooks:
   - src/_assets/hooks/images.py
