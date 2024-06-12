@@ -31,6 +31,6 @@ body[data-md-color-scheme="default"] .md-post__content.md-typeset::after {
 }
 
 .md-post__content h2 {
-  font-family: 'PexicoMicro-Regular', system-ui, 'Roboto';
+	font-family: 'PexicoMicro-Regular', system-ui, 'Roboto';
 	text-transform: uppercase;
 }
