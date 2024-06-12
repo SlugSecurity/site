@@ -14,7 +14,7 @@ nav:
   - Home: index.md
   - Highlights: highlights.md
   - About:
-    - FAQs: about/faq.md
+    - FAQs: about/faqs.md
     - Officers: about/officers.md
     - Sponsors: about/sponsors.md
   - Join: join.md
@@ -124,6 +124,9 @@ plugins:
         '2023/04/eCTF.md': 'posts/data/2023/eCTF/index.md'
         'posts/eCTF-2023.md': 'posts/data/2023/eCTF/index.md'
         'posts/Laundry-2024.md': 'posts/data/2024/laundry/index.md'
+  - macros:
+      include_yaml:
+          - src/_data/sponsors.yml
 
 markdown_extensions:
   - abbr
@@ -209,6 +212,7 @@ extra_css:
   - _assets/css/custom-footer.css
   - _assets/css/blog-listing.css
   - _assets/css/extras.css
+  - _assets/css/sponsors.css
 
 hooks:
   - src/_assets/hooks/images.py
