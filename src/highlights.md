@@ -37,28 +37,28 @@ Curious about what we've been up to? Here are some of our highlights that showca
 </div>
 {% endmacro %}
 
-### 2024
+## 2024
 <div class="highlight-container">
 	{% for highlight in highlights['2024'] %}
 		{{ render_highlight_card(highlight) }}
 	{% endfor %}
 </div>
 
-### 2023
+## 2023
 <div class="highlight-container">
 	{% for highlight in highlights['2023'] %}
 		{{ render_highlight_card(highlight) }}
 	{% endfor %}
 </div>
 
-### 2022
+## 2022
 <div class="highlight-container">
 	{% for highlight in highlights['2022'] %}
 		{{ render_highlight_card(highlight) }}
 	{% endfor %}
 </div>
 
-### 2021
+## 2021
 <div class="highlight-container">
 	{% for highlight in highlights['2021'] %}
 		{{ render_highlight_card(highlight) }}

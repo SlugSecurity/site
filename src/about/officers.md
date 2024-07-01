@@ -45,28 +45,28 @@ Want to know the people making it all happen at Slug Security? See our current o
 </div>
 {% endmacro %}
 
-### Executive
+## Executive
 <div class="officer-container">
 	{% for officer in officers.Administration %}
 		{{ render_officer_card(officer) }}
 	{% endfor %}
 </div>
 
-### Operations
+## Operations
 <div class="officer-container">
 	{% for officer in officers.Operations %}
 		{{ render_officer_card(officer) }}
 	{% endfor %}
 </div>
 
-### Outreach & Finance
+## Outreach & Finance
 <div class="officer-container">
 	{% for officer in officers['Outreach & Finance'] %}
 		{{ render_officer_card(officer) }}
 	{% endfor %}
 </div>
 
-### Alumni
+## Alumni
 <div class="officer-container">
 	{% for officer in officers.Alumni %}
 		{{ render_officer_card(officer) }}
