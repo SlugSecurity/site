@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+
+{% block container %}
+<div class="md-content" data-md-component="content">
+	<div class="md-content__inner">
+		<header class="md-typeset">
+			{{ page.content }}
+		</header>
+
+		<div class="two-column-layout">
+			<div class="column">
+				<h3 class="section-title centered">Recent Posts</h3>
+
+				{% for post in posts[:3] %}
+					{% include "partials/post-excerpt.html" %}
+				{% endfor %}
+				<a class="c_post_button c_post_button_clickable centered" href="/posts">More Posts</a>
+			</div>
+
+			<div class="column">
+				<h3 class="section-title centered">Recent Writeups</h3>
+
+				{% for post in writeups[:3] %}
+					{% include "partials/post-excerpt.html" %}
+				{% endfor %}
+				<a class="c_post_button c_post_button_clickable centered" href="/writeups">More Writeups</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

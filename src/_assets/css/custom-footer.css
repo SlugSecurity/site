@@ -1,0 +1,22 @@
+.md-footer-meta__inner {
+	flex-direction: column;
+	align-items: center;
+}
+
+.md-social {
+	padding-top: .15rem;
+	padding-bottom: .15rem;
+}
+
+.md-copyright,
+.md-footer-msg {
+	color: var(--md-footer-fg-color--light);
+	font-size: .4rem;
+
+}
+
+.md-copyright {
+	padding-top: 0;
+	padding-bottom: 0;
+	width: auto;
+}

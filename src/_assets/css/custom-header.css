@@ -1,0 +1,76 @@
+@media screen and (min-width: 76em) {
+	.md-header__title {
+		display: none;
+	}
+}
+
+.md-tabs__link.md-tabs__link--banner,
+.md-header__topic span,
+.md-sidebar--primary .md-nav .md-nav__title {
+	font-family: 'Hacked', system-ui, 'Roboto';
+	text-transform: uppercase;
+	font-size: 2em;
+}
+
+.md-tabs__link.md-tabs__link--banner {
+	text-align: center;
+	font-size: 4em;
+	line-height: 0.8;
+}
+
+.md-tabs {
+	background-color: transparent;
+	display: flex;
+	justify-content: center;
+}
+
+.md-tabs__link:hover:not(.md-tabs__link--banner):not(.md-tabs__link--button) {
+	color: var(--md-accent-fg-color);
+}
+
+.md-tabs__link:hover {
+	
+}
+
+@media screen and (max-width: 76em) {
+	.md-tabs {
+		display: none;
+	}
+}
+
+.md-tabs__list {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.md-tabs__item {
+	height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.md-tabs__item--active .md-tabs__link:not(.md-tabs__link--banner):not(.md-tabs__link--button) {
+	text-decoration: underline;
+	text-underline-position: under;
+	color: var(--md-accent-fg-color);
+}
+
+.md-tabs__item--active .md-tabs__link.md-tabs__link--button {
+	text-decoration: underline;
+	text-underline-position: under;
+}
+
+.md-tabs a {
+	font-family: 'PexicoMicro-Regular', system-ui, 'Roboto';
+	text-transform: uppercase;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+	font-size: 1.8em;
+}
+
+.md-tabs__link--button {
+	background-color: var(--md-accent-fg-color);
+	padding: 0.5em 0.5em;
+}

@@ -1,36 +1,41 @@
 ---
-layout: article
-aside:
-  toc: true
-title: Frequently Asked Questions
-show_title: false
-permalink: /about/faqs
+title: FAQs
 ---
 
-### How to Become a Member
-You can become a member by joining [our Discord server](/discord) and attending any workshops you find interesting. To speed up your registration process during competitions, please see our [join page](/join).
+## Who We Are
+Slug Security is a student organization at the University of California, Santa Cruz, dedicated to fostering a community of people who are passionate about cybersecurity. If you've ever thought of taking something apart to see how it works, or you've thought about outsmarting a system to do something it wasn't designed to do, then you're in the right place.
 
-### When Are Meetings
-See upcoming events and meetings on our [events page](/events). All workshop resources and practice challenges will be accessible online.
+## What We Do
+Think workshops, social gatherings, and some serious (but fun) competitions. Most of our events are held online (what would hacking be without the internet?), but we also have some in-person events, those being held at the Baskin School of Engineering. See [our events page](/src/events.md) for more information on what we have planned.
 
-### What Happens at a Meeting
-When we do host a meeting, it is usually centered on a central idea or topic, such as reverse engineering. A single speaker will typically prepare slides and a demonstration of the topic, going over the fundamentals and any prerequisites. Throughout the workshop, we will take breaks to allow you to practice the new skills you learned by completing [short challenges](./faqs#what-is-a-ctf-competition) to see how well you understand them (this also helps us know if we're going too fast or too slow), such as obtaining a password from a password-protected file. Workshops are open to discussion and questions, so if you're curious about why something happened or what key was pressed to bring up that screen, just ask!
+For specifics, heres what we mainly do:
 
-### What Is a CTF Competition
+- **Projects**: Projects on various things security, from creating CTFs, to web-development, to hardware hacking.
+	- Student-led & team based
+	- Full support from the club
+- **Competitions**: Participate in various competitions, such as CTFs, Hackathons, and more.
+	- Individual or team based
+	- Hands-on hacking experience
+	- Travel opportunities
+- **Practice**: Weekly meetings to practice and learn new skills.
+	- Workshops
+	- Capture the Flag (CTF) practice
+	- Guest speakers
+
+## How to Get Involved
+It's easy to get involved, we have no set commitment requirements. Just show up to our events and participate in our activities. If you're interested in joining, please visit our [join](/src/join.md) page for more information.
+
+## What Is a CTF Competition
 *Capture The Flags, or CTFs, are a kind of computer security competition. Teams of competitors (or just individuals) are pitted against each other in a test of computer security skills.*
 
-<div>{%- include extensions/youtube.html id='8ev9ZX9J45A' title='What is CTF? An introduction to security Capture The Flag competitions' -%}</div>
+<div style="position: relative; padding-bottom: 56.25%; height: 0;">
+	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/8ev9ZX9J45A" frameborder="0" allowfullscreen></iframe>
+</div>
 
 More information can be found at [CTFd's "What's a CTF?"](https://ctfd.io/whats-a-ctf/).
 
-### I'm Not a CS Major
+## I'm Not a CS Major
 No worries! We gladly welcome anyone interested in learning about computer security, regardless of their major. In fact, we have an economics major on our CTF team!
 
-### Topics We Cover
+## Topics We Cover
 Our club explores a diverse array of cybersecurity topics, such as web security, reverse engineering, cryptography, forensics, and beyond. We design our workshops and events to be both informative and engaging while addressing fundamental and advanced subjects to cater to various skill levels.
-
-### Who Runs the Club?
-You can find out more about the people who run the club on the [officers](./officers) page.
-
-### Additional Questions?
-For any further inquiries, feel free to reach out on [our Discord server](/discord) or contact us through the media platforms found on the bottom of any page.

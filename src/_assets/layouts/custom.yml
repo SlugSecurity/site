@@ -1,0 +1,137 @@
+definitions:
+  - &page_title_with_site_name >-
+    {%- if not page.is_homepage -%}
+      {{ page.meta.get("title", page.title) }} - {{ config.site_name }}
+    {%- else -%}
+      {{ page.meta.get("title", page.title) }}
+    {%- endif -%}
+
+  - &page_description >-
+    {{ page.meta.get("description", config.site_description) or "" }}
+
+tags:
+  # Open Graph
+  og:type: website
+  og:title: *page_title_with_site_name
+  og:description: *page_description
+  og:image: "{{ image.url }}"
+  og:image:type: "{{ image.type }}"
+  og:image:width: "{{ image.width }}"
+  og:image:height: "{{ image.height }}"
+  og:url: "{{ page.canonical_url }}"
+
+  # Twitter
+  twitter:card: summary_large_image
+  twitter:title: *page_title_with_site_name
+  twitter:description: *page_description
+  twitter:image: "{{ image.url }}"
+
+size: { width: 1200, height: 630 }
+layers:
+  - background:
+        image: src/_assets/images/Social-Card-BG.png
+  # Title
+  - size: { width: 1100, height: 250 }
+    offset: { x: 50, y: 60 }
+    typography:
+      content: "{{ page.title }}"
+      align: start top
+      color: white
+      line:
+        amount: 2
+        height: 1.25
+      font:
+        family: JetBrains Mono
+        style: Bold
+
+  # Post Tags
+  - size: { width: 50, height: 50 }
+    offset: { x: 50, y: 310 }
+    icon:
+      value: >-
+        {%- if page.meta.categories -%}
+          material/tag-text
+        {%- endif -%}
+      color: white
+
+  - size: { width: 800, height: 50 }
+    offset: { x: 110, y: 310 }
+    typography:
+      content: >-
+        {%- if page.meta.categories -%}
+          {{ page.meta.categories | join(', ') }}
+        {%- endif -%}
+      align: start
+      color: white
+      line:
+        amount: 1
+        height: 0.5
+      font:
+        family: JetBrains Mono
+        style: Regular
+
+  # Post Date
+  - size: { width: 50, height: 50 }
+    offset: { x: 50, y: 360 }
+    icon:
+      value: >-
+        {%- if page.meta.date -%}
+          material/calendar
+        {%- endif -%}
+      color: white
+
+  - size: { width: 800, height: 50 }
+    offset: { x: 110, y: 360 }
+    typography:
+      content: >-
+        {%- if page.meta.date -%}
+          {{ page.meta.date.strftime('%b %-d, %Y') }}
+        {%- endif -%}
+      align: start
+      color: white
+      line:
+        amount: 1
+        height: 0.5
+      font:
+        family: JetBrains Mono
+        style: Regular
+
+  # Post Authors
+  - size: { width: 50, height: 50 }
+    offset: { x: 50, y: 410 }
+    icon:
+      value: >-
+        {%- if page.meta.authors -%}
+          material/account-multiple
+        {%- endif -%}
+      color: white
+
+  - size: { width: 800, height: 50 }
+    offset: { x: 110, y: 410 }
+    typography:
+      content: >-
+        {%- if page.meta.authors -%}
+          {{ page.meta.authors | join(', ') }}
+        {%- endif -%}
+      align: start
+      color: white
+      line:
+        amount: 1
+        height: 0.5
+      font:
+        family: JetBrains Mono
+        style: Regular
+
+  # Description
+  - size: { width: 1100, height: 130 }
+    offset: { x: 50, y: 480 }
+    typography:
+      content: "{{ page.meta.description }}"
+      align: start
+      color: white
+      line:
+        amount: 3
+        height: 0.7
+      font:
+        family: JetBrains Mono
+        style: Regular

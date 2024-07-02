@@ -1,3 +1,11 @@
-fbad:
-  name: fbad
-  url: https://fbad.me
+authors:
+  fbad:
+    name: fbad
+    description: leader of the cybermob
+    avatar: /_assets/images/authors/fbad.png
+    url: https://fbad.me
+  cabalex:
+    name: cabalex
+    description: dev tools power user
+    avatar: /_assets/images/authors/cabalex.png
+    url: https://cabalex.github.io

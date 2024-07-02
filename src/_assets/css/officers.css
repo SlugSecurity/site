@@ -1,0 +1,99 @@
+.officer-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: stretch;
+	margin-left: -0.5rem;
+	margin-right: -0.5rem;
+}
+
+.officer-card {
+	flex: 0 1 calc(50% - 1rem);
+	display: flex;
+	flex-direction: column;
+	margin: 0.5rem;
+	min-height: 100px;
+	max-width: calc(50% - 1rem);
+	background-color: var(--md-primary-fg-color);
+	border-radius: 15px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	padding: 10px;
+	overflow: hidden;
+}
+
+.officer-card .card-top {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	min-height: 100px;
+}
+
+.officer-card .card-top .officer-image {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	margin-right: 20px;
+}
+
+.officer-card .card-top .officer-info {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	line-height: 1.2;
+}
+
+.officer-card .card-top .officer-info .officer-title,
+.officer-card .card-top .officer-info .officer-name,
+.officer-card .card-top .officer-info .officer-handle {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin: 0;
+	font-size: medium;
+}
+
+.officer-card .card-top .officer-info .officer-title {
+	font-weight: bold;
+	font-family: 'PexicoMicro-Regular', system-ui, 'Roboto';
+	text-transform: uppercase;
+	color: var(--md-accent-fg-color);
+}
+
+.officer-card .card-top .officer-info .officer-name {
+	font-size: x-large;
+}
+
+.officer-card .card-top .officer-info .officer-handle {
+	color: var(--md-default-fg-color--light);
+	text-transform: lowercase;
+}
+
+.officer-card .card-top .social-links {
+	display: flex;
+	padding-top: 5px;
+}
+
+.officer-card .card-top .social-links a {
+	margin-right: 10px;
+	color: var(--md-footer-fg-color--light)
+}
+
+.officer-card .card-top .social-links a:hover {
+	color: var(--md-footer-fg-color);
+}
+
+.officer-card .officer-description {
+	margin-top: 10px;
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin-bottom: 0;
+	font-size: medium;
+}
+
+@media (max-width: 1400px) {
+	.officer-card {
+		flex: 1 1 calc(100% - 1rem);
+		max-width: calc(100% - 1rem);
+	}
+}

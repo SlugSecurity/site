@@ -1,168 +1,169 @@
-Template:
-- Name: # Name
-  Title: # Officer Title (max 30 chars; to be filled out by execs)
-  Handle: # Handle
-  Description: # Officer Description (suggested 150 chars; max 200)
-  Image: # Image to be displayed (1:1 aspect; doesnt need to be a real photo)
+officers:
+  Template:
+    - Name: # Name
+      Title: # Officer Title (max 30 chars; to be filled out by execs)
+      Handle: # Handle
+      Description: # Officer Description (suggested 150 chars; max 200)
+      Image: # Image to be displayed (1:1 aspect; doesnt need to be a real photo)
 
-  Website: # Personal Website (optional)
-  LinkedIn: # LinkedIn Username (optional)
-  GitHub: # GitHub Username (optional)
-  Twitter: # Twitter Username (optional)
+      Website: # Personal Website (optional)
+      LinkedIn: # LinkedIn Username (optional)
+      GitHub: # GitHub Username (optional)
+      Twitter: # Twitter Username (optional)
 
-Administration:
-  - Name: Ex Taranenko
-    Title: President & Founder
-    Handle: fbad
-    Description: Dual undergraduate computer engineering and cybersecurity student. Interested in vulnerability analysis, reverse engineering, and cybersecurity education. Vice President '22-24.
-    Image: /assets/images/officers/fbad.png
+  Administration:
+    - Name: Ex Taranenko
+      Title: President & Founder
+      Handle: fbad
+      Description: Dual undergraduate computer engineering and cybersecurity student. Interested in vulnerability analysis, reverse engineering, and cybersecurity education. Vice President '22-24.
+      Image: /_assets/images/officers/fbad.png
 
-    Website: https://fbad.me
-    LinkedIn:
-    GitHub: '0xfbad'
-    Twitter:
+      Website: https://fbad.me
+      LinkedIn:
+      GitHub: '0xfbad'
+      Twitter:
 
-  - Name: Jaden P. Maxwell-Comfort
-    Title: Vice President & Head of Infra
-    Handle: maxwell
-    Description: Undergraduate Computer Science student, Cybersecurity Researcher, and Programmer. Main focuses include malware analysis, incident response, and Emacs.
-    Image: /assets/images/officers/maxwell.png
+    - Name: Jaden P. Maxwell-Comfort
+      Title: Vice President & Head of Infra
+      Handle: maxwell
+      Description: Undergraduate Computer Science student, Cybersecurity Researcher, and Programmer. Main focuses include malware analysis, incident response, and Emacs.
+      Image: /_assets/images/officers/maxwell.png
 
-    Website: https://randomctf.com
-    LinkedIn: jaden-provost-maxwell-comfort-09a54718a
-    GitHub: Random936
-    Twitter:
+      Website: https://randomctf.com
+      LinkedIn: jaden-provost-maxwell-comfort-09a54718a
+      GitHub: Random936
+      Twitter:
 
-  - Name: Rudy Chavez
-    Title: Head of Outreach
-    Handle: rudy.chavez
-    Description: Interested in social engineering and cryptography, feel free to talk to me about project ideas and software.
-    Image: /assets/images/officers/rudy.chavez.png
+    - Name: Rudy Chavez
+      Title: Head of Outreach
+      Handle: rudy.chavez
+      Description: Interested in social engineering and cryptography, feel free to talk to me about project ideas and software.
+      Image: /_assets/images/officers/rudy.chavez.png
 
-    Website:
-    LinkedIn:
-    GitHub: rudedude2015501
-    Twitter:
+      Website:
+      LinkedIn:
+      GitHub: rudedude2015501
+      Twitter:
 
-  - Name: Nancy Lau
-    Title: Graduate Advisor & Founder
-    Handle: rose
-    Description: Formerly President (2022-24). CSE graduate student, interested in hardware security and AI.
-    Image: /assets/images/officers/rose.png
+    - Name: Nancy Lau
+      Title: Graduate Advisor & Founder
+      Handle: rose
+      Description: Formerly President (2022-24). CSE graduate student, interested in hardware security and AI.
+      Image: /_assets/images/officers/rose.png
 
-    Website: https://www.catgirl.ing/
-    LinkedIn:
-    GitHub: nancyjlau
-    Twitter: nachoyawn
+      Website: https://www.catgirl.ing/
+      LinkedIn:
+      GitHub: nancyjlau
+      Twitter: nachoyawn
 
-  - Name: Alvaro A. Cardenas
-    Title: Founding Faculty Advisor
-    Handle: chibchachum
-    Description: Alvaro A. Cardenas is an Associate Professor of Computer Science and Engineering at the University of California, Santa Cruz.
-    Image: /assets/images/officers/chibchachum.png
+    - Name: Alvaro A. Cardenas
+      Title: Founding Faculty Advisor
+      Handle: chibchachum
+      Description: Alvaro A. Cardenas is an Associate Professor of Computer Science and Engineering at the University of California, Santa Cruz.
+      Image: /_assets/images/officers/chibchachum.png
 
-    Website: https://users.soe.ucsc.edu/~alacarde/index.php
-    LinkedIn:
-    GitHub:
-    Twitter:
+      Website: https://users.soe.ucsc.edu/~alacarde/index.php
+      LinkedIn:
+      GitHub:
+      Twitter:
 
-Operations:
-  - Name: Dmitry Pleshkov
-    Title: Operations & Finance
-    Handle: dankdmitron
-    Description: Computer Science student, interested in computer architecture, operating systems, and embedded development. Likes securing and optimizing code.
-    Image: /assets/images/officers/dankdmitron.png
+  Operations:
+    - Name: Dmitry Pleshkov
+      Title: Operations & Finance
+      Handle: dankdmitron
+      Description: Computer Science student, interested in computer architecture, operating systems, and embedded development. Likes securing and optimizing code.
+      Image: /_assets/images/officers/dankdmitron.png
 
-    Website: https://pleshkov.dev
-    LinkedIn: dmpleshkov
-    GitHub: dpleshkov
-    Twitter: dankdmitron
+      Website: https://pleshkov.dev
+      LinkedIn: dmpleshkov
+      GitHub: dpleshkov
+      Twitter: dankdmitron
 
-  - Name: Peter Dobbins
-    Title: Operations
-    Handle: sixteen4
-    Description: 'Undergraduate in Computer Science: Game Design who is passionate about programming, software security, cryptography, system and network infrastructure, and game development.'
-    Image: /assets/images/officers/sixteen4.png
+    - Name: Peter Dobbins
+      Title: Operations
+      Handle: sixteen4
+      Description: 'Undergraduate in Computer Science: Game Design who is passionate about programming, software security, cryptography, system and network infrastructure, and game development.'
+      Image: /_assets/images/officers/sixteen4.png
 
-    Website: https://sixteen4.com
-    LinkedIn: sixteen4
-    GitHub:
-    Twitter:
+      Website: https://sixteen4.com
+      LinkedIn: sixteen4
+      GitHub:
+      Twitter:
 
-Outreach & Finance:
-  - Name: Ian Phan
-    Title: Student Outreach
-    Handle: heythatsillegal
-    Description: Current Cognitive Science student, interested in applied cog and dev psych, education and learning technologies, human factors engineering, and social engineering. Busy teaching new hackers at the moment!!
-    Image: /assets/images/officers/heythatsillegal.png
+  Outreach & Finance:
+    - Name: Ian Phan
+      Title: Student Outreach
+      Handle: heythatsillegal
+      Description: Current Cognitive Science student, interested in applied cog and dev psych, education and learning technologies, human factors engineering, and social engineering. Busy teaching new hackers at the moment!!
+      Image: /_assets/images/officers/heythatsillegal.png
 
-    Website: https://sites.google.com/view/ianphan/home
-    LinkedIn: ian-phan
-    GitHub:
-    Twitter:
+      Website: https://sites.google.com/view/ianphan/home
+      LinkedIn: ian-phan
+      GitHub:
+      Twitter:
 
-  - Name: Julian Barbera
-    Title: External Outreach
-    Handle: fish
-    Description: Electrical Engineering undergrad... Embedded development and hardware security fan. I use arch btw
-    Image: /assets/images/officers/fish.png
+    - Name: Julian Barbera
+      Title: External Outreach
+      Handle: fish
+      Description: Electrical Engineering undergrad... Embedded development and hardware security fan. I use arch btw
+      Image: /_assets/images/officers/fish.png
 
-    Website:
-    LinkedIn: JulianBarbera
-    GitHub: JulianBarbera
-    Twitter:
+      Website:
+      LinkedIn: JulianBarbera
+      GitHub: JulianBarbera
+      Twitter:
 
-  - Name: Dominick Rangel
-    Title: External Outreach
-    Handle: '1229.'
-    Description: Applied Math & Cog Sci 4th year interested in applied cryptography and ECC
-    Image: /assets/images/officers/1229.png
-    Website:
-    LinkedIn: dominick-rangel-93004b205
-    GitHub: DCR-03
-    Twitter:
+    - Name: Dominick Rangel
+      Title: External Outreach
+      Handle: '1229.'
+      Description: Applied Math & Cog Sci 4th year interested in applied cryptography and ECC
+      Image: /_assets/images/officers/1229.png
+      Website:
+      LinkedIn: dominick-rangel-93004b205
+      GitHub: DCR-03
+      Twitter:
 
-  - Name: Kevin Sun
-    Title: Finance
-    Handle: risingsuntzu
-    Description: Computer Science and Bioinformatics student, interested in cybersecurity, biotechnology, and data science. Passionate tutor, and loves a good philosophical question.
-    Image: /assets/images/officers/risingsuntzu.png
+    - Name: Kevin Sun
+      Title: Finance
+      Handle: risingsuntzu
+      Description: Computer Science and Bioinformatics student, interested in cybersecurity, biotechnology, and data science. Passionate tutor, and loves a good philosophical question.
+      Image: /_assets/images/officers/risingsuntzu.png
 
-    Website:
-    LinkedIn: kevin-i-sun
-    GitHub: KevinISun
-    Twitter:
+      Website:
+      LinkedIn: kevin-i-sun
+      GitHub: KevinISun
+      Twitter:
 
-Alumni:
-  - Name: Brian Mak
-    Title: Operations & Head of Infra
-    Handle: asian.eggroll
-    Description: Interested in cybersecurity and systems programming, with a proven track record in numerous cybersecurity competitions. Led the '23 & '24 UCSC eCTF team. UCSC '24.
-    Image: /assets/images/officers/asian.eggroll.png
+  Alumni:
+    - Name: Brian Mak
+      Title: Operations & Head of Infra
+      Handle: asian.eggroll
+      Description: Interested in cybersecurity and systems programming, with a proven track record in numerous cybersecurity competitions. Led the '23 & '24 UCSC eCTF team. UCSC '24.
+      Image: /_assets/images/officers/asian.eggroll.png
 
-    Website: https://bmak.me/
-    LinkedIn: brian-mak
-    GitHub: eggroll-bot
-    Twitter:
+      Website: https://bmak.me/
+      LinkedIn: brian-mak
+      GitHub: eggroll-bot
+      Twitter:
 
-  - Name: Jeffrey Zhang
-    Title: Operations
-    Handle: ferns.1115
-    Description: not fish. UCSC '23.
-    Image: /assets/images/officers/ferns.png
+    - Name: Jeffrey Zhang
+      Title: Operations
+      Handle: ferns.1115
+      Description: not fish. UCSC '23.
+      Image: /_assets/images/officers/ferns.png
 
-    Website:
-    LinkedIn:
-    GitHub: jzhan357
-    Twitter:
+      Website:
+      LinkedIn:
+      GitHub: jzhan357
+      Twitter:
 
-  - Name: Jackson Kohls
-    Title: Finance
-    Handle: jdkohls
-    Description: Math/Econ double major who fell into the joys of cybersecurity and CTFs. UCSC '23.
-    Image: /assets/images/officers/jdkohls.png
+    - Name: Jackson Kohls
+      Title: Finance
+      Handle: jdkohls
+      Description: Math/Econ double major who fell into the joys of cybersecurity and CTFs. UCSC '23.
+      Image: /_assets/images/officers/jdkohls.png
 
-    Website:
-    LinkedIn: jackson-d-kohls
-    GitHub: Jdkohls
-    Twitter:
+      Website:
+      LinkedIn: jackson-d-kohls
+      GitHub: Jdkohls
+      Twitter:
