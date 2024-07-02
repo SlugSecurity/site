@@ -9,3 +9,4 @@ mkdocs-plotly-plugin
 mkdocs-rss-plugin
 mkdocs-glightbox
 mkdocs-redirects
+mkdocs-macros-plugin
