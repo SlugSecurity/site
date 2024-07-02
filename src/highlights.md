@@ -4,7 +4,7 @@ hide:
   - navigation
 ---
 
-Curious about what we've been up to? Here are some of our highlights that showcase our achievements and activities. Wanna learn more about us? Check out our [Frequently Asked Questions](about/faqs.md) or learn how you can [join Slug Security](join.md)!
+Curious about what we've been up to? Here are some of our highlights that showcase our achievements and activities. Wanna learn more about us? Check out our [Frequently Asked Questions](/about/faqs) or learn how you can [join Slug Security](/join)!
 
 {% macro render_highlight_card(highlight) %}
 <div class="highlight-card">
