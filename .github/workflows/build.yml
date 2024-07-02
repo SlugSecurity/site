@@ -1,4 +1,3 @@
-
 name: Build MkDocs
 on:
   push:
@@ -32,8 +31,9 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: sudo apt install pngquant
+      - run: pip install lxml
       - run: pip install git+https://${GH_TOKEN}@github.com/0xfbad/framework.git
       - run: pip install -r requirements.txt
-      - run: mkdocs gh-deploy --force
+      - run: mkdocs gh-deploy --force || true
 env:
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
