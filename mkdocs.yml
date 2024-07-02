@@ -78,7 +78,7 @@ plugins:
       authors_file: _data/authors.yml
   - meta
   - optimize:
-      enabled: !ENV [CI, false]
+      enabled: false #!ENV [CI, false]
   - typeset
   - kroki
   - inline-svg:

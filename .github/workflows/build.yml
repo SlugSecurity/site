@@ -31,9 +31,8 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: sudo apt install pngquant
-      - run: pip install lxml
       - run: pip install git+https://${GH_TOKEN}@github.com/0xfbad/framework.git
       - run: pip install -r requirements.txt
-      - run: mkdocs gh-deploy --force || true
+      - run: mkdocs gh-deploy --force
 env:
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
