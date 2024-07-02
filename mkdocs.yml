@@ -217,6 +217,8 @@ extra_css:
   - _assets/css/sponsors.css
   - _assets/css/highlights.css
   - _assets/css/officers.css
+  - _assets/css/home.css
 
 hooks:
   - src/_assets/hooks/images.py
+  - src/_assets/hooks/blog_context.py
