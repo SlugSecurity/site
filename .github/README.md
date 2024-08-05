@@ -21,6 +21,12 @@ sudo apt install pngquant libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev 
 ```
 
 ## Development
+Given the few submodules for posts and writeups, clone those
+```
+git submodule update --init --recursive
+```
+Since posts and writeups are submodules, in order to contribute to those sections, you will need to git push the changes from those directories - not the root directory here as this project auto pulls new submodule changes.
+
 Serve site locally
 ```shell
 python -m mkdocs serve
