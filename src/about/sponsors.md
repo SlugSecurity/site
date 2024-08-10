@@ -1,5 +1,6 @@
 ---
 title: Sponsors
+glightbox: false
 ---
 
 ## Why Sponsor?
