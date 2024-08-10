@@ -6,12 +6,31 @@ hide:
   - toc
 blog_context: true
 template: home.html
+glightbox: false
 ---
 
-## Welcome to Slug Security
-Welcome to Slug Security, the UC Santa Cruz cybersecurity club! We offer a fun and inclusive environment for anyone interested in hacking, cybersecurity, or programming. Whether you're a seasoned pro or just starting out, we welcome students from diverse backgrounds and skill levels to join us for workshops, talks, competitions, and more.
+<div class="splash-container">
+    <img src="_assets/logo.png" alt="Slug Security Logo">
+    <div class="splash-info">
+        <h1>
+            Hack The World
+        </h1>
+        <p class="splash-information">
+            The student-ran cybersecurity organization at the University of California, Santa Cruz.
+            <br>
+            Focused on learning, practicing, and having fun with hacking.
+        </p>
+        <p>Ready to become a hacker?</p>
+        <a class="md-button md-button--primary" href="/join" style="margin-bottom:10px;">
+            Join Slug Security
+        </a>
+        <a class="md-button" href="/about/faqs">
+            Learn More
+        </a>
+    </div>
+</div>
 
 ## Meeting Times and Locations
 See upcoming events and meetings on our [events](/events) page. We host a variety of different events, including workshops, casual hack and chill sessions, and CTF working sessions. Wanna learn more about what we do? Check out our [FAQs](/about/faqs) page.
 
-## Recent Activity
+***

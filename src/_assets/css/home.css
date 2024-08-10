@@ -1,3 +1,38 @@
+.splash-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    padding-right: 30px;
+    padding-left: 30px;
+    flex-wrap: wrap
+}
+
+.splash-container img {
+    width: 20%;
+    max-width: 600px;
+    height: auto;
+    order: 2;
+}
+
+@media (max-width: 870px) {
+    .splash-container img {
+        display: none;
+  }
+}
+
+.splash-container h1 {
+    font-family: 'Hacked', system-ui, 'Roboto';
+    text-transform: uppercase;
+    font-size: 3em;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    color: inherit;
+}
+
+.splash-information {
+    margin-top: 10px;
+}
+
 .two-column-layout {
 	display: flex;
 	gap: 1rem;
