@@ -48,6 +48,7 @@ theme:
     - content.code.copy
     - content.tooltips
     - toc.follow
+    - announce.dismiss
   palette:
     - scheme: slate
       primary: deep orange
@@ -113,6 +114,7 @@ plugins:
       redirect_maps:
         'discord.md': 'https://discord.gg/NUVZCumQXB'
         'register.md': 'https://forms.gle/Ae97RjFZ8M2JJgF87'
+        'interest.md': 'https://forms.gle/7qS1jBXrgfiajckp7'
         '2021/11/CyberForce.md': 'posts/data/2021/cyberforce/index.md'
         'posts/CyberForce-2021.md': 'posts/data/2021/cyberforce/index.md'
         '2021/12/Codebreaker.md': 'posts/data/2021/codebreaker/index.md'
