@@ -123,17 +123,6 @@ officers:
       GitHub: DCR-03
       Twitter:
 
-    - Name: Kevin Sun
-      Title: Finance
-      Handle: risingsuntzu
-      Description: Computer Science and Bioinformatics student, interested in cybersecurity, biotechnology, and data science. Passionate tutor, and loves a good philosophical question.
-      Image: /_assets/images/officers/risingsuntzu.png
-
-      Website:
-      LinkedIn: kevin-i-sun
-      GitHub: KevinISun
-      Twitter:
-
   Alumni:
     - Name: Brian Mak
       Title: Operations & Head of Infra
