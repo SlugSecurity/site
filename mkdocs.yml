@@ -58,6 +58,8 @@ plugins:
   - git-revision-date-localized:
       type: timeago
       enable_creation_date: true
+      exclude:
+        - events.md
   - blog:
       blog_dir: posts
       post_dir: '{blog}/data'
