@@ -87,7 +87,7 @@
 	font-family: 'PexicoMicro-Regular', system-ui, 'Roboto';
 	text-transform: uppercase;
 	color: var(--md-accent-fg-color);
-	font-size: small;
+	font-size: medium;
 }
 
 .highlight-card .card-top .highlight-info .highlight-name {
@@ -102,7 +102,7 @@
 
 .highlight-card .highlight-details {
 	text-align: center;
-	font-size: small;
+	font-size: medium;
 }
 
 .highlight-card .highlight-details .highlight-link.no-link {
