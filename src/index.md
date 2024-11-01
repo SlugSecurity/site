@@ -16,9 +16,9 @@ glightbox: false
             Hack The World
         </h1>
         <p class="splash-information">
-            The student-ran cybersecurity organization at the University of California, Santa Cruz.
+            The student-run cybersecurity organization at UC Santa Cruz.
             <br>
-            Focused on learning, practicing, and having fun with hacking.
+            For hackers, by hackers: learning, building, and never quiet.
         </p>
         <p>Ready to become a hacker?</p>
         <a class="md-button md-button--primary" href="/join" style="margin-bottom:10px;">
