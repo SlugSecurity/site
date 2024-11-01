@@ -22,15 +22,14 @@
 	pointer-events: none;
 }
 
-body[data-md-color-scheme="slate"] .md-post__content.md-typeset::after {
-	background: linear-gradient(to bottom, transparent, var(--md-default-bg-color) 80%, transparent 80%);
-}
-
-body[data-md-color-scheme="default"] .md-post__content.md-typeset::after {
-	background: linear-gradient(to bottom, transparent, var(--md-primary-bg-color) 80%, transparent 80%);
-}
-
 .md-post__content h2 {
 	font-family: 'PexicoMicro-Regular', system-ui, 'Roboto';
 	text-transform: uppercase;
+}
+
+
+.md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav__link,
+.md-nav--secondary .md-nav__title {
+  background: none;
+  box-shadow: none;
 }
