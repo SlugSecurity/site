@@ -8,8 +8,13 @@
 
 [data-md-color-scheme="slate"] {
 	--md-primary-fg-color: #1F1F1F;
+  --md-primary-fg-color--light: #77767B;
 	--md-footer-bg-color--dark: #1F1F1F;
 	--md-default-bg-color: #121212;
+}
+
+.md-typeset .md-button:not(.md-button--primary) {
+  color: var(--md-primary-fg-color--light);
 }
 
 .md-main__inner.md-grid {
