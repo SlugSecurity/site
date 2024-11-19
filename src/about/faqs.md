@@ -3,27 +3,33 @@ title: FAQs
 ---
 
 ## Who We Are
-Slug Security is a student organization at the University of California, Santa Cruz, dedicated to fostering a community of people who are passionate about cybersecurity. If you've ever thought of taking something apart to see how it works, or you've thought about outsmarting a system to do something it wasn't designed to do, then you're in the right place.
+Slug Security is a student organization at the University of California, Santa Cruz. Founded to build a community of hackers in the growing world of cybersecurity. We believe anyone can hack, not just computer science majors, but anyone with the passion to break things apart and peek behind the curtain.
+
+Our goal is to keep things open and interesting. Experienced members bring what they know, sharing real insights and cutting through the noise to guide new members. We break down the best parts of cybersecurity, showing why it’s worth the hype. 
+
+Here, anyone with curiosity can jump in, make new friends, get hands-on with hacking, and find their way. No gatekeeping, just real talk and real skills.
 
 ## What We Do
-Think workshops, social gatherings, and some serious (but fun) competitions. Most of our events are held online (what would hacking be without the internet?), but we also have some in-person events, those being held at the Baskin School of Engineering. See [our events page](/events) for more information on what we have planned.
+Think workshops, social gatherings, and some serious (but fun) competitions. We run hands-on hacking sessions, from capture-the-flag challenges to live demos on topics like reverse engineering and pen-testing. We keep most club events open to everyone, no matter their experience.
 
-For specifics, heres what we mainly do:
+For specifics, here’s what we’re doing:
 
-- **Projects**: Projects on various things security, from creating CTFs, to web-development, to hardware hacking.
-	- Student-led & team based
-	- Full support from the club
-- **Competitions**: Participate in various competitions, such as CTFs, Hackathons, and more.
-	- Individual or team based
-	- Hands-on hacking experience
-	- Travel opportunities
-- **Practice**: Weekly meetings to practice and learn new skills.
-	- Workshops
-	- Capture the Flag (CTF) practice
-	- Guest speakers
+- **Interest Groups:** Not into hardware and just want to hack servers? Find your people in one of our focus groups
+- **Competitions:** Taking on the big leagues in national and international competitions
+    - MITRE eCTF (embedded Capture the Flag Competition)
+    - NSA Codebreaker Challenge
+    - CCDC (National Cyber Defense Competition)
+- **Practice:** Weekly meetups to experiment, learn new techniques, and get hands-on with different tools
+    - Interest Group Workshops
+    - CCDC Working Sessions
+    - Capture the Flag (CTF) practice
+- **Club Projects:** Applied hacking work, tackling real security challenges
+    - Bug bounty programs that pay students to hack and secure companies
+    - Working to secure real university systems
+    - Building a cyber range to safely emulate vulnerable networks for practice
 
 ## How to Get Involved
-It's easy to get involved, we have no set commitment requirements. Just show up to our events and participate in our activities. If you're interested in joining, please visit our [join](/join) page for more information.
+It's easy to get involved, we have no set commitment requirements. Just show up to our events and participate in our activities. If you're interested in formally joining, please visit our [join](/join) page for more information.
 
 ## What Is a CTF Competition
 *Capture The Flags, or CTFs, are a kind of computer security competition. Teams of competitors (or just individuals) are pitted against each other in a test of computer security skills.*

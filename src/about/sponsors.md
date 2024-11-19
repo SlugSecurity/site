@@ -8,25 +8,13 @@ The cybersecurity industry requires more skilled professionals to handle the inc
 
 As a sponsor, you'll have the chance to invest in the future of cybersecurity and positively impact the students who will shape the industry.
 
-**Slug Security is a 501(C)(3) nonprofit organization (EIN 94-1539563 "The Regents of the University of California").**
-
-## Use of Resources
-The support we receive from our sponsors, such as equipment, subscriptions, or funding, will be used to support a variety of activities, including:
-
-- Hosting guest speakers from industry and academia
-- Participating in cybersecurity competitions and hackathons
-- Organizing workshops and training sessions
-- Providing training materials and tools through subscription-based resources
-- Purchasing equipment and materials for projects and activities
+**Slug Security is a 501(C)(3) nonprofit organization (under EIN 94-1539563 "The Regents of the University of California").**
 
 ## What Do You Get?
 By supporting Slug Security, sponsors will gain several benefits depending on the level of support, including:
 
 - Access to a talented and motivated group of students
-- Visibility and recognition through club events and activities, such as:
-	- Logo placement on club materials (e.g., t-shirts, banners, etc.)
-	- Representation at events and competitions, as well as on our website and social media
-- Opportunities to recruit top talent for internships and full-time positions
+- Visibility and recognition through club events and activities
 - The satisfaction of supporting a valuable educational and professional development opportunity for students
 
 If you are interested in supporting us, please contact us via [slugsec@ucsc.edu](mailto:slugsec@ucsc.edu).
