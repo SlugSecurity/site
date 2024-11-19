@@ -34,17 +34,6 @@ officers:
       GitHub: Random936
       Twitter:
 
-    - Name: Rudy Chavez
-      Title: Head of Outreach
-      Handle: rudy.chavez
-      Description: Interested in social engineering and cryptography, feel free to talk to me about project ideas and software.
-      Image: /_assets/images/officers/rudy.chavez.png
-
-      Website:
-      LinkedIn:
-      GitHub: rudedude2015501
-      Twitter:
-
     - Name: Nancy Lau
       Title: Graduate Advisor & Founder
       Handle: rose
@@ -124,6 +113,17 @@ officers:
       Twitter:
 
   Alumni:
+    - Name: Rudy Chavez
+      Title: Head of Outreach
+      Handle: rudy.chavez
+      Description: Interested in social engineering and cryptography, former officer '24.
+      Image: /_assets/images/officers/rudy.chavez.png
+
+      Website:
+      LinkedIn:
+      GitHub: rudedude2015501
+      Twitter:
+
     - Name: Brian Mak
       Title: Operations & Head of Infra
       Handle: asian.eggroll
