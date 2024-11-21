@@ -114,7 +114,7 @@ plugins:
       caption_position: bottom
   - redirects:
       redirect_maps:
-        'givingday.md': 'https://give.ucsc.edu/schools/UniversityofCaliforniaSantaCruz/giving-day-2024/pages/slugsec/?a=8866032'
+        'givingday.md': '/about/sponsor/'
         'discord.md': 'https://discord.gg/NUVZCumQXB'
         'register.md': 'https://forms.gle/Ae97RjFZ8M2JJgF87'
         'interest.md': 'https://forms.gle/qj2SEN1eYGDes1Sr8'
