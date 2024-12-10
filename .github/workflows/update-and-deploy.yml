@@ -6,6 +6,7 @@ on:
       - main
   schedule:
     - cron: '*/10 * * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -41,16 +42,16 @@ jobs:
           fi
 
       - uses: actions/setup-python@v5
-        if: steps.check-updates.outputs.changes == 'true' || github.event_name == 'push'
+        if: steps.check-updates.outputs.changes == 'true' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         with:
           python-version: 3.x
 
       - name: Setup Cache
-        if: steps.check-updates.outputs.changes == 'true' || github.event_name == 'push'
+        if: steps.check-updates.outputs.changes == 'true' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
 
       - uses: actions/cache@v4
-        if: steps.check-updates.outputs.changes == 'true' || github.event_name == 'push'
+        if: steps.check-updates.outputs.changes == 'true' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         with:
           key: mkdocs-material-${{ env.cache_id }}
           path: .cache
@@ -58,14 +59,14 @@ jobs:
             mkdocs-material-
 
       - name: Install Dependencies
-        if: steps.check-updates.outputs.changes == 'true' || github.event_name == 'push'
+        if: steps.check-updates.outputs.changes == 'true' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         run: |
           sudo apt install pngquant
           pip install git+https://${GH_TOKEN}@github.com/0xfbad/framework.git
           pip install -r requirements.txt
 
       - name: Deploy
-        if: steps.check-updates.outputs.changes == 'true' || github.event_name == 'push'
+        if: steps.check-updates.outputs.changes == 'true' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         run: mkdocs gh-deploy --force
 
 env:
