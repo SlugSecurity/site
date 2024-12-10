@@ -65,6 +65,10 @@
          <lastmod>2024-12-10</lastmod>
     </url>
     <url>
+         <loc>https://slugsec.ucsc.edu/writeups/cse-132-pwn-hw-walkthrough/</loc>
+         <lastmod>2024-12-10</lastmod>
+    </url>
+    <url>
          <loc>https://slugsec.ucsc.edu/writeups/test-writeup/</loc>
          <lastmod>2024-12-10</lastmod>
     </url>
@@ -98,6 +102,14 @@
     </url>
     <url>
          <loc>https://slugsec.ucsc.edu/writeups/archive/2024/</loc>
+         <lastmod>2024-12-10</lastmod>
+    </url>
+    <url>
+         <loc>https://slugsec.ucsc.edu/writeups/category/binary-exploitation/</loc>
+         <lastmod>2024-12-10</lastmod>
+    </url>
+    <url>
+         <loc>https://slugsec.ucsc.edu/writeups/category/rop/</loc>
          <lastmod>2024-12-10</lastmod>
     </url>
     <url>
