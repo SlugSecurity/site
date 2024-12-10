@@ -69,6 +69,10 @@
          <lastmod>2024-12-10</lastmod>
     </url>
     <url>
+         <loc>https://slugsec.ucsc.edu/writeups/cse-132-rev-hw-walkthrough/</loc>
+         <lastmod>2024-12-10</lastmod>
+    </url>
+    <url>
          <loc>https://slugsec.ucsc.edu/writeups/test-writeup/</loc>
          <lastmod>2024-12-10</lastmod>
     </url>
@@ -113,11 +117,27 @@
          <lastmod>2024-12-10</lastmod>
     </url>
     <url>
+         <loc>https://slugsec.ucsc.edu/writeups/category/reverse-engineering/</loc>
+         <lastmod>2024-12-10</lastmod>
+    </url>
+    <url>
+         <loc>https://slugsec.ucsc.edu/writeups/category/golang/</loc>
+         <lastmod>2024-12-10</lastmod>
+    </url>
+    <url>
+         <loc>https://slugsec.ucsc.edu/writeups/category/ghidra/</loc>
+         <lastmod>2024-12-10</lastmod>
+    </url>
+    <url>
          <loc>https://slugsec.ucsc.edu/writeups/category/general/</loc>
          <lastmod>2024-12-10</lastmod>
     </url>
     <url>
          <loc>https://slugsec.ucsc.edu/writeups/author/fbad/</loc>
+         <lastmod>2024-12-10</lastmod>
+    </url>
+    <url>
+         <loc>https://slugsec.ucsc.edu/writeups/author/maxwell/</loc>
          <lastmod>2024-12-10</lastmod>
     </url>
 </urlset>
