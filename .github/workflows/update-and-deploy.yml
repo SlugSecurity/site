@@ -1,0 +1,72 @@
+name: Update Submodules and Deploy
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '*/10 * * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+    if: github.event.repository.fork == false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: recursive
+          sparse-checkout: |
+            src
+
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+      - name: Check for submodule updates
+        id: check-updates
+        run: |
+          git submodule update --remote
+          if [[ $(git status --porcelain) ]]; then
+            echo "changes=true" >> "$GITHUB_OUTPUT"
+            git commit -am "Automatically update submodules"
+            git pull --rebase
+            git push
+          else
+            echo "changes=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-python@v5
+        if: steps.check-updates.outputs.changes == 'true' || github.event_name == 'push'
+        with:
+          python-version: 3.x
+
+      - name: Setup Cache
+        if: steps.check-updates.outputs.changes == 'true' || github.event_name == 'push'
+        run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+
+      - uses: actions/cache@v4
+        if: steps.check-updates.outputs.changes == 'true' || github.event_name == 'push'
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+
+      - name: Install Dependencies
+        if: steps.check-updates.outputs.changes == 'true' || github.event_name == 'push'
+        run: |
+          sudo apt install pngquant
+          pip install git+https://${GH_TOKEN}@github.com/0xfbad/framework.git
+          pip install -r requirements.txt
+
+      - name: Deploy
+        if: steps.check-updates.outputs.changes == 'true' || github.event_name == 'push'
+        run: mkdocs gh-deploy --force
+
+env:
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
