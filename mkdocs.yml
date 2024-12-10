@@ -114,6 +114,7 @@ plugins:
       caption_position: bottom
   - redirects:
       redirect_maps:
+        'givingday.md': 'about/sponsors.md'
         'discord.md': 'https://discord.gg/NUVZCumQXB'
         'register.md': 'https://forms.gle/Ae97RjFZ8M2JJgF87'
         'interest.md': 'https://forms.gle/qj2SEN1eYGDes1Sr8'
