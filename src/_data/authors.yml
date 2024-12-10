@@ -9,3 +9,8 @@ authors:
     description: dev tools power user
     avatar: /_assets/images/authors/cabalex.png
     url: https://cabalex.github.io
+  maxwell:
+    name: maxwell
+    description: malware power user
+    avatar: /_assets/images/officers/maxwell.png
+    url: https://randomctf.com
