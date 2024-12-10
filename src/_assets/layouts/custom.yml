@@ -121,17 +121,3 @@ layers:
       font:
         family: JetBrains Mono
         style: Regular
-
-  # Description
-  - size: { width: 1100, height: 130 }
-    offset: { x: 50, y: 480 }
-    typography:
-      content: "{{ page.meta.description }}"
-      align: start
-      color: white
-      line:
-        amount: 3
-        height: 0.7
-      font:
-        family: JetBrains Mono
-        style: Regular
