@@ -53,10 +53,10 @@
 			</a>
 		</h2>
 		<div class="md-post__excerpt" style="font-size:medium;">
-			{% set truncated = post.content | truncate(350) %}
-			{% set no_images = truncated | replace('<img', '<span style="display:none;"') | replace('</img>', '</span>') %}
-			{% set no_links = no_images | replace('<a', '<span') | replace('</a>', '</span>') %}
-			{{ no_links }}
+      {% set no_links = post.content | striptags() %}
+			{% set no_images = no_links | replace('<img', '<span style="display:none;"') | replace('</img>', '</span>') %}
+			{% set truncated = no_images | truncate(300) %}
+			{{ truncated }}
 		</div>
 	</div>
 </article>
