@@ -57,17 +57,6 @@ officers:
       Twitter:
 
   Operations:
-    - Name: Dmitry Pleshkov
-      Title: Operations & Finance
-      Handle: dankdmitron
-      Description: Computer Science student, interested in computer architecture, operating systems, and embedded development. Likes securing and optimizing code.
-      Image: /_assets/images/officers/dankdmitron.png
-
-      Website: https://pleshkov.dev
-      LinkedIn: dmpleshkov
-      GitHub: dpleshkov
-      Twitter: dankdmitron
-
     - Name: Peter Dobbins
       Title: Operations
       Handle: sixteen4
@@ -113,6 +102,17 @@ officers:
       Twitter:
 
   Alumni:
+    - Name: Dmitry Pleshkov
+      Title: Operations & Finance
+      Handle: dankdmitron
+      Description: doing supercomputing infra at X. UCSC '24.
+      Image: /_assets/images/officers/dankdmitron.png
+
+      Website: https://pleshkov.dev
+      LinkedIn: dmpleshkov
+      GitHub: dpleshkov
+      Twitter: dankdmitron
+
     - Name: Rudy Chavez
       Title: Head of Outreach
       Handle: rudy.chavez
