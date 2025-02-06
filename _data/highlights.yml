@@ -1,5 +1,15 @@
 highlights:
   '2024':
+    - Name: NSA Codebreaker
+      Date: 2025-01-17
+      Type: Capture the Flag
+
+      Location: Virtual
+      Placement: 5
+      Participants: 450
+      Article:
+      Writeup:
+
     - Name: Hivestorm
       Date: 2024-10-17
       Type: Cyber Defensive
