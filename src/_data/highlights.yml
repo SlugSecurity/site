@@ -1,4 +1,15 @@
 highlights:
+  '2025':
+    - Name: WRCCDC Quals
+      Date: 2025-02-08
+      Type: Cyber Defensive
+      
+      Location: Virtual
+      Placement: 5
+      Participants: 27
+      Article:
+      Writeup:
+
   '2024':
     - Name: NSA Codebreaker
       Date: 2025-01-17

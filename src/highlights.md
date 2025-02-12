@@ -37,6 +37,13 @@ Curious about what we've been up to? Here are some of our highlights that showca
 </div>
 {% endmacro %}
 
+## 2025
+<div class="highlight-container">
+	{% for highlight in highlights['2025'] %}
+		{{ render_highlight_card(highlight) }}
+	{% endfor %}
+</div>
+
 ## 2024
 <div class="highlight-container">
 	{% for highlight in highlights['2024'] %}
