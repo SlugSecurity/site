@@ -201,9 +201,6 @@ extra:
     - icon: fontawesome/brands/youtube
       link: https://youtube.com/@SlugSec
       name: Subscribe to our YouTube
-    - icon: fontawesome/brands/linkedin
-      link: https://linkedin.com/company/SlugSec
-      name: Connect with us on LinkedIn
     - icon: fontawesome/brands/github
       link: https://github.com/SlugSecurity
       name: Follow us on GitHub
