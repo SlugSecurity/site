@@ -1,5 +1,15 @@
 highlights:
   '2025':
+    - Name: WRCCDC
+      Date: 2025-03-30
+      Type: Cyber Defensive
+      
+      Location: Coastline College
+      Placement: 4
+      Participants: 8
+      Article:
+      Writeup:
+
     - Name: WRCCDC Quals
       Date: 2025-02-08
       Type: Cyber Defensive
@@ -7,6 +17,36 @@ highlights:
       Location: Virtual
       Placement: 5
       Participants: 27
+      Article:
+      Writeup:
+
+    - Name: WRCCDC Inv 3
+      Date: 2025-01-27
+      Type: Cyber Defensive
+      
+      Location: Virtual
+      Placement: 13
+      Participants: 34
+      Article:
+      Writeup:
+
+    - Name: WRCCDC Inv 2
+      Date: 2024-11-24
+      Type: Cyber Defensive
+      
+      Location: Virtual
+      Placement: 6
+      Participants: 32
+      Article:
+      Writeup:
+
+    - Name: WRCCDC Inv 1
+      Date: 2024-10-27
+      Type: Cyber Defensive
+      
+      Location: Virtual
+      Placement: 17
+      Participants: 25
       Article:
       Writeup:
 
