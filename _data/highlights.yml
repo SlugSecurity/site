@@ -1,5 +1,25 @@
 highlights:
   '2025':
+    - Name: BSidesSF CTF
+      Date: 2025-04-27
+      Type: Capture the Flag
+
+      Location: San Francisco, CA
+      Placement: 9
+      Participants: 435
+      Article:
+      Writeup:
+
+    - Name: MITRE eCTF
+      Date: 2025-04-26
+      Type: Attack & Defend
+      
+      Location: Virtual
+      Placement: 15
+      Participants: 116
+      Article:
+      Writeup:
+
     - Name: WRCCDC
       Date: 2025-03-30
       Type: Cyber Defensive
