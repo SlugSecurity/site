@@ -23,26 +23,36 @@ officers:
       GitHub: '0xfbad'
       Twitter:
 
-    - Name: Jaden P. Maxwell-Comfort
-      Title: Vice President & Head of Infra
-      Handle: maxwell
-      Description: Undergraduate Computer Science student, Cybersecurity Researcher, and Programmer. Main focuses include malware analysis, incident response, and Emacs.
-      Image: /_assets/images/officers/maxwell.png
+    - Name: Peter Dobbins
+      Title: Vice President
+      Handle: sixteen4
+      Description: 'Undergraduate in Computer Science: Game Design who is passionate about programming, software security, cryptography, system and network infrastructure, and game development.'
+      Image: /_assets/images/officers/sixteen4.png
 
-      Website: https://randomctf.com
-      LinkedIn: jaden-provost-maxwell-comfort-09a54718a
-      GitHub: Random936
+      Website: https://sixteen4.com
+      LinkedIn: sixteen4
+      GitHub:
       Twitter:
 
     - Name: Nancy Lau
       Title: Graduate Advisor & Founder
       Handle: rose
-      Description: Formerly President (2022-24). CSE graduate student, interested in hardware security and AI.
+      Description: President emeritus (2022-24). CSE graduate student, interested in hardware security and AI.
       Image: /_assets/images/officers/rose.png
 
       Website:
       LinkedIn:
       GitHub: nancyjlau
+      Twitter:
+    
+    - Name: Dominick Rangel
+      Title: External Outreach
+      Handle: '1229.'
+      Description: Applied Math & Cog Sci 4th year interested in applied cryptography and ECC
+      Image: /_assets/images/officers/1229.png
+      Website:
+      LinkedIn: dominick-rangel-93004b205
+      GitHub: DCR-03
       Twitter:
 
     - Name: Alvaro A. Cardenas
@@ -57,15 +67,26 @@ officers:
       Twitter:
 
   Operations:
-    - Name: Peter Dobbins
+    - Name: Korben Tompkin
       Title: Operations
-      Handle: sixteen4
-      Description: 'Undergraduate in Computer Science: Game Design who is passionate about programming, software security, cryptography, system and network infrastructure, and game development.'
-      Image: /_assets/images/officers/sixteen4.png
+      Handle: korbexmachina
+      Description: 3rd year computer science & mathematics. Interested in cryptography, distributed systems, and embedded systems.
+      Image: /_assets/images/officers/korbexmachina.png
 
-      Website: https://sixteen4.com
-      LinkedIn: sixteen4
-      GitHub:
+      Website: https://korbexmachina.com
+      LinkedIn: korbentompkin
+      GitHub: korbexmachina
+      Twitter:
+  
+    - Name: Alex Hu
+      Title: Operations
+      Handle: anonymousrand
+      Description: CS/math student, casual CTF enjoyer, ok at cryptography, professional hobby collector. is occasionally smart
+      Image: /_assets/images/officers/anonymousrand.png
+
+      Website: https://anonymousrand.xyz
+      LinkedIn:
+      GitHub: AnonymousRand
       Twitter:
 
   Outreach & Finance:
@@ -78,16 +99,6 @@ officers:
       Website:
       LinkedIn: JulianBarbera
       GitHub: JulianBarbera
-      Twitter:
-
-    - Name: Dominick Rangel
-      Title: External Outreach
-      Handle: '1229.'
-      Description: Applied Math & Cog Sci 4th year interested in applied cryptography and ECC
-      Image: /_assets/images/officers/1229.png
-      Website:
-      LinkedIn: dominick-rangel-93004b205
-      GitHub: DCR-03
       Twitter:
 
     - Name: David Mlynski
@@ -113,6 +124,17 @@ officers:
       Twitter:
 
   Alumni:
+    - Name: Jaden P. Maxwell-Comfort
+      Title: Vice President & Head of Infra
+      Handle: maxwell
+      Description: Cybersecurity Researcher and Programmer. Main focuses include malware analysis, incident response, and Emacs. UCSC '25.
+      Image: /_assets/images/officers/maxwell.png
+
+      Website: https://randomctf.com
+      LinkedIn: jaden-provost-maxwell-comfort-09a54718a
+      GitHub: Random936
+      Twitter:
+
     - Name: Dmitry Pleshkov
       Title: Operations & Finance
       Handle: dankdmitron
@@ -125,7 +147,7 @@ officers:
       Twitter: dankdmitron
 
     - Name: Rudy Chavez
-      Title: Head of Outreach
+      Title: Outreach
       Handle: rudy.chavez
       Description: Interested in social engineering and cryptography, former officer '24.
       Image: /_assets/images/officers/rudy.chavez.png
