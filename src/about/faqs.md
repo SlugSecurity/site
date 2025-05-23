@@ -9,6 +9,8 @@ Our goal is to keep things open and interesting. Experienced members bring what 
 
 Here, anyone with curiosity can jump in, make new friends, get hands-on with hacking, and find their way. No gatekeeping, just real talk and real skills.
 
+This group is open to all students consistent with state and federal law, the UC Nondiscrimination Statement and the Nondiscrimination Policy Statement for University of California Publications Regarding Student-Related Matters.
+
 ## What We Do
 Think workshops, social gatherings, and some serious (but fun) competitions. We run hands-on hacking sessions, from capture-the-flag challenges to live demos on topics like reverse engineering and pen-testing. We keep most club events open to everyone, no matter their experience.
 
