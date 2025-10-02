@@ -90,15 +90,26 @@ officers:
       Twitter:
 
   Outreach & Finance:
-    - Name: Julian Barbera
-      Title: External Outreach
-      Handle: fish
-      Description: Electrical Engineering undergrad... Embedded development and hardware security fan. I use arch btw
-      Image: /_assets/images/officers/fish.png
+    - Name: Ian Phan
+      Title: Student Outreach
+      Handle: heythatsillegal
+      Description: Current Cognitive Science student, interested in applied cog and dev psych, education and learning technologies, human factors engineering, and social engineering. Busy teaching new hackers at the moment!!
+      Image: /_assets/images/officers/heythatsillegal.png
+
+      Website: https://sites.google.com/view/ianphan/home
+      LinkedIn: ian-phan
+      GitHub:
+      Twitter:
+
+    - Name: Sofia Yakushi
+      Title: Student Outreach
+      Handle: yakushiiiii.
+      Description: 3rd year Computer Science undergraduate student. Interested in web security, cryptography, and network security
+      Image: /_assets/images/officers/yakushiiiii.png
 
       Website:
-      LinkedIn: JulianBarbera
-      GitHub: JulianBarbera
+      LinkedIn: sofia-yakushi-743b35225
+      GitHub:
       Twitter:
 
     - Name: David Mlynski
@@ -112,18 +123,18 @@ officers:
       GitHub: computerguy2030 
       Twitter:
 
-    - Name: Ian Phan
-      Title: Student Outreach
-      Handle: heythatsillegal
-      Description: Current Cognitive Science student, interested in applied cog and dev psych, education and learning technologies, human factors engineering, and social engineering. Busy teaching new hackers at the moment!!
-      Image: /_assets/images/officers/heythatsillegal.png
+  Alumni:
+    - Name: Julia Barbera
+      Title: External Outreach
+      Handle: fish
+      Description: Electrical Engineering undergrad... Embedded development and hardware security fan. I use arch btw
+      Image: /_assets/images/officers/fish.png
 
-      Website: https://sites.google.com/view/ianphan/home
-      LinkedIn: ian-phan
-      GitHub:
+      Website: https://jbarbera.space/
+      LinkedIn: JulianBarbera
+      GitHub: JulianBarbera
       Twitter:
 
-  Alumni:
     - Name: Jaden P. Maxwell-Comfort
       Title: Vice President & Head of Infra
       Handle: maxwell
