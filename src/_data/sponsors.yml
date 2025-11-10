@@ -1,4 +1,12 @@
 sponsors:
+  - Name: Bugcrowd
+    LogoPath: /_assets/images/sponsors/Bugcrowd-Logo-Wordmark-Reverse.svg
+    Link: https://www.bugcrowd.com/
+
+  - Name: National Upcycled Computing Collective, Inc.
+    LogoPath: /_assets/images/sponsors/NUCC.png
+    Link: https://www.nuccinc.org/
+
   - Name: Baskin Engineering @ UCSC
     LogoPath: /_assets/images/sponsors/UCSC_BaskinEng_Logo_White_RGB.svg
     Link: https://engineering.ucsc.edu/
