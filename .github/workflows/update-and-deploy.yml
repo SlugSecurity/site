@@ -61,7 +61,8 @@ jobs:
       - name: Install Dependencies
         if: steps.check-updates.outputs.changes == 'true' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         run: |
-          sudo apt install pngquant
+          sudo apt-get update
+          sudo apt-get install -y pngquant libjpeg-dev zlib1g-dev
           pip install git+https://${GH_TOKEN}@github.com/0xfbad/framework.git
           pip install -r requirements.txt
 
