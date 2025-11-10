@@ -62,7 +62,7 @@ jobs:
         if: steps.check-updates.outputs.changes == 'true' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         run: |
           sudo apt-get update
-          sudo apt-get install -y pngquant libjpeg-dev zlib1g-dev
+          sudo apt-get install -y pngquant libjpeg-dev zlib1g-dev libfreetype6-dev
           pip install git+https://${GH_TOKEN}@github.com/0xfbad/framework.git
           pip install -r requirements.txt
 
