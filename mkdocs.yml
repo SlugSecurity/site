@@ -60,6 +60,9 @@ plugins:
       enable_creation_date: true
       exclude:
         - events.md
+        - highlights.md
+        - about/officers.md
+        - about/sponsors.md
   - blog:
       blog_dir: posts
       post_dir: '{blog}/data'

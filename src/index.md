@@ -18,9 +18,8 @@ glightbox: false
         <p class="splash-information">
             The student-run cybersecurity organization at UC Santa Cruz.
             <br>
-            For hackers, by hackers: learning, building, and never quiet.
+            For hackers, by hackers.
         </p>
-        <p>Ready to become a hacker?</p>
         <a class="md-button md-button--primary" href="/join" style="margin-bottom:10px;">
             Join Slug Security
         </a>
