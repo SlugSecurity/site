@@ -6,16 +6,20 @@ hide:
 ---
 
 ## Becoming A Member
-As students and hobbyists passionate about cybersecurity, we welcome everyone to our community, no matter your experience or identity. Our membership requirements are flexible, and to be considered an official "member," here's what you need to do:
+We welcome everyone to our community regardless of experience or background. Joining is as simple as filling out the registration form below and hopping into our Discord.
 
-- **Engage with the Community**: We're not saying to send hourly messages, but it's great to chat, meet new people, and build a sense of community!
-- **Participate in Workshops and Meetings**: Enhance your knowledge and network by attending workshops or meetings that interest you.
-- **Get Involved in Competitions**: Dive into competitions with us for a true hands-on experience, crucial for honing your hacking skills, regardless of your experience level.
+## Active Member Status
+Being an **active member** gets you priority for competitions, recognition within the club, and access to member-only opportunities. Active status resets each quarter, so you'll need to stay involved to keep it.
+
+To be an active member for the quarter, you need to:
+
+1. :octicons-verified-16: **Get verified** in our Discord server
+2. :octicons-flame-16: **Stay engaged** by doing **one** of the following:
+	- Attend two official club events, **OR**
+	- Reach the activity threshold in Discord
 
 ## How to Join
-To join, simply fill out the registration form below (you'll need a UCSC account to access it). After that, you'll automatically be added to our mailing list and our shared drive, where you can find all of our resources and information. We also recommend joining our Discord server to stay up-to-date with our events and to chat with other members.
-
-You can also join our Discord server without being a member, but we highly recommend joining to get the full experience of our community. Regardless, we're excited to have you join us!
+Fill out the registration form below to get added to our mailing list and shared drive with all our resources. You'll need a UCSC account to access it. Then join our Discord server to stay in the loop on events and start working toward active member status.
 
 
 <div class="grid" markdown>
