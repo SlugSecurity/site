@@ -211,7 +211,7 @@ extra:
       link: https://ctftime.org/team/228068
       name: Join us on CTFtime
   msg: 'Slug Security is a 501(c)(3) nonprofit organization (EIN 94-1539563).'
-copyright: '&copy; 2025 Regents of the University of California'
+copyright: '&copy; 2026 Regents of the University of California'
 
 extra_css:
   - _assets/css/extra-fonts.css
