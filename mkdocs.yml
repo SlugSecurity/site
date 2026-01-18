@@ -8,15 +8,17 @@ docs_dir: src
 nav:
   - Posts:
       - posts/index.md
-  - Writeups: 
+  - Writeups:
       - writeups/index.md
   - Events: events.md
-  - Home: index.md
   - Highlights: highlights.md
+  - Home: index.md
   - About:
     - FAQs: about/faqs.md
     - Officers: about/officers.md
     - Sponsors: about/sponsors.md
+  - Practice: https://range.slugsec.club
+  - Members: https://auth.slugsec.club
   - Join: join.md
 
 not_in_nav: |
