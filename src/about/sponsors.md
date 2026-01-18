@@ -4,25 +4,28 @@ glightbox: false
 ---
 
 ## Why Sponsor?
-The cybersecurity industry requires more skilled professionals to handle the increasing challenges faced by businesses, governments, and individuals. UC Santa Cruz has a group of enthusiastic students who are eager to improve their skills and contribute to the field. You can support these students by sponsoring Slug Security, which will help them learn and grow, ultimately strengthening the cybersecurity industry.
 
-As a sponsor, you'll have the chance to invest in the future of cybersecurity and positively impact the students who will shape the industry.
+Slug Security is the largest cybersecurity organization at UC Santa Cruz and one of the largest student orgs on campus. We run technical workshops, compete in national competitions like CCDC and MITRE eCTF, and give students hands-on experience with real security work.
 
-**Slug Security is a 501(C)(3) nonprofit organization (under EIN 94-1539563 "The Regents of the University of California").**
+Sponsorships help us cover competition travel, equipment, infrastructure, and club events. Your support directly empowers students building careers in a field with growing demand.
+
+**Slug Security is a 501(c)(3) nonprofit organization (under EIN 94-1539563 "The Regents of the University of California").**
 
 ## What Do You Get?
-By supporting Slug Security, sponsors will gain several benefits depending on the level of support, including:
 
-- Access to a talented and motivated group of students
-- Visibility and recognition through club events and activities
-- The satisfaction of supporting a valuable educational and professional development opportunity for students
+If you support us, you generally get:
 
-If you are interested in supporting us, please contact us via [slugsec@ucsc.edu](mailto:slugsec@ucsc.edu).
+- Visibility at club events, workshops, and on our website
+- Access to students actively building careers in security
+- Opportunities to recruit directly from our membership
+
+We mainly run on alumni donations and university grants, so we don't have formal sponsorship brochures. But if you're interested, we're happy to work something out. Reach out at [slugsec@ucsc.edu](mailto:slugsec@ucsc.edu).
 
 ***
 
 ## Current Sponsors
-A big thanks to all our sponsors! Your support truly makes a difference and helps us create awesome experiences.
+
+Thank you to all of our sponsors for your support.
 
 <div class="sponsor-container">
 	{% for sponsor in sponsors %}
