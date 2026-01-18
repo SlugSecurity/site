@@ -4,9 +4,9 @@ title: FAQs
 
 ## Who We Are
 
-Student-ran org under Baskin Engineering focused on all things computer security. All programming comes from students, with faculty oversight for leadership. Originally founded as Security Santa Cruz in 2014, rebranded to Slug Security in 2022.
+Student-ran org under Baskin Engineering focused on all things computer security. All programming comes from students with faculty oversight for leadership. Founded in 2022 after students wanted a community around security. There was a club before us (Security Santa Cruz) but it faded around 2014.
 
-**TLDR: do cool stuff with computers**
+**TLDR: do cool stuff with computers.**
 
 This group is open to all students consistent with state and federal law, the UC Nondiscrimination Statement and the Nondiscrimination Policy Statement for University of California Publications Regarding Student-Related Matters.
 
@@ -58,7 +58,7 @@ Applied hacking on real stuff. Bug bounties, securing university systems, and pe
 
 Jeopardy-style hacking competitions that run over a weekend (usually 48 hours). Small computer puzzles (like leetcode but for hacking) across categories like web exploitation, reverse engineering, cryptography, forensics, and binary exploitation. Each challenge has a hidden flag, submit it for points. Harder challenges are worth more.
 
-Hosted by universities, security companies, and hacking groups worldwide. *We encourage members to write up their solutions and post them on our [writeups](/writeups) page.*
+Part of the CTF experience is writing up your solutions after, documenting how you approached the problem and what you learned, which builds technical writing skills and reinforces what you picked up. *We encourage members to post writeups on our [writeups](/writeups) page.*
 
 <div style="clear: both;"></div>
 
@@ -78,7 +78,7 @@ For example, CCDC (Collegiate Cyber Defense Competition) is the largest in the U
 
 Competitions where you build something secure, then attack other teams' implementations while they attack yours.
 
-For example, MITRE's eCTF (Embedded Capture the Flag) is a semester-long competition focused on embedded systems. First phase (~2 months): design and build a secure system based on their specs (past challenges have included satellite TV decoders and medical devices). Second phase (~1-2 months): break into other teams' implementations.
+For example, MITRE's eCTF (Embedded Capture the Flag) is a semester-long competition focused on embedded systems. First phase (~2 months): design and build a secure system based on their specs (past challenges have included satellite TV decoders and medical devices). Second phase (~1-2 months): break into other teams' designs.
 
 <div style="clear: both;"></div>
 
