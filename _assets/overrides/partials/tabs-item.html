@@ -5,6 +5,11 @@
     {% endif %}
   {% endif %}
   /{{ ref.title }}
+  {% if nav_item.title == "Practice" %}
+    <svg class="nav-icon" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 2h10v2h8v14H11v-2H5v6H3V2zm2 12h8v2h6V6h-8V4H5v10z" fill="currentColor"/></svg>
+  {% elif nav_item.title == "Members" %}
+    <svg class="nav-icon" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 2H9v2H7v6h2V4h6V2zm0 8H9v2h6v-2zm0-6h2v6h-2V4zM4 16h2v-2h12v2H6v4h12v-4h2v6H4v-6z" fill="currentColor"/></svg>
+  {% endif %}
 {% endmacro %}
 
 {% macro render(nav_item, ref = nav_item) %}
