@@ -17,8 +17,6 @@ glightbox: false
         </h1>
         <p class="splash-information">
             The student-run cybersecurity organization at UC Santa Cruz.
-            <br>
-            For hackers, by hackers.
         </p>
         <a class="md-button md-button--primary" href="/join" style="margin-bottom:10px;">
             Join Slug Security
@@ -30,6 +28,6 @@ glightbox: false
 </div>
 
 ## Meeting Times and Locations
-See upcoming events and meetings on our [events](/events) page. We host a variety of different events, including workshops, casual hack and chill sessions, and CTF working sessions. Wanna learn more about what we do? Check out our [FAQs](/about/faqs) page.
+See upcoming events on our [events](/events) page. We run workshops, working sessions, and competitions.
 
 ***

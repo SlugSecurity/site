@@ -9,7 +9,7 @@ Slug Security is the largest cybersecurity organization at UC Santa Cruz and one
 
 Sponsorships help us cover competition travel, equipment, infrastructure, and club events. Your support directly empowers students building careers in a field with growing demand.
 
-**Slug Security is a 501(c)(3) nonprofit organization (under EIN 94-1539563 "The Regents of the University of California").**
+**Slug Security is a 501(C)(3) nonprofit organization (under EIN 94-1539563 "The Regents of the University of California").**
 
 ## What Do You Get?
 
@@ -25,7 +25,7 @@ We mainly run on alumni donations and university grants, so we don't have formal
 
 ## Current Sponsors
 
-Thank you to all of our sponsors for your support.
+You make it possible for us to do what we do. Thank you.
 
 <div class="sponsor-container">
 	{% for sponsor in sponsors %}

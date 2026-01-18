@@ -6,7 +6,7 @@ title: FAQs
 
 Student-ran org under Baskin Engineering focused on all things computer security. All programming comes from students, with faculty oversight for leadership. Originally founded as Security Santa Cruz in 2014, rebranded to Slug Security in 2022.
 
-TLDR: do cool stuff with computers.
+**TLDR: do cool stuff with computers**
 
 This group is open to all students consistent with state and federal law, the UC Nondiscrimination Statement and the Nondiscrimination Policy Statement for University of California Publications Regarding Student-Related Matters.
 
@@ -18,7 +18,7 @@ This group is open to all students consistent with state and federal law, the UC
 
 ### Socialize (mainly)
 
-Our [Discord](/discord) is where most of the action happens. Sharing cybersecurity news, talking about industry events, showing off cool projects, asking for help when you're stuck.
+Our [Discord](/discord) is where most of the action happens. Sharing cybersecurity news, talking about industry events, showing off cool projects, or getting help on something you're working on.
 
 *Follow us on [Instagram](https://instagram.com/slugsec) to see the fun side of the club.*
 
@@ -36,7 +36,7 @@ Hands-on workshops and working sessions. We show you a concept, explain why it m
 
 ### Compete
 
-Diverse competitions throughout the year, mostly online, some in-person. See [Competitions](#competitions) below for the different types we participate in.
+Diverse competitions throughout the year, mostly online, some in-person. See the [competitions section](#competitions) below for the types we participate in.
 
 <div style="clear: both;"></div>
 
@@ -100,15 +100,15 @@ Good, we need you. Security touches everything, so we need people who understand
 
 ***
 
-## Rules
+## Member Rules
 
-- Treat everyone with respect
-- Don't be condescending
-- Be friendly to beginners
-- Adhere to ethical practices
-- Don't be evil
+- **Treat everyone with respect** - no personal attacks, harassment, or discrimination
+- **Don't be condescending** - if someone asks a basic question, answer it or point them to a resource
+- **Be friendly to beginners** - everyone starts somewhere, help them get up to speed
+- **Adhere to ethical practices** - only hack systems you have permission to access
+- **Don't be evil** - don't use what you learn here to harm people
 
-Computer crime is a real thing (18 U.S.C. 1030). If you're unsure whether something is unethical, ask us.
+Computer crime is a real thing (18 U.S.C. 1030). If you're unsure whether something crosses a line, ask around in the community.
 
 ***
 
