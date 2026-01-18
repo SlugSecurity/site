@@ -1,3 +1,5 @@
+.envrc
+.direnv/
 flake.lock
 src/writeups/
 src/posts/
