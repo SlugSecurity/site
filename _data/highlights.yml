@@ -1,4 +1,95 @@
 highlights:
+  '2026':
+    - Name: MITRE eCTF
+      Date: 2026-04-15
+      Type: Attack & Defend
+
+      Location: Virtual
+      Placement: 67
+      Participants: 119
+      Article:
+      Writeup:
+
+    - Name: WRCCDC
+      Date: 2026-03-29
+      Type: Cyber Defensive
+
+      Location: Cal Poly Pomona
+      Placement: 5
+      Participants: 8
+      Article:
+      Writeup:
+
+    - Name: Hack The Madness
+      Date: 2026-03-14
+      Type: Capture the Flag
+
+      Location: Virtual
+      Placement: 16
+      Participants: 64
+      Article:
+      Writeup:
+
+    - Name: WRCCDC Quals
+      Date: 2026-02-07
+      Type: Cyber Defensive
+
+      Location: Virtual
+      Placement: 5
+      Participants: 24
+      Article:
+      Writeup:
+
+    - Name: WRCCDC Inv 6
+      Date: 2026-01-24
+      Type: Cyber Defensive
+
+      Location: Virtual
+      Placement: 20
+      Participants: 44
+      Article:
+      Writeup:
+
+    - Name: WRCCDC Inv 5
+      Date: 2025-12-20
+      Type: Cyber Defensive
+
+      Location: Virtual
+      Placement: 10
+      Participants: 20
+      Article:
+      Writeup:
+
+    - Name: WRCCDC Inv 4
+      Date: 2025-12-06
+      Type: Cyber Defensive
+
+      Location: Virtual
+      Placement: 31
+      Participants: 40
+      Article:
+      Writeup:
+
+    - Name: WRCCDC Inv 3
+      Date: 2025-11-15
+      Type: Cyber Defensive
+
+      Location: Virtual
+      Placement: 16
+      Participants: 25
+      Article:
+      Writeup:
+
+    - Name: WRCCDC Inv 2
+      Date: 2025-11-02
+      Type: Cyber Defensive
+
+      Location: Virtual
+      Placement: 23
+      Participants: 29
+      Article:
+      Writeup:
+
   '2025':
     - Name: BSidesSF CTF
       Date: 2025-04-27
