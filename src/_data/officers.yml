@@ -12,15 +12,15 @@ officers:
       Twitter: # Twitter Username (optional)
 
   Administration:
-    - Name: Iakov Taranenko
-      Title: President & Founder
-      Handle: fbad
-      Description: Computer networking and cybersecurity student. Interested in vulnerability analysis, reverse engineering, and cybersecurity education. Vice President '22-24.
-      Image: /_assets/images/officers/fbad.png
+    - Name: Sofia Yakushi
+      Title: President
+      Handle: yakushiiiii.
+      Description: 3rd year Computer Science undergraduate student. Interested in web security, cryptography, and network security
+      Image: /_assets/images/officers/yakushiiiii.png
 
-      Website: https://fbad.me
-      LinkedIn:
-      GitHub: '0xfbad'
+      Website:
+      LinkedIn: sofia-yakushi-743b35225
+      GitHub:
       Twitter:
 
     - Name: Peter Dobbins
@@ -43,6 +43,17 @@ officers:
       Website:
       LinkedIn:
       GitHub: nancyjlau
+      Twitter:
+
+    - Name: Ex Taranenko
+      Title: Graduate Advisor & Founder
+      Handle: fbad
+      Description: President emeritus '24-26. Vice President '22-24. Computer networking and cybersecurity student. Interested in vulnerability analysis, reverse engineering, and cybersecurity education.
+      Image: /_assets/images/officers/fbad.png
+
+      Website: https://fbad.me
+      LinkedIn:
+      GitHub: '0xfbad'
       Twitter:
     
     - Name: Dominick Rangel
@@ -101,21 +112,11 @@ officers:
       GitHub:
       Twitter:
 
-    - Name: Sofia Yakushi
-      Title: Student Outreach
-      Handle: yakushiiiii.
-      Description: 3rd year Computer Science undergraduate student. Interested in web security, cryptography, and network security
-      Image: /_assets/images/officers/yakushiiiii.png
-
-      Website:
-      LinkedIn: sofia-yakushi-743b35225
-      GitHub:
-      Twitter:
-
+  Alumni:
     - Name: David Mlynski
       Title: External Outreach
       Handle: skynet2030
-      Description: 4th year UCSC student interested in web security and Artificial Intelligence
+      Description: Led the club's certificate program. Interested in web security and Artificial Intelligence. UCSC '26.
       Image: /_assets/images/officers/skynet2030.png
 
       Website:
@@ -123,7 +124,6 @@ officers:
       GitHub: computerguy2030 
       Twitter:
 
-  Alumni:
     - Name: Julia Barbera
       Title: External Outreach
       Handle: fish
@@ -147,7 +147,7 @@ officers:
       Twitter:
 
     - Name: Dmitry Pleshkov
-      Title: Operations & Finance
+      Title: Operations
       Handle: dankdmitron
       Description: doing supercomputing infra at X. UCSC '24.
       Image: /_assets/images/officers/dankdmitron.png
