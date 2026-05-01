@@ -8,7 +8,7 @@ function fmtDate(d: Date) {
 }
 ---
 
-<section class="max-w-7xl mx-auto px-5 mt-24">
+<section class="container-tight mt-24">
 	<div class="text-center mb-8">
 		<h2 class="text-3xl sm:text-4xl mb-1">Recent posts</h2>
 		<p class="text-(--color-fg-dim) text-sm">Writeups, club news, and other things members published.</p>
@@ -19,41 +19,42 @@ function fmtDate(d: Date) {
 			No posts yet.
 		</div>
 	) : (
-		<div class="flex flex-col gap-2">
+		<ul class="frame divide-y divide-(--color-line)">
 			{recent.map(p => {
 				const excerpt = getExcerpt(p)
 				return (
-					<a href={`/posts/${p.id}`} class="panel panel-link group p-4 flex flex-col gap-1.5">
-						<div class="flex flex-col sm:flex-row sm:items-baseline gap-x-4 gap-y-1.5">
-							<h3 class="text-base leading-snug flex-1 min-w-0 sm:truncate group-hover:text-(--color-accent) transition-colors">
-								{p.data.title}
-							</h3>
-							<div class="flex flex-wrap items-center gap-x-2.5 gap-y-1 shrink-0 label-sm">
-								{p.data.tags.slice(0, 3).map(t => (
-									<span class:list={[
-										'border px-1.5 py-0.5',
-										t === 'writeup'
-											? 'text-(--color-accent) border-(--color-accent-dim)'
-											: 'text-(--color-fg-faint) border-(--color-line)',
-									]}>
-										{t}
-									</span>
-								))}
-								{p.data.authors.length > 0 && (
-									<span class="text-(--color-fg-faint)">{p.data.authors.join(', ')}</span>
-								)}
-								<time class="text-(--color-fg-faint) tabular-nums" datetime={p.data.date.toISOString()}>{fmtDate(p.data.date)}</time>
+					<li>
+						<a href={`/posts/${p.id}`} class="block px-4 py-3 hover:bg-(--color-bg-elev)/50 transition-colors group">
+							<div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+								<span class="font-mono text-xs text-(--color-fg-faint) tabular-nums w-24 shrink-0">
+									{fmtDate(p.data.date)}
+								</span>
+								<span class="text-(--color-fg) group-hover:text-(--color-accent) transition-colors flex-1 min-w-0">
+									{p.data.title}
+								</span>
+								<span class="flex flex-wrap gap-1 shrink-0">
+									{p.data.tags.slice(0, 3).map(tag => (
+										<span class:list={[
+											'font-mono text-[10px] uppercase tracking-widest border px-1.5 py-0.5',
+											tag === 'writeup'
+												? 'text-(--color-accent) border-(--color-accent-dim)'
+												: 'text-(--color-fg-faint) border-(--color-line)',
+										]}>
+											{tag}
+										</span>
+									))}
+								</span>
 							</div>
-						</div>
-						{excerpt && (
-							<p class="text-sm text-(--color-fg-dim) line-clamp-1">
-								{excerpt}
-							</p>
-						)}
-					</a>
+							{excerpt && (
+								<p class="text-sm text-(--color-fg-dim) line-clamp-2 mt-1.5 sm:ml-28 leading-relaxed">
+									{excerpt}
+								</p>
+							)}
+						</a>
+					</li>
 				)
 			})}
-		</div>
+		</ul>
 	)}
 
 	<div class="text-center mt-6">

@@ -1,6 +1,6 @@
 ---
 import Base from '@/layouts/Base.astro'
-import { getAllPosts } from '@/lib/posts'
+import { getAllPosts, getExcerpt } from '@/lib/posts'
 
 const all = await getAllPosts()
 
@@ -34,30 +34,40 @@ const years = Object.keys(grouped).map(Number).sort((a, b) => b - a)
 					<span class="flex-1 h-px bg-(--color-line)"></span>
 				</div>
 				<ul class="frame divide-y divide-(--color-line)">
-					{grouped[year].map(p => (
-						<li>
-							<a href={`/posts/${p.id}`} class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 px-4 py-3 hover:bg-(--color-bg-elev)/50 transition-colors group">
-								<span class="font-mono text-xs text-(--color-fg-faint) tabular-nums w-24 shrink-0">
-									{fmtDate(p.data.date)}
-								</span>
-								<span class="text-(--color-fg) group-hover:text-(--color-accent) transition-colors flex-1 min-w-0">
-									{p.data.title}
-								</span>
-								<span class="flex flex-wrap gap-1 shrink-0">
-									{p.data.tags.slice(0, 3).map(tag => (
-										<span class:list={[
-											'font-mono text-[10px] uppercase tracking-widest border px-1.5 py-0.5',
-											tag === 'writeup'
-												? 'text-(--color-accent) border-(--color-accent-dim)'
-												: 'text-(--color-fg-faint) border-(--color-line)',
-										]}>
-											{tag}
+					{grouped[year].map(p => {
+						const excerpt = getExcerpt(p)
+						return (
+							<li>
+								<a href={`/posts/${p.id}`} class="block px-4 py-3 hover:bg-(--color-bg-elev)/50 transition-colors group">
+									<div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+										<span class="font-mono text-xs text-(--color-fg-faint) tabular-nums w-24 shrink-0">
+											{fmtDate(p.data.date)}
 										</span>
-									))}
-								</span>
-							</a>
-						</li>
-					))}
+										<span class="text-(--color-fg) group-hover:text-(--color-accent) transition-colors flex-1 min-w-0">
+											{p.data.title}
+										</span>
+										<span class="flex flex-wrap gap-1 shrink-0">
+											{p.data.tags.slice(0, 3).map(tag => (
+												<span class:list={[
+													'font-mono text-[10px] uppercase tracking-widest border px-1.5 py-0.5',
+													tag === 'writeup'
+														? 'text-(--color-accent) border-(--color-accent-dim)'
+														: 'text-(--color-fg-faint) border-(--color-line)',
+												]}>
+													{tag}
+												</span>
+											))}
+										</span>
+									</div>
+									{excerpt && (
+										<p class="text-sm text-(--color-fg-dim) line-clamp-2 mt-1.5 sm:ml-28 leading-relaxed">
+											{excerpt}
+										</p>
+									)}
+								</a>
+							</li>
+						)
+					})}
 				</ul>
 			</div>
 		))}
