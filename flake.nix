@@ -23,7 +23,6 @@
 						if git submodule status | grep -q '^-'; then
 							echo "initializing submodules..."
 							[ -d src/posts ] && [ ! -f src/posts/.git ] && rm -rf src/posts
-							[ -d src/writeups ] && [ ! -f src/writeups/.git ] && rm -rf src/writeups
 							git submodule update --init --recursive
 						fi
 
