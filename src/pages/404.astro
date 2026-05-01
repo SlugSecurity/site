@@ -1,0 +1,55 @@
+---
+import Base from '@/layouts/Base.astro'
+
+const cats = [
+	'cat_campfire.gif',
+	'ring_cat_campfire.gif',
+	'horde_cat_campfire.gif',
+	'globe_cat_campfire.gif',
+	'hordeWall_cat_campfire.gif',
+	'mc_cat_campfire.gif',
+	'musical_cat_campfire.gif',
+	'scattered_cat_campfire.gif',
+	'blocks_cat_campfire.gif',
+	'seige_cat_campfire.gif',
+	'musical_reverse_cat_campfire.gif',
+	'spin_cat_campfire.gif',
+]
+
+const facts = [
+	'cats are often found around campfires',
+	'a group of cats is called a clowder',
+	'cats use their whiskers to measure distances',
+	"the world's richest cat inherited $13 million from its owner",
+	`did you know we have ${cats.length} variations of this gif?`,
+	'the CIA tried to train cats as spies in the 1960s',
+	'stubbs the cat was the mayor of talkeetna, alaska for 20 years',
+	'cats only meow to communicate with humans, not other cats',
+]
+---
+
+<Base title="404" description="Page not found." noindex>
+	<section class="container-prose pt-16 pb-12 text-center">
+		<h1 class="brand text-7xl sm:text-9xl mb-2">404</h1>
+		<p class="text-(--color-fg-dim) mb-10">nothing here but us cats</p>
+		<div class="flex justify-center">
+			<img id="cat-404" alt="" data-cats={cats.join(',')} data-facts={facts.join('|')} class="max-w-full max-h-[45vh]" />
+		</div>
+		<p class="mt-10 text-sm text-(--color-fg-dim)">
+			Try the <a href="/" class="text-link">home page</a> or browse our <a href="/posts" class="text-link">posts</a>.
+		</p>
+	</section>
+</Base>
+
+<script>
+	const img = document.getElementById('cat-404') as HTMLImageElement | null
+	if (img) {
+		const cats = (img.dataset.cats ?? '').split(',').filter(Boolean)
+		const facts = (img.dataset.facts ?? '').split('|').filter(Boolean)
+		const cat = cats[Math.floor(Math.random() * cats.length)]
+		const fact = facts[Math.floor(Math.random() * facts.length)]
+		img.src = `/_assets/animated/404/${cat}`
+		img.alt = fact
+		img.title = fact
+	}
+</script>

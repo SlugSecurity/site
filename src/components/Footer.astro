@@ -1,0 +1,45 @@
+---
+import { Icon } from 'astro-icon/components'
+import { socials, legal } from '@/consts'
+---
+
+<footer class="mt-12 border-t border-(--color-line) bg-(--color-bg)/85 backdrop-blur-sm">
+	<div class="container-tight py-5 flex flex-col items-center gap-3 text-center sm:flex-row sm:justify-between sm:gap-4 sm:text-left">
+		<ul class="flex flex-wrap items-center justify-center gap-4 order-2 sm:order-1 text-(--color-fg-faint)">
+			{socials.map(s => (
+				<li>
+					<a
+						href={s.href}
+						aria-label={s.label}
+						title={s.label}
+						class="footer-social"
+						rel="noopener"
+					>
+						<Icon name={s.icon} width="18" height="18" aria-hidden="true" />
+					</a>
+				</li>
+			))}
+		</ul>
+
+		<div class="label-sm text-(--color-fg-dim) leading-tight order-1 sm:order-2 sm:text-right">
+			<div>{legal.copyright}</div>
+			<div class="text-(--color-fg-faint) text-[0.65rem] mt-0.5">{legal.nonprofitShort}</div>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.footer-social {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		color: inherit;
+		transition: color 160ms;
+	}
+	.footer-social:hover {
+		color: var(--color-accent);
+	}
+	.footer-social svg {
+		fill: currentColor;
+	}
+</style>

@@ -1,0 +1,118 @@
+---
+import { sponsors } from '@/consts'
+
+const reps = 3
+const repeated = Array.from({ length: reps }, () => sponsors).flat()
+---
+
+<section class="mt-24" aria-labelledby="sponsors-heading">
+	<div class="text-center mb-8">
+		<h2 id="sponsors-heading" class="text-3xl sm:text-4xl">Sponsors</h2>
+		<p class="text-(--color-fg-dim) text-sm mt-2">
+			These organizations make our work possible. <a href="/about#sponsors" class="text-link">Interested in sponsoring</a>?
+		</p>
+	</div>
+
+	<div class="sponsor-carousel relative overflow-hidden">
+		<div class="pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-gradient-to-r from-(--color-bg) to-transparent"></div>
+		<div class="pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-gradient-to-l from-(--color-bg) to-transparent"></div>
+		<div class="sponsor-track">
+			<div class="sponsor-set">
+				{repeated.map(s => (
+					<a
+						href={s.href}
+						rel="noopener"
+						title={s.name}
+						aria-label={s.name}
+						class:list={['sponsor-item', s.aspect]}
+						style={`background-image: url(${s.logo})`}
+					></a>
+				))}
+			</div>
+			<div class="sponsor-set" aria-hidden="true">
+				{repeated.map(s => (
+					<a
+						href={s.href}
+						rel="noopener"
+						tabindex="-1"
+						class:list={['sponsor-item', s.aspect]}
+						style={`background-image: url(${s.logo})`}
+					></a>
+				))}
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.sponsor-track {
+		display: flex;
+		width: max-content;
+		animation: sponsor-scroll 90s linear infinite;
+	}
+	.sponsor-set {
+		display: flex;
+		flex-shrink: 0;
+		align-items: center;
+	}
+	.sponsor-item {
+		display: block;
+		margin: 0 2rem;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		opacity: 0.8;
+		transition: opacity 160ms;
+	}
+	.sponsor-item:hover {
+		opacity: 1;
+	}
+	.sponsor-item.wide {
+		width: 14rem;
+		height: 5.25rem;
+	}
+	.sponsor-item.square {
+		width: 5.25rem;
+		height: 5.25rem;
+	}
+	@keyframes sponsor-scroll {
+		from { transform: translate3d(0, 0, 0); }
+		to { transform: translate3d(-50%, 0, 0); }
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.sponsor-track {
+			animation: none;
+			flex-wrap: wrap;
+			justify-content: center;
+			width: auto;
+		}
+		.sponsor-set:nth-child(2) {
+			display: none;
+		}
+	}
+</style>
+
+<script>
+	const carousel = document.querySelector<HTMLElement>('.sponsor-carousel')
+	const track = document.querySelector<HTMLElement>('.sponsor-track')
+	if (carousel && track && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+		let target = 1
+		let current = 1
+		let raf: number | null = null
+
+		const tick = () => {
+			current += (target - current) * 0.2
+			if (Math.abs(target - current) < 0.001) current = target
+			for (const a of track.getAnimations()) a.playbackRate = current
+			raf = current === target ? null : requestAnimationFrame(tick)
+		}
+
+		const setTarget = (v: number) => {
+			target = v
+			if (raf === null) raf = requestAnimationFrame(tick)
+		}
+
+		carousel.addEventListener('mouseenter', () => setTarget(0))
+		carousel.addEventListener('mouseleave', () => setTarget(1))
+	}
+</script>

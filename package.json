@@ -1,0 +1,48 @@
+{
+	"name": "slugsec-site",
+	"type": "module",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "bun run fetch:events && astro check && astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"check": "astro check",
+		"fetch:events": "tsx scripts/fetch-events.ts"
+	},
+	"dependencies": {
+		"@astrojs/check": "latest",
+		"@astrojs/mdx": "latest",
+		"@astrojs/react": "latest",
+		"@astrojs/sitemap": "latest",
+		"@iconify-json/lucide": "^1.2.103",
+		"@iconify-json/simple-icons": "^1.2.79",
+		"@microflash/remark-callout-directives": "^5.0.0",
+		"@paper-design/shaders-react": "latest",
+		"@tailwindcss/vite": "latest",
+		"@types/js-yaml": "^4.0.9",
+		"astro": "latest",
+		"astro-expressive-code": "^0.41.7",
+		"astro-icon": "^1.1.5",
+		"glitched-writer": "^2.0.29",
+		"js-yaml": "^4.1.1",
+		"medium-zoom": "^1.1.0",
+		"node-ical": "latest",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"rehype-figure-title": "^1.1.0",
+		"remark-directive": "^4.0.0",
+		"remark-imgattr": "^1.1.1",
+		"tailwindcss": "latest",
+		"typescript": "latest"
+	},
+	"devDependencies": {
+		"@types/react": "^18.3.0",
+		"@types/react-dom": "^18.3.0",
+		"knip": "^6.7.0",
+		"madge": "^8.0.0",
+		"tsx": "latest"
+	}
+}

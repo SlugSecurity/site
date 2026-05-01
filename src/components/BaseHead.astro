@@ -1,0 +1,64 @@
+---
+import '@/styles/global.css'
+import { site } from '@/consts'
+
+interface Props {
+	title?: string
+	description?: string
+	image?: string
+	noindex?: boolean
+}
+
+const {
+	title = site.name,
+	description = site.tagline,
+	image = '/logo.png',
+	noindex = false,
+} = Astro.props
+
+const fullTitle = title === site.name ? site.name : `${title} — ${site.name}`
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString()
+const imageUrl = new URL(image, Astro.site).toString()
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+
+<style is:inline>html{font-size:110%}</style>
+
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+{noindex && <meta name="robots" content="noindex" />}
+
+<link rel="icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/logo.png" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={site.name} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={imageUrl} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+
+<meta name="theme-color" content="#0a0a0a" />
+
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+{import.meta.env.PROD && (
+	<>
+		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-YFR850WSX3"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || []
+			function gtag(){dataLayer.push(arguments)}
+			gtag('js', new Date())
+			gtag('config', 'G-YFR850WSX3')
+		</script>
+	</>
+)}

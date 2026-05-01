@@ -1,0 +1,228 @@
+---
+import Base from '@/layouts/Base.astro'
+import { Icon } from 'astro-icon/components'
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
+import yaml from 'js-yaml'
+import { site } from '@/consts'
+
+type Officer = {
+	Name: string
+	Title: string
+	Handle?: string
+	Description: string
+	Image: string
+	Website?: string
+	LinkedIn?: string
+	GitHub?: string
+	Twitter?: string
+}
+
+type Quarter = { quarter: string; names: string[] }
+
+const officersRaw = readFileSync(resolve(process.cwd(), 'src/data/officers.yml'), 'utf8')
+const officersData = yaml.load(officersRaw) as { executive: Officer[]; officers: Officer[]; alumni: Officer[] }
+const executive = officersData.executive ?? []
+const officers = officersData.officers ?? []
+const alumni = officersData.alumni ?? []
+
+const membersRaw = readFileSync(resolve(process.cwd(), 'src/data/members.yml'), 'utf8')
+const quarters = (yaml.load(membersRaw) as { members: Quarter[] }).members
+
+const activeOfficers = executive.length + officers.length
+const currentActive = quarters.find(q => q.names.length > 0)?.names.length ?? 0
+
+const fixImage = (p: string) => p.replace('/_assets/images/officers/', '/_assets/officers/')
+
+type Group = { name: string; list: Officer[]; subtitle: string; muted?: boolean }
+const groupOrder: Group[] = [
+	{ name: 'Executive', subtitle: 'Lead officers running the org.', list: executive },
+	{ name: 'Officers', subtitle: 'Officers handling specific functions.', list: officers },
+	{ name: 'Alumni', subtitle: 'Past officers. We don\u2019t track general-member alumni.', list: alumni, muted: true },
+]
+---
+
+<Base title="Members" description={`Officers and members of ${site.name}.`}>
+	<section class="container-prose pt-12 pb-6 text-center">
+		<h1 class="text-4xl sm:text-5xl mb-4">Members</h1>
+		<p class="text-(--color-fg-dim) leading-relaxed">
+			Officers, alumni, and active members of {site.name}.
+		</p>
+		<p class="text-(--color-fg-dim) mt-3">
+			Currently <span class="text-(--color-fg)">{activeOfficers}</span> officers and <span class="text-(--color-fg)">{alumni.length}</span> listed alumni. <span class="text-(--color-fg)">{currentActive}</span> {currentActive === 1 ? 'member' : 'members'} active this quarter.
+		</p>
+	</section>
+
+	<section class="container-tight pb-16">
+		<div id="leadership" class="mt-10 mb-6 flex items-center gap-3 scroll-mt-20">
+		<h2 class="text-2xl">Leadership</h2>
+			<span class="flex-1 h-px bg-(--color-line)"></span>
+		</div>
+
+		{groupOrder.map(group => {
+			if (group.list.length === 0) return null
+			return (
+				<div class="mt-10">
+					<div class="flex items-center gap-3 mb-1">
+						<h3 class:list={['text-lg', group.muted ? 'text-(--color-fg-dim)' : 'text-(--color-fg)']}>{group.name}</h3>
+						<span class="flex-1 h-px bg-(--color-line)"></span>
+						<span class="label-sm text-(--color-fg-faint)">{group.list.length}</span>
+					</div>
+					<p class="text-sm text-(--color-fg-dim) mb-4">{group.subtitle}</p>
+					<ul class="grid sm:grid-cols-2 gap-4">
+						{group.list.map(o => (
+							<li class:list={['officer-card panel', group.muted && 'officer-muted']}>
+								<div class="flex gap-4 items-start">
+									<img
+										src={fixImage(o.Image)}
+										alt={o.Name}
+										loading="lazy"
+										width="80"
+										height="80"
+										class="officer-avatar"
+									/>
+									<div class="min-w-0 flex-1 leading-tight">
+										<div class="label-sm text-(--color-accent)">{o.Title}</div>
+										<div class="text-base text-(--color-fg)">{o.Name}</div>
+										{o.Handle && (
+											<div class="label-sm text-(--color-fg-faint)">@{o.Handle}</div>
+										)}
+										<div class="flex items-center gap-3 mt-1.5 text-(--color-fg-faint)">
+											{o.Website && (
+												<a href={o.Website} title="Website" aria-label={`${o.Name} website`} class="officer-icon">
+													<Icon name="lucide:globe" width="14" height="14" />
+												</a>
+											)}
+											{o.LinkedIn && (
+												<a href={`https://www.linkedin.com/in/${o.LinkedIn}`} title="LinkedIn" aria-label={`${o.Name} LinkedIn`} class="officer-icon">
+													<Icon name="simple-icons:linkedin" width="14" height="14" />
+												</a>
+											)}
+											{o.GitHub && (
+												<a href={`https://github.com/${o.GitHub}`} title="GitHub" aria-label={`${o.Name} GitHub`} class="officer-icon">
+													<Icon name="simple-icons:github" width="14" height="14" />
+												</a>
+											)}
+											{o.Twitter && (
+												<a href={`https://twitter.com/${o.Twitter}`} title="Twitter" aria-label={`${o.Name} Twitter`} class="officer-icon">
+													<Icon name="simple-icons:x" width="14" height="14" />
+												</a>
+											)}
+										</div>
+										<p class="text-xs text-(--color-fg-dim) leading-relaxed mt-3">{o.Description}</p>
+									</div>
+								</div>
+							</li>
+						))}
+					</ul>
+				</div>
+			)
+		})}
+
+		<div id="active-members" class="mt-16 mb-4 flex items-center gap-3 scroll-mt-20">
+			<h2 class="text-2xl">Active members</h2>
+			<span class="flex-1 h-px bg-(--color-line)"></span>
+		</div>
+		<p class="text-sm text-(--color-fg-dim) mb-6">
+			Members who met active status that quarter. Want to be on this list? <a href="/join" class="text-link">Become a member</a>.
+		</p>
+
+		{quarters.map((q, i) => (
+			<div class="mt-3">
+				<div class="panel">
+					<div class="flex items-center gap-3 mb-3">
+						<h3 class="text-lg">{q.quarter}</h3>
+						<span class="flex-1 h-px bg-(--color-line)"></span>
+						<span class="label-sm text-(--color-fg-faint)">{q.names.length || '\u2014'}</span>
+					</div>
+					{q.names.length === 0 ? (
+						<p class="label-sm text-(--color-fg-faint)">Roster TBD</p>
+					) : (
+						<ul class="member-grid label-sm text-(--color-fg-dim)">
+							{q.names.map(n => {
+								if (n.trim() !== '?') return <li>{n}</li>
+								const len = 6 + Math.floor(Math.random() * 6)
+								const tip = 'This member chose not to share their name publicly.'
+								return <li><span class="anon-scramble" title={tip} aria-label={tip} data-len={len}>{'?'.repeat(len)}</span></li>
+							})}
+						</ul>
+					)}
+				</div>
+				{i === quarters.length - 1 && (
+					<p class="label-sm text-(--color-fg-faint) text-center mt-3">End of member roster, general member records only go back to Fall 2025.</p>
+				)}
+			</div>
+		))}
+	</section>
+</Base>
+
+<script>
+	import GlitchedWriter from 'glitched-writer'
+
+	const GLYPHS = '!<>-_\\/[]{}=+*^?#%&~01ABCDEF'
+	const seedOf = (len: number) => Array.from({ length: len }, () => GLYPHS[Math.floor(Math.random() * GLYPHS.length)]).join('')
+
+	function attach() {
+		document.querySelectorAll<HTMLElement>('.anon-scramble').forEach(el => {
+			if (el.dataset.anonAttached) return
+			el.dataset.anonAttached = '1'
+			const len = parseInt(el.dataset.len ?? '8', 10)
+			const writer = new GlitchedWriter(el, {
+				steps: [4, 8],
+				interval: [70, 140],
+				glyphs: GLYPHS,
+			})
+			const tick = () => {
+				writer.write(seedOf(len)).then(() => {
+					setTimeout(tick, 1800 + Math.random() * 800)
+				})
+			}
+			tick()
+		})
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', attach)
+	} else {
+		attach()
+	}
+	document.addEventListener('astro:page-load', attach)
+</script>
+
+<style>
+	.officer-card {
+		padding: 1rem;
+		transition: border-color 160ms;
+	}
+	.officer-card:hover {
+		border-color: var(--color-line-bright);
+	}
+	.officer-avatar {
+		width: 80px;
+		height: 80px;
+		object-fit: cover;
+		flex-shrink: 0;
+	}
+	.officer-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		transition: color 160ms;
+	}
+	.officer-icon:hover {
+		color: var(--color-accent);
+	}
+	.member-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+		gap: 0.65rem 1.5rem;
+	}
+	.anon-scramble {
+		display: inline-block;
+		color: var(--color-fg-faint);
+		min-width: 5rem;
+	}
+	.anon-scramble:hover {
+		color: var(--color-fg-dim);
+	}
+</style>

@@ -1,5 +1,0 @@
-{
-	"origins": ["https://slugsec.ucsc.edu"],
-	"originsRegex": ["http://localhost:[0-9]+"],
-	"defaultCommentOrder": "newest"
-}

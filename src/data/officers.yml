@@ -1,0 +1,169 @@
+# Each officer: Name, Title (max 30 chars), Handle, Description (max 200 chars),
+# Image (1:1, at public/_assets/officers/<handle>.webp),
+# optional: Website, LinkedIn, GitHub, Twitter.
+
+executive:
+  - Name: Sofia Yakushi
+    Title: President
+    Handle: yakushiiiii.
+    Description: 3rd year Computer Science undergraduate student. Interested in web security, cryptography, and network security
+    Image: /_assets/images/officers/yakushiiiii.webp
+    LinkedIn: sofia-yakushi-743b35225
+
+  - Name: Peter Dobbins
+    Title: Vice President
+    Handle: sixteen4
+    Description: 'Undergraduate in Computer Science: Game Design who is passionate about programming, software security, cryptography, system and network infrastructure, and game development.'
+    Image: /_assets/images/officers/sixteen4.webp
+    Website: https://sixteen4.com
+    LinkedIn: sixteen4
+
+  - Name: Nancy Lau
+    Title: Graduate Advisor & Founder
+    Handle: rose
+    Description: President emeritus (2022-24). CSE graduate student, interested in hardware security and AI.
+    Image: /_assets/images/officers/rose.webp
+    GitHub: nancyjlau
+
+  - Name: Ex Taranenko
+    Title: Graduate Advisor & Founder
+    Handle: fbad
+    Description: President emeritus '24-26. Vice President '22-24. Focused on computer networking and security. Interested in vulnerability analysis, reverse engineering, and cybersecurity education.
+    Image: /_assets/images/officers/fbad.webp
+    Website: https://fbad.me
+    GitHub: '0xfbad'
+
+  - Name: Dominick Rangel
+    Title: External Outreach
+    Handle: '1229.'
+    Description: Applied Math & Cog Sci 4th year interested in applied cryptography and ECC
+    Image: /_assets/images/officers/1229.webp
+    LinkedIn: dominick-rangel-93004b205
+    GitHub: DCR-03
+
+  - Name: Alvaro A. Cardenas
+    Title: Founding Faculty Advisor
+    Handle: chibchachum
+    Description: Alvaro A. Cardenas is an Associate Professor of Computer Science and Engineering at the University of California, Santa Cruz.
+    Image: /_assets/images/officers/chibchachum.webp
+    Website: https://users.soe.ucsc.edu/~alacarde/index.php
+
+officers:
+  - Name: Morris Richman
+    Title: University Relations Ambassador
+    Handle: mcrich
+    Description: Undergraduate in Computer Science and often called an Apple fanboy. Interested in network and application security. Often finds 0-days and config issues when its least convenient for everyone else.
+    Image: /_assets/images/officers/mcrich.webp
+    Website: https://mcrich23.com/
+    LinkedIn: morris-richman
+    GitHub: Mcrich23
+    Twitter: morrisinlife
+
+  - Name: Ian Phan
+    Title: Student Outreach
+    Handle: heythatsillegal
+    Description: Current Human Computer Interaction student, interested in applied cognitive psych, education and learning technologies, human factors engineering, and social engineering. Busy teaching new hackers at the moment!!
+    Image: /_assets/images/officers/heythatsillegal.webp
+    Website: https://sites.google.com/view/ianphan/home
+    LinkedIn: ian-phan
+
+  - Name: Sean Weber
+    Title: Operations
+    Handle: cosdet
+    Description: Comp Sci & Math student interested in security competitions, embedded security, and operating system design.
+    Image: /_assets/images/officers/cosdet.webp
+    LinkedIn: seanlweber
+    GitHub: cosdet
+
+  - Name: Nate Jarrett
+    Title: Head of Infrastructure
+    Handle: ndawg
+    Description: Computer engineering student interested in cyber-physical, network, and embedded computer security.
+    Image: /_assets/images/officers/ndawg.webp
+    LinkedIn: natejarrett
+    GitHub: NateCJarrett
+
+  - Name: Korben Tompkin
+    Title: Operations
+    Handle: korbexmachina
+    Description: 3rd year computer science & mathematics. Interested in cryptography, distributed systems, and embedded systems.
+    Image: /_assets/images/officers/korbexmachina.webp
+    Website: https://korbexmachina.com
+    LinkedIn: korbentompkin
+    GitHub: korbexmachina
+
+  - Name: Alex Hu
+    Title: Operations
+    Handle: anonymousrand
+    Description: CS/math student, casual CTF enjoyer, ok at cryptography, professional hobby collector. is occasionally smart
+    Image: /_assets/images/officers/anonymousrand.webp
+    Website: https://anonymousrand.xyz
+    GitHub: AnonymousRand
+
+alumni:
+  - Name: David Mlynski
+    Title: External Outreach
+    Handle: skynet2030
+    Description: Led the club's certificate program. Interested in web security and Artificial Intelligence. UCSC '26.
+    Image: /_assets/images/officers/skynet2030.webp
+    LinkedIn: david-mlynski-ba3912208
+    GitHub: computerguy2030
+
+  - Name: Julia Barbera
+    Title: External Outreach
+    Handle: fish
+    Description: Electrical Engineering undergrad... Embedded development and hardware security fan. I use arch btw
+    Image: /_assets/images/officers/fish.webp
+    Website: https://jbarbera.space/
+    LinkedIn: JulianBarbera
+    GitHub: JulianBarbera
+
+  - Name: Jaden P. Maxwell-Comfort
+    Title: Vice President & Head of Infra
+    Handle: maxwell
+    Description: Cybersecurity Researcher and Programmer. Main focuses include malware analysis, incident response, and Emacs. UCSC '25.
+    Image: /_assets/images/officers/maxwell.webp
+    Website: https://randomctf.com
+    LinkedIn: jaden-provost-maxwell-comfort-09a54718a
+    GitHub: Random936
+
+  - Name: Dmitry Pleshkov
+    Title: Operations
+    Handle: dankdmitron
+    Description: doing supercomputing infra at X. UCSC '24.
+    Image: /_assets/images/officers/dankdmitron.webp
+    Website: https://pleshkov.dev
+    LinkedIn: dmpleshkov
+    GitHub: dpleshkov
+    Twitter: dankdmitron
+
+  - Name: Rudy Chavez
+    Title: Outreach
+    Handle: rudy.chavez
+    Description: Interested in social engineering and cryptography, former officer '24.
+    Image: /_assets/images/officers/rudy.chavez.webp
+    GitHub: rudedude2015501
+
+  - Name: Brian Mak
+    Title: Operations & Head of Infra
+    Handle: asian.eggroll
+    Description: Interested in cybersecurity and systems programming, with a proven track record in numerous cybersecurity competitions. Led the '23 & '24 UCSC eCTF team. UCSC '24.
+    Image: /_assets/images/officers/asian.eggroll.webp
+    Website: https://bmak.me/
+    LinkedIn: brian-mak
+    GitHub: eggroll-bot
+
+  - Name: Jeffrey Zhang
+    Title: Operations
+    Handle: ferns.1115
+    Description: not fish. UCSC '23.
+    Image: /_assets/images/officers/ferns.webp
+    GitHub: jzhan357
+
+  - Name: Jackson Kohls
+    Title: Finance
+    Handle: jdkohls
+    Description: Math/Econ double major who fell into the joys of cybersecurity and CTFs. UCSC '23.
+    Image: /_assets/images/officers/jdkohls.webp
+    LinkedIn: jackson-d-kohls
+    GitHub: Jdkohls

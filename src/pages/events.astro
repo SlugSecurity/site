@@ -1,0 +1,148 @@
+---
+import Base from '@/layouts/Base.astro'
+import { calendar, links } from '@/consts'
+import { events, fmtTimeRange, badgeText } from '@/lib/events'
+
+const now = new Date()
+const upcoming = events
+	.filter(e => new Date(e.end) > now)
+	.sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime())
+const past = events
+	.filter(e => new Date(e.end) <= now)
+	.sort((a, b) => new Date(b.start).getTime() - new Date(a.start).getTime())
+	.slice(0, 3)
+	.reverse()
+
+function fmtDate(iso: string) {
+	return new Date(iso).toLocaleDateString('en-US', {
+		weekday: 'long',
+		month: 'long',
+		day: 'numeric',
+		timeZone: calendar.timezone,
+	})
+}
+
+function fmtShort(iso: string) {
+	return new Date(iso).toLocaleDateString('en-US', {
+		month: 'short',
+		day: 'numeric',
+		timeZone: calendar.timezone,
+	})
+}
+---
+
+<Base title="Events" description="Upcoming Slug Security meetings, CTFs, and socials.">
+	<section class="container-prose pt-12 pb-8 text-center">
+		<h1 class="text-4xl sm:text-5xl mb-4">Events</h1>
+		<p class="text-(--color-fg-dim) leading-relaxed mb-1">
+			What's coming up. Subscribe and the calendar updates everywhere automatically.
+		</p>
+		<p class="text-sm text-(--color-fg-dim) mb-6">
+			Interested in working sessions? Reach out in our <a href={links.discord} class="text-link">Discord</a>.
+		</p>
+		<div class="flex flex-wrap justify-center gap-2">
+			<a href={calendar.addUrl} class="btn btn-primary">Add to Google Calendar</a>
+			<a href={calendar.icsUrl} class="btn">.ics feed</a>
+		</div>
+		<button
+			id="cal-toggle"
+			type="button"
+			class="mt-5 label-sm text-(--color-fg-dim) hover:text-(--color-accent) cursor-pointer transition-colors"
+			aria-controls="events-list events-embed"
+			aria-pressed="false"
+		>
+			<span data-mode="list">[ want the visual google calendar instead? ]</span>
+			<span data-mode="embed" class="hidden">[ back to event list ]</span>
+		</button>
+	</section>
+
+	<section id="events-embed" class="hidden mx-auto pb-16 px-5 max-w-[92rem]">
+		<div class="frame p-1">
+			<iframe
+				src={calendar.embedUrl}
+				title="Slug Security Google Calendar"
+				class="block w-full h-[600px] sm:h-[720px] md:h-[820px] bg-white border-0"
+				loading="lazy"
+			></iframe>
+		</div>
+	</section>
+
+	<section id="events-list" class="container-tight pb-16">
+		{past.length > 0 && (
+			<div class="mb-6 opacity-65">
+				<div class="label-sm text-(--color-fg-dim) mb-2">Past Events</div>
+				<ul class="space-y-1.5">
+					{past.map(e => (
+						<li class="flex items-baseline gap-3 label-sm">
+							<span class="text-(--color-fg-dim) tabular-nums w-16 shrink-0">{fmtShort(e.start)}</span>
+							<span class="text-(--color-fg-dim) text-sm font-sans truncate">{e.title}</span>
+						</li>
+					))}
+				</ul>
+				<div class="mt-4 h-px bg-(--color-line)"></div>
+			</div>
+		)}
+
+		{upcoming.length === 0 ? (
+			<div class="frame p-6 label-sm text-(--color-fg-dim)">
+				No upcoming events. Check back soon, or subscribe to be notified.
+			</div>
+		) : (
+			<ul class="frame divide-y divide-(--color-line)">
+				{upcoming.map(e => (
+					<li class="px-4 py-4 sm:py-5">
+						<div class="flex flex-col sm:flex-row gap-3 sm:gap-6">
+							<div class="sm:w-56 shrink-0 label-sm leading-tight">
+								<div class="text-(--color-fg) tabular-nums">{fmtDate(e.start)}</div>
+								<div class="text-(--color-fg-dim) mt-1">{fmtTimeRange(e.start, e.end)}</div>
+								<div class="countdown text-(--color-accent) mt-1" data-start={e.start}></div>
+								{e.location && <div class="text-(--color-fg-dim) mt-2 leading-snug">{e.location}</div>}
+							</div>
+							<div class="flex-1 min-w-0">
+								<div class="text-lg leading-tight font-sans text-(--color-fg)">{e.title}</div>
+								{(e.private || e.competition || (e.tags && e.tags.length > 0) || e.host) && (
+									<div class="flex flex-wrap items-center gap-1.5 mt-2">
+										{e.private && (
+											<span class="ev-badge ev-private" title={typeof e.private === 'string' ? `Private: ${e.private}` : 'Private event'}>
+												{badgeText(e.private, 'PRIVATE')}
+											</span>
+										)}
+										{e.competition && (
+											<span class="ev-badge ev-comp" title="Competition">COMPETITION</span>
+										)}
+										{e.tags && e.tags.map(tag => <span class="ev-tag">{tag}</span>)}
+										{e.host && (
+											<span class="label-sm text-(--color-fg-faint) ml-1">Host: <span class="text-(--color-fg-dim)">{e.host}</span></span>
+										)}
+									</div>
+								)}
+								{e.description && (
+									<p class="text-sm text-(--color-fg-dim) mt-3 whitespace-pre-line">
+										{e.description}
+									</p>
+								)}
+							</div>
+						</div>
+					</li>
+				))}
+			</ul>
+		)}
+	</section>
+</Base>
+
+<script>
+	import '@/scripts/countdown'
+
+	const toggle = document.getElementById('cal-toggle')
+	const list = document.getElementById('events-list')
+	const embed = document.getElementById('events-embed')
+	const labels = toggle?.querySelectorAll<HTMLElement>('[data-mode]')
+
+	toggle?.addEventListener('click', () => {
+		const showingEmbed = !embed?.classList.contains('hidden')
+		list?.classList.toggle('hidden', !showingEmbed)
+		embed?.classList.toggle('hidden', showingEmbed)
+		labels?.forEach(el => el.classList.toggle('hidden'))
+		toggle.setAttribute('aria-pressed', String(!showingEmbed))
+	})
+</script>

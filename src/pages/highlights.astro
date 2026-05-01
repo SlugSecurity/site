@@ -1,0 +1,468 @@
+---
+import Base from '@/layouts/Base.astro'
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
+import yaml from 'js-yaml'
+
+type Highlight = {
+	Name: string
+	Date: Date | string
+	Type: string
+	Location: string
+	Placement: number | string
+	Participants: number | string
+	Article?: string | null
+	Writeup?: string | null
+}
+
+const raw = readFileSync(resolve(process.cwd(), 'src/data/highlights.yml'), 'utf8')
+const parsed = yaml.load(raw) as { highlights: Record<string, Highlight[]> }
+const years = Object.keys(parsed.highlights).sort((a, b) => Number(b) - Number(a))
+const all = years.flatMap(y => parsed.highlights[y])
+const currentYear = new Date().getFullYear()
+
+const totalEvents = all.length
+const podium = all.filter(h => Number(h.Placement) <= 3).length
+const topTen = all.filter(h => Number(h.Placement) / Number(h.Participants) <= 0.1).length
+const thisYear = parsed.highlights[String(currentYear)]?.length ?? 0
+
+const typeCounts = new Map<string, number>()
+for (const h of all) typeCounts.set(h.Type, (typeCounts.get(h.Type) ?? 0) + 1)
+const types = Array.from(typeCounts.entries()).sort((a, b) => b[1] - a[1])
+
+function tierOf(placement: number | string, participants: number | string) {
+	const p = Number(placement)
+	const ratio = p / Number(participants)
+	if (p === 1) return 'gold'
+	if (p === 2) return 'silver'
+	if (p === 3) return 'bronze'
+	if (ratio <= 0.1) return 'top'
+	return 'normal'
+}
+
+function topPct(placement: number | string, participants: number | string) {
+	const r = Number(placement) / Number(participants)
+	return Math.max(1, Math.ceil(r * 100))
+}
+
+function fmtDate(d: Date | string) {
+	const date = typeof d === 'string' ? new Date(d) : d
+	return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+}
+
+function fmtCount(n: number | string) {
+	const v = Number(n)
+	if (v < 1000) return String(v)
+	if (v < 10000) return (v / 1000).toFixed(1).replace(/\.0$/, '') + 'k'
+	return Math.round(v / 1000) + 'k'
+}
+
+function ordinal(n: number) {
+	const s = ['th', 'st', 'nd', 'rd']
+	const v = n % 100
+	return n + (s[(v - 20) % 10] || s[v] || s[0])
+}
+
+function typeSlug(t: string) {
+	return t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+}
+---
+
+<Base title="Highlights" description="Slug Security competition results, achievements, and notable activities.">
+	<section class="container-prose pt-12 pb-6 text-center">
+		<h1 class="text-4xl sm:text-5xl mb-4">Highlights</h1>
+		<p class="text-(--color-fg-dim) leading-relaxed">
+			A log of every competition, ranked finish, and notable result.
+		</p>
+	</section>
+
+	<section class="container-tight pb-2">
+		<div class="stats">
+			<div class="stat">
+				<div class="stat-label">competitions</div>
+				<div class="stat-num">{totalEvents}</div>
+			</div>
+			<div class="stat">
+				<div class="stat-label">top 3 finishes</div>
+				<div class="stat-num text-(--color-accent)">{podium}</div>
+			</div>
+			<div class="stat">
+				<div class="stat-label">top 10% results</div>
+				<div class="stat-num">{topTen}</div>
+			</div>
+			<div class="stat">
+				<div class="stat-label">{currentYear} so far</div>
+				<div class="stat-num">{thisYear}</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="container-tight pt-6">
+		<div class="filter-bar" role="toolbar" aria-label="Filter by type">
+			<button class="filter-pill active" data-filter="all">
+				<span>All</span><span class="filter-count">{totalEvents}</span>
+			</button>
+			{types.map(([t, count]) => (
+				<button class="filter-pill" data-filter={typeSlug(t)}>
+					<span>{t}</span><span class="filter-count">{count}</span>
+				</button>
+			))}
+		</div>
+	</section>
+
+	<section class="container-tight pt-3">
+		<div class="year-jump label-sm">
+			<span class="text-(--color-fg-faint)">jump</span>
+			{years.map(y => (
+				<a href={`#y-${y}`} class="year-link">{y}</a>
+			))}
+		</div>
+	</section>
+
+	<section class="container-tight pb-16 pt-6" id="highlights-list">
+		{years.map(year => (
+			<div class="year-block" id={`y-${year}`} data-year={year}>
+				<div class="year-header">
+					<span class="year-tag">[ {year} ]</span>
+					<span class="year-line"></span>
+					<span class="year-count">{parsed.highlights[year].length} {parsed.highlights[year].length === 1 ? 'entry' : 'entries'}</span>
+				</div>
+
+				<ul class="entries">
+					{parsed.highlights[year].map(h => {
+						const tier = tierOf(h.Placement, h.Participants)
+						const pct = topPct(h.Placement, h.Participants)
+						const place = Number(h.Placement)
+						return (
+							<li class={`entry tier-${tier}`} data-type={typeSlug(h.Type)}>
+								<div class="entry-rank">
+									<span class="rank-place">{ordinal(place)}</span>
+									<span class="rank-detail">out of {fmtCount(h.Participants)}</span>
+								</div>
+								<div class="entry-name">{h.Name}</div>
+								<div class="entry-meta">
+									<span class="m-type">{h.Type}</span>
+									<span class="m-sep">·</span>
+									<span class="m-loc">{h.Location}</span>
+									<span class="m-sep">·</span>
+									<span class="m-date">{fmtDate(h.Date)}</span>
+									<span class="m-sep">·</span>
+									<span class={`m-pct pct-${tier}`}>top {pct}%</span>
+								</div>
+								{(h.Article || h.Writeup) && (
+									<div class="entry-links">
+										{h.Article && <a href={h.Article} class="entry-link" rel="noopener">Post</a>}
+										{h.Writeup && <a href={h.Writeup} class="entry-link" rel="noopener">Writeup</a>}
+									</div>
+								)}
+							</li>
+						)
+					})}
+				</ul>
+			</div>
+		))}
+		<div class="empty-state" hidden>
+			<span class="label-sm text-(--color-fg-faint)">no entries match this filter</span>
+		</div>
+	</section>
+</Base>
+
+<script>
+	const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-pill')
+	const entries = document.querySelectorAll<HTMLElement>('.entry')
+	const yearBlocks = document.querySelectorAll<HTMLElement>('.year-block')
+	const empty = document.querySelector<HTMLElement>('.empty-state')
+
+	buttons.forEach(btn => {
+		btn.addEventListener('click', () => {
+			const f = btn.dataset.filter ?? 'all'
+			buttons.forEach(b => b.classList.toggle('active', b === btn))
+
+			let visibleTotal = 0
+			entries.forEach(e => {
+				const show = f === 'all' || e.dataset.type === f
+				e.classList.toggle('is-hidden', !show)
+				if (show) visibleTotal++
+			})
+			yearBlocks.forEach(yb => {
+				const visible = yb.querySelectorAll('.entry:not(.is-hidden)').length
+				yb.classList.toggle('is-hidden', visible === 0)
+			})
+			if (empty) empty.hidden = visibleTotal > 0
+		})
+	})
+</script>
+
+<style>
+	.stats {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1px;
+		background: var(--color-line);
+		border: 1px solid var(--color-line);
+	}
+	@media (min-width: 640px) {
+		.stats { grid-template-columns: repeat(4, 1fr); }
+	}
+	.stat {
+		background: var(--color-bg-panel);
+		padding: 0.85rem 1rem 0.9rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+	}
+	.stat-label {
+		font-family: var(--font-pixel);
+		font-size: 0.78rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--color-fg-faint);
+	}
+	.stat-num {
+		font-family: var(--font-pixel);
+		font-size: 1.85rem;
+		line-height: 1;
+		color: var(--color-fg);
+		letter-spacing: 0.01em;
+	}
+
+	.filter-bar {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+	}
+	.filter-pill {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45rem;
+		font-family: var(--font-pixel);
+		font-size: 0.8rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		padding: 0.32rem 0.7rem;
+		background: var(--color-bg-panel);
+		color: var(--color-fg-dim);
+		border: 1px solid var(--color-line);
+		cursor: pointer;
+		transition: border-color 120ms, color 120ms, background 120ms;
+	}
+	.filter-pill:hover {
+		border-color: var(--color-line-bright);
+		color: var(--color-fg);
+	}
+	.filter-pill.active {
+		color: var(--color-accent);
+		border-color: var(--color-accent);
+		background: rgba(255, 106, 26, 0.06);
+	}
+	.filter-count {
+		font-size: 0.7rem;
+		color: var(--color-fg-faint);
+		padding-left: 0.4rem;
+		border-left: 1px solid var(--color-line);
+	}
+	.filter-pill.active .filter-count {
+		color: var(--color-accent-dim);
+		border-left-color: var(--color-accent-deep);
+	}
+
+	.year-jump {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.85rem;
+		padding-bottom: 0.5rem;
+	}
+	.year-link {
+		color: var(--color-fg-dim);
+		font-family: var(--font-pixel);
+		font-size: 0.85rem;
+		letter-spacing: 0.02em;
+		transition: color 120ms;
+	}
+	.year-link:hover {
+		color: var(--color-accent);
+	}
+
+	.year-block {
+		margin-top: 2rem;
+		scroll-margin-top: 5rem;
+	}
+	.year-block:first-of-type {
+		margin-top: 0.5rem;
+	}
+	.year-header {
+		display: flex;
+		align-items: center;
+		gap: 0.7rem;
+		margin-bottom: 0.6rem;
+	}
+	.year-tag {
+		font-family: var(--font-pixel);
+		font-size: 1rem;
+		color: var(--color-accent);
+		letter-spacing: 0.04em;
+	}
+	.year-line {
+		flex: 1;
+		height: 1px;
+		background: var(--color-line);
+	}
+	.year-count {
+		font-family: var(--font-pixel);
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--color-fg-faint);
+	}
+
+	.entries {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+	}
+
+	.entry {
+		display: grid;
+		grid-template-columns: 6.5rem 1fr auto;
+		grid-template-rows: auto auto;
+		column-gap: 0.9rem;
+		row-gap: 0.1rem;
+		align-items: baseline;
+		padding: 0.55rem 0.85rem 0.6rem 1rem;
+		background: var(--color-bg-panel);
+		border: 1px solid var(--color-line);
+		position: relative;
+		transition: border-color 140ms;
+	}
+	.entry::before {
+		content: '';
+		position: absolute;
+		left: 0; top: 0; bottom: 0;
+		width: 3px;
+		background: var(--color-line);
+		transition: background 140ms;
+	}
+	.entry:hover { border-color: var(--color-line-bright); }
+	.tier-normal:hover::before { background: var(--color-fg-dim); }
+	.tier-top::before { background: var(--color-accent-deep); }
+	.tier-top:hover::before { background: var(--color-accent); }
+	.tier-bronze::before { background: #cd7f32; }
+	.tier-silver::before { background: #c0c0c0; }
+	.tier-gold::before {
+		background: #ffd700;
+		box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+	}
+
+	.entry-rank {
+		grid-column: 1;
+		grid-row: 1 / span 2;
+		align-self: center;
+		display: flex;
+		flex-direction: column;
+		gap: 0.05rem;
+		text-align: right;
+		font-family: var(--font-pixel);
+		border-right: 1px solid var(--color-line);
+		padding-right: 0.85rem;
+	}
+	.rank-place {
+		font-size: 1.35rem;
+		line-height: 1;
+		color: var(--color-fg);
+		letter-spacing: 0.02em;
+	}
+	.rank-detail {
+		font-size: 0.72rem;
+		color: var(--color-fg-faint);
+		letter-spacing: 0.05em;
+	}
+	.tier-gold .rank-place {
+		color: #ffd700;
+		text-shadow: 0 0 6px rgba(255, 215, 0, 0.45);
+	}
+	.tier-silver .rank-place { color: #c0c0c0; }
+	.tier-bronze .rank-place { color: #cd7f32; }
+	.tier-top .rank-place { color: var(--color-accent); }
+
+	.entry-name {
+		grid-column: 2;
+		grid-row: 1;
+		font-size: 1rem;
+		line-height: 1.25;
+		color: var(--color-fg);
+		min-width: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.entry-meta {
+		grid-column: 2;
+		grid-row: 2;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 0.35rem;
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		color: var(--color-fg-faint);
+		min-width: 0;
+	}
+	.m-type { color: var(--color-fg-dim); }
+	.m-loc, .m-date { color: var(--color-fg-faint); }
+	.m-sep { color: var(--color-line-bright); }
+	.m-pct { color: var(--color-fg-faint); }
+	.pct-top, .pct-gold, .pct-silver, .pct-bronze {
+		color: var(--color-accent);
+	}
+
+	.entry-links {
+		grid-column: 3;
+		grid-row: 1 / span 2;
+		align-self: center;
+		display: flex;
+		gap: 0.65rem;
+		font-family: var(--font-pixel);
+		font-size: 0.78rem;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+	.entry-link {
+		color: var(--color-accent);
+		border-bottom: 1px solid var(--color-accent-deep);
+		transition: color 120ms, border-color 120ms;
+	}
+	.entry-link:hover {
+		color: var(--color-fg);
+		border-bottom-color: var(--color-fg-dim);
+	}
+
+	.is-hidden { display: none; }
+
+	.empty-state {
+		padding: 1.5rem 0;
+		text-align: center;
+	}
+
+	@media (max-width: 560px) {
+		.entry {
+			grid-template-columns: 5.25rem 1fr;
+			column-gap: 0.7rem;
+			padding: 0.55rem 0.75rem 0.6rem 0.85rem;
+		}
+		.entry-rank { padding-right: 0.65rem; }
+		.rank-place { font-size: 1.2rem; }
+		.rank-detail { font-size: 0.68rem; }
+		.entry-name { font-size: 0.95rem; white-space: normal; }
+		.entry-links {
+			grid-column: 1 / -1;
+			grid-row: 3;
+			padding-left: 5.95rem;
+			padding-top: 0.2rem;
+			justify-self: start;
+		}
+	}
+</style>
