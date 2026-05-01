@@ -74,6 +74,8 @@ body {
 	background: transparent;
 	display: flex;
 	flex-direction: column;
+	overflow-x: hidden;
+	overflow-wrap: break-word;
 }
 
 body > main {

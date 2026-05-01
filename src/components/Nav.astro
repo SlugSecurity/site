@@ -11,7 +11,7 @@ const navMain = nav.filter(n => n.label !== 'Join')
 			<span class="brand text-lg sm:text-xl">SLUGSEC</span>
 		</a>
 
-		<div class="hidden md:flex items-center gap-1 label">
+		<div class="hidden min-[1000px]:flex items-center gap-1 label">
 			{navMain.map(item => {
 				const active = path === item.href || path.startsWith(item.href)
 				return (
@@ -37,7 +37,7 @@ const navMain = nav.filter(n => n.label !== 'Join')
 
 		<button
 			id="nav-toggle"
-			class="md:hidden flex h-9 w-9 items-center justify-center border border-(--color-line) text-(--color-fg)"
+			class="min-[1000px]:hidden flex h-9 w-9 items-center justify-center border border-(--color-line) text-(--color-fg)"
 			aria-label="Toggle navigation"
 			aria-expanded="false"
 		>
@@ -48,7 +48,7 @@ const navMain = nav.filter(n => n.label !== 'Join')
 		</button>
 	</nav>
 
-	<div id="nav-sheet" class="md:hidden hidden border-t border-(--color-line) bg-(--color-bg)/95">
+	<div id="nav-sheet" class="min-[1000px]:hidden hidden border-t border-(--color-line) bg-(--color-bg)/95">
 		<div class="container-tight flex flex-col py-3 label gap-1">
 			{navMain.map(item => {
 				const active = path === item.href || path.startsWith(item.href)

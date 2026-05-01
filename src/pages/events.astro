@@ -73,9 +73,9 @@ function fmtShort(iso: string) {
 				<div class="label-sm text-(--color-fg-dim) mb-2">Past Events</div>
 				<ul class="space-y-1.5">
 					{past.map(e => (
-						<li class="flex items-baseline gap-3 label-sm">
+						<li class="flex items-baseline gap-3 label-sm min-w-0">
 							<span class="text-(--color-fg-dim) tabular-nums w-16 shrink-0">{fmtShort(e.start)}</span>
-							<span class="text-(--color-fg-dim) text-sm font-sans truncate">{e.title}</span>
+							<span class="text-(--color-fg-dim) text-sm font-sans truncate min-w-0">{e.title}</span>
 						</li>
 					))}
 				</ul>

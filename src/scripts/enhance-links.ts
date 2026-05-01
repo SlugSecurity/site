@@ -77,8 +77,11 @@ function attachScramble(link: HTMLAnchorElement) {
 
 	const text = marker?.textContent ?? direct?.textContent ?? wrappedFormatter?.textContent ?? ''
 	const trimmed = text.trim()
-	if (!trimmed || trimmed.length > 200) return
+	if (!trimmed) return
 	if (!marker && !direct && !wrappedFormatter) return
+	// only scramble explicit opt-ins or short button-like text. long auto-detected
+	// text would force the inline-block wrap to a single line wider than its parent.
+	if (!marker && trimmed.length > 40) return
 
 	const wrap = document.createElement('span')
 	wrap.style.cssText = 'position: relative; display: inline-block; vertical-align: baseline; line-height: inherit; text-decoration: inherit; text-decoration-color: inherit;'

@@ -45,13 +45,13 @@ if (title) {
 	const final = (title.textContent ?? '').trim()
 	if (final && final.length <= 120) {
 		const wrap = document.createElement('span')
-		wrap.style.cssText = 'position: relative; display: inline-block; vertical-align: baseline;'
+		wrap.style.cssText = 'position: relative; display: block; vertical-align: baseline;'
 		const ghost = document.createElement('span')
 		ghost.textContent = final
 		ghost.style.cssText = 'visibility: hidden;'
 		ghost.setAttribute('aria-hidden', 'true')
 		const overlay = document.createElement('span')
-		overlay.style.cssText = 'position: absolute; left: 0; top: 0; white-space: nowrap;'
+		overlay.style.cssText = 'position: absolute; inset: 0;'
 		wrap.append(ghost, overlay)
 		title.replaceChildren(wrap)
 

@@ -79,10 +79,10 @@ function fmtParts(iso: string) {
 						{after.map(e => {
 							const t = fmtParts(e.start)
 							return (
-								<div class="flex items-baseline gap-3 text-(--color-fg-dim)">
-									<span class="text-(--color-fg) tabular-nums">{t.date}</span>
-									<span class="text-(--color-fg-faint)">{t.time}</span>
-									<span class="truncate text-sm font-sans">{e.title}</span>
+								<div class="flex items-baseline gap-3 text-(--color-fg-dim) min-w-0">
+									<span class="text-(--color-fg) tabular-nums shrink-0">{t.date}</span>
+									<span class="text-(--color-fg-faint) shrink-0">{t.time}</span>
+									<span class="truncate text-sm font-sans min-w-0">{e.title}</span>
 								</div>
 							)
 						})}

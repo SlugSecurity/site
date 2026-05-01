@@ -40,7 +40,7 @@ const years = Object.keys(grouped).map(Number).sort((a, b) => b - a)
 								<span class="font-mono text-xs text-(--color-fg-faint) tabular-nums w-24 shrink-0">
 									{fmtDate(p.data.date)}
 								</span>
-								<span class="text-(--color-fg) group-hover:text-(--color-accent) transition-colors flex-1" data-scramble>
+								<span class="text-(--color-fg) group-hover:text-(--color-accent) transition-colors flex-1 min-w-0">
 									{p.data.title}
 								</span>
 								<span class="flex flex-wrap gap-1 shrink-0">

@@ -3,30 +3,8 @@
 # Use "?" for members who want to stay anonymous (rendered as a redaction bar).
 members:
   - quarter: Spring 2026
-    names:
-      - Sofia Yakushi
-      - Peter Dobbins
-      - Korben Tompkin
-      - Alex Hu
-      - Ian Phan
-      - "?"
-      - David Mlynski
-      - Brian Mak
-      - "?"
-      - Jaden Maxwell-Comfort
+    names: []
   - quarter: Winter 2026
-    names:
-      - Sofia Yakushi
-      - Peter Dobbins
-      - Korben Tompkin
-      - "?"
-      - Alex Hu
-      - Dominick Rangel
+    names: []
   - quarter: Fall 2025
-    names:
-      - Nancy Lau
-      - Ex Taranenko
-      - Dmitry Pleshkov
-      - Rudy Chavez
-      - Jeffrey Zhang
-      - Jackson Kohls
+    names: []
