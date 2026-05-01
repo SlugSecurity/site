@@ -8,7 +8,7 @@ function fmtDate(d: Date) {
 }
 ---
 
-<section class="container-tight mt-24">
+<section class="max-w-7xl mx-auto px-5 mt-24">
 	<div class="text-center mb-8">
 		<h2 class="text-3xl sm:text-4xl mb-1">Recent posts</h2>
 		<p class="text-(--color-fg-dim) text-sm">Writeups, club news, and other things members published.</p>
@@ -19,30 +19,19 @@ function fmtDate(d: Date) {
 			No posts yet.
 		</div>
 	) : (
-		<div class="grid sm:grid-cols-2 gap-4">
+		<div class="flex flex-col gap-2">
 			{recent.map(p => {
 				const excerpt = getExcerpt(p)
 				return (
-					<a href={`/posts/${p.id}`} class="panel panel-link group">
-						<div class="flex items-center justify-between gap-3 label-sm text-(--color-fg-faint) mb-2">
-							<time datetime={p.data.date.toISOString()}>{fmtDate(p.data.date)}</time>
-							{p.data.authors.length > 0 && (
-								<span>{p.data.authors.join(', ')}</span>
-							)}
-						</div>
-						<h3 class="text-lg leading-snug mb-2 group-hover:text-(--color-accent) transition-colors">
-							{p.data.title}
-						</h3>
-						{excerpt && (
-							<p class="text-sm text-(--color-fg-dim) leading-relaxed line-clamp-3 mb-3">
-								{excerpt}
-							</p>
-						)}
-						{p.data.tags.length > 0 && (
-							<div class="flex flex-wrap gap-1.5">
-								{p.data.tags.slice(0, 4).map(t => (
+					<a href={`/posts/${p.id}`} class="panel panel-link group p-4 flex flex-col gap-1.5">
+						<div class="flex flex-col sm:flex-row sm:items-baseline gap-x-4 gap-y-1.5">
+							<h3 class="text-base leading-snug flex-1 min-w-0 sm:truncate group-hover:text-(--color-accent) transition-colors">
+								{p.data.title}
+							</h3>
+							<div class="flex flex-wrap items-center gap-x-2.5 gap-y-1 shrink-0 label-sm">
+								{p.data.tags.slice(0, 3).map(t => (
 									<span class:list={[
-										'label-sm border px-1.5 py-0.5',
+										'border px-1.5 py-0.5',
 										t === 'writeup'
 											? 'text-(--color-accent) border-(--color-accent-dim)'
 											: 'text-(--color-fg-faint) border-(--color-line)',
@@ -50,7 +39,16 @@ function fmtDate(d: Date) {
 										{t}
 									</span>
 								))}
+								{p.data.authors.length > 0 && (
+									<span class="text-(--color-fg-faint)">{p.data.authors.join(', ')}</span>
+								)}
+								<time class="text-(--color-fg-faint) tabular-nums" datetime={p.data.date.toISOString()}>{fmtDate(p.data.date)}</time>
 							</div>
+						</div>
+						{excerpt && (
+							<p class="text-sm text-(--color-fg-dim) line-clamp-1">
+								{excerpt}
+							</p>
 						)}
 					</a>
 				)

@@ -24,7 +24,7 @@ export default function ShaderBg() {
 				shape="simplex"
 				type="4x4"
 				size={2}
-				speed={0.04}
+				speed={0}
 				scale={1}
 				style={{ width: '100%', height: '100%', opacity: 0.85 }}
 			/>

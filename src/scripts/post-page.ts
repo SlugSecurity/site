@@ -41,7 +41,7 @@ if (tocLinks.length) {
 }
 
 const title = document.querySelector<HTMLElement>('.post-title')
-if (title) {
+if (title && window.matchMedia('(min-width: 768px)').matches) {
 	const final = (title.textContent ?? '').trim()
 	if (final && final.length <= 120) {
 		const wrap = document.createElement('span')

@@ -163,6 +163,7 @@ const groupOrder: Group[] = [
 	const seedOf = (len: number) => Array.from({ length: len }, () => GLYPHS[Math.floor(Math.random() * GLYPHS.length)]).join('')
 
 	function attach() {
+		if (!window.matchMedia('(min-width: 768px)').matches) return
 		document.querySelectorAll<HTMLElement>('.anon-scramble').forEach(el => {
 			if (el.dataset.anonAttached) return
 			el.dataset.anonAttached = '1'

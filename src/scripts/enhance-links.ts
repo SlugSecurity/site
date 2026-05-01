@@ -108,11 +108,13 @@ function attachScramble(link: HTMLAnchorElement) {
 	originals.set(link, trimmed)
 }
 
+const scrambleQuery = window.matchMedia('(min-width: 768px)')
+
 function enhance(link: HTMLAnchorElement) {
 	if (link.dataset.linkEnhanced) return
 	link.dataset.linkEnhanced = '1'
 	applyExternalAttrs(link)
-	attachScramble(link)
+	if (scrambleQuery.matches) attachScramble(link)
 }
 
 function attachAll() {
