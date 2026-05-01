@@ -15,7 +15,11 @@ export function getExcerpt(post: Post, maxLen = 180): string {
 	const cleaned = cut
 		.replace(/```[\s\S]*?```/g, '')
 		.replace(/!!![^\n]*\n(?:\s{4,}[^\n]*\n)*/g, '')
+		// strip remark callout directives: opening `:::name{attrs}` and closing `:::`
+		.replace(/^:::\s*\w*\s*(?:\{[^}]*\})?\s*$/gm, '')
 		.replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1')
+		// strip remark-imgattr trailing attribute groups like `(class: "invert")`
+		.replace(/\(\s*[\w-]+\s*:\s*"[^"]*"\s*\)/g, '')
 		.replace(/<[^>]+>/g, '')
 		.replace(/[#*_`]/g, '')
 		.replace(/\s+/g, ' ')
