@@ -1,0 +1,112 @@
+---
+import { nav, navExternal, site } from '@/consts'
+const path = Astro.url.pathname
+const navMain = nav.filter(n => n.label !== 'Join')
+---
+
+<header class="sticky top-0 z-30 border-b border-(--color-line) bg-(--color-bg)/90 backdrop-blur-sm">
+	<nav class="container-tight flex items-center justify-between gap-4 py-3">
+		<a href="/" class="flex items-center gap-2 text-(--color-fg) hover:text-(--color-fg-dim) transition-colors" aria-label={site.name}>
+			<img src="/logo.png" alt="" class="h-7 w-7" width="28" height="28" />
+			<span class="brand text-lg sm:text-xl">SLUGSEC</span>
+		</a>
+
+		<div class="hidden md:flex items-center gap-1 label">
+			{navMain.map(item => {
+				const active = path === item.href || path.startsWith(item.href)
+				return (
+					<a
+						href={item.href}
+						class:list={[
+							'nav-link px-3 py-2 transition-colors',
+							active ? 'text-(--color-fg) is-active' : 'text-(--color-fg-dim)',
+						]}
+					>{item.label}</a>
+				)
+			})}
+			<a href="/join" class="join-btn mx-2">Join</a>
+			<span class="mx-1 h-4 w-px bg-(--color-line)" aria-hidden></span>
+			{navExternal.map(item => (
+				<a
+					href={item.href}
+					title={item.title}
+					class="nav-link px-3 py-2 text-(--color-fg-dim) inline-flex items-center gap-1 transition-colors"
+				>{item.label}<svg width="9" height="9" viewBox="0 0 10 10" fill="none" aria-hidden><path d="M2 8L8 2M8 2H3.5M8 2V6.5" stroke="currentColor" stroke-width="1.2" /></svg></a>
+			))}
+		</div>
+
+		<button
+			id="nav-toggle"
+			class="md:hidden flex h-9 w-9 items-center justify-center border border-(--color-line) text-(--color-fg)"
+			aria-label="Toggle navigation"
+			aria-expanded="false"
+		>
+			<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
+				<path id="nav-icon-open" d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5" />
+				<path id="nav-icon-close" d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.5" class="hidden" />
+			</svg>
+		</button>
+	</nav>
+
+	<div id="nav-sheet" class="md:hidden hidden border-t border-(--color-line) bg-(--color-bg)/95">
+		<div class="container-tight flex flex-col py-3 label gap-1">
+			{navMain.map(item => {
+				const active = path === item.href || path.startsWith(item.href)
+				return (
+					<a
+						href={item.href}
+						class:list={[
+							'py-2',
+							active ? 'text-(--color-fg)' : 'text-(--color-fg-dim)',
+						]}
+					>{item.label}</a>
+				)
+			})}
+			<a href="/join" class="join-btn mt-3 self-start">Join</a>
+			<div class="h-px bg-(--color-line) my-3"></div>
+			{navExternal.map(item => (
+				<a href={item.href} title={item.title} class="py-2 text-(--color-fg-dim) inline-flex items-center gap-1">{item.label}<svg width="9" height="9" viewBox="0 0 10 10" fill="none" aria-hidden><path d="M2 8L8 2M8 2H3.5M8 2V6.5" stroke="currentColor" stroke-width="1.2" /></svg></a>
+			))}
+		</div>
+	</div>
+</header>
+
+<script>
+	const toggle = document.getElementById('nav-toggle')
+	const sheet = document.getElementById('nav-sheet')
+	const open = document.getElementById('nav-icon-open')
+	const close = document.getElementById('nav-icon-close')
+	toggle?.addEventListener('click', () => {
+		const isOpen = sheet?.classList.toggle('hidden') === false
+		toggle.setAttribute('aria-expanded', String(isOpen))
+		open?.classList.toggle('hidden', isOpen)
+		close?.classList.toggle('hidden', !isOpen)
+	})
+</script>
+
+<style>
+	.nav-link {
+		color: var(--color-fg-dim);
+	}
+	.nav-link.is-active {
+		color: var(--color-fg);
+	}
+
+	.join-btn {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.35rem 0.85rem;
+		font-family: 'PexicoMicro', monospace;
+		font-size: 0.85rem;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		background: var(--color-accent);
+		border: 1px solid var(--color-accent);
+		color: var(--color-bg);
+		transition: background 120ms, border-color 120ms;
+	}
+	.join-btn:hover {
+		background: var(--color-accent-dim);
+		border-color: var(--color-accent-dim);
+	}
+</style>

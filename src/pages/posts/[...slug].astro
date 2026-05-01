@@ -1,0 +1,374 @@
+---
+import { render } from 'astro:content'
+import Base from '@/layouts/Base.astro'
+import { getAllPosts } from '@/lib/posts'
+
+export async function getStaticPaths() {
+	const all = await getAllPosts()
+	return all.map(entry => ({
+		params: { slug: entry.id },
+		props: { entry },
+	}))
+}
+
+const { entry } = Astro.props
+const { Content, headings } = await render(entry)
+const tocItems = headings.filter(h => h.depth >= 2 && h.depth <= 4)
+
+function fmtDate(d: Date) {
+	return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+}
+
+const hitsUrl = `https://hits.sh/slugsec.ucsc.edu/posts/${entry.id}.svg?style=flat&color=ff6a1a&labelColor=141414&label=views`
+---
+
+<Base title={entry.data.title} description={entry.data.excerpt ?? entry.data.title}>
+	<div class:list={['post-layout', tocItems.length > 0 && 'has-toc']}>
+		<article class="post-article">
+			<a href="/posts" class="link font-mono text-xs uppercase tracking-widest text-(--color-fg-dim) hover:text-(--color-fg) inline-flex items-center gap-1 mb-8">Back to all posts</a>
+
+			<header class="mb-8 pb-6 border-b border-(--color-line)">
+				<h1 class="post-title text-3xl sm:text-4xl mb-4 leading-tight">
+					{entry.data.title}
+				</h1>
+				<div class="flex flex-wrap items-center gap-3 font-mono text-sm text-(--color-fg-dim)">
+					<time datetime={entry.data.date.toISOString()}>
+						{fmtDate(entry.data.date)}
+					</time>
+					{entry.data.authors.length > 0 && (
+						<>
+							<span class="text-(--color-fg-faint)">/</span>
+							<span>{entry.data.authors.join(', ')}</span>
+						</>
+					)}
+					<span class="post-views-wrap" hidden>
+						<span class="text-(--color-fg-faint)">/</span>
+						<img
+							src={hitsUrl}
+							alt="view count"
+							class="post-views"
+							width="90"
+							height="20"
+							loading="lazy"
+							onload="this.closest('.post-views-wrap').hidden = false"
+						/>
+					</span>
+				</div>
+				{entry.data.tags.length > 0 && (
+					<div class="flex flex-wrap gap-2 mt-4">
+						{entry.data.tags.map(tag => (
+							<span class:list={[
+								'font-mono text-[10px] uppercase tracking-widest border px-2 py-0.5',
+								tag === 'writeup'
+									? 'text-(--color-accent) border-(--color-accent-dim)'
+									: 'text-(--color-fg-faint) border-(--color-line)',
+							]}>
+								{tag}
+							</span>
+						))}
+					</div>
+				)}
+			</header>
+
+			<div class="prose-content">
+				<Content />
+			</div>
+		</article>
+
+		{tocItems.length > 0 && (
+			<aside class="post-toc-wrap" aria-label="Table of contents">
+				<nav class="post-toc">
+					<div class="post-toc-label">On this page</div>
+					<ul>
+						{tocItems.map(h => (
+							<li class:list={[`toc-d${h.depth}`]}>
+								<a href={`#${h.slug}`}>{h.text}</a>
+							</li>
+						))}
+					</ul>
+				</nav>
+			</aside>
+		)}
+	</div>
+	<script>
+		import '@/scripts/post-page'
+	</script>
+</Base>
+
+<style is:global>
+	.post-layout {
+		max-width: 56rem;
+		margin-inline: auto;
+		padding: 3rem 1.25rem 4rem;
+	}
+	.post-layout.has-toc {
+		display: grid;
+		grid-template-columns: minmax(0, 56rem) minmax(0, 14rem);
+		gap: 3rem;
+		max-width: 76rem;
+		align-items: start;
+	}
+	.post-article {
+		min-width: 0;
+	}
+	.post-toc-wrap {
+		position: sticky;
+		top: 4.5rem;
+		max-height: calc(100dvh - 6rem);
+		overflow-y: auto;
+		font-size: 0.85rem;
+		padding-top: 0.5rem;
+	}
+	.post-toc-label {
+		font-family: var(--font-pixel);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		font-size: 0.75rem;
+		color: var(--color-fg-faint);
+		margin-bottom: 0.75rem;
+		padding-bottom: 0.5rem;
+		border-bottom: 1px solid var(--color-line);
+	}
+	.post-toc ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	.post-toc li {
+		line-height: 1.4;
+		margin-block: 0.35rem;
+	}
+	.post-toc a {
+		color: var(--color-fg-dim);
+		display: block;
+		border-left: 1px solid var(--color-line);
+		padding: 0.15rem 0 0.15rem 0.6rem;
+		transition: color 120ms, border-color 120ms;
+	}
+	.post-toc a:hover {
+		color: var(--color-fg);
+		border-left-color: var(--color-accent-dim);
+	}
+	.post-toc a.is-active {
+		color: var(--color-accent);
+		border-left-color: var(--color-accent);
+	}
+
+	.post-views-wrap {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.75rem;
+	}
+	.post-views-wrap[hidden] {
+		display: none;
+	}
+	.post-views {
+		height: 1.2em;
+		width: auto;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.post-toc .toc-d3 a {
+		padding-left: 1.4rem;
+		font-size: 0.8rem;
+	}
+	.post-toc .toc-d4 a {
+		padding-left: 2.2rem;
+		font-size: 0.78rem;
+		color: var(--color-fg-faint);
+	}
+	@media (max-width: 1024px) {
+		.post-layout.has-toc {
+			display: block;
+			max-width: 56rem;
+		}
+		.post-toc-wrap {
+			display: none;
+		}
+	}
+
+	.prose-content {
+		color: var(--color-fg);
+		line-height: 1.7;
+		font-family: var(--font-sans);
+	}
+	.prose-content > * + * {
+		margin-top: 1.25em;
+	}
+	.prose-content h2 {
+		font-size: 1.625rem;
+		margin-top: 2.5rem;
+	}
+	.prose-content h3 {
+		font-size: 1.25rem;
+		margin-top: 2rem;
+	}
+	.prose-content a {
+		color: var(--color-accent);
+		text-decoration: underline;
+		text-decoration-color: var(--color-accent-dim);
+		text-underline-offset: 3px;
+	}
+	.prose-content a:hover {
+		color: var(--color-accent-dim);
+	}
+	.prose-content code {
+		font-family: var(--font-mono);
+		font-size: 0.9em;
+		background: var(--color-bg-elev);
+		border: 1px solid var(--color-line);
+		padding: 0.1em 0.35em;
+	}
+	.prose-content pre {
+		background: var(--color-bg-elev);
+		border: 1px solid var(--color-line);
+		padding: 1rem;
+		overflow-x: auto;
+		font-family: var(--font-mono);
+		font-size: 0.875rem;
+		line-height: 1.5;
+	}
+	.prose-content pre code {
+		background: transparent;
+		border: 0;
+		padding: 0;
+	}
+	.prose-content img {
+		max-width: 100%;
+		cursor: zoom-in;
+	}
+	.prose-content img.invert {
+		filter: invert(1) hue-rotate(180deg);
+	}
+	.prose-content blockquote {
+		border-left: 2px solid var(--color-line-bright);
+		padding-left: 1rem;
+		color: var(--color-fg-dim);
+		font-style: italic;
+	}
+	.prose-content ul, .prose-content ol {
+		padding-left: 1.5rem;
+	}
+	.prose-content ul { list-style: square; }
+	.prose-content ol { list-style: decimal; }
+	.prose-content li::marker { color: var(--color-fg-faint); }
+
+	.prose-content kbd {
+		font-family: var(--font-mono);
+		font-size: 0.8em;
+		background: var(--color-bg-elev);
+		border: 1px solid var(--color-line-bright);
+		border-bottom-width: 2px;
+		padding: 0.1em 0.4em;
+		color: var(--color-fg);
+		display: inline-block;
+		line-height: 1.2;
+	}
+
+	.prose-content .post-figure {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-block: 1.5rem;
+	}
+	.prose-content .post-figure img {
+		display: block;
+	}
+	.prose-content .post-figure figcaption {
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		color: var(--color-fg-dim);
+		text-align: center;
+		margin-top: 0.5rem;
+		max-width: 90%;
+	}
+
+	.prose-content .callout {
+		border: 1px solid var(--color-line);
+		border-left: 3px solid var(--color-fg-faint);
+		background: var(--color-bg-panel);
+		padding: 1rem 1.25rem;
+		margin-block: 1.5rem;
+		font-style: normal;
+	}
+	.prose-content .callout > * + * {
+		margin-top: 0.75rem;
+	}
+	.prose-content .callout-indicator {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: var(--color-fg);
+	}
+	.prose-content .callout-hint {
+		display: inline-flex;
+	}
+	.prose-content .callout-hint svg {
+		width: 1.1em;
+		height: 1.1em;
+		display: block;
+	}
+	.prose-content .callout-title {
+		font-family: var(--font-pixel);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		font-size: 0.9rem;
+		color: var(--color-fg);
+	}
+	.prose-content .callout-content {
+		color: var(--color-fg-dim);
+	}
+	.prose-content .callout-content > * + * {
+		margin-top: 0.75rem;
+	}
+	.prose-content .callout-content p {
+		color: inherit;
+	}
+
+	.prose-content .callout-assert,
+	.prose-content .callout-note {
+		border-left-color: var(--color-accent);
+	}
+	.prose-content .callout-assert .callout-indicator,
+	.prose-content .callout-note .callout-indicator,
+	.prose-content .callout-assert .callout-title,
+	.prose-content .callout-note .callout-title {
+		color: var(--color-accent);
+	}
+
+	.prose-content .callout-warn,
+	.prose-content .callout-deter {
+		border-left-color: #f5a524;
+	}
+	.prose-content .callout-warn .callout-indicator,
+	.prose-content .callout-warn .callout-title,
+	.prose-content .callout-deter .callout-indicator,
+	.prose-content .callout-deter .callout-title {
+		color: #f5a524;
+	}
+
+	.prose-content .callout-commend {
+		border-left-color: #4ade80;
+	}
+	.prose-content .callout-commend .callout-indicator,
+	.prose-content .callout-commend .callout-title {
+		color: #4ade80;
+	}
+
+	.prose-content .callout.callout-quote {
+		border-left-color: var(--color-fg-dim);
+		font-style: italic;
+		padding-left: 1.25rem;
+	}
+	.prose-content .callout.callout-quote .callout-title {
+		color: var(--color-fg-dim);
+	}
+	.prose-content .callout.callout-quote .callout-indicator {
+		color: var(--color-fg-dim);
+	}
+
+	.medium-zoom-overlay,
+	.medium-zoom-image--opened {
+		z-index: 60;
+	}
+</style>

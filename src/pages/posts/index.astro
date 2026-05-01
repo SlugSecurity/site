@@ -1,0 +1,65 @@
+---
+import Base from '@/layouts/Base.astro'
+import { getAllPosts } from '@/lib/posts'
+
+const all = await getAllPosts()
+
+function fmtDate(d: Date) {
+	return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+}
+
+const grouped = all.reduce((acc, p) => {
+	const year = p.data.date.getFullYear()
+	if (!acc[year]) acc[year] = []
+	acc[year].push(p)
+	return acc
+}, {} as Record<number, typeof all>)
+
+const years = Object.keys(grouped).map(Number).sort((a, b) => b - a)
+---
+
+<Base title="Posts" description="Posts and writeups from Slug Security members.">
+	<section class="container-prose pt-12 pb-6 text-center">
+		<h1 class="text-4xl sm:text-5xl mb-4">Posts</h1>
+		<p class="text-(--color-fg-dim) leading-relaxed">
+			Everything we've published. Club news, CTF writeups, technical deep-dives, opportunity announcements.
+		</p>
+	</section>
+
+	<section class="container-tight pb-16">
+		{years.map(year => (
+			<div class="mb-10">
+				<div class="flex items-baseline gap-3 mb-3">
+					<h2 class="text-xl text-(--color-fg-dim) tabular-nums">{year}</h2>
+					<span class="flex-1 h-px bg-(--color-line)"></span>
+				</div>
+				<ul class="frame divide-y divide-(--color-line)">
+					{grouped[year].map(p => (
+						<li>
+							<a href={`/posts/${p.id}`} class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 px-4 py-3 hover:bg-(--color-bg-elev)/50 transition-colors group">
+								<span class="font-mono text-xs text-(--color-fg-faint) tabular-nums w-24 shrink-0">
+									{fmtDate(p.data.date)}
+								</span>
+								<span class="text-(--color-fg) group-hover:text-(--color-accent) transition-colors flex-1" data-scramble>
+									{p.data.title}
+								</span>
+								<span class="flex flex-wrap gap-1 shrink-0">
+									{p.data.tags.slice(0, 3).map(tag => (
+										<span class:list={[
+											'font-mono text-[10px] uppercase tracking-widest border px-1.5 py-0.5',
+											tag === 'writeup'
+												? 'text-(--color-accent) border-(--color-accent-dim)'
+												: 'text-(--color-fg-faint) border-(--color-line)',
+										]}>
+											{tag}
+										</span>
+									))}
+								</span>
+							</a>
+						</li>
+					))}
+				</ul>
+			</div>
+		))}
+	</section>
+</Base>

@@ -1,0 +1,173 @@
+---
+import { Icon } from 'astro-icon/components'
+import Base from '@/layouts/Base.astro'
+import { links } from '@/consts'
+
+const igPhotos = Array.from({ length: 9 }, (_, i) => `/_assets/instagram/ig-${String(i + 1).padStart(2, '0')}.webp`)
+	.sort(() => Math.random() - 0.5)
+---
+
+<Base title="Join" description="How to join Slug Security at UC Santa Cruz.">
+	<section class="container-prose pt-12 pb-8 text-center">
+		<h1 class="text-4xl sm:text-5xl mb-4">Join</h1>
+		<p class="text-(--color-fg-dim)">
+			Slug Security will always be free to join, but we do have activity requirements to be an <a href="/members#active-members" class="text-link">active member</a>.
+		</p>
+	</section>
+
+	<section class="container-prose pb-6">
+		<div class="flex items-baseline gap-3 mb-3">
+			<span class="label text-(--color-accent)">Step 01</span>
+			<span class="flex-1 h-px bg-(--color-line)"></span>
+		</div>
+		<div class="frame p-5 flex flex-col">
+			<div class="text-lg mb-2 flex items-center gap-2">
+				<Icon name="simple-icons:discord" width="20" height="20" class="text-(--color-accent) shrink-0" />
+				<span>Join Discord and verify</span>
+			</div>
+			<p class="text-sm text-(--color-fg-dim) leading-relaxed mb-4">
+				Discord is our central hub for all club activities, this includes managing members. After joining, run <code class="font-mono text-(--color-accent)">/verify</code>, you will receive instructions to authenticate using your UCSC email, this gives you the verified member role and access to our <a href={links.portal} class="text-link">member portal</a>
+			</p>
+			<a href={links.discord} class="btn btn-sm btn-primary mt-auto self-start">Join Discord</a>
+		</div>
+	</section>
+
+	<section class="container-prose pb-4">
+		<div class="flex items-baseline gap-3 mb-3">
+			<span class="label text-(--color-accent)">Step 02</span>
+			<span class="flex-1 h-px bg-(--color-line)"></span>
+		</div>
+		<p class="text-sm text-(--color-fg-dim) leading-relaxed mb-4">
+			<strong class="text-(--color-fg)">Each quarter</strong>, meet <strong class="text-(--color-fg)">either</strong> of the criteria below (just one, not both) to auto-receive the active member Discord role. We sync the active members list at the end of every quarter
+		</p>
+		<div class="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] gap-3 items-stretch">
+			<div class="frame p-5 flex flex-col">
+				<div class="text-lg mb-2 flex items-center gap-2">
+					<Icon name="lucide:calendar-check" width="20" height="20" class="text-(--color-accent) shrink-0" />
+					<span>Attend an event</span>
+				</div>
+				<p class="text-sm text-(--color-fg-dim) leading-relaxed mb-4">
+					Attend at least one workshop, CTF practice, social, or any other official club event
+				</p>
+				<a href="/events" class="btn btn-sm mt-auto self-start">See events</a>
+			</div>
+			<div class="flex items-center justify-center label text-(--color-accent) py-1">OR</div>
+			<div class="frame p-5 flex flex-col">
+				<div class="text-lg mb-2 flex items-center gap-2">
+					<Icon name="simple-icons:discord" width="20" height="20" class="text-(--color-accent) shrink-0" />
+					<span>Hang out in Discord</span>
+				</div>
+				<p class="text-sm text-(--color-fg-dim) leading-relaxed mb-4">
+					Stay regularly active in our Discord channels, no event attendance needed
+				</p>
+				<a href={links.discord} class="btn btn-sm mt-auto self-start">Join Discord</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="container-prose pb-10">
+		<div class="flex items-baseline gap-3 mb-3">
+			<span class="label text-(--color-accent)">What's next</span>
+			<span class="flex-1 h-px bg-(--color-line)"></span>
+		</div>
+		<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 items-stretch">
+			<div class="frame p-5 flex flex-col">
+				<div class="text-lg mb-2 flex items-center gap-2">
+					<Icon name="lucide:terminal" width="20" height="20" class="text-(--color-accent) shrink-0" />
+					<span>Practice range</span>
+				</div>
+				<p class="text-sm text-(--color-fg-dim) leading-relaxed mb-4">
+					Spin up attack boxes, vulnerable images, and attack/defend labs for workshops or solo practice
+				</p>
+				<a href={links.range} class="btn btn-sm mt-auto self-start">Open range</a>
+			</div>
+			<div class="frame p-5 flex flex-col">
+				<div class="text-lg mb-2 flex items-center gap-2">
+					<Icon name="lucide:users" width="20" height="20" class="text-(--color-accent) shrink-0" />
+					<span>Catch an event</span>
+				</div>
+				<p class="text-sm text-(--color-fg-dim) leading-relaxed mb-4">
+					Workshops, socials, and meetups run through the school year, drop into anything on the calendar
+				</p>
+				<a href="/events" class="btn btn-sm mt-auto self-start">See events</a>
+			</div>
+			<div class="frame p-5 flex flex-col">
+				<div class="text-lg mb-2 flex items-center gap-2">
+					<Icon name="lucide:flag" width="20" height="20" class="text-(--color-accent) shrink-0" />
+					<span>Compete in CTFs</span>
+				</div>
+				<p class="text-sm text-(--color-fg-dim) leading-relaxed mb-4">
+					Join the team for upcoming CTFs, weekly practice and coordination happens in Discord
+				</p>
+				<a href={links.ctftime} class="btn btn-sm mt-auto self-start">CTFtime team</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="pb-16">
+		<div class="container-prose text-center mb-5">
+			<div class="inline-flex items-center gap-2 text-xl">
+				<Icon name="simple-icons:instagram" width="20" height="20" class="text-(--color-accent)" />
+				<span>Get to know us</span>
+			</div>
+			<p class="text-sm text-(--color-fg-dim) mt-1">
+				Follow <a href={links.instagram} class="text-link">@SlugSec</a> for the more human and social side of the club
+			</p>
+		</div>
+		<div class="ig-carousel relative overflow-hidden">
+			<div class="pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-gradient-to-r from-(--color-bg) to-transparent"></div>
+			<div class="pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-gradient-to-l from-(--color-bg) to-transparent"></div>
+			<div class="ig-track">
+				<div class="ig-set">
+					{igPhotos.map(src => (
+						<img src={src} alt="" loading="lazy" class="ig-item" />
+					))}
+				</div>
+				<div class="ig-set" aria-hidden="true">
+					{igPhotos.map(src => (
+						<img src={src} alt="" loading="lazy" class="ig-item" />
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+</Base>
+
+<style>
+	.ig-track {
+		display: flex;
+		width: max-content;
+		animation: ig-scroll 160s linear infinite;
+		will-change: transform;
+		transform: translateZ(0);
+		backface-visibility: hidden;
+	}
+	.ig-set {
+		display: flex;
+		flex-shrink: 0;
+		gap: 0.75rem;
+		padding-right: 0.75rem;
+	}
+	.ig-item {
+		display: block;
+		flex-shrink: 0;
+		width: 20rem;
+		height: 20rem;
+		object-fit: cover;
+	}
+	@keyframes ig-scroll {
+		from { transform: translate3d(0, 0, 0); }
+		to { transform: translate3d(-50%, 0, 0); }
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.ig-track {
+			animation: none;
+			flex-wrap: wrap;
+			justify-content: center;
+			width: auto;
+		}
+		.ig-set:nth-child(2) {
+			display: none;
+		}
+	}
+</style>

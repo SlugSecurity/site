@@ -1,0 +1,279 @@
+@import 'tailwindcss';
+
+@font-face {
+	font-family: 'Hacked';
+	src: url('/_assets/fonts/Hacked/Hacked.woff2') format('woff2'),
+		url('/_assets/fonts/Hacked/Hacked.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'PexicoMicro';
+	src: url('/_assets/fonts/PexicoMicro/PexicoMicro-Regular.woff2') format('woff2'),
+		url('/_assets/fonts/PexicoMicro/PexicoMicro-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'HelveticaNeue';
+	src: url('/_assets/fonts/HelveticaNeue/HelveticaNeueMedium.woff2') format('woff2'),
+		url('/_assets/fonts/HelveticaNeue/HelveticaNeueMedium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'JetBrainsMono';
+	src: url('/_assets/fonts/JetBrainsMono-Nerd/JetBrainsMonoNLNerdFont-Regular.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@theme {
+	--font-sans: 'HelveticaNeue', system-ui, -apple-system, sans-serif;
+	--font-mono: 'JetBrainsMono', ui-monospace, monospace;
+	--font-pixel: 'PexicoMicro', 'JetBrainsMono', monospace;
+
+	--color-bg: #0a0a0a;
+	--color-bg-elev: #141414;
+	--color-bg-panel: #161616;
+	--color-fg: #f5f5f5;
+	--color-fg-dim: #a3a3a3;
+	--color-fg-faint: #525252;
+	--color-line: #262626;
+	--color-line-bright: #404040;
+
+	--color-accent: #ff6a1a;
+	--color-accent-dim: #c14e0e;
+	--color-accent-deep: #8a3508;
+
+	--radius: 0px;
+}
+
+:root {
+	color-scheme: dark;
+}
+
+html {
+	background: var(--color-bg);
+	color: var(--color-fg);
+	font-family: var(--font-sans);
+	font-size: 110%;
+	-webkit-font-smoothing: antialiased;
+	scroll-behavior: smooth;
+}
+
+body {
+	min-height: 100dvh;
+	background: transparent;
+	display: flex;
+	flex-direction: column;
+}
+
+body > main {
+	flex: 1 0 auto;
+}
+
+h1, h2, h3, h4 {
+	font-family: var(--font-sans);
+	font-weight: 500;
+	color: var(--color-fg);
+	letter-spacing: -0.005em;
+}
+
+::selection {
+	background: var(--color-accent);
+	color: var(--color-bg);
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	transition: color 120ms;
+}
+
+.brand {
+	font-family: 'Hacked', system-ui, sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+	font-weight: normal;
+}
+
+.label {
+	font-family: 'PexicoMicro', monospace;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	font-size: 0.875rem;
+}
+
+.label-sm {
+	font-family: 'PexicoMicro', monospace;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	font-size: 0.75rem;
+}
+
+.container-tight {
+	max-width: 64rem;
+	margin-inline: auto;
+	padding-inline: 1.25rem;
+}
+
+.container-prose {
+	max-width: 56rem;
+	margin-inline: auto;
+	padding-inline: 1.25rem;
+}
+
+.frame {
+	border: 1px solid var(--color-line);
+	background: var(--color-bg-panel);
+}
+
+.panel {
+	background: var(--color-bg-panel);
+	border: 1px solid var(--color-line);
+	padding: 1.5rem;
+	transition: border-color 120ms;
+}
+
+.panel-link {
+	display: block;
+	cursor: pointer;
+}
+.panel-link:hover {
+	border-color: var(--color-line-bright);
+}
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.55rem 1.125rem;
+	font-family: 'PexicoMicro', monospace;
+	font-size: 0.95rem;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	border: 1px solid var(--color-line-bright);
+	background: var(--color-bg-elev);
+	color: var(--color-fg);
+	transition: background 120ms, border-color 120ms, color 120ms;
+	cursor: pointer;
+}
+.btn:hover {
+	background: var(--color-line);
+	border-color: var(--color-fg-dim);
+}
+
+.btn-primary {
+	background: var(--color-accent);
+	border-color: var(--color-accent);
+	color: var(--color-bg);
+}
+.btn-primary:hover {
+	background: var(--color-accent-dim);
+	border-color: var(--color-accent-dim);
+	color: var(--color-bg);
+}
+
+.btn-sm {
+	padding: 0.35rem 0.85rem;
+	font-size: 0.8rem;
+	gap: 0.4rem;
+}
+
+.text-link {
+	color: var(--color-accent);
+	text-decoration: underline;
+	text-decoration-color: var(--color-accent-dim);
+	text-underline-offset: 3px;
+}
+.text-link:hover {
+	color: var(--color-accent-dim);
+}
+
+.link {
+	text-decoration: underline;
+	text-decoration-color: var(--color-line-bright);
+	text-underline-offset: 3px;
+}
+.link:hover {
+	text-decoration-color: var(--color-fg-dim);
+}
+
+.link-arrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4em;
+	cursor: pointer;
+}
+.link-arrow::after {
+	content: '→';
+	display: inline-block;
+	transition: transform 160ms ease-out;
+}
+.link-arrow:hover::after {
+	transform: translateX(3px);
+}
+
+.link-underline {
+	position: relative;
+	cursor: pointer;
+}
+.link-underline::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -2px;
+	height: 1px;
+	background: currentColor;
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 180ms ease-out;
+}
+.link-underline:hover::after {
+	transform: scaleX(1);
+}
+
+.ev-badge {
+	display: inline-flex;
+	align-items: center;
+	font-family: 'PexicoMicro', monospace;
+	font-size: 0.7rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	padding: 0.15rem 0.4rem;
+	border: 1px solid currentColor;
+}
+.ev-private {
+	color: var(--color-accent);
+}
+.ev-comp {
+	color: var(--color-fg);
+}
+.ev-tag {
+	font-family: 'PexicoMicro', monospace;
+	font-size: 0.7rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	padding: 0.1rem 0.4rem;
+	border: 1px solid var(--color-line);
+	color: var(--color-fg-faint);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+	.link-arrow:hover::after,
+	.link-underline:hover::after {
+		transition: none;
+	}
+}

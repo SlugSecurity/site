@@ -1,4 +1,6 @@
 {
+	description = "Slug Security site - Astro + React islands + Tailwind v4";
+
 	inputs = {
 		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 		flake-utils.url = "github:numtide/flake-utils";
@@ -11,14 +13,9 @@
 			in
 			{
 				devShells.default = pkgs.mkShell {
-					packages = with pkgs; [
-						python3
-						python3Packages.pip
-						python3Packages.virtualenv
-						pngquant
-						libjpeg
-						zlib
-						freetype
+					buildInputs = with pkgs; [
+						bun
+						nodejs_22
 						git
 					];
 
@@ -30,23 +27,9 @@
 							git submodule update --init --recursive
 						fi
 
-						if [ ! -d .venv ]; then
-							echo "creating virtual environment..."
-							python -m venv .venv
-						fi
-						source .venv/bin/activate
-
-						if [ ! -f .venv/.deps_installed ]; then
-							echo "installing python dependencies..."
-							if [ -z "$GH_TOKEN" ]; then
-								echo "warning: GH_TOKEN not set, private framework dependency may fail"
-							fi
-							pip install -r requirements.txt
-							touch .venv/.deps_installed
-						fi
-
-						echo "mkdocs development environment ready"
-						echo "run 'mkdocs serve' to start the dev server"
+						echo "Astro + React + Tailwind v4 dev environment"
+						echo "run 'bun install' to install deps"
+						echo "run 'bun run dev' to start dev server"
 					'';
 				};
 			}

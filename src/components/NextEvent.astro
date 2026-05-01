@@ -1,0 +1,102 @@
+---
+import { calendar } from '@/consts'
+import { events, fmtTimeRange, badgeText, truncate } from '@/lib/events'
+
+const upcoming = events
+	.filter(e => new Date(e.end) > new Date())
+	.sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime())
+
+const next = upcoming[0]
+const after = upcoming.slice(1, 3)
+
+function fmtParts(iso: string) {
+	const d = new Date(iso)
+	return {
+		day: d.toLocaleDateString('en-US', { weekday: 'long', timeZone: calendar.timezone }),
+		date: d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: calendar.timezone }),
+		time: d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: calendar.timezone }),
+	}
+}
+---
+
+<section class="container-tight">
+	<div class="panel p-5 sm:p-6">
+		<div class="flex items-center justify-between gap-3 mb-5">
+			<div class="label-sm text-(--color-fg-dim) flex items-center gap-2">
+				<span>Next event</span>
+				{next && <span class="countdown label-sm text-(--color-accent)" data-start={next.start}></span>}
+			</div>
+			<a href="/events" class="link label-sm text-(--color-fg-faint) hover:text-(--color-fg) transition-colors">All events</a>
+		</div>
+
+		{next ? (
+			<>
+				{(() => {
+					const t = fmtParts(next.start)
+					return (
+						<div class="flex flex-col sm:flex-row gap-5 sm:gap-8 items-start">
+							<div class="shrink-0 label leading-tight sm:w-56">
+								<div class="text-(--color-fg-faint) label-sm">{t.day}</div>
+								<div class="text-(--color-fg) text-3xl sm:text-4xl mt-1">{t.date}</div>
+								<div class="text-(--color-fg-dim) text-sm mt-2">{fmtTimeRange(next.start, next.end)}</div>
+								{next.location && (
+									<div class="label-sm text-(--color-fg-dim) mt-2 leading-snug">{next.location}</div>
+								)}
+							</div>
+							<div class="flex-1 min-w-0">
+								<div class="text-xl sm:text-2xl leading-tight font-sans text-(--color-fg)">{next.title}</div>
+								{(next.private || next.competition || (next.tags && next.tags.length > 0) || next.host) && (
+									<div class="flex flex-wrap items-center gap-1.5 mt-2">
+										{next.private && (
+											<span class="ev-badge ev-private" title={typeof next.private === 'string' ? `Private: ${next.private}` : 'Private event'}>
+												{badgeText(next.private, 'PRIVATE')}
+											</span>
+										)}
+										{next.competition && (
+											<span class="ev-badge ev-comp" title="Competition">COMPETITION</span>
+										)}
+										{next.tags && next.tags.map(tag => <span class="ev-tag">{tag}</span>)}
+										{next.host && (
+											<span class="label-sm text-(--color-fg-faint) ml-1">Host: <span class="text-(--color-fg-dim)">{next.host}</span></span>
+										)}
+									</div>
+								)}
+								{next.description && (
+									<p class="text-sm text-(--color-fg-dim) mt-3 leading-relaxed">
+										{truncate(next.description)}
+									</p>
+								)}
+							</div>
+							<div class="shrink-0 sm:self-center">
+								<a href={calendar.addUrl} class="btn btn-primary">Add to calendar</a>
+							</div>
+						</div>
+					)
+				})()}
+
+				{after.length > 0 && (
+					<div class="mt-6 pt-5 border-t border-(--color-line) grid sm:grid-cols-2 gap-2 label-sm">
+						{after.map(e => {
+							const t = fmtParts(e.start)
+							return (
+								<div class="flex items-baseline gap-3 text-(--color-fg-dim)">
+									<span class="text-(--color-fg) tabular-nums">{t.date}</span>
+									<span class="text-(--color-fg-faint)">{t.time}</span>
+									<span class="truncate text-sm font-sans">{e.title}</span>
+								</div>
+							)
+						})}
+					</div>
+				)}
+			</>
+		) : (
+			<div class="label-sm text-(--color-fg-dim)">
+				No events scheduled. <a href={calendar.addUrl} class="text-link">Subscribe to the calendar</a>.
+			</div>
+		)}
+	</div>
+</section>
+
+<script>
+	import '@/scripts/countdown'
+</script>

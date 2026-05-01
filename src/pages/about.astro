@@ -1,0 +1,149 @@
+---
+import Base from '@/layouts/Base.astro'
+import { Icon } from 'astro-icon/components'
+import { site, sponsors, whatWeDo } from '@/consts'
+
+const competitions = [
+	{
+		head: 'Capture the Flag',
+		icon: 'lucide:flag',
+		body: `<p>Jeopardy-style hacking competitions that run over a weekend (usually 48 hours). Small computer puzzles across categories like web exploitation, reverse engineering, cryptography, forensics, and binary exploitation. Each challenge has a hidden flag, submit it for points. Harder challenges are worth more.</p><p class="mt-2">Never seen one? <a href="https://www.youtube.com/watch?v=8ev9ZX9J45A" class="text-link">Watch a quick explainer</a>, or read CTFd's <a href="https://ctfd.io/whats-a-ctf/" class="text-link">"What's a CTF?"</a>.</p><p class="mt-2">Part of the CTF experience is writing up your solutions after, documenting how you approached the problem and what you learned. <em>We encourage members to post writeups on our <a href="/posts" class="text-link">posts</a> page.</em></p>`,
+	},
+	{
+		head: 'Cyber Defense',
+		icon: 'lucide:shield',
+		body: `<p>Blue team competitions where you defend a network while red teamers (hackers) try to break in. You're keeping services running, handling business tasks, and responding to security incidents all at once.</p><p class="mt-2">CCDC (Collegiate Cyber Defense Competition) is the largest in the US. Your 8-person team inherits a corporate network full of vulnerabilities. You're patching systems, responding to intrusions, and answering fake customer service tickets while professional pentesters actively attack you. Each competition day runs 9-5. We compete in the Western region.</p>`,
+	},
+	{
+		head: 'Attack / Defend',
+		icon: 'lucide:swords',
+		body: `<p>Competitions where you build something secure, then attack other teams' implementations while they attack yours.</p><p class="mt-2">MITRE's eCTF (Embedded Capture the Flag) is a semester-long competition focused on embedded systems. First phase (~2 months): design and build a secure system based on their specs (past challenges have included satellite TV decoders and medical devices). Second phase (~1-2 months): break into other teams' designs.</p>`,
+	},
+]
+
+const rules = [
+	{ icon: 'lucide:heart', strong: 'Treat everyone with respect.', body: 'No personal attacks, harassment, or discrimination.' },
+	{ icon: 'lucide:smile', strong: "Don't be condescending.", body: 'If someone asks a basic question, answer it or point them to a resource.' },
+	{ icon: 'lucide:hand-helping', strong: 'Be friendly to beginners.', body: 'Everyone starts somewhere, help them get up to speed.' },
+	{ icon: 'lucide:scale', strong: 'Adhere to ethical practices.', body: 'Only hack systems you have permission to access.' },
+	{ icon: 'lucide:ban', strong: "Don't be evil.", body: "Don't use what you learn here to harm people." },
+]
+---
+
+<Base title="About" description={`About ${site.name}, the cybersecurity organization at UC Santa Cruz.`}>
+	<section class="container-prose pt-12 pb-6 text-center">
+		<h1 class="text-4xl sm:text-5xl mb-4">About</h1>
+	</section>
+
+	<article class="container-prose space-y-5 text-(--color-fg-dim) leading-relaxed">
+		<p>
+			Student-run org under Baskin Engineering focused on all things computer security. All programming comes from students with faculty oversight for leadership. Founded in 2022 after students wanted a community around security. There was a club before us (Security Santa Cruz) but it faded around 2014.
+		</p>
+		<p class="text-(--color-accent) font-mono">
+			TLDR: we do cool stuff with computers.
+		</p>
+		<p>
+			This group is open to all students consistent with state and federal law, the UC Nondiscrimination Statement and the Nondiscrimination Policy Statement for University of California Publications Regarding Student-Related Matters.
+		</p>
+	</article>
+
+	<section id="what-we-do" class="container-tight mt-16 scroll-mt-20">
+		<div class="text-center mb-6">
+			<h2 class="text-3xl">What we do</h2>
+		</div>
+		<div class="grid sm:grid-cols-2 gap-3">
+			{whatWeDo.map(p => (
+				<div class="panel">
+					<h3 class="text-lg mb-2 inline-flex items-center gap-2">
+						<Icon name={p.icon} class="w-4 h-4 text-(--color-accent)" />
+						{p.head}
+					</h3>
+					<p class="text-sm text-(--color-fg-dim) leading-relaxed" set:html={p.body}></p>
+				</div>
+			))}
+		</div>
+	</section>
+
+	<section id="competitions" class="container-prose mt-20 scroll-mt-20">
+		<div class="text-center mb-6">
+			<h2 class="text-3xl">Competitions</h2>
+		</div>
+		<div class="space-y-6 text-(--color-fg-dim) leading-relaxed">
+			{competitions.map(c => (
+				<div>
+					<h3 class="text-lg text-(--color-fg) mb-2 inline-flex items-center gap-2">
+						<Icon name={c.icon} class="w-4 h-4 text-(--color-accent)" />
+						{c.head}
+					</h3>
+					<div set:html={c.body}></div>
+				</div>
+			))}
+		</div>
+	</section>
+
+	<section id="not-cs" class="container-prose mt-20 scroll-mt-20">
+		<div class="text-center mb-4">
+			<h2 class="text-3xl">I'm not a CS major</h2>
+		</div>
+		<p class="text-(--color-fg-dim) leading-relaxed">
+			Good, we need you. Security touches everything, so we need people who understand everything. Policy, psychology, economics, design, law, hardware, biology. The field has a blind spot when everyone comes from the same background. We've had economics majors, politics majors, and art majors contribute to CTF teams and club projects.
+		</p>
+	</section>
+
+	<section id="rules" class="container-prose mt-20 scroll-mt-20">
+		<div class="text-center mb-6">
+			<h2 class="text-3xl">Member rules</h2>
+		</div>
+		<ul class="space-y-3 text-(--color-fg-dim) leading-relaxed">
+			{rules.map(r => (
+				<li class="flex items-start gap-3">
+					<Icon name={r.icon} class="w-5 h-5 mt-0.5 shrink-0 text-(--color-accent)" />
+					<div>
+						<strong class="text-(--color-fg)">{r.strong}</strong>
+						{' '}{r.body}
+					</div>
+				</li>
+			))}
+		</ul>
+		<p class="mt-5 text-sm text-(--color-fg-dim) flex items-start gap-2">
+			<Icon name="lucide:gavel" class="w-4 h-4 mt-0.5 shrink-0 text-(--color-accent)" />
+			<span>Computer crime is a real thing (18 U.S.C. 1030). If you're unsure whether something crosses a line, ask around in the community.</span>
+		</p>
+	</section>
+
+	<section id="sponsors" class="container-prose mt-20 scroll-mt-20">
+		<div class="text-center mb-6">
+			<h2 class="text-3xl">Sponsors</h2>
+		</div>
+		<div class="text-(--color-fg-dim) leading-relaxed space-y-4">
+			<p>
+				{site.name} is the largest cybersecurity organization at UC Santa Cruz. We run technical workshops, compete in national competitions like CCDC and MITRE eCTF, and give students hands-on security experience.
+			</p>
+			<p>
+				Sponsorships cover competition travel, equipment, infrastructure, and events. We mainly run on alumni donations and university grants, no formal brochures, but if you're interested we're happy to work something out. Reach out at <a href={`mailto:${site.email}`} class="text-link">{site.email}</a>.
+			</p>
+			<p>
+				{site.name} operates under The Regents of the University of California, a 501(c)(3) nonprofit organization (EIN 94-1539563). Donations are tax-deductible to the extent allowed by law.
+			</p>
+		</div>
+
+		<div class="text-center label-sm text-(--color-fg-dim) mt-10 mb-4">Our sponsors</div>
+		<ul class="flex flex-wrap items-center justify-center gap-x-10 gap-y-8">
+			{sponsors.map(s => {
+				const w = s.aspect === 'square' ? '7rem' : '18rem'
+				return (
+					<li class="flex items-center justify-center">
+						<a
+							href={s.href}
+							title={s.name}
+							aria-label={s.name}
+							style={`display: block; width: ${w}; height: 7rem; background-image: url(${s.logo}); background-position: center; background-repeat: no-repeat; background-size: contain; opacity: 0.85; transition: opacity 160ms;`}
+							onmouseover="this.style.opacity='1'"
+							onmouseout="this.style.opacity='0.85'"
+						></a>
+					</li>
+				)
+			})}
+		</ul>
+	</section>
+</Base>
