@@ -23,7 +23,7 @@
 		"@paper-design/shaders-react": "latest",
 		"@tailwindcss/vite": "latest",
 		"@types/js-yaml": "^4.0.9",
-		"astro": "latest",
+		"astro": "^6.1.9",
 		"astro-expressive-code": "^0.41.7",
 		"astro-icon": "^1.1.5",
 		"glitched-writer": "^2.0.29",
