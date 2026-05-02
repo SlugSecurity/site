@@ -12,6 +12,11 @@ node_modules/
 *.log
 .DS_Store
 
+# python
+__pycache__/
+*.pyc
+.venv/
+
 # env
 .env
 .env.local
