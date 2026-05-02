@@ -1,20 +1,8 @@
 ---
+import { readdirSync } from 'node:fs'
 import Base from '@/layouts/Base.astro'
 
-const cats = [
-	'cat_campfire.gif',
-	'ring_cat_campfire.gif',
-	'horde_cat_campfire.gif',
-	'globe_cat_campfire.gif',
-	'hordeWall_cat_campfire.gif',
-	'mc_cat_campfire.gif',
-	'musical_cat_campfire.gif',
-	'scattered_cat_campfire.gif',
-	'blocks_cat_campfire.gif',
-	'seige_cat_campfire.gif',
-	'musical_reverse_cat_campfire.gif',
-	'spin_cat_campfire.gif',
-]
+const cats = readdirSync('public/_assets/animated/404').filter((f) => f.endsWith('.gif'))
 
 const facts = [
 	'cats are often found around campfires',
@@ -25,6 +13,12 @@ const facts = [
 	'the CIA tried to train cats as spies in the 1960s',
 	'stubbs the cat was the mayor of talkeetna, alaska for 20 years',
 	'cats only meow to communicate with humans, not other cats',
+	'the oldest cat on record lived to 38 years old',
+	'house cats share 95% of their dna with tigers',
+	'ancient egyptians shaved their eyebrows to mourn a dead cat',
+	'two cats at the dutch embassy in moscow once exposed soviet listening devices',
+	"cats can't taste sweetness",
+	'cats have 32 muscles in each ear',
 ]
 ---
 
