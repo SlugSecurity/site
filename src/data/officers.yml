@@ -10,10 +10,20 @@ executive:
     Image: /_assets/images/officers/yakushiiiii.webp
     LinkedIn: sofia-yakushi-743b35225
 
-  - Name: Peter Dobbins
+  - Name: Morris Richman
     Title: Vice President
+    Handle: mcrich
+    Description: Undergraduate in Computer Science and often called an Apple fanboy. Interested in network and application security. Often finds 0-days and config issues when its least convenient for everyone else.
+    Image: /_assets/images/officers/mcrich.webp
+    Website: https://mcrich23.com/
+    LinkedIn: morris-richman
+    GitHub: Mcrich23
+    Twitter: morrisinlife
+
+  - Name: Peter Dobbins
+    Title: Graduate Advisor
     Handle: sixteen4
-    Description: 'Undergraduate in Computer Science: Game Design who is passionate about programming, software security, cryptography, system and network infrastructure, and game development.'
+    Description: 'Computer Science and Engineering graduate studen who is passionate about programming, software security, cryptography, system and network infrastructure, and game development.'
     Image: /_assets/images/officers/sixteen4.webp
     Website: https://sixteen4.com
     LinkedIn: sixteen4
@@ -21,7 +31,7 @@ executive:
   - Name: Nancy Lau
     Title: Graduate Advisor & Founder
     Handle: rose
-    Description: President emeritus (2022-24). CSE graduate student, interested in hardware security and AI.
+    Description: President emeritus '22-24. CSE graduate student, interested in hardware security and AI.
     Image: /_assets/images/officers/rose.webp
     GitHub: nancyjlau
 
@@ -33,34 +43,16 @@ executive:
     Website: https://fbad.me
     GitHub: '0xfbad'
 
-  - Name: Dominick Rangel
-    Title: External Outreach
-    Handle: '1229.'
-    Description: Applied Math & Cog Sci 4th year interested in applied cryptography and ECC
-    Image: /_assets/images/officers/1229.webp
-    LinkedIn: dominick-rangel-93004b205
-    GitHub: DCR-03
-
   - Name: Alvaro A. Cardenas
     Title: Founding Faculty Advisor
     Handle: chibchachum
-    Description: Alvaro A. Cardenas is an Associate Professor of Computer Science and Engineering at the University of California, Santa Cruz.
+    Description: Professor of Computer Science and Engineering. Focused on security and privacy of cyber-physical systems, autonomous vehicles, drones, critical infrastructure, and AI security.
     Image: /_assets/images/officers/chibchachum.webp
     Website: https://users.soe.ucsc.edu/~alacarde/index.php
 
 officers:
-  - Name: Morris Richman
-    Title: University Relations Ambassador
-    Handle: mcrich
-    Description: Undergraduate in Computer Science and often called an Apple fanboy. Interested in network and application security. Often finds 0-days and config issues when its least convenient for everyone else.
-    Image: /_assets/images/officers/mcrich.webp
-    Website: https://mcrich23.com/
-    LinkedIn: morris-richman
-    GitHub: Mcrich23
-    Twitter: morrisinlife
-
   - Name: Ian Phan
-    Title: Student Outreach
+    Title: Student Education
     Handle: heythatsillegal
     Description: Current Human Computer Interaction student, interested in applied cognitive psych, education and learning technologies, human factors engineering, and social engineering. Busy teaching new hackers at the moment!!
     Image: /_assets/images/officers/heythatsillegal.webp
@@ -83,10 +75,18 @@ officers:
     LinkedIn: natejarrett
     GitHub: NateCJarrett
 
+  - Name: Alex Coble
+    title: Operations
+    Handle: 260k
+    Description: Computer Science major, interested in offensive security and cryptography. am9pbnNsdWdzZWMh=
+    Image: /_assets/image/officers/260k.webp
+    GitHub: https://github.com/NoxTechnicalDevelopment
+
+alumni:
   - Name: Korben Tompkin
     Title: Operations
     Handle: korbexmachina
-    Description: 3rd year computer science & mathematics. Interested in cryptography, distributed systems, and embedded systems.
+    Description: Computer science & mathematics. Interested in cryptography, distributed systems, and embedded systems.
     Image: /_assets/images/officers/korbexmachina.webp
     Website: https://korbexmachina.com
     LinkedIn: korbentompkin
@@ -99,8 +99,15 @@ officers:
     Image: /_assets/images/officers/anonymousrand.webp
     Website: https://anonymousrand.xyz
     GitHub: AnonymousRand
+    
+  - Name: Dominick Rangel
+    Title: External Outreach
+    Handle: '1229.'
+    Description: Applied Math & Cog Sci 4th year interested in applied cryptography and ECC
+    Image: /_assets/images/officers/1229.webp
+    LinkedIn: dominick-rangel-93004b205
+    GitHub: DCR-03
 
-alumni:
   - Name: David Mlynski
     Title: External Outreach
     Handle: skynet2030
