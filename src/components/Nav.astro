@@ -2,111 +2,113 @@
 import { nav, navExternal, site } from '@/consts'
 const path = Astro.url.pathname
 const navMain = nav.filter(n => n.label !== 'Join')
+const isActive = (href: string) => path === href || path.startsWith(`${href}/`)
 ---
 
-<header class="sticky top-0 z-30 border-b border-(--color-line) bg-(--color-bg)/90 backdrop-blur-sm">
-	<nav class="container-tight flex items-center justify-between gap-4 py-3">
-		<a href="/" class="flex items-center gap-2 text-(--color-fg) hover:text-(--color-fg-dim) transition-colors" aria-label={site.name}>
+<header id="site-header" class="sticky top-0 z-30 border-b border-(--color-line) bg-(--color-bg)/95 backdrop-blur-sm">
+	<nav id="nav-row" class="container-tight flex items-center justify-between gap-4" aria-label="Primary navigation">
+		<a href="/" class="nav-brand flex items-center gap-2 text-(--color-fg) hover:text-(--color-fg-dim) transition-colors" aria-label={`${site.short} home`}>
 			<img src="/logo.png" alt="" class="h-7 w-7" width="28" height="28" />
 			<span class="brand text-lg sm:text-xl">SLUGSEC</span>
 		</a>
 
-		<div class="hidden min-[1000px]:flex items-center gap-1 label">
-			{navMain.map(item => {
-				const active = path === item.href || path.startsWith(item.href)
-				return (
-					<a
-						href={item.href}
-						class:list={[
-							'nav-link px-3 py-2 transition-colors',
-							active ? 'text-(--color-fg) is-active' : 'text-(--color-fg-dim)',
-						]}
-					>{item.label}</a>
-				)
-			})}
-			<a href="/join" class="join-btn mx-2">Join</a>
-			<span class="mx-1 h-4 w-px bg-(--color-line)" aria-hidden></span>
+		<div class="nav-desktop items-center gap-1 label">
+			{navMain.map(item => (
+				<a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined} class:list={['nav-link px-3 py-2 transition-colors', isActive(item.href) && 'is-active']}>{item.label}</a>
+			))}
+			<a href="/join" class="nav-join btn btn-primary btn-sm mx-2" aria-current={isActive('/join') ? 'page' : undefined}>Join</a>
+			<span class="mx-1 h-4 w-px bg-(--color-line)" aria-hidden="true"></span>
 			{navExternal.map(item => (
-				<a
-					href={item.href}
-					title={item.title}
-					class="nav-link px-3 py-2 text-(--color-fg-dim) inline-flex items-center gap-1 transition-colors"
-				>{item.label}<svg width="9" height="9" viewBox="0 0 10 10" fill="none" aria-hidden><path d="M2 8L8 2M8 2H3.5M8 2V6.5" stroke="currentColor" stroke-width="1.2" /></svg></a>
+				<a href={item.href} title={item.title} class="nav-link px-3 py-2 transition-colors">{item.label}</a>
 			))}
 		</div>
 
-		<button
-			id="nav-toggle"
-			class="min-[1000px]:hidden flex h-9 w-9 items-center justify-center border border-(--color-line) text-(--color-fg)"
-			aria-label="Toggle navigation"
-			aria-expanded="false"
-		>
-			<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
+		<button id="nav-toggle" type="button" class="flex min-h-[44px] min-w-[44px] shrink-0 items-center justify-center border border-(--color-line-bright) text-(--color-fg)" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-sheet">
+			<svg width="20" height="20" viewBox="0 0 16 16" fill="none" aria-hidden="true">
 				<path id="nav-icon-open" d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5" />
 				<path id="nav-icon-close" d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.5" class="hidden" />
 			</svg>
 		</button>
 	</nav>
 
-	<div id="nav-sheet" class="min-[1000px]:hidden hidden border-t border-(--color-line) bg-(--color-bg)/95">
+	<nav id="nav-sheet" aria-label="Mobile navigation" class="hidden border-t border-(--color-line) bg-(--color-bg)">
 		<div class="container-tight flex flex-col py-3 label gap-1">
-			{navMain.map(item => {
-				const active = path === item.href || path.startsWith(item.href)
-				return (
-					<a
-						href={item.href}
-						class:list={[
-							'py-2',
-							active ? 'text-(--color-fg)' : 'text-(--color-fg-dim)',
-						]}
-					>{item.label}</a>
-				)
-			})}
-			<a href="/join" class="join-btn mt-3 self-start">Join</a>
-			<div class="h-px bg-(--color-line) my-3"></div>
+			{navMain.map(item => (
+				<a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined} class:list={['nav-link py-2', isActive(item.href) && 'is-active']}>{item.label}</a>
+			))}
+			<a href="/join" class="nav-join btn btn-primary btn-sm mt-3 self-start" aria-current={isActive('/join') ? 'page' : undefined}>Join</a>
+			<div class="h-px bg-(--color-line) my-3" aria-hidden="true"></div>
 			{navExternal.map(item => (
-				<a href={item.href} title={item.title} class="py-2 text-(--color-fg-dim) inline-flex items-center gap-1">{item.label}<svg width="9" height="9" viewBox="0 0 10 10" fill="none" aria-hidden><path d="M2 8L8 2M8 2H3.5M8 2V6.5" stroke="currentColor" stroke-width="1.2" /></svg></a>
+				<a href={item.href} title={item.title} class="nav-link py-2">{item.label}</a>
 			))}
 		</div>
-	</div>
+	</nav>
 </header>
 
 <script>
+	const header = document.getElementById('site-header')
+	const row = document.getElementById('nav-row')
 	const toggle = document.getElementById('nav-toggle')
 	const sheet = document.getElementById('nav-sheet')
-	const open = document.getElementById('nav-icon-open')
-	const close = document.getElementById('nav-icon-close')
-	toggle?.addEventListener('click', () => {
-		const isOpen = sheet?.classList.toggle('hidden') === false
-		toggle.setAttribute('aria-expanded', String(isOpen))
-		open?.classList.toggle('hidden', isOpen)
-		close?.classList.toggle('hidden', !isOpen)
-	})
+	const openIcon = document.getElementById('nav-icon-open')
+	const closeIcon = document.getElementById('nav-icon-close')
+
+	if (header && row && toggle && sheet) {
+		const setOpen = (isOpen: boolean) => {
+			sheet.classList.toggle('hidden', !isOpen)
+			toggle.setAttribute('aria-expanded', String(isOpen))
+			toggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation')
+			openIcon?.classList.toggle('hidden', isOpen)
+			closeIcon?.classList.toggle('hidden', !isOpen)
+		}
+		toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'))
+		header.addEventListener('keydown', event => {
+			if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+				setOpen(false)
+				toggle.focus()
+			}
+		})
+		header.addEventListener('focusout', event => {
+			if (!header.contains(event.relatedTarget as Node | null)) setOpen(false)
+			const target = event.target
+			if (event.relatedTarget === null && target instanceof HTMLElement &&
+				target.closest('.nav-desktop') && !target.getClientRects().length) {
+				toggle.focus({ preventScroll: true })
+			}
+		})
+		document.addEventListener('click', event => {
+			if (!header.contains(event.target as Node)) setOpen(false)
+		})
+		new ResizeObserver(() => {
+			header.style.setProperty('--nav-row-height', `${row.getBoundingClientRect().height}px`)
+			const focused = document.activeElement
+			if (getComputedStyle(toggle).display !== 'none') {
+				if (focused?.closest('.nav-desktop')) toggle.focus({ preventScroll: true })
+				return
+			}
+			setOpen(false)
+			if (sheet.contains(focused) || focused === toggle) row.querySelector<HTMLAnchorElement>('a')?.focus()
+		}).observe(row)
+	}
 </script>
 
 <style>
-	.nav-link {
-		color: var(--color-fg-dim);
-	}
-	.nav-link.is-active {
-		color: var(--color-fg);
-	}
-
-	.join-btn {
-		display: inline-flex;
-		align-items: center;
-		padding: 0.35rem 0.85rem;
-		font-family: 'PexicoMicro', monospace;
-		font-size: 0.85rem;
-		text-transform: uppercase;
-		letter-spacing: 0.04em;
-		background: var(--color-accent);
-		border: 1px solid var(--color-accent);
-		color: var(--color-bg);
-		transition: background 120ms, border-color 120ms;
-	}
-	.join-btn:hover {
-		background: var(--color-accent-dim);
-		border-color: var(--color-accent-dim);
+	#site-header { container-type: inline-size; }
+	#nav-row { padding-block: 10px; }
+	.nav-desktop .nav-join { min-height: 36px; padding-block: 0.3rem; }
+	.nav-desktop { display: none; }
+	.nav-brand { min-width: 0; }
+	.nav-brand img { flex-shrink: 0; }
+	.nav-brand span { min-width: 0; }
+	.nav-brand, .nav-link { min-height: 44px; }
+	.nav-link { display: inline-flex; align-items: center; color: var(--color-fg-dim); }
+	.nav-link:hover, .nav-link.is-active { color: var(--color-fg); }
+	.nav-link.is-active,
+	.nav-join[aria-current='page'] { text-decoration: underline; text-decoration-color: currentColor; text-underline-offset: 0.35em; }
+	#nav-sheet { max-height: calc(100dvh - var(--nav-row-height, 5rem) - 1px); overflow-y: auto; overscroll-behavior: contain; }
+	#nav-sheet a { scroll-margin-block: 0.25rem; }
+	@container (min-width: 62rem) {
+		.nav-desktop { display: flex; white-space: nowrap; }
+		#nav-toggle, #nav-sheet { display: none; }
 	}
 </style>
