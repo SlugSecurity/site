@@ -3,6 +3,7 @@ import { site } from '@/consts'
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
 const internalHosts = new Set([location.host, new URL(site.url).host])
 const managedAttrs = new WeakMap<HTMLAnchorElement, { target: boolean; rel: string[] }>()
+const graphemes = new Intl.Segmenter(undefined, { granularity: 'grapheme' })
 
 const UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const LOWER = 'abcdefghijklmnopqrstuvwxyz'
@@ -53,9 +54,10 @@ function applyExternalAttrs(link: HTMLAnchorElement, external: boolean) {
 	else link.removeAttribute('rel')
 }
 
-function textWalker(target: Element) {
+function textWalker(target: Element, rendered = false) {
 	return document.createTreeWalker(target, NodeFilter.SHOW_TEXT, {
 		acceptNode(node) {
+			if (rendered && node.parentElement?.closest('.link-scramble-source')) return NodeFilter.FILTER_ACCEPT
 			return node.textContent?.trim() && !node.parentElement?.closest('svg, .sr-only, [aria-hidden="true"]')
 				? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
 		},
@@ -78,15 +80,35 @@ function externalIcon() {
 	return icon
 }
 
+function removeExternalTail(link: HTMLAnchorElement) {
+	link.querySelector('.external-link-icon')?.remove()
+	const tail = link.querySelector('.external-link-tail')
+	if (!tail) return
+	const parent = tail.parentElement
+	tail.replaceWith(...tail.childNodes)
+	parent?.normalize()
+}
+
+function lastRenderedText(link: HTMLAnchorElement) {
+	const walker = textWalker(link, true)
+	let last: Text | null = null
+	while (walker.nextNode()) last = walker.currentNode as Text
+	return last
+}
+
 function syncExternalIcon(link: HTMLAnchorElement, external: boolean) {
 	let content = link.querySelector<HTMLSpanElement>(':scope > .external-link-content')
-	const icon = link.querySelector<SVGSVGElement>('.external-link-icon')
-	const hasText = Boolean(link.querySelector('.link-scramble-text') || textWalker(link).nextNode())
-	if (!external || !hasText) {
-		icon?.remove()
+	let last = lastRenderedText(link)
+	if (!external || !last) {
+		removeExternalTail(link)
 		if (content) content.replaceWith(...content.childNodes)
 		return
 	}
+	const tail = link.querySelector('.external-link-tail')
+	if (tail?.contains(last) && tail.querySelector('.external-link-icon')) return
+	removeExternalTail(link)
+	last = lastRenderedText(link)
+	if (!last) return
 	const display = getComputedStyle(link).display
 	if (display.includes('flex') && !content) {
 		content = document.createElement('span')
@@ -94,10 +116,21 @@ function syncExternalIcon(link: HTMLAnchorElement, external: boolean) {
 		content.append(...link.childNodes)
 		link.append(content)
 	}
-	if (!icon) {
-		const parent = content ?? link
-		parent.append(externalIcon())
+	const ending = document.createElement('span')
+	ending.className = 'external-link-tail'
+	const cell = last.parentElement?.closest('.link-scramble-char')
+	if (cell) {
+		cell.before(ending)
+		ending.append(cell)
+	} else {
+		const segment = Array.from(graphemes.segment(last.data.trimEnd())).at(-1)
+		if (!segment) return
+		const suffix = last.splitText(segment.index)
+		if (suffix.length > segment.segment.length) suffix.splitText(segment.segment.length)
+		suffix.before(ending)
+		ending.append(suffix)
 	}
+	ending.append(externalIcon())
 }
 
 type ScrambleCharacter = {
@@ -154,7 +187,7 @@ function attachScramble(link: HTMLAnchorElement): ScrambleCharacter[] {
 	const walker = textWalker(target)
 	const nodes: Text[] = []
 	while (walker.nextNode()) nodes.push(walker.currentNode as Text)
-	const chars: ScrambleCharacter[] = []
+	const chars = (characters.get(link) ?? []).filter(char => link.contains(char.source))
 	for (const node of nodes) {
 		const run = document.createElement('span')
 		run.className = 'link-scramble-text'
@@ -172,7 +205,7 @@ function attachScramble(link: HTMLAnchorElement): ScrambleCharacter[] {
 		const visual = document.createElement('span')
 		visual.setAttribute('aria-hidden', 'true')
 		run.append(accessible, visual)
-		for (const text of node.data) {
+		for (const { segment: text } of graphemes.segment(node.data)) {
 			if (/\s/.test(text)) {
 				visual.append(text)
 				continue
@@ -192,6 +225,7 @@ function attachScramble(link: HTMLAnchorElement): ScrambleCharacter[] {
 		}
 		node.replaceWith(run)
 	}
+	chars.sort((a, b) => a.source.compareDocumentPosition(b.source) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1)
 	characters.set(link, chars)
 	return chars
 }
@@ -213,7 +247,9 @@ document.addEventListener(
 		if (!link || reducedMotion.matches || !scrambleQuery.matches) return
 		if (e.relatedTarget instanceof Node && link.contains(e.relatedTarget)) return
 		if (playing.has(link)) return
-		const chars = characters.get(link) ?? attachScramble(link)
+		removeExternalTail(link)
+		const chars = attachScramble(link)
+		syncExternalIcon(link, isExternal(link))
 		if (chars.length) scramble(link, chars)
 	},
 	{ passive: true },
@@ -229,9 +265,10 @@ document.addEventListener('astro:page-load', attachAll)
 new MutationObserver(records => {
 	const links = new Set<HTMLAnchorElement>()
 	for (const record of records) {
-		if (record.target instanceof HTMLAnchorElement) links.add(record.target)
-		if (record.target instanceof Element && record.target.matches('.external-link-content') &&
-			record.target.parentElement instanceof HTMLAnchorElement) links.add(record.target.parentElement)
+		const target = record.target instanceof Element ? record.target : record.target.parentElement
+		if (target?.closest('svg, .sr-only, .link-scramble-glyph, .link-scramble-source')) continue
+		const link = target?.closest<HTMLAnchorElement>('a')
+		if (link) links.add(link)
 		for (const node of record.addedNodes) {
 			if (!(node instanceof Element)) continue
 			if (node instanceof HTMLAnchorElement) links.add(node)
@@ -239,4 +276,4 @@ new MutationObserver(records => {
 		}
 	}
 	for (const link of links) if (link.isConnected) enhance(link)
-}).observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['href'] })
+}).observe(document.documentElement, { childList: true, characterData: true, subtree: true, attributes: true, attributeFilter: ['href'] })

@@ -72,11 +72,15 @@ html {
 	background: var(--color-bg);
 	color: var(--color-fg);
 	font-family: var(--font-sans);
-	font-size: 110%;
+	font-size: 100%;
 	line-height: 1.6;
 	-webkit-font-smoothing: antialiased;
 	scroll-behavior: smooth;
 	scroll-padding-block: 6rem 2rem;
+}
+
+@media (min-width: 48rem) {
+	html { font-size: 110%; }
 }
 
 body {
@@ -273,6 +277,7 @@ a {
 }
 
 .external-link-content { min-width: 0; }
+.external-link-tail { white-space: nowrap; }
 .external-link-icon {
 	display: inline-block;
 	width: 0.65em;
