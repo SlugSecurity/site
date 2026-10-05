@@ -3,10 +3,16 @@ import { useEffect, useState } from 'react'
 
 export default function ShaderBg() {
 	const [reduced, setReduced] = useState(false)
+	const [frameSeed, setFrameSeed] = useState(0)
 
 	useEffect(() => {
 		const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
 		setReduced(mq.matches)
+
+		const random = new Uint32Array(1)
+		window.crypto.getRandomValues(random)
+		setFrameSeed(random[0] % 1_000_000)
+
 		const onChange = (e: MediaQueryListEvent) => setReduced(e.matches)
 		mq.addEventListener('change', onChange)
 		return () => mq.removeEventListener('change', onChange)
@@ -25,6 +31,7 @@ export default function ShaderBg() {
 				type="4x4"
 				size={2}
 				speed={0}
+				frame={frameSeed}
 				scale={1}
 				style={{ width: '100%', height: '100%', opacity: 0.85 }}
 			/>
