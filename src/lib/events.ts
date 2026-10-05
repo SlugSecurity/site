@@ -21,11 +21,11 @@ export function fmtTimeRange(startIso: string, endIso: string): string {
 	const opts = { hour: 'numeric', minute: '2-digit', timeZone: calendar.timezone } as const
 	const startStr = new Date(startIso).toLocaleTimeString('en-US', opts)
 	const endStr = new Date(endIso).toLocaleTimeString('en-US', opts)
-	return `${startStr} \u2013 ${endStr}`
+	return `${startStr} - ${endStr}`
 }
 
 export function badgeText(v: string | boolean | undefined, fallback: string): string {
-	if (typeof v === 'string' && v.toLowerCase() !== 'true') return `${fallback} \u00b7 ${v}`
+	if (typeof v === 'string' && v.toLowerCase() !== 'true') return `${fallback} - ${v}`
 	return fallback
 }
 
@@ -33,5 +33,5 @@ export function truncate(s: string | undefined, max = 220): string | undefined {
 	if (!s) return s
 	const cleaned = s.replace(/\s+/g, ' ').trim()
 	if (cleaned.length <= max) return cleaned
-	return cleaned.slice(0, max).replace(/\s+\S*$/, '') + '\u2026'
+	return cleaned.slice(0, max).replace(/\s+\S*$/, '') + '...'
 }

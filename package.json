@@ -10,6 +10,7 @@
 		"preview": "astro preview",
 		"astro": "astro",
 		"check": "astro check",
+		"test:events": "tsx --test scripts/event-metadata.test.ts",
 		"fetch:events": "tsx scripts/fetch-events.ts"
 	},
 	"dependencies": {
