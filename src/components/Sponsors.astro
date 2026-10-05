@@ -1,43 +1,32 @@
 ---
 import { sponsors } from '@/consts'
 
-const reps = 3
+const reps = 2
 const repeated = Array.from({ length: reps }, () => sponsors).flat()
 ---
 
-<section class="mt-24" aria-labelledby="sponsors-heading">
-	<div class="text-center mb-8">
-		<h2 id="sponsors-heading" class="text-3xl sm:text-4xl">Sponsors</h2>
-		<p class="text-(--color-fg-dim) text-sm mt-2">
-			These organizations make our work possible. <a href="/about#sponsors" class="text-link">Interested in sponsoring</a>?
+<section class="sponsors section-gap" aria-labelledby="sponsors-heading">
+	<div class="container-tight text-center mb-4">
+		<h2 id="sponsors-heading" class="section-title">Sponsors</h2>
+		<p class="text-(--color-fg-dim) text-base mt-2">
+			Sponsors help pay for competition travel, equipment, and our servers. <a href="/about#sponsors" class="text-link">Help support the club</a>
 		</p>
 	</div>
 
-	<div class="sponsor-carousel relative overflow-hidden">
-		<div class="pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-gradient-to-r from-(--color-bg) to-transparent"></div>
-		<div class="pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-gradient-to-l from-(--color-bg) to-transparent"></div>
-		<div class="sponsor-track">
+	<div class="sponsor-carousel relative">
+		<div class="sponsor-fade pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-gradient-to-r from-(--color-bg) to-transparent" aria-hidden="true"></div>
+		<div class="sponsor-fade pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-gradient-to-l from-(--color-bg) to-transparent" aria-hidden="true"></div>
+		<div id="sponsor-track" class="sponsor-track">
 			<div class="sponsor-set">
-				{repeated.map(s => (
-					<a
-						href={s.href}
-						rel="noopener"
-						title={s.name}
-						aria-label={s.name}
-						class:list={['sponsor-item', s.aspect]}
-						style={`background-image: url(${s.logo})`}
-					></a>
+				{repeated.map((s, index) => index < sponsors.length ? (
+					<a href={s.href} rel="noopener" title={s.name} aria-label={s.name} class:list={['sponsor-item', s.aspect]} style={`background-image: url(${s.logo})`}></a>
+				) : (
+					<a href={s.href} rel="noopener" tabindex="-1" aria-hidden="true" class:list={['sponsor-item sponsor-copy', s.aspect]} style={`background-image: url(${s.logo})`}></a>
 				))}
 			</div>
-			<div class="sponsor-set" aria-hidden="true">
+			<div class="sponsor-set sponsor-copy" aria-hidden="true">
 				{repeated.map(s => (
-					<a
-						href={s.href}
-						rel="noopener"
-						tabindex="-1"
-						class:list={['sponsor-item', s.aspect]}
-						style={`background-image: url(${s.logo})`}
-					></a>
+					<a href={s.href} rel="noopener" tabindex="-1" class:list={['sponsor-item', s.aspect]} style={`background-image: url(${s.logo})`}></a>
 				))}
 			</div>
 		</div>
@@ -45,74 +34,65 @@ const repeated = Array.from({ length: reps }, () => sponsors).flat()
 </section>
 
 <style>
-	.sponsor-track {
-		display: flex;
-		width: max-content;
-		animation: sponsor-scroll 185s linear infinite;
-	}
-	.sponsor-set {
-		display: flex;
-		flex-shrink: 0;
-		align-items: center;
-	}
-	.sponsor-item {
-		display: block;
-		margin: 0 2rem;
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: contain;
-		opacity: 0.8;
-		transition: opacity 160ms;
-	}
-	.sponsor-item:hover {
-		opacity: 1;
-	}
-	.sponsor-item.wide {
-		width: 14rem;
-		height: 5.25rem;
-	}
-	.sponsor-item.square {
-		width: 5.25rem;
-		height: 5.25rem;
+	.sponsor-copy, .sponsor-fade { display: none; }
+	.sponsor-carousel { padding-inline: 1.25rem; }
+	.sponsor-set { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2rem 3rem; }
+	.sponsor-item { display: block; flex-shrink: 0; max-width: 100%; background: center / contain no-repeat; opacity: 0.85; transition: opacity 160ms; }
+	.sponsor-item:hover, .sponsor-item:focus-visible { opacity: 1; }
+	.sponsor-item.wide { width: 14rem; height: 5.25rem; }
+	.sponsor-item.square { width: 5.25rem; height: 5.25rem; }
+	.sponsor-item.sponsor-copy, .sponsor-set.sponsor-copy { display: none; }
+	@media (min-width: 768px) and (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+		.is-animated:not(.is-paused) .sponsor-carousel { overflow: hidden; padding-inline: 0; }
+		.is-animated:not(.is-paused) .sponsor-track { display: flex; width: max-content; animation: sponsor-scroll 185s linear infinite; }
+		.is-animated:not(.is-paused) .sponsor-set { display: flex; flex-wrap: nowrap; flex-shrink: 0; gap: 0; }
+		.is-animated:not(.is-paused) .sponsor-item { display: block; margin-inline: 2rem; }
+		.is-animated:not(.is-paused) .sponsor-fade { display: block; }
 	}
 	@keyframes sponsor-scroll {
 		from { transform: translate3d(0, 0, 0); }
 		to { transform: translate3d(-50%, 0, 0); }
 	}
-	@media (prefers-reduced-motion: reduce) {
-		.sponsor-track {
-			animation: none;
-			flex-wrap: wrap;
-			justify-content: center;
-			width: auto;
-		}
-		.sponsor-set:nth-child(2) {
-			display: none;
-		}
-	}
 </style>
 
 <script>
-	const carousel = document.querySelector<HTMLElement>('.sponsor-carousel')
-	const track = document.querySelector<HTMLElement>('.sponsor-track')
-	if (carousel && track && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-		let target = 1
+	const sponsors = document.querySelector<HTMLElement>('.sponsors')
+	const carousel = sponsors?.querySelector<HTMLElement>('.sponsor-carousel')
+	const track = sponsors?.querySelector<HTMLElement>('.sponsor-track')
+	if (sponsors && carousel && track) {
+		const motion = window.matchMedia('(min-width: 768px) and (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine)')
+		let paused = false
+		let hovering = false
 		let current = 1
-		let raf: number | null = null
-
-		const tick = () => {
+		let target = 1
+		let frame: number | null = null
+		const ease = () => {
 			current += (target - current) * 0.2
 			if (Math.abs(target - current) < 0.001) current = target
-			for (const a of track.getAnimations()) a.playbackRate = current
-			raf = current === target ? null : requestAnimationFrame(tick)
+			for (const animation of track.getAnimations()) animation.playbackRate = current
+			frame = current === target ? null : requestAnimationFrame(ease)
 		}
-
-		const setTarget = (v: number) => {
-			target = v
-			if (raf === null) raf = requestAnimationFrame(tick)
+		const setHover = (value: boolean) => {
+			hovering = value
+			target = value ? 0 : 1
+			if (frame === null && motion.matches && !paused) frame = requestAnimationFrame(ease)
 		}
-
-		carousel.addEventListener('mouseenter', () => setTarget(0))
-		carousel.addEventListener('mouseleave', () => setTarget(1))
+		const update = () => {
+			sponsors.classList.toggle('is-animated', motion.matches)
+			sponsors.classList.toggle('is-paused', paused)
+			if (frame !== null) cancelAnimationFrame(frame)
+			frame = null
+			current = target = hovering ? 0 : 1
+			for (const animation of track.getAnimations()) animation.playbackRate = current
+		}
+		track.addEventListener('focusin', event => {
+			if (!(event.target instanceof HTMLElement) || !event.target.matches(':focus-visible')) return
+			paused = true
+			update()
+		})
+		carousel.addEventListener('mouseenter', () => setHover(true))
+		carousel.addEventListener('mouseleave', () => setHover(false))
+		motion.addEventListener('change', update)
+		update()
 	}
 </script>
