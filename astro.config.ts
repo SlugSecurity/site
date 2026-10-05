@@ -9,11 +9,36 @@ import remarkDirective from 'remark-directive'
 import remarkCalloutDirectives from '@microflash/remark-callout-directives'
 import remarkImgAttr from 'remark-imgattr'
 import rehypeFigureTitle from 'rehype-figure-title'
+import { remarkLegacyShortcodes } from './src/lib/post-shortcodes'
 
-// remark-directive eagerly eats `:name` and `::name` even when name is digit-led
-// (e.g. `5:20-6:55pm` loses ":55pm"), and we only want directive syntax for the
-// `:::callout` containers. After remark-callout-directives consumes those, this
-// transform restores any remaining text/leaf directives as plain text.
+type ContentNode = {
+	type: string
+	tagName?: string
+	properties?: Record<string, unknown>
+	value?: string
+	children?: ContentNode[]
+}
+
+function labelEmbeddedMedia() {
+	return (tree: ContentNode, file: { data: { astro?: { frontmatter?: { title?: string } } } }) => {
+		const title = `Video accompanying ${file.data.astro?.frontmatter?.title ?? 'this article'}`
+		const escapedTitle = title.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
+		const walk = (node: ContentNode) => {
+			if (node.tagName === 'iframe') {
+				node.properties ??= {}
+				node.properties.title ||= title
+			}
+			if (node.type === 'raw' && node.value) {
+				node.value = node.value.replace(/<iframe\b([^>]*)>/gi, (tag, attributes: string) =>
+					/\btitle\s*=/i.test(attributes) ? tag : `<iframe title="${escapedTitle}"${attributes}>`,
+				)
+			}
+			node.children?.forEach(walk)
+		}
+		walk(tree)
+	}
+}
+
 function recoverInlineDirectives() {
 	const reconstruct = (node: any): string => {
 		const prefix = node.type === 'leafDirective' ? '::' : ':'
@@ -34,7 +59,7 @@ function recoverInlineDirectives() {
 		for (let i = 0; i < parent.children.length; i++) {
 			const child = parent.children[i]
 			if (child.type === 'textDirective' || child.type === 'leafDirective') {
-				parent.children[i] = { type: 'text', value: reconstruct(child) }
+				parent.children[i] = { type: 'text', value: reconstruct(child) } // directive parsing also consumes colons in times
 			} else {
 				walk(child)
 			}
@@ -64,6 +89,10 @@ export default defineConfig({
 		expressiveCode({
 			themes: ['github-dark-default'],
 			styleOverrides: {
+				codeFontFamily: 'var(--font-mono)',
+				codeFontSize: 'var(--text-meta)',
+				uiFontFamily: 'var(--font-pixel)',
+				uiFontSize: 'var(--text-meta)',
 				borderRadius: '0',
 				borderColor: 'var(--color-line)',
 				codeBackground: 'var(--color-bg-elev)',
@@ -87,9 +116,11 @@ export default defineConfig({
 			remarkDirective,
 			[remarkCalloutDirectives, calloutOpts],
 			recoverInlineDirectives,
+			remarkLegacyShortcodes,
 			remarkImgAttr,
 		],
 		rehypePlugins: [
+			labelEmbeddedMedia,
 			[rehypeFigureTitle, { className: 'post-figure' }],
 		],
 	},

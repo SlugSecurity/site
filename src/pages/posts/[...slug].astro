@@ -16,7 +16,7 @@ const { Content, headings } = await render(entry)
 const tocItems = headings.filter(h => h.depth >= 2 && h.depth <= 4)
 
 function fmtDate(d: Date) {
-	return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+	return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
 }
 
 const hitsUrl = `https://hits.sh/slugsec.ucsc.edu/posts/${entry.id}.svg?style=flat&color=ff6a1a&labelColor=141414&label=views`
@@ -25,13 +25,13 @@ const hitsUrl = `https://hits.sh/slugsec.ucsc.edu/posts/${entry.id}.svg?style=fl
 <Base title={entry.data.title} description={entry.data.excerpt ?? entry.data.title}>
 	<div class:list={['post-layout', tocItems.length > 0 && 'has-toc']}>
 		<article class="post-article">
-			<a href="/posts" class="link font-mono text-xs uppercase tracking-widest text-(--color-fg-dim) hover:text-(--color-fg) inline-flex items-center gap-1 mb-8">Back to all posts</a>
+			<a href="/posts" class="link label-sm text-(--color-fg-dim) hover:text-(--color-fg) inline-flex items-center gap-1 mb-4">Back to all posts</a>
 
-			<header class="mb-8 pb-6 border-b border-(--color-line)">
-				<h1 class="post-title text-3xl sm:text-4xl mb-4 leading-tight">
+			<header class="mb-4 pb-4 border-b border-(--color-line)">
+				<h1 class="post-title page-title mb-2">
 					{entry.data.title}
 				</h1>
-				<div class="flex flex-wrap items-center gap-3 font-mono text-sm text-(--color-fg-dim)">
+				<div class="flex flex-wrap items-center gap-3 metadata text-(--color-fg-dim)">
 					<time datetime={entry.data.date.toISOString()}>
 						{fmtDate(entry.data.date)}
 					</time>
@@ -57,12 +57,7 @@ const hitsUrl = `https://hits.sh/slugsec.ucsc.edu/posts/${entry.id}.svg?style=fl
 				{entry.data.tags.length > 0 && (
 					<div class="flex flex-wrap gap-2 mt-4">
 						{entry.data.tags.map(tag => (
-							<span class:list={[
-								'font-mono text-[10px] uppercase tracking-widest border px-2 py-0.5',
-								tag === 'writeup'
-									? 'text-(--color-accent) border-(--color-accent-dim)'
-									: 'text-(--color-fg-faint) border-(--color-line)',
-							]}>
+							<span class:list={['badge', tag === 'writeup' && 'badge-accent']}>
 								{tag}
 							</span>
 						))}
@@ -77,11 +72,11 @@ const hitsUrl = `https://hits.sh/slugsec.ucsc.edu/posts/${entry.id}.svg?style=fl
 
 		{tocItems.length > 0 && (
 			<aside class="post-toc-wrap" aria-label="Table of contents">
-				<nav class="post-toc">
+				<nav class="post-toc" aria-label="On this page">
 					<div class="post-toc-label">On this page</div>
 					<ul>
 						{tocItems.map(h => (
-							<li class:list={[`toc-d${h.depth}`]}>
+							<li class={`toc-d${h.depth}`}>
 								<a href={`#${h.slug}`}>{h.text}</a>
 							</li>
 						))}
@@ -99,7 +94,7 @@ const hitsUrl = `https://hits.sh/slugsec.ucsc.edu/posts/${entry.id}.svg?style=fl
 	.post-layout {
 		max-width: 56rem;
 		margin-inline: auto;
-		padding: 3rem 1.25rem 4rem;
+		padding: 2rem 1.25rem 0;
 	}
 	.post-layout.has-toc {
 		display: grid;
@@ -111,19 +106,36 @@ const hitsUrl = `https://hits.sh/slugsec.ucsc.edu/posts/${entry.id}.svg?style=fl
 	.post-article {
 		min-width: 0;
 	}
+	.post-title-word {
+		position: relative;
+		display: inline-block;
+		max-width: 100%;
+		vertical-align: baseline;
+	}
+	.post-title-original {
+		opacity: 0;
+	}
+	.post-title-glitch {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: max-content;
+		white-space: nowrap;
+		transform-origin: left center;
+	}
 	.post-toc-wrap {
 		position: sticky;
 		top: 4.5rem;
 		max-height: calc(100dvh - 6rem);
 		overflow-y: auto;
-		font-size: 0.85rem;
+		font-size: var(--text-meta);
 		padding-top: 0.5rem;
 	}
 	.post-toc-label {
 		font-family: var(--font-pixel);
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
-		font-size: 0.75rem;
+		font-size: var(--text-meta);
 		color: var(--color-fg-faint);
 		margin-bottom: 0.75rem;
 		padding-bottom: 0.5rem;
@@ -142,12 +154,13 @@ const hitsUrl = `https://hits.sh/slugsec.ucsc.edu/posts/${entry.id}.svg?style=fl
 		color: var(--color-fg-dim);
 		display: block;
 		border-left: 1px solid var(--color-line);
-		padding: 0.15rem 0 0.15rem 0.6rem;
+		padding: 0.4rem 0.4rem 0.4rem 0.6rem;
+		min-height: 32px;
 		transition: color 120ms, border-color 120ms;
 	}
 	.post-toc a:hover {
 		color: var(--color-fg);
-		border-left-color: var(--color-accent-dim);
+		border-left-color: var(--color-accent-hover);
 	}
 	.post-toc a.is-active {
 		color: var(--color-accent);
@@ -170,11 +183,11 @@ const hitsUrl = `https://hits.sh/slugsec.ucsc.edu/posts/${entry.id}.svg?style=fl
 	}
 	.post-toc .toc-d3 a {
 		padding-left: 1.4rem;
-		font-size: 0.8rem;
+		font-size: var(--text-meta);
 	}
 	.post-toc .toc-d4 a {
 		padding-left: 2.2rem;
-		font-size: 0.78rem;
+		font-size: var(--text-meta);
 		color: var(--color-fg-faint);
 	}
 	@media (max-width: 1024px) {
@@ -183,7 +196,10 @@ const hitsUrl = `https://hits.sh/slugsec.ucsc.edu/posts/${entry.id}.svg?style=fl
 			max-width: 56rem;
 		}
 		.post-toc-wrap {
-			display: none;
+			position: static;
+			max-height: none;
+			margin-top: 1.5rem;
+			padding-top: 0;
 		}
 	}
 
@@ -196,25 +212,30 @@ const hitsUrl = `https://hits.sh/slugsec.ucsc.edu/posts/${entry.id}.svg?style=fl
 		margin-top: 1.25em;
 	}
 	.prose-content h2 {
-		font-size: 1.625rem;
+		font-size: var(--text-section);
 		margin-top: 2.5rem;
 	}
 	.prose-content h3 {
-		font-size: 1.25rem;
+		font-size: var(--text-card);
 		margin-top: 2rem;
 	}
 	.prose-content a {
 		color: var(--color-accent);
 		text-decoration: underline;
-		text-decoration-color: var(--color-accent-dim);
+		text-decoration-color: var(--color-accent-hover);
 		text-underline-offset: 3px;
 	}
 	.prose-content a:hover {
-		color: var(--color-accent-dim);
+		color: var(--color-accent-hover);
+	}
+	.prose-content a :is(strong, em, b, i, code, span) {
+		text-decoration: inherit;
+		text-decoration-color: inherit;
+		text-underline-offset: inherit;
 	}
 	.prose-content code {
-		font-family: var(--font-mono);
-		font-size: 0.9em;
+		font-family: inherit;
+		font-size: 1em;
 		background: var(--color-bg-elev);
 		border: 1px solid var(--color-line);
 		padding: 0.1em 0.35em;
@@ -225,17 +246,25 @@ const hitsUrl = `https://hits.sh/slugsec.ucsc.edu/posts/${entry.id}.svg?style=fl
 		padding: 1rem;
 		overflow-x: auto;
 		font-family: var(--font-mono);
-		font-size: 0.875rem;
+		font-size: var(--text-meta);
 		line-height: 1.5;
 	}
 	.prose-content pre code {
+		font-family: var(--font-mono);
 		background: transparent;
 		border: 0;
 		padding: 0;
 	}
+	.prose-content pre:not(:has(code)),
+	.prose-content pre[data-language="plaintext"],
+	.prose-content pre[data-language="plaintext"] code,
+	.prose-content pre[data-language="plaintext"] .code {
+		white-space: pre-wrap;
+		overflow-wrap: anywhere;
+	}
 	.prose-content img {
 		max-width: 100%;
-		cursor: zoom-in;
+		height: auto;
 	}
 	.prose-content img.invert {
 		filter: invert(1) hue-rotate(180deg);
@@ -254,8 +283,8 @@ const hitsUrl = `https://hits.sh/slugsec.ucsc.edu/posts/${entry.id}.svg?style=fl
 	.prose-content li::marker { color: var(--color-fg-faint); }
 
 	.prose-content kbd {
-		font-family: var(--font-mono);
-		font-size: 0.8em;
+		font-family: inherit;
+		font-size: var(--text-meta);
 		background: var(--color-bg-elev);
 		border: 1px solid var(--color-line-bright);
 		border-bottom-width: 2px;
@@ -275,8 +304,8 @@ const hitsUrl = `https://hits.sh/slugsec.ucsc.edu/posts/${entry.id}.svg?style=fl
 		display: block;
 	}
 	.prose-content .post-figure figcaption {
-		font-family: var(--font-mono);
-		font-size: 0.8rem;
+		font-family: inherit;
+		font-size: var(--text-meta);
 		color: var(--color-fg-dim);
 		text-align: center;
 		margin-top: 0.5rem;
@@ -296,23 +325,31 @@ const hitsUrl = `https://hits.sh/slugsec.ucsc.edu/posts/${entry.id}.svg?style=fl
 	}
 	.prose-content .callout-indicator {
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
+		font-size: var(--text-meta);
+		line-height: 1.5;
 		gap: 0.5rem;
 		color: var(--color-fg);
 	}
 	.prose-content .callout-hint {
-		display: inline-flex;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex: none;
+		width: 1em;
+		height: 1lh;
 	}
 	.prose-content .callout-hint svg {
-		width: 1.1em;
-		height: 1.1em;
+		width: 1em;
+		height: 1em;
 		display: block;
 	}
 	.prose-content .callout-title {
+		min-width: 0;
 		font-family: var(--font-pixel);
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
-		font-size: 0.9rem;
+		font-size: var(--text-meta);
 		color: var(--color-fg);
 	}
 	.prose-content .callout-content {
@@ -326,33 +363,28 @@ const hitsUrl = `https://hits.sh/slugsec.ucsc.edu/posts/${entry.id}.svg?style=fl
 	}
 
 	.prose-content .callout-assert,
-	.prose-content .callout-note {
+	.prose-content .callout-note,
+	.prose-content .callout-warn,
+	.prose-content .callout-deter {
 		border-left-color: var(--color-accent);
 	}
 	.prose-content .callout-assert .callout-indicator,
 	.prose-content .callout-note .callout-indicator,
 	.prose-content .callout-assert .callout-title,
-	.prose-content .callout-note .callout-title {
-		color: var(--color-accent);
-	}
-
-	.prose-content .callout-warn,
-	.prose-content .callout-deter {
-		border-left-color: #f5a524;
-	}
+	.prose-content .callout-note .callout-title,
 	.prose-content .callout-warn .callout-indicator,
 	.prose-content .callout-warn .callout-title,
 	.prose-content .callout-deter .callout-indicator,
 	.prose-content .callout-deter .callout-title {
-		color: #f5a524;
+		color: var(--color-accent);
 	}
 
 	.prose-content .callout-commend {
-		border-left-color: #4ade80;
+		border-left-color: var(--color-fg);
 	}
 	.prose-content .callout-commend .callout-indicator,
 	.prose-content .callout-commend .callout-title {
-		color: #4ade80;
+		color: var(--color-fg);
 	}
 
 	.prose-content .callout.callout-quote {
@@ -360,15 +392,40 @@ const hitsUrl = `https://hits.sh/slugsec.ucsc.edu/posts/${entry.id}.svg?style=fl
 		font-style: italic;
 		padding-left: 1.25rem;
 	}
-	.prose-content .callout.callout-quote .callout-title {
-		color: var(--color-fg-dim);
-	}
+	.prose-content .callout.callout-quote .callout-title,
 	.prose-content .callout.callout-quote .callout-indicator {
 		color: var(--color-fg-dim);
 	}
 
-	.medium-zoom-overlay,
-	.medium-zoom-image--opened {
-		z-index: 60;
+	.prose-content iframe { max-width: 100%; aspect-ratio: 16 / 9; height: auto; }
+	.prose-content table { display: block; max-width: 100%; overflow-x: auto; }
+	.image-zoom { display: block; max-width: 100%; cursor: zoom-in; }
+	.image-dialog {
+		position: fixed;
+		inset: 0;
+		width: 100%;
+		height: 100dvh;
+		max-width: none;
+		max-height: none;
+		margin: 0;
+		padding: 0;
+		background: transparent;
+		color: var(--color-fg);
+		border: 0;
 	}
+	.image-dialog::backdrop { background: rgb(0 0 0 / 94%); }
+	.image-dismiss {
+		display: block;
+		width: 100%;
+		height: 100%;
+		padding: 0;
+		border: 0;
+		background: transparent;
+		cursor: zoom-out;
+	}
+	.image-dismiss:focus-visible {
+		outline-offset: -4px;
+	}
+	.image-dialog img { display: block; width: 100%; height: 100%; object-fit: contain; }
+	.image-dialog img.invert { filter: invert(1) hue-rotate(180deg); }
 </style>

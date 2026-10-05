@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content'
+import { normalizeLegacyShortcodes } from './post-shortcodes'
 
 type Post = CollectionEntry<'posts'>
 
@@ -8,17 +9,14 @@ export async function getAllPosts(): Promise<Post[]> {
 }
 
 export function getExcerpt(post: Post, maxLen = 180): string {
-	if (post.data.excerpt) return post.data.excerpt
+	if (post.data.excerpt) return normalizeLegacyShortcodes(post.data.excerpt)
 	const body = post.body ?? ''
-	// honor the <!-- more --> excerpt cut convention from MkDocs posts
 	const cut = body.split(/<!--\s*more\s*-->/i)[0] ?? body
-	const cleaned = cut
+	const cleaned = normalizeLegacyShortcodes(cut)
 		.replace(/```[\s\S]*?```/g, '')
 		.replace(/!!![^\n]*\n(?:\s{4,}[^\n]*\n)*/g, '')
-		// strip remark callout directives: opening `:::name{attrs}` and closing `:::`
 		.replace(/^:::\s*\w*\s*(?:\{[^}]*\})?\s*$/gm, '')
 		.replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1')
-		// strip remark-imgattr trailing attribute groups like `(class: "invert")`
 		.replace(/\(\s*[\w-]+\s*:\s*"[^"]*"\s*\)/g, '')
 		.replace(/<[^>]+>/g, '')
 		.replace(/[#*_`]/g, '')

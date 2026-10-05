@@ -1,63 +1,25 @@
 ---
-import { getAllPosts, getExcerpt } from '@/lib/posts'
+import { getAllPosts } from '@/lib/posts'
+import PostList from '@/components/PostList.astro'
+import { Icon } from 'astro-icon/components'
 
 const recent = (await getAllPosts()).slice(0, 4)
-
-function fmtDate(d: Date) {
-	return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
-}
 ---
 
-<section class="container-tight mt-24">
-	<div class="text-center mb-8">
-		<h2 class="text-3xl sm:text-4xl mb-1">Recent posts</h2>
-		<p class="text-(--color-fg-dim) text-sm">Writeups, club news, and other things members published.</p>
+<section class="container-tight section-gap">
+	<div class="text-center mb-4">
+		<h2 class="section-title mb-2">Recent posts</h2>
 	</div>
 
 	{recent.length === 0 ? (
-		<div class="panel font-mono text-sm text-(--color-fg-dim) text-center">
-			No posts yet.
+		<div class="panel text-base text-(--color-fg-dim) text-center">
+			No posts yet
 		</div>
 	) : (
-		<ul class="frame divide-y divide-(--color-line)">
-			{recent.map(p => {
-				const excerpt = getExcerpt(p)
-				return (
-					<li>
-						<a href={`/posts/${p.id}`} class="block px-4 py-3 hover:bg-(--color-bg-elev)/50 transition-colors group">
-							<div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
-								<span class="font-mono text-xs text-(--color-fg-faint) tabular-nums w-24 shrink-0">
-									{fmtDate(p.data.date)}
-								</span>
-								<span class="text-(--color-fg) group-hover:text-(--color-accent) transition-colors flex-1 min-w-0">
-									{p.data.title}
-								</span>
-								<span class="flex flex-wrap gap-1 shrink-0">
-									{p.data.tags.slice(0, 3).map(tag => (
-										<span class:list={[
-											'font-mono text-[10px] uppercase tracking-widest border px-1.5 py-0.5',
-											tag === 'writeup'
-												? 'text-(--color-accent) border-(--color-accent-dim)'
-												: 'text-(--color-fg-faint) border-(--color-line)',
-										]}>
-											{tag}
-										</span>
-									))}
-								</span>
-							</div>
-							{excerpt && (
-								<p class="text-sm text-(--color-fg-dim) line-clamp-2 mt-1.5 sm:ml-28 leading-relaxed">
-									{excerpt}
-								</p>
-							)}
-						</a>
-					</li>
-				)
-			})}
-		</ul>
+		<PostList posts={recent} />
 	)}
 
 	<div class="text-center mt-6">
-		<a href="/posts" class="label-sm text-(--color-fg-dim) hover:text-(--color-fg) link-arrow"><span class="link" data-scramble>View all posts</span></a>
+		<a href="/posts" class="label-sm text-link link-arrow"><span><span data-scramble>View all posts</span><Icon name="lucide:arrow-right" aria-hidden="true" /></span></a>
 	</div>
 </section>

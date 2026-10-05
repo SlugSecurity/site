@@ -1,0 +1,86 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { getExcerpt } from '@/lib/posts'
+
+interface Props {
+	posts: CollectionEntry<'posts'>[]
+}
+
+const { posts } = Astro.props
+
+function fmtDate(date: Date) {
+	return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' })
+}
+---
+
+<ul class="post-list frame divide-y divide-(--color-line)">
+	{posts.map(post => {
+		const excerpt = getExcerpt(post)
+		const authors = post.data.authors.filter(author => author.trim())
+		const tags = post.data.tags.filter(tag => tag.trim()).slice(0, 3)
+		return (
+			<li>
+				<a href={`/posts/${post.id}`} class="post-row p-4 sm:p-6 hover:bg-(--color-line)/40 transition-colors group">
+					<div class="post-meta metadata text-(--color-fg-dim)">
+						<time datetime={post.data.date.toISOString()} class="tabular-nums">{fmtDate(post.data.date)}</time>
+						{authors.length > 0 && <span class="post-authors">By {authors.join(', ')}</span>}
+						{tags.length > 0 && (
+							<div class="post-tags">
+								{tags.map(tag => <span class:list={['badge', tag === 'writeup' && 'badge-accent']}>{tag}</span>)}
+							</div>
+						)}
+					</div>
+					<div class="post-copy">
+						<h3 class="card-title group-hover:text-(--color-accent) transition-colors">{post.data.title}</h3>
+						{excerpt && <p class="text-base text-(--color-fg-dim) mt-3 leading-relaxed">{excerpt}</p>}
+					</div>
+				</a>
+			</li>
+		)
+	})}
+</ul>
+
+<style>
+	.post-list {
+		container-type: inline-size;
+	}
+	.post-row {
+		display: grid;
+		gap: 0.75rem;
+	}
+	.post-meta {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 0.375rem 0.75rem;
+		min-width: 0;
+	}
+	.post-tags {
+		flex-basis: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.375rem;
+		min-width: 0;
+	}
+	.post-tags .badge {
+		max-width: 100%;
+	}
+	.post-copy,
+	.post-authors {
+		min-width: 0;
+	}
+	@container (min-width: 36rem) {
+		.post-row {
+			grid-template-columns: 11rem minmax(0, 1fr);
+			column-gap: 1.25rem;
+		}
+		.post-meta {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+		.post-tags {
+			flex-basis: auto;
+			width: 100%;
+		}
+	}
+</style>
