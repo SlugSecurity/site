@@ -36,20 +36,22 @@
 }
 
 @theme {
-	--font-sans: 'HelveticaNeue', system-ui, -apple-system, sans-serif;
 	--font-mono: 'JetBrainsMono', ui-monospace, monospace;
-	--font-pixel: 'PexicoMicro', 'JetBrainsMono', monospace;
+	--font-sans: 'HelveticaNeue', Helvetica, Arial, sans-serif;
+	--font-pixel: 'PexicoMicro', var(--font-sans);
+	--text-base: var(--text-body);
 
 	--color-bg: #0a0a0a;
-	--color-bg-elev: #141414;
+	--color-bg-elev: #161616;
 	--color-bg-panel: #161616;
 	--color-fg: #f5f5f5;
 	--color-fg-dim: #a3a3a3;
-	--color-fg-faint: #525252;
+	--color-fg-faint: #a3a3a3;
 	--color-line: #262626;
 	--color-line-bright: #404040;
 
 	--color-accent: #ff6a1a;
+	--color-accent-hover: #ff853e;
 	--color-accent-dim: #c14e0e;
 	--color-accent-deep: #8a3508;
 
@@ -58,6 +60,12 @@
 
 :root {
 	color-scheme: dark;
+	--text-body: 1rem;
+	--text-meta: 0.875rem;
+	--text-card: 1.25rem;
+	--text-section: clamp(1.75rem, 4vw, 2rem);
+	--text-page: clamp(2rem, 5vw, 2.5rem);
+	--panel-padding: clamp(1rem, 3vw, 1.5rem);
 }
 
 html {
@@ -65,28 +73,75 @@ html {
 	color: var(--color-fg);
 	font-family: var(--font-sans);
 	font-size: 110%;
+	line-height: 1.6;
 	-webkit-font-smoothing: antialiased;
 	scroll-behavior: smooth;
+	scroll-padding-block: 6rem 2rem;
 }
 
 body {
 	min-height: 100dvh;
+	font-size: var(--text-body);
 	background: transparent;
 	display: flex;
 	flex-direction: column;
-	overflow-x: hidden;
-	overflow-wrap: break-word;
+	overflow-wrap: anywhere;
 }
 
 body > main {
 	flex: 1 0 auto;
+	min-width: 0;
 }
+
+[hidden] { display: none !important; }
+
+:focus-visible {
+	outline: 2px solid var(--color-accent);
+	outline-offset: 4px;
+}
+
+:where(a, button, [tabindex], h1, h2, h3, h4, section) {
+	scroll-margin-block: 6rem 2rem;
+}
+
+.skip-link {
+	position: fixed;
+	top: 0.75rem;
+	left: 0.75rem;
+	z-index: 100;
+	padding: 0.75rem 1rem;
+	background: var(--color-fg);
+	color: var(--color-bg);
+	transform: translateY(-200%);
+}
+.skip-link:focus { transform: none; }
+
+.page-title { font-size: var(--text-page); line-height: 1.2; }
+.page-intro { padding-block: 2rem 1rem; text-align: center; }
+.page-intro > .page-title + * { margin-top: 0.5rem; }
+.section-title { font-size: var(--text-section); line-height: 1.25; }
+.section-heading { display: flex; align-items: center; gap: 0.75rem; }
+.section-heading > span { min-width: 0; }
+.section-heading::after { content: ''; flex: 1; height: 1px; background: var(--color-line); }
+@supports (width: 1cap) {
+	.section-heading { align-items: baseline; }
+	.section-heading::after { transform: translateY(calc(0.5px - 0.5cap)); }
+}
+.card-title { font-size: var(--text-card); line-height: 1.35; }
+.icon-row { display: flex; align-items: flex-start; }
+.icon-row > svg { flex: none; width: 1em; height: 1lh; }
+.icon-row > :not(svg) { min-width: 0; }
+.section-gap { margin-top: clamp(1.5rem, 4vw, 2rem); }
 
 h1, h2, h3, h4 {
 	font-family: var(--font-sans);
 	font-weight: 500;
 	color: var(--color-fg);
 	letter-spacing: -0.005em;
+}
+
+code, kbd, samp, pre {
+	font-family: inherit;
 }
 
 ::selection {
@@ -101,36 +156,39 @@ a {
 }
 
 .brand {
-	font-family: 'Hacked', system-ui, sans-serif;
+	font-family: 'Hacked', var(--font-sans);
 	text-transform: uppercase;
 	letter-spacing: 0.02em;
 	font-weight: normal;
 }
 
-.label {
-	font-family: 'PexicoMicro', monospace;
+.label,
+.label-sm,
+.metadata {
+	font-family: var(--font-sans);
+	font-size: var(--text-meta);
+	line-height: 1.5;
+}
+.label,
+.label-sm {
+	font-family: var(--font-pixel);
 	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	font-size: 0.875rem;
+	letter-spacing: 0.04em;
 }
 
-.label-sm {
-	font-family: 'PexicoMicro', monospace;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	font-size: 0.75rem;
+.container-tight,
+.container-prose {
+	width: 100%;
+	margin-inline: auto;
+	padding-inline: 1.25rem;
 }
 
 .container-tight {
 	max-width: 64rem;
-	margin-inline: auto;
-	padding-inline: 1.25rem;
 }
 
 .container-prose {
 	max-width: 56rem;
-	margin-inline: auto;
-	padding-inline: 1.25rem;
 }
 
 .frame {
@@ -141,7 +199,8 @@ a {
 .panel {
 	background: var(--color-bg-panel);
 	border: 1px solid var(--color-line);
-	padding: 1.5rem;
+	padding: var(--panel-padding);
+	min-width: 0;
 	transition: border-color 120ms;
 }
 
@@ -156,10 +215,15 @@ a {
 .btn {
 	display: inline-flex;
 	align-items: center;
+	justify-content: center;
 	gap: 0.5rem;
-	padding: 0.55rem 1.125rem;
-	font-family: 'PexicoMicro', monospace;
-	font-size: 0.95rem;
+	min-height: 44px;
+	max-width: 100%;
+	padding: 0.65rem 1rem;
+	font-family: var(--font-pixel);
+	font-size: var(--text-meta);
+	line-height: 1.5;
+	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: 0.04em;
 	border: 1px solid var(--color-line-bright);
@@ -179,25 +243,24 @@ a {
 	color: var(--color-bg);
 }
 .btn-primary:hover {
-	background: var(--color-accent-dim);
-	border-color: var(--color-accent-dim);
+	background: var(--color-accent-hover);
+	border-color: var(--color-accent-hover);
 	color: var(--color-bg);
 }
 
 .btn-sm {
-	padding: 0.35rem 0.85rem;
-	font-size: 0.8rem;
+	padding-inline: 0.75rem;
 	gap: 0.4rem;
 }
 
 .text-link {
 	color: var(--color-accent);
 	text-decoration: underline;
-	text-decoration-color: var(--color-accent-dim);
+	text-decoration-color: currentColor;
 	text-underline-offset: 3px;
 }
 .text-link:hover {
-	color: var(--color-accent-dim);
+	color: var(--color-accent-hover);
 }
 
 .link {
@@ -209,19 +272,56 @@ a {
 	text-decoration-color: var(--color-fg-dim);
 }
 
+.external-link-content { min-width: 0; }
+.external-link-icon {
+	display: inline-block;
+	width: 0.65em;
+	height: 0.65em;
+	margin-inline-start: 0.25em;
+	vertical-align: middle;
+	pointer-events: none;
+}
+@supports (width: 1cap) {
+	.external-link-icon { vertical-align: calc(0.5cap - 0.325em); }
+}
+
+.link-scramble-text { min-width: 0; }
+.link-scramble-text > .sr-only { user-select: none; }
+.link-scramble-text, .link-scramble-char, .link-scramble-source, .link-scramble-glyph {
+	text-decoration: inherit;
+	text-underline-offset: inherit;
+}
+.link-scramble-char { position: relative; }
+.link-scramble-glyph {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: max-content;
+	white-space: pre;
+	transform-origin: left center;
+	pointer-events: none;
+	user-select: none;
+}
+
 .link-arrow {
 	display: inline-flex;
 	align-items: center;
-	gap: 0.4em;
+	min-height: 44px;
 	cursor: pointer;
 }
-.link-arrow::after {
-	content: '→';
+.link-arrow svg {
 	display: inline-block;
+	width: 1em;
+	height: 1em;
+	margin-inline-start: 0.4em;
+	vertical-align: middle;
 	transition: transform 160ms ease-out;
 }
-.link-arrow:hover::after {
+.link-arrow:hover svg {
 	transform: translateX(3px);
+}
+@supports (width: 1cap) {
+	.link-arrow svg { vertical-align: calc(0.5cap - 0.5em); }
 }
 
 .link-underline {
@@ -244,38 +344,46 @@ a {
 	transform: scaleX(1);
 }
 
-.ev-badge {
+.badge,
+.ev-badge,
+.ev-tag {
 	display: inline-flex;
 	align-items: center;
-	font-family: 'PexicoMicro', monospace;
-	font-size: 0.7rem;
+	font-family: var(--font-pixel);
+	font-size: var(--text-meta);
+	line-height: 1.5;
 	text-transform: uppercase;
-	letter-spacing: 0.05em;
+	letter-spacing: 0.02em;
 	padding: 0.15rem 0.4rem;
-	border: 1px solid currentColor;
+	border: 1px solid var(--color-line-bright);
+	color: var(--color-fg-dim);
 }
 .ev-private {
 	color: var(--color-accent);
+}
+.badge-accent {
+	color: var(--color-accent);
+	border-color: var(--color-accent-dim);
 }
 .ev-comp {
 	color: var(--color-fg);
 }
 .ev-tag {
-	font-family: 'PexicoMicro', monospace;
-	font-size: 0.7rem;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	padding: 0.1rem 0.4rem;
-	border: 1px solid var(--color-line);
-	color: var(--color-fg-faint);
+	color: var(--color-fg-dim);
 }
 
 @media (prefers-reduced-motion: reduce) {
 	html {
 		scroll-behavior: auto;
 	}
-	.link-arrow:hover::after,
-	.link-underline:hover::after {
-		transition: none;
+	*, *::before, *::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
 	}
+}
+
+@media (forced-colors: active) {
+	:focus-visible { outline-color: Highlight; }
+	.btn, .panel, .frame { border-color: CanvasText; }
 }

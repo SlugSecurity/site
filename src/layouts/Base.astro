@@ -20,9 +20,10 @@ const props = Astro.props
 		<BaseHead {...props} />
 	</head>
 	<body class="text-(--color-fg)">
+		<a href="#main-content" class="skip-link">Skip to content</a>
 		<ShaderBg client:load />
 		<Nav />
-		<main>
+		<main id="main-content" tabindex="-1">
 			<slot />
 		</main>
 		<Footer />

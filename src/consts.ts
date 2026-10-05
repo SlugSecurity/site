@@ -1,13 +1,13 @@
 export const site = {
 	name: 'Slug Security',
 	short: 'SlugSec',
-	tagline: 'The student-run cybersecurity organization at UC Santa Cruz',
+	tagline: 'Cyber @ UC Santa Cruz',
 	url: 'https://slugsec.ucsc.edu',
 	email: 'slugsec@ucsc.edu',
 }
 
 export const legal = {
-	copyright: `© ${new Date().getFullYear()} Regents of the University of California`,
+	copyright: `Copyright ${new Date().getFullYear()} Regents of the University of California`,
 	nonprofit: 'Operating under The Regents of the University of California, a 501(c)(3) nonprofit (EIN 94-1539563)',
 	nonprofitShort: 'Operating under the Regents of UC, a 501(c)(3) nonprofit (EIN 94-1539563)',
 }
@@ -54,30 +54,30 @@ export const nav = [
 ] as const
 
 export const navExternal = [
-	{ label: 'Range', href: links.range, title: 'Practice CTFd, spin up challenges' },
-	{ label: 'Portal', href: links.portal, title: 'Member auth and services' },
+	{ label: 'Range', href: links.range, title: 'Practice security challenges' },
+	{ label: 'Portal', href: links.portal, title: 'Sign in to member services' },
 ] as const
 
 export const whatWeDo = [
 	{
-		head: 'Socialize',
+		head: 'Hang out',
 		icon: 'lucide:message-circle',
-		body: `Our <a href="${links.discord}" class="text-link">Discord</a> is where most of the action happens. Sharing security news, talking about industry events, showing off projects, or getting help on something you're working on. Follow us on <a href="${links.instagram}" class="text-link">Instagram</a> for the fun side.`,
+		body: `Chat about security, ask questions, and share projects on <a href="${links.discord}" class="text-link">Discord</a>. Find club photos and updates on <a href="${links.instagram}" class="text-link">Instagram</a>`,
 	},
 	{
 		head: 'Learn',
 		icon: 'lucide:graduation-cap',
-		body: 'Hands-on workshops and working sessions. We show you a concept, explain why it matters, then let you go free range on a practice environment. Everything runs on our Cyber Range, our club server rack.',
+		body: 'Learn something new at a workshop, then try it on our Cyber Range. The labs run on our club server rack',
 	},
 	{
 		head: 'Compete',
 		icon: 'lucide:trophy',
-		body: 'Diverse competitions throughout the year, mostly online, some in-person. CTFs, cyber defense like CCDC, attack/defend like MITRE eCTF. See <a href="/about#competitions" class="text-link">competitions</a> for details.',
+		body: 'We play Capture the Flag (CTF) competitions together. We also defend networks in CCDC and build embedded systems for MITRE eCTF. <a href="/about#competitions" class="text-link">See how the competitions work</a>',
 	},
 	{
 		head: 'Club projects',
 		icon: 'lucide:wrench',
-		body: 'Applied hacking on real stuff. Bug bounties, securing university systems, hacking routers and IP cameras, porting Doom onto handheld scanners, reverse engineering alarm systems with RF hardware.',
+		body: 'We work on bug bounties, help secure university systems, and hack on routers and IP cameras. Other projects include porting Doom to handheld scanners and reverse engineering alarm systems with radio hardware',
 	},
 ] as const
 

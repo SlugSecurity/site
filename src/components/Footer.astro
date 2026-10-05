@@ -3,9 +3,9 @@ import { Icon } from 'astro-icon/components'
 import { socials, legal } from '@/consts'
 ---
 
-<footer class="mt-12 border-t border-(--color-line) bg-(--color-bg)/85 backdrop-blur-sm">
+<footer class="section-gap border-t border-(--color-line) bg-(--color-bg)/85 backdrop-blur-sm">
 	<div class="container-tight py-5 flex flex-col items-center gap-3 text-center sm:flex-row sm:justify-between sm:gap-4 sm:text-left">
-		<ul class="flex flex-wrap items-center justify-center gap-4 order-2 sm:order-1 text-(--color-fg-faint)">
+		<ul class="flex flex-wrap items-center justify-center gap-1 order-2 sm:order-1 text-(--color-fg-dim)">
 			{socials.map(s => (
 				<li>
 					<a
@@ -21,9 +21,9 @@ import { socials, legal } from '@/consts'
 			))}
 		</ul>
 
-		<div class="label-sm text-(--color-fg-dim) leading-tight order-1 sm:order-2 sm:text-right">
+		<div class="metadata text-(--color-fg-dim) order-1 sm:order-2 sm:text-right">
 			<div>{legal.copyright}</div>
-			<div class="text-(--color-fg-faint) text-[0.65rem] mt-0.5">{legal.nonprofitShort}</div>
+			<div class="mt-1">{legal.nonprofitShort}</div>
 		</div>
 	</div>
 </footer>
@@ -33,6 +33,8 @@ import { socials, legal } from '@/consts'
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
+		min-width: 44px;
+		min-height: 44px;
 		color: inherit;
 		transition: color 160ms;
 	}

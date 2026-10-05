@@ -16,7 +16,7 @@ const {
 	noindex = false,
 } = Astro.props
 
-const fullTitle = title === site.name ? site.name : `${title} — ${site.name}`
+const fullTitle = title === site.name ? site.name : `${title} - ${site.name}`
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString()
 const imageUrl = new URL(image, Astro.site).toString()
 ---
@@ -24,8 +24,6 @@ const imageUrl = new URL(image, Astro.site).toString()
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="generator" content={Astro.generator} />
-
-<style is:inline>html{font-size:110%}</style>
 
 <title>{fullTitle}</title>
 <meta name="description" content={description} />

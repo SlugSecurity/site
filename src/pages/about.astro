@@ -1,79 +1,92 @@
 ---
 import Base from '@/layouts/Base.astro'
+import AboutSection from '@/components/AboutSection.astro'
 import { Icon } from 'astro-icon/components'
-import { site, sponsors, whatWeDo } from '@/consts'
+import { site, sponsors } from '@/consts'
 
 const competitions = [
 	{
 		head: 'Capture the Flag',
 		icon: 'lucide:flag',
-		body: `<p>Jeopardy-style hacking competitions that run over a weekend (usually 48 hours). Small computer puzzles across categories like web exploitation, reverse engineering, cryptography, forensics, and binary exploitation. Each challenge has a hidden flag, submit it for points. Harder challenges are worth more.</p><p class="mt-2">Never seen one? <a href="https://www.youtube.com/watch?v=8ev9ZX9J45A" class="text-link">Watch a quick explainer</a>, or read CTFd's <a href="https://ctfd.io/whats-a-ctf/" class="text-link">"What's a CTF?"</a>.</p><p class="mt-2">Part of the CTF experience is writing up your solutions after, documenting how you approached the problem and what you learned. <em>We encourage members to post writeups on our <a href="/posts" class="text-link">posts</a> page.</em></p>`,
+		body: `<p>In most Capture the Flag (CTF) competitions, you work with teammates to solve security puzzles. Find a hidden flag and submit it for points. Challenges cover web security, reverse engineering, cryptography, forensics, and more</p><p class="mt-2">New to CTFs? <a href="https://www.youtube.com/watch?v=8ev9ZX9J45A" class="text-link">Watch a quick explainer</a> or read <a href="https://ctfd.io/whats-a-ctf/" class="text-link">CTFd's CTF guide</a></p><p class="mt-2">After a competition, share how you solved a challenge and what you learned. We'd love to see your writeup on our <a href="/posts" class="text-link">posts page</a></p>`,
 	},
 	{
 		head: 'Cyber Defense',
 		icon: 'lucide:shield',
-		body: `<p>Blue team competitions where you defend a network while red teamers (hackers) try to break in. You're keeping services running, handling business tasks, and responding to security incidents all at once.</p><p class="mt-2">CCDC (Collegiate Cyber Defense Competition) is the largest in the US. Your 8-person team inherits a corporate network full of vulnerabilities. You're patching systems, responding to intrusions, and answering fake customer service tickets while professional pentesters actively attack you. Each competition day runs 9-5. We compete in the Western region.</p>`,
+		body: `<p>Your team keeps a network running while another team tries to break in. You'll fix security problems, help users, and respond to incidents</p><p class="mt-2">We take part in the Collegiate Cyber Defense Competition (CCDC) in the Western region. Teams look after a simulated company's network while handling business tasks and defending against attacks</p>`,
 	},
 	{
 		head: 'Attack / Defend',
 		icon: 'lucide:swords',
-		body: `<p>Competitions where you build something secure, then attack other teams' implementations while they attack yours.</p><p class="mt-2">MITRE's eCTF (Embedded Capture the Flag) is a semester-long competition focused on embedded systems. First phase (~2 months): design and build a secure system based on their specs (past challenges have included satellite TV decoders and medical devices). Second phase (~1-2 months): break into other teams' designs.</p>`,
+		body: `<p>Build a secure system, then test other teams' designs while they test yours</p><p class="mt-2">In MITRE's Embedded Capture the Flag (eCTF), teams build software for a small hardware device using the competition's requirements. Later, they look for security flaws in each other's systems</p>`,
 	},
 ]
 
 const rules = [
-	{ icon: 'lucide:heart', strong: 'Treat everyone with respect.', body: 'No personal attacks, harassment, or discrimination.' },
-	{ icon: 'lucide:smile', strong: "Don't be condescending.", body: 'If someone asks a basic question, answer it or point them to a resource.' },
-	{ icon: 'lucide:hand-helping', strong: 'Be friendly to beginners.', body: 'Everyone starts somewhere, help them get up to speed.' },
-	{ icon: 'lucide:scale', strong: 'Adhere to ethical practices.', body: 'Only hack systems you have permission to access.' },
-	{ icon: 'lucide:ban', strong: "Don't be evil.", body: "Don't use what you learn here to harm people." },
+	{
+		icon: 'lucide:heart',
+		strong: 'Treat everyone with respect',
+		body: 'No personal attacks, harassment, or discrimination. Disagree with an idea without making it personal',
+	},
+	{
+		icon: 'lucide:smile',
+		strong: "Don't talk down to people",
+		body: 'Help people understand instead of showing them up. A question about Linux doesn\'t need an "actually, it\'s GNU/Linux" lecture',
+	},
+	{
+		icon: 'lucide:hand-helping',
+		strong: 'Give back to the community',
+		body: 'Share what you know. If someone is struggling at a meeting, take a moment to teach them',
+	},
+	{
+		icon: 'lucide:ban',
+		strong: "Don't be evil",
+		body: "Get permission before hacking a system. Don't harm people or break the law. If you're unsure, ask first",
+	},
 ]
 ---
 
 <Base title="About" description={`About ${site.name}, the cybersecurity organization at UC Santa Cruz.`}>
-	<section class="container-prose pt-12 pb-6 text-center">
-		<h1 class="text-4xl sm:text-5xl mb-4">About</h1>
+	<section class="container-prose page-intro">
+		<h1 class="page-title">About</h1>
 	</section>
 
 	<article class="container-prose space-y-5 text-(--color-fg-dim) leading-relaxed">
 		<p>
-			Student-run org under Baskin Engineering focused on all things computer security. All programming comes from students with faculty oversight for leadership. Founded in 2022 after students wanted a community around security. There was a club before us (Security Santa Cruz) but it faded around 2014.
+			Student-run org under Baskin Engineering focused on all things computer security. All programming comes from students with faculty oversight for leadership. Founded in 2022 after students wanted a community around security. There was a club before us (Security Santa Cruz) but it faded around 2014
 		</p>
-		<p class="text-(--color-accent) font-mono">
-			TLDR: we do cool stuff with computers.
+		<p class="text-(--color-accent) font-pixel">
+			TLDR: we do cool stuff with computers
 		</p>
 		<p>
 			This group is open to all students consistent with state and federal law, the UC Nondiscrimination Statement and the Nondiscrimination Policy Statement for University of California Publications Regarding Student-Related Matters.
 		</p>
 	</article>
 
-	<section id="what-we-do" class="container-tight mt-16 scroll-mt-20">
-		<div class="text-center mb-6">
-			<h2 class="text-3xl">What we do</h2>
+	<AboutSection id="what-we-do" />
+
+	<section id="cyber-research" class="container-prose section-gap scroll-mt-20">
+		<div class="text-center mb-4">
+			<h2 class="section-title">Cyber research at UCSC</h2>
 		</div>
-		<div class="grid sm:grid-cols-2 gap-3">
-			{whatWeDo.map(p => (
-				<div class="panel">
-					<h3 class="text-lg mb-2 inline-flex items-center gap-2">
-						<Icon name={p.icon} class="w-4 h-4 text-(--color-accent)" />
-						{p.head}
-					</h3>
-					<p class="text-sm text-(--color-fg-dim) leading-relaxed" set:html={p.body}></p>
-				</div>
-			))}
-		</div>
+		<p class="text-(--color-fg-dim) leading-relaxed">
+			In 2025, the National Security Agency (NSA) named UC Santa Cruz a National Center of Academic Excellence in Cyber Research (<a href="https://news.ucsc.edu/2025/10/uc-santa-cruz-national-center-of-academic-excellence-in-cyber-research/" class="text-link">CAE-R</a>). The designation recognizes UCSC's cybersecurity research
+		</p>
+		<p class="text-(--color-fg-dim) leading-relaxed mt-3">
+			Students can learn and collaborate with other CAE-R schools through workshops and research events. UCSC students and alumni can also meet employers at the CAE community's annual <a href="https://www.caecommunity.org/national-cyber-and-ai-career-fair" class="text-link">virtual career fair</a>
+		</p>
 	</section>
 
-	<section id="competitions" class="container-prose mt-20 scroll-mt-20">
-		<div class="text-center mb-6">
-			<h2 class="text-3xl">Competitions</h2>
+	<section id="competitions" class="container-prose section-gap scroll-mt-20">
+		<div class="text-center mb-4">
+			<h2 class="section-title">Competitions</h2>
 		</div>
 		<div class="space-y-6 text-(--color-fg-dim) leading-relaxed">
 			{competitions.map(c => (
 				<div>
-					<h3 class="text-lg text-(--color-fg) mb-2 inline-flex items-center gap-2">
-						<Icon name={c.icon} class="w-4 h-4 text-(--color-accent)" />
-						{c.head}
+					<h3 class="card-title text-(--color-fg) mb-2 icon-row gap-2">
+						<Icon name={c.icon} class="text-(--color-accent)" aria-hidden="true" />
+						<span>{c.head}</span>
 					</h3>
 					<div set:html={c.body}></div>
 				</div>
@@ -81,46 +94,48 @@ const rules = [
 		</div>
 	</section>
 
-	<section id="not-cs" class="container-prose mt-20 scroll-mt-20">
+	<section id="not-cs" class="container-prose section-gap scroll-mt-20">
 		<div class="text-center mb-4">
-			<h2 class="text-3xl">I'm not a CS major</h2>
+			<h2 class="section-title">I'm not a CS major</h2>
 		</div>
 		<p class="text-(--color-fg-dim) leading-relaxed">
-			Good, we need you. Security touches everything, so we need people who understand everything. Policy, psychology, economics, design, law, hardware, biology. The field has a blind spot when everyone comes from the same background. We've had economics majors, politics majors, and art majors contribute to CTF teams and club projects.
+			You're welcome here. Security needs people with all kinds of interests, from art and design to law and hardware
+		</p>
+		<p class="text-(--color-fg-dim) leading-relaxed mt-3">
+			Economics, politics, and art majors have joined our CTF teams and club projects
 		</p>
 	</section>
 
-	<section id="rules" class="container-prose mt-20 scroll-mt-20">
-		<div class="text-center mb-6">
-			<h2 class="text-3xl">Member rules</h2>
+	<section id="rules" class="container-prose section-gap scroll-mt-20">
+		<div class="text-center mb-4">
+			<h2 class="section-title">Member rules</h2>
 		</div>
 		<ul class="space-y-3 text-(--color-fg-dim) leading-relaxed">
 			{rules.map(r => (
-				<li class="flex items-start gap-3">
-					<Icon name={r.icon} class="w-5 h-5 mt-0.5 shrink-0 text-(--color-accent)" />
+				<li class="icon-row gap-3">
+					<Icon name={r.icon} class="text-(--color-accent)" aria-hidden="true" />
 					<div>
-						<strong class="text-(--color-fg)">{r.strong}</strong>
-						{' '}{r.body}
+						<strong class="block text-(--color-fg)">{r.strong}</strong>
+						<p>{r.body}</p>
 					</div>
 				</li>
 			))}
 		</ul>
-		<p class="mt-5 text-sm text-(--color-fg-dim) flex items-start gap-2">
-			<Icon name="lucide:gavel" class="w-4 h-4 mt-0.5 shrink-0 text-(--color-accent)" />
-			<span>Computer crime is a real thing (18 U.S.C. 1030). If you're unsure whether something crosses a line, ask around in the community.</span>
-		</p>
 	</section>
 
-	<section id="sponsors" class="container-prose mt-20 scroll-mt-20">
-		<div class="text-center mb-6">
-			<h2 class="text-3xl">Sponsors</h2>
+	<section id="sponsors" class="container-prose section-gap scroll-mt-20">
+		<div class="text-center mb-4">
+			<h2 class="section-title">Sponsors</h2>
 		</div>
 		<div class="text-(--color-fg-dim) leading-relaxed space-y-4">
 			<p>
-				{site.name} is the largest cybersecurity organization at UC Santa Cruz. We run technical workshops, compete in national competitions like CCDC and MITRE eCTF, and give students hands-on security experience.
+			We run security workshops, compete in CCDC and MITRE eCTF, and give students a place to learn by doing
 			</p>
 			<p>
-				Sponsorships cover competition travel, equipment, infrastructure, and events. We mainly run on alumni donations and university grants, no formal brochures, but if you're interested we're happy to work something out. Reach out at <a href={`mailto:${site.email}`} class="text-link">{site.email}</a>.
+				Sponsors help pay for competition travel, equipment, our servers, and events. We also receive support from alumni and university grants
+			</p>
+			<p>
+				Want to support the club? Email us at <a href={`mailto:${site.email}`} class="text-link">{site.email}</a>
 			</p>
 			<p>
 				{site.name} operates under The Regents of the University of California, a 501(c)(3) nonprofit organization (EIN 94-1539563). Donations are tax-deductible to the extent allowed by law.
@@ -132,14 +147,12 @@ const rules = [
 			{sponsors.map(s => {
 				const w = s.aspect === 'square' ? '7rem' : '18rem'
 				return (
-					<li class="flex items-center justify-center">
+					<li class="flex items-center justify-center max-w-full">
 						<a
 							href={s.href}
 							title={s.name}
 							aria-label={s.name}
-							style={`display: block; width: ${w}; height: 7rem; background-image: url(${s.logo}); background-position: center; background-repeat: no-repeat; background-size: contain; opacity: 0.85; transition: opacity 160ms;`}
-							onmouseover="this.style.opacity='1'"
-							onmouseout="this.style.opacity='0.85'"
+							style={`display: block; width: ${w}; max-width: 100%; height: 7rem; background-image: url(${s.logo}); background-position: center; background-repeat: no-repeat; background-size: contain;`}
 						></a>
 					</li>
 				)

@@ -1,20 +1,26 @@
 ---
 import { Icon } from 'astro-icon/components'
 import { whatWeDo } from '@/consts'
+
+interface Props {
+	id?: string
+}
+
+const { id } = Astro.props
 ---
 
-<section class="container-tight mt-24">
-	<div class="text-center mb-8">
-		<h2 class="text-3xl sm:text-4xl">What we do</h2>
+<section id={id} class:list={['container-tight section-gap', id && 'scroll-mt-20']}>
+	<div class="text-center mb-4">
+		<h2 class="section-title">What we do</h2>
 	</div>
 	<div class="grid sm:grid-cols-2 gap-3">
 		{whatWeDo.map(p => (
 			<div class="panel">
-				<h3 class="text-lg mb-2 inline-flex items-center gap-2">
-					<Icon name={p.icon} class="w-4 h-4 text-(--color-accent)" />
-					{p.head}
+				<h3 class="card-title mb-2 icon-row gap-2">
+					<Icon name={p.icon} class="text-(--color-accent)" aria-hidden="true" />
+					<span>{p.head}</span>
 				</h3>
-				<p class="text-sm text-(--color-fg-dim) leading-relaxed" set:html={p.body}></p>
+				<p class="text-base text-(--color-fg-dim) leading-relaxed" set:html={p.body}></p>
 			</div>
 		))}
 	</div>
