@@ -3,129 +3,132 @@ import { Icon } from 'astro-icon/components'
 import Base from '@/layouts/Base.astro'
 import { links } from '@/consts'
 
-const igPhotos = Array.from({ length: 9 }, (_, i) => `/_assets/instagram/ig-${String(i + 1).padStart(2, '0')}.webp`)
-	.sort(() => Math.random() - 0.5)
+const igPhotos = [
+	'Members talking with visitors at a Slug Security information table.',
+	'Two members staffing a Slug Security table outside a campus building.',
+	'Club members gathered under a canopy at a campus activities fair.',
+	'A Slug Security server rack on display beside a campus information table.',
+	'A code demonstration projected at the front of a classroom.',
+	'A laptop displaying code during a club session.',
+	'A hand holding two NSA Codebreaker Challenge commemorative coins.',
+	"Members gathered around a laptop at the club's outdoor table.",
+	'A gray tabby cat beside a box of networking equipment.',
+].map((alt, i) => ({ src: `/_assets/instagram/ig-${String(i + 1).padStart(2, '0')}.webp`, alt }))
 ---
 
-<Base title="Join" description="How to join Slug Security at UC Santa Cruz.">
-	<section class="container-prose pt-12 pb-8 text-center">
-		<h1 class="text-4xl sm:text-5xl mb-4">Join</h1>
+<Base title="Join" description="How to join the SlugSec community at UC Santa Cruz.">
+	<section class="container-prose page-intro">
+		<h1 class="page-title">Join</h1>
 		<p class="text-(--color-fg-dim)">
-			Slug Security will always be free to join, but we do have activity requirements to be an <a href="/members#active-members" class="text-link">active member</a>.
+			SlugSec is free to join. Take part each quarter to stay an <a href="/members#active-members" class="text-link">active member</a>
 		</p>
 	</section>
 
 	<section class="container-prose pb-6">
-		<div class="flex items-baseline gap-3 mb-3">
-			<span class="label text-(--color-accent)">Step 01</span>
-			<span class="flex-1 h-px bg-(--color-line)"></span>
+		<div class="mb-3">
+			<h2 class="section-heading label text-(--color-accent)"><span>Step 01</span></h2>
 		</div>
 		<div class="frame p-5 flex flex-col">
-			<div class="text-lg mb-2 flex items-center gap-2">
-				<Icon name="simple-icons:discord" width="20" height="20" class="text-(--color-accent) shrink-0" />
+			<h3 class="card-title mb-2 icon-row gap-2">
+				<Icon name="simple-icons:discord" class="text-(--color-accent)" aria-hidden="true" />
 				<span>Join Discord and verify</span>
-			</div>
-			<p class="text-sm text-(--color-fg-dim) leading-relaxed mb-4">
-				Discord is our central hub for all club activities, this includes managing members. After joining, run <code class="font-mono text-(--color-accent)">/verify</code>, you will receive instructions to authenticate using your UCSC email, this gives you the verified member role and access to our <a href={links.portal} class="text-link">member portal</a>
+			</h3>
+			<p class="text-base text-(--color-fg-dim) leading-relaxed mb-4">
+				Join our Discord, then run <code class="text-(--color-accent)">/verify</code> and follow the steps using your UCSC email. Once verified, you'll have the verified member role and access to our <a href={links.portal} class="text-link">member portal</a>
 			</p>
 			<a href={links.discord} class="btn btn-sm btn-primary mt-auto self-start">Join Discord</a>
 		</div>
 	</section>
 
 	<section class="container-prose pb-4">
-		<div class="flex items-baseline gap-3 mb-3">
-			<span class="label text-(--color-accent)">Step 02</span>
-			<span class="flex-1 h-px bg-(--color-line)"></span>
+		<div class="mb-3">
+			<h2 class="section-heading label text-(--color-accent)"><span>Step 02</span></h2>
 		</div>
-		<p class="text-sm text-(--color-fg-dim) leading-relaxed mb-4">
-			<strong class="text-(--color-fg)">Each quarter</strong>, meet <strong class="text-(--color-fg)">either</strong> of the criteria below (just one, not both) to auto-receive the active member Discord role. We sync the active members list at the end of every quarter
+		<p class="text-base text-(--color-fg-dim) leading-relaxed mb-4">
+			<strong class="text-(--color-fg)">Each quarter</strong>, do <strong class="text-(--color-fg)">either</strong> of the things below to get the active member role on Discord. We update the member list at the end of the quarter
 		</p>
-		<div class="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] gap-3 items-stretch">
+		<div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-3 items-stretch">
 			<div class="frame p-5 flex flex-col">
-				<div class="text-lg mb-2 flex items-center gap-2">
-					<Icon name="lucide:calendar-check" width="20" height="20" class="text-(--color-accent) shrink-0" />
+				<h3 class="card-title mb-2 icon-row gap-2">
+					<Icon name="lucide:calendar-check" class="text-(--color-accent)" aria-hidden="true" />
 					<span>Attend an event</span>
-				</div>
-				<p class="text-sm text-(--color-fg-dim) leading-relaxed mb-4">
-					Attend at least one workshop, CTF practice, social, or any other official club event
+				</h3>
+				<p class="text-base text-(--color-fg-dim) leading-relaxed mb-4">
+					Come to at least one workshop, CTF practice, social, or other club event
 				</p>
 				<a href="/events" class="btn btn-sm mt-auto self-start">See events</a>
 			</div>
 			<div class="flex items-center justify-center label text-(--color-accent) py-1">OR</div>
 			<div class="frame p-5 flex flex-col">
-				<div class="text-lg mb-2 flex items-center gap-2">
-					<Icon name="simple-icons:discord" width="20" height="20" class="text-(--color-accent) shrink-0" />
-					<span>Hang out in Discord</span>
-				</div>
-				<p class="text-sm text-(--color-fg-dim) leading-relaxed mb-4">
-					Stay regularly active in our Discord channels, no event attendance needed
+				<h3 class="card-title mb-2 icon-row gap-2">
+					<Icon name="simple-icons:discord" class="text-(--color-accent)" aria-hidden="true" />
+					<span>Stay active in Discord</span>
+				</h3>
+				<p class="text-base text-(--color-fg-dim) leading-relaxed mb-4">
+					Take part in conversations throughout the quarter. Ask questions, share what you're working on, and help other members
 				</p>
 				<a href={links.discord} class="btn btn-sm mt-auto self-start">Join Discord</a>
 			</div>
 		</div>
 	</section>
 
-	<section class="container-prose pb-10">
-		<div class="flex items-baseline gap-3 mb-3">
-			<span class="label text-(--color-accent)">What's next</span>
-			<span class="flex-1 h-px bg-(--color-line)"></span>
+	<section class="container-prose pb-6">
+		<div class="mb-3">
+			<h2 class="section-heading label text-(--color-accent)"><span>What's next</span></h2>
 		</div>
-		<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 items-stretch">
+		<div class="grid grid-cols-1 lg:grid-cols-3 gap-3 items-stretch">
 			<div class="frame p-5 flex flex-col">
-				<div class="text-lg mb-2 flex items-center gap-2">
-					<Icon name="lucide:terminal" width="20" height="20" class="text-(--color-accent) shrink-0" />
+				<h3 class="card-title mb-2 icon-row gap-2">
+					<Icon name="lucide:terminal" class="text-(--color-accent)" aria-hidden="true" />
 					<span>Practice range</span>
-				</div>
-				<p class="text-sm text-(--color-fg-dim) leading-relaxed mb-4">
-					Spin up attack boxes, vulnerable images, and attack/defend labs for workshops or solo practice
+				</h3>
+				<p class="text-base text-(--color-fg-dim) leading-relaxed mb-4">
+					Try security challenges and practice labs on our range
 				</p>
 				<a href={links.range} class="btn btn-sm mt-auto self-start">Open range</a>
 			</div>
 			<div class="frame p-5 flex flex-col">
-				<div class="text-lg mb-2 flex items-center gap-2">
-					<Icon name="lucide:users" width="20" height="20" class="text-(--color-accent) shrink-0" />
+				<h3 class="card-title mb-2 icon-row gap-2">
+					<Icon name="lucide:users" class="text-(--color-accent)" aria-hidden="true" />
 					<span>Catch an event</span>
-				</div>
-				<p class="text-sm text-(--color-fg-dim) leading-relaxed mb-4">
-					Workshops, socials, and meetups run through the school year, drop into anything on the calendar
+				</h3>
+				<p class="text-base text-(--color-fg-dim) leading-relaxed mb-4">
+					Find workshops, socials, and meetups on the calendar. Check each event for who can join
 				</p>
 				<a href="/events" class="btn btn-sm mt-auto self-start">See events</a>
 			</div>
 			<div class="frame p-5 flex flex-col">
-				<div class="text-lg mb-2 flex items-center gap-2">
-					<Icon name="lucide:flag" width="20" height="20" class="text-(--color-accent) shrink-0" />
+				<h3 class="card-title mb-2 icon-row gap-2">
+					<Icon name="lucide:flag" class="text-(--color-accent)" aria-hidden="true" />
 					<span>Compete in CTFs</span>
-				</div>
-				<p class="text-sm text-(--color-fg-dim) leading-relaxed mb-4">
-					Join the team for upcoming CTFs, weekly practice and coordination happens in Discord
+				</h3>
+				<p class="text-base text-(--color-fg-dim) leading-relaxed mb-4">
+					Find upcoming CTFs and teammates in Discord
 				</p>
 				<a href={links.ctftime} class="btn btn-sm mt-auto self-start">CTFtime team</a>
 			</div>
 		</div>
 	</section>
 
-	<section class="pb-16">
+	<section class="ig-gallery" aria-labelledby="ig-heading">
 		<div class="container-prose text-center mb-5">
-			<div class="inline-flex items-center gap-2 text-xl">
-				<Icon name="simple-icons:instagram" width="20" height="20" class="text-(--color-accent)" />
-				<span>Get to know us</span>
-			</div>
-			<p class="text-sm text-(--color-fg-dim) mt-1">
+			<h2 id="ig-heading" class="section-title">Get to know us</h2>
+			<p class="text-base text-(--color-fg-dim) mt-1">
 				Follow <a href={links.instagram} class="text-link">@SlugSec</a> for the more human and social side of the club
 			</p>
 		</div>
-		<div class="ig-carousel relative overflow-hidden">
-			<div class="pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-gradient-to-r from-(--color-bg) to-transparent"></div>
-			<div class="pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-gradient-to-l from-(--color-bg) to-transparent"></div>
-			<div class="ig-track">
+		<div class="ig-carousel relative" role="group" aria-label="Club photos" tabindex="0">
+			<div aria-hidden="true" class="ig-fade pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-gradient-to-r from-(--color-bg) to-transparent"></div>
+			<div aria-hidden="true" class="ig-fade pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-gradient-to-l from-(--color-bg) to-transparent"></div>
+			<div id="ig-track" class="ig-track">
 				<div class="ig-set">
-					{igPhotos.map(src => (
-						<img src={src} alt="" loading="lazy" class="ig-item" />
+					{igPhotos.map(photo => (
+						<img src={photo.src} alt={photo.alt} loading="lazy" width="480" height="480" class="ig-item" />
 					))}
 				</div>
-				<div class="ig-set" aria-hidden="true">
-					{igPhotos.map(src => (
-						<img src={src} alt="" loading="lazy" class="ig-item" />
+				<div class="ig-set ig-copy" aria-hidden="true">
+					{igPhotos.map(photo => (
+						<img src={photo.src} alt="" loading="lazy" width="480" height="480" class="ig-item" />
 					))}
 				</div>
 			</div>
@@ -134,40 +137,61 @@ const igPhotos = Array.from({ length: 9 }, (_, i) => `/_assets/instagram/ig-${St
 </Base>
 
 <style>
-	.ig-track {
-		display: flex;
-		width: max-content;
-		animation: ig-scroll 160s linear infinite;
-		will-change: transform;
-		transform: translateZ(0);
-		backface-visibility: hidden;
-	}
-	.ig-set {
-		display: flex;
-		flex-shrink: 0;
-		gap: 0.75rem;
-		padding-right: 0.75rem;
-	}
-	.ig-item {
-		display: block;
-		flex-shrink: 0;
-		width: 20rem;
-		height: 20rem;
-		object-fit: cover;
+	.ig-fade, .ig-set.ig-copy { display: none; }
+	.ig-carousel { padding-inline: 1.25rem; max-width: 64rem; margin-inline: auto; }
+	.ig-set { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: 0.75rem; }
+	.ig-item { display: block; width: 100%; aspect-ratio: 1; height: auto; object-fit: cover; }
+	@media (min-width: 768px) and (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+		.is-animated:not(.is-paused) .ig-carousel { overflow: hidden; max-width: none; padding-inline: 0; }
+		.is-animated:not(.is-paused) .ig-track { display: flex; width: max-content; animation: ig-scroll 160s linear infinite; }
+		.is-animated:not(.is-paused) .ig-set { display: flex; flex-shrink: 0; padding-right: 0.75rem; }
+		.is-animated:not(.is-paused) .ig-item { flex-shrink: 0; width: 20rem; height: 20rem; }
+		.is-animated:not(.is-paused) .ig-fade { display: block; }
 	}
 	@keyframes ig-scroll {
 		from { transform: translate3d(0, 0, 0); }
 		to { transform: translate3d(-50%, 0, 0); }
 	}
-	@media (prefers-reduced-motion: reduce) {
-		.ig-track {
-			animation: none;
-			flex-wrap: wrap;
-			justify-content: center;
-			width: auto;
-		}
-		.ig-set:nth-child(2) {
-			display: none;
-		}
-	}
 </style>
+
+<script>
+	const gallery = document.querySelector<HTMLElement>('.ig-gallery')
+	const carousel = gallery?.querySelector<HTMLElement>('.ig-carousel')
+	const track = gallery?.querySelector<HTMLElement>('.ig-track')
+	if (gallery && carousel && track) {
+		const motion = window.matchMedia('(min-width: 768px) and (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine)')
+		let paused = false
+		let hovering = false
+		let current = 1
+		let target = 1
+		let frame: number | null = null
+		const ease = () => {
+			current += (target - current) * 0.2
+			if (Math.abs(target - current) < 0.001) current = target
+			for (const animation of track.getAnimations()) animation.playbackRate = current
+			frame = current === target ? null : requestAnimationFrame(ease)
+		}
+		const setHover = (value: boolean) => {
+			hovering = value
+			target = value ? 0 : 1
+			if (frame === null && motion.matches && !paused) frame = requestAnimationFrame(ease)
+		}
+		const update = () => {
+			gallery.classList.toggle('is-animated', motion.matches)
+			gallery.classList.toggle('is-paused', paused)
+			if (frame !== null) cancelAnimationFrame(frame)
+			frame = null
+			current = target = hovering ? 0 : 1
+			for (const animation of track.getAnimations()) animation.playbackRate = current
+		}
+		carousel.addEventListener('focusin', event => {
+			if (!(event.target instanceof HTMLElement) || !event.target.matches(':focus-visible')) return
+			paused = true
+			update()
+		})
+		carousel.addEventListener('mouseenter', () => setHover(true))
+		carousel.addEventListener('mouseleave', () => setHover(false))
+		motion.addEventListener('change', update)
+		update()
+	}
+</script>

@@ -4,7 +4,6 @@ import { Icon } from 'astro-icon/components'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import yaml from 'js-yaml'
-import { site } from '@/consts'
 
 type Officer = {
 	Name: string
@@ -29,89 +28,79 @@ const alumni = officersData.alumni ?? []
 const membersRaw = readFileSync(resolve(process.cwd(), 'src/data/members.yml'), 'utf8')
 const quarters = (yaml.load(membersRaw) as { members: Quarter[] }).members
 
-const activeOfficers = executive.length + officers.length
-const currentActive = quarters.find(q => q.names.length > 0)?.names.length ?? 0
-
 const fixImage = (p: string) => p.replace('/_assets/images/officers/', '/_assets/officers/')
 
-type Group = { name: string; list: Officer[]; subtitle: string; muted?: boolean }
+type Group = { name: string; list: Officer[]; muted?: boolean }
 const groupOrder: Group[] = [
-	{ name: 'Executive', subtitle: 'Lead officers running the org.', list: executive },
-	{ name: 'Officers', subtitle: 'Officers handling specific functions.', list: officers },
-	{ name: 'Alumni', subtitle: 'Past officers. We don\u2019t track general-member alumni.', list: alumni, muted: true },
+	{ name: 'Executive', list: executive },
+	{ name: 'Officers', list: officers },
+	{ name: 'Alumni', list: alumni, muted: true },
 ]
 ---
 
-<Base title="Members" description={`Officers and members of ${site.name}.`}>
-	<section class="container-prose pt-12 pb-6 text-center">
-		<h1 class="text-4xl sm:text-5xl mb-4">Members</h1>
-		<p class="text-(--color-fg-dim) leading-relaxed">
-			Officers, alumni, and active members of {site.name}.
-		</p>
-		<p class="text-(--color-fg-dim) mt-3">
-			Currently <span class="text-(--color-fg)">{activeOfficers}</span> officers and <span class="text-(--color-fg)">{alumni.length}</span> listed alumni. <span class="text-(--color-fg)">{currentActive}</span> {currentActive === 1 ? 'member' : 'members'} active this quarter.
-		</p>
+<Base title="Members" description="Meet our members, officers, and alumni">
+	<section class="container-prose page-intro">
+		<h1 class="page-title">Members</h1>
+		<p class="text-(--color-fg-dim)">Meet our members, officers, and alumni</p>
 	</section>
 
-	<section class="container-tight pb-16">
-		<div id="leadership" class="mt-10 mb-6 flex items-center gap-3 scroll-mt-20">
-		<h2 class="text-2xl">Leadership</h2>
-			<span class="flex-1 h-px bg-(--color-line)"></span>
+	<section class="container-tight">
+		<div id="leadership" class="mb-4 scroll-mt-20">
+			<h2 class="section-heading section-title"><span>Leadership</span></h2>
 		</div>
 
 		{groupOrder.map(group => {
 			if (group.list.length === 0) return null
 			return (
-				<div class="mt-10">
-					<div class="flex items-center gap-3 mb-1">
-						<h3 class:list={['text-lg', group.muted ? 'text-(--color-fg-dim)' : 'text-(--color-fg)']}>{group.name}</h3>
-						<span class="flex-1 h-px bg-(--color-line)"></span>
-						<span class="label-sm text-(--color-fg-faint)">{group.list.length}</span>
+				<div class="officer-group">
+					<div class="mb-3">
+						<h3 class:list={['section-heading card-title', group.muted ? 'text-(--color-fg-dim)' : 'text-(--color-fg)']}><span>{group.name} ({group.list.length})</span></h3>
 					</div>
-					<p class="text-sm text-(--color-fg-dim) mb-4">{group.subtitle}</p>
-					<ul class="grid sm:grid-cols-2 gap-4">
+					<ul class="grid lg:grid-cols-2 gap-4">
 						{group.list.map(o => (
-							<li class:list={['officer-card panel', group.muted && 'officer-muted']}>
-								<div class="flex gap-4 items-start">
+							<li class="officer-card panel">
+								<div class="officer-header">
 									<img
 										src={fixImage(o.Image)}
-										alt={o.Name}
+										alt=""
 										loading="lazy"
-										width="80"
-										height="80"
+										width="88"
+										height="88"
 										class="officer-avatar"
 									/>
-									<div class="min-w-0 flex-1 leading-tight">
-										<div class="label-sm text-(--color-accent)">{o.Title}</div>
-										<div class="text-base text-(--color-fg)">{o.Name}</div>
-										{o.Handle && (
-											<div class="label-sm text-(--color-fg-faint)">@{o.Handle}</div>
-										)}
-										<div class="flex items-center gap-3 mt-1.5 text-(--color-fg-faint)">
+									<div class="officer-info">
+										<div class="officer-identity leading-tight">
+											<div class="label-sm text-(--color-accent)">{o.Title}</div>
+											<h4 class="card-title text-(--color-fg)">{o.Name}</h4>
+										</div>
+										<div class="officer-meta text-(--color-fg-dim)">
+											{o.Handle && (
+												<span class="officer-handle label-sm text-(--color-fg-faint)">@{o.Handle}</span>
+											)}
 											{o.Website && (
 												<a href={o.Website} title="Website" aria-label={`${o.Name} website`} class="officer-icon">
-													<Icon name="lucide:globe" width="14" height="14" />
+													<Icon name="lucide:globe" width="18" height="18" aria-hidden="true" />
 												</a>
 											)}
 											{o.LinkedIn && (
 												<a href={`https://www.linkedin.com/in/${o.LinkedIn}`} title="LinkedIn" aria-label={`${o.Name} LinkedIn`} class="officer-icon">
-													<Icon name="simple-icons:linkedin" width="14" height="14" />
+													<Icon name="simple-icons:linkedin" width="18" height="18" aria-hidden="true" />
 												</a>
 											)}
 											{o.GitHub && (
 												<a href={`https://github.com/${o.GitHub}`} title="GitHub" aria-label={`${o.Name} GitHub`} class="officer-icon">
-													<Icon name="simple-icons:github" width="14" height="14" />
+													<Icon name="simple-icons:github" width="18" height="18" aria-hidden="true" />
 												</a>
 											)}
 											{o.Twitter && (
 												<a href={`https://twitter.com/${o.Twitter}`} title="Twitter" aria-label={`${o.Name} Twitter`} class="officer-icon">
-													<Icon name="simple-icons:x" width="14" height="14" />
+													<Icon name="simple-icons:x" width="18" height="18" aria-hidden="true" />
 												</a>
 											)}
 										</div>
-										<p class="text-xs text-(--color-fg-dim) leading-relaxed mt-3">{o.Description}</p>
 									</div>
 								</div>
+								<p class="text-base text-(--color-fg-dim) leading-relaxed mt-2">{o.Description}</p>
 							</li>
 						))}
 					</ul>
@@ -119,92 +108,127 @@ const groupOrder: Group[] = [
 			)
 		})}
 
-		<div id="active-members" class="mt-16 mb-4 flex items-center gap-3 scroll-mt-20">
-			<h2 class="text-2xl">Active members</h2>
-			<span class="flex-1 h-px bg-(--color-line)"></span>
+		<div id="active-members" class="section-gap mb-4 scroll-mt-20">
+			<h2 class="section-heading section-title"><span>Active members</span></h2>
 		</div>
-		<p class="text-sm text-(--color-fg-dim) mb-6">
-			Members who met active status that quarter. Want to be on this list? <a href="/join" class="text-link">Become a member</a>.
+		<p class="text-base text-(--color-fg-dim) mb-6">
+			See who was active each quarter. <a href="/join" class="text-link">Join SlugSec</a>
 		</p>
 
+		<button id="anon-toggle" type="button" class="btn btn-sm mb-3" aria-controls="member-rosters" hidden>Pause name animation</button>
+		<div id="member-rosters">
 		{quarters.map((q, i) => (
 			<div class="mt-3">
 				<div class="panel">
-					<div class="flex items-center gap-3 mb-3">
-						<h3 class="text-lg">{q.quarter}</h3>
-						<span class="flex-1 h-px bg-(--color-line)"></span>
-						<span class="label-sm text-(--color-fg-faint)">{q.names.length || '\u2014'}</span>
+					<div class="mb-3">
+						<h3 class="section-heading card-title"><span>{q.quarter} ({q.names.length || '-'})</span></h3>
 					</div>
 					{q.names.length === 0 ? (
-						<p class="label-sm text-(--color-fg-faint)">Roster TBD</p>
+						<p class="label-sm text-(--color-fg-faint)">Member list not added yet</p>
 					) : (
 						<ul class="member-grid label-sm text-(--color-fg-dim)">
 							{q.names.map(n => {
 								if (n.trim() !== '?') return <li>{n}</li>
-								const len = 6 + Math.floor(Math.random() * 6)
-								const tip = 'This member chose not to share their name publicly.'
-								return <li><span class="anon-scramble" title={tip} aria-label={tip} data-len={len}>{'?'.repeat(len)}</span></li>
+								const tip = 'This member prefers to stay anonymous'
+								return <li><span class="anon-mask" title={tip}><span class="anon-scramble" aria-hidden="true">????????</span><span class="sr-only">{tip}</span></span></li>
 							})}
 						</ul>
 					)}
 				</div>
 				{i === quarters.length - 1 && (
-					<p class="label-sm text-(--color-fg-faint) text-center mt-3">End of member roster, general member records only go back to Fall 2025.</p>
+					<p class="label-sm text-(--color-fg-faint) text-center mt-3">Member lists go back to Fall 2025</p>
 				)}
 			</div>
 		))}
+		</div>
 	</section>
 </Base>
 
 <script>
 	import GlitchedWriter from 'glitched-writer'
+	import '@/scripts/member-cards'
 
-	const GLYPHS = '!<>-_\\/[]{}=+*^?#%&~01ABCDEF'
-	const seedOf = (len: number) => Array.from({ length: len }, () => GLYPHS[Math.floor(Math.random() * GLYPHS.length)]).join('')
-
-	function attach() {
-		if (!window.matchMedia('(min-width: 768px)').matches) return
-		document.querySelectorAll<HTMLElement>('.anon-scramble').forEach(el => {
-			if (el.dataset.anonAttached) return
-			el.dataset.anonAttached = '1'
-			const len = parseInt(el.dataset.len ?? '8', 10)
-			const writer = new GlitchedWriter(el, {
-				steps: [4, 8],
-				interval: [70, 140],
-				glyphs: GLYPHS,
-			})
-			const tick = () => {
-				writer.write(seedOf(len)).then(() => {
-					setTimeout(tick, 1800 + Math.random() * 800)
-				})
+	const toggle = document.querySelector<HTMLButtonElement>('#anon-toggle')
+	const names = Array.from(document.querySelectorAll<HTMLElement>('.anon-scramble'))
+	if (toggle && names.length) {
+		const glyphs = '!<>-_\\/[]{}=+*^?#%&~01ABCDEF'
+		const motion = window.matchMedia('(min-width: 768px) and (prefers-reduced-motion: no-preference)')
+		const writers = names.map(element => ({
+			writer: new GlitchedWriter(element, { steps: [4, 8], interval: [70, 140], glyphs }),
+			length: 6 + Math.floor(Math.random() * 6),
+			timer: 0,
+		}))
+		let paused = false
+		let generation = 0
+		const update = () => {
+			const run = ++generation
+			toggle.hidden = !motion.matches
+			toggle.textContent = paused ? 'Resume name animation' : 'Pause name animation'
+			for (const item of writers) {
+				clearTimeout(item.timer)
+				item.writer.pause()
+				if (paused || !motion.matches) continue
+				const tick = () => {
+					if (run !== generation) return
+					const seed = Array.from({ length: item.length }, () => glyphs[Math.floor(Math.random() * glyphs.length)]).join('')
+					void item.writer.write(seed).then(() => {
+						if (run === generation) item.timer = window.setTimeout(tick, 1800 + Math.random() * 800)
+					})
+				}
+				tick()
 			}
-			tick()
-		})
+		}
+		toggle.addEventListener('click', () => { paused = !paused; update() })
+		motion.addEventListener('change', update)
+		update()
 	}
-
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', attach)
-	} else {
-		attach()
-	}
-	document.addEventListener('astro:page-load', attach)
 </script>
 
 <style>
+	#anon-toggle[hidden] { display: none; }
+	.officer-group + .officer-group { margin-top: 1.5rem; }
+	.officer-header {
+		--officer-avatar-size: 80px;
+		display: grid;
+		grid-template-columns: var(--officer-avatar-size) minmax(0, 1fr);
+		align-items: start;
+		gap: 0.25rem 0.75rem;
+	}
+	.officer-info {
+		min-width: 0;
+	}
 	.officer-card {
-		padding: 1rem;
+		container-type: inline-size;
+		display: flex;
+		flex-direction: column;
+		padding: 0.75rem;
 		transition: border-color 160ms;
 	}
 	.officer-card:hover {
 		border-color: var(--color-line-bright);
 	}
 	.officer-avatar {
-		width: 80px;
-		height: 80px;
+		width: var(--officer-avatar-size);
+		height: var(--officer-avatar-size);
 		object-fit: cover;
-		flex-shrink: 0;
+	}
+	.officer-meta {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.125rem;
+		font-family: var(--font-pixel);
+		font-size: var(--text-meta);
+		line-height: 1.5;
+	}
+	.officer-handle {
+		max-width: 100%;
+		margin-inline-end: 0.375rem;
 	}
 	.officer-icon {
+		flex: 0 0 44px;
+		width: 44px;
+		height: 44px;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -213,17 +237,41 @@ const groupOrder: Group[] = [
 	.officer-icon:hover {
 		color: var(--color-accent);
 	}
+	.officer-icon :global(svg) {
+		display: block;
+		transform: translateY(-0.0625rem);
+	}
+	@supports (width: 1cap) {
+		.officer-meta { align-items: baseline; }
+		.officer-icon { align-items: flex-start; }
+		.officer-icon :global(svg) { transform: translateY(calc(9px - 0.5cap)); }
+	}
+	@container (min-width: 25rem) {
+		.officer-header {
+			--officer-avatar-size: 88px;
+		}
+	}
+	@container (max-width: 13rem) {
+		.officer-header { grid-template-columns: minmax(0, 1fr); }
+	}
+	@media (min-width: 48rem) and (pointer: fine) {
+		.officer-icon {
+			flex-basis: 32px;
+			width: 32px;
+			height: 32px;
+		}
+	}
 	.member-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 11rem), 1fr));
 		gap: 0.65rem 1.5rem;
 	}
-	.anon-scramble {
+	.anon-mask {
 		display: inline-block;
 		color: var(--color-fg-faint);
 		min-width: 5rem;
 	}
-	.anon-scramble:hover {
+	.anon-mask:hover {
 		color: var(--color-fg-dim);
 	}
 </style>
