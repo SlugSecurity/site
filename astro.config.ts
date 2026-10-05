@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config'
+import { unified } from '@astrojs/markdown-remark'
 import react from '@astrojs/react'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
@@ -85,6 +86,7 @@ const calloutOpts = {
 
 export default defineConfig({
 	site: 'https://slugsec.ucsc.edu',
+	compressHTML: true,
 	integrations: [
 		expressiveCode({
 			themes: ['github-dark-default'],
@@ -112,17 +114,19 @@ export default defineConfig({
 		}),
 	],
 	markdown: {
-		remarkPlugins: [
-			remarkDirective,
-			[remarkCalloutDirectives, calloutOpts],
-			recoverInlineDirectives,
-			remarkLegacyShortcodes,
-			remarkImgAttr,
-		],
-		rehypePlugins: [
-			labelEmbeddedMedia,
-			[rehypeFigureTitle, { className: 'post-figure' }],
-		],
+		processor: unified({
+			remarkPlugins: [
+				remarkDirective,
+				[remarkCalloutDirectives, calloutOpts],
+				recoverInlineDirectives,
+				remarkLegacyShortcodes,
+				remarkImgAttr,
+			],
+			rehypePlugins: [
+				labelEmbeddedMedia,
+				[rehypeFigureTitle, { className: 'post-figure' }],
+			],
+		}),
 	},
 	redirects: {
 		'/about/officers': '/members',

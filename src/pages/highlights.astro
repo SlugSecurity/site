@@ -2,7 +2,7 @@
 import Base from '@/layouts/Base.astro'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 
 type Highlight = {
 	Name: string
@@ -16,7 +16,7 @@ type Highlight = {
 }
 
 const raw = readFileSync(resolve(process.cwd(), 'src/data/highlights.yml'), 'utf8')
-const parsed = yaml.load(raw) as { highlights: Record<string, Highlight[]> }
+const parsed = load(raw) as { highlights: Record<string, Highlight[]> }
 const years = Object.keys(parsed.highlights).sort((a, b) => Number(b) - Number(a))
 const all = years.flatMap(y => parsed.highlights[y])
 const currentYear = new Date().getFullYear()

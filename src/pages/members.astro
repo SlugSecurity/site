@@ -3,7 +3,7 @@ import Base from '@/layouts/Base.astro'
 import { Icon } from 'astro-icon/components'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 
 type Officer = {
 	Name: string
@@ -20,13 +20,13 @@ type Officer = {
 type Quarter = { quarter: string; names: string[] }
 
 const officersRaw = readFileSync(resolve(process.cwd(), 'src/data/officers.yml'), 'utf8')
-const officersData = yaml.load(officersRaw) as { executive: Officer[]; officers: Officer[]; alumni: Officer[] }
+const officersData = load(officersRaw) as { executive: Officer[]; officers: Officer[]; alumni: Officer[] }
 const executive = officersData.executive ?? []
 const officers = officersData.officers ?? []
 const alumni = officersData.alumni ?? []
 
 const membersRaw = readFileSync(resolve(process.cwd(), 'src/data/members.yml'), 'utf8')
-const quarters = (yaml.load(membersRaw) as { members: Quarter[] }).members
+const quarters = (load(membersRaw) as { members: Quarter[] }).members
 
 const fixImage = (p: string) => p.replace('/_assets/images/officers/', '/_assets/officers/')
 

@@ -24,6 +24,14 @@ test('handles metadata without a description and false competition flags', () =>
 	})
 })
 
+test('removes empty frontmatter while preserving the description', () => {
+	for (const frontmatter of [' ', '# no metadata', 'null']) {
+		assert.deepEqual(parseMeta(`---\n${frontmatter}\n---\nWorkshop description`), {
+			meta: {}, body: 'Workshop description',
+		})
+	}
+})
+
 test('keeps ordinary, unclosed, and invalid metadata descriptions intact', () => {
 	for (const body of ['Competition workshop', '---\ncompetition: CCDC', '---\ntags: [invalid\n---\nDescription']) {
 		assert.deepEqual(parseMeta(body), { meta: {}, body })

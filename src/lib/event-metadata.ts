@@ -1,4 +1,4 @@
-import yaml from 'js-yaml'
+import { loadAll } from 'js-yaml'
 
 export type EventMeta = {
 	private?: string | boolean
@@ -14,7 +14,9 @@ export const parseMeta = (raw: string | undefined): { meta: EventMeta; body: str
 	if (!m) return { meta: {}, body: raw }
 	const [, fm, rest] = m
 	try {
-		const parsed = (yaml.load(fm) ?? {}) as Record<string, unknown>
+		const documents = loadAll(fm)
+		if (documents.length > 1) return { meta: {}, body: raw }
+		const parsed = (documents[0] ?? {}) as Record<string, unknown>
 		const meta: EventMeta = {}
 		const isStrOrBool = (v: unknown): v is string | boolean => typeof v === 'string' || typeof v === 'boolean'
 		if (isStrOrBool(parsed.private)) meta.private = parsed.private
