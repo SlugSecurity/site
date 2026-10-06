@@ -54,83 +54,13 @@ function applyExternalAttrs(link: HTMLAnchorElement, external: boolean) {
 	else link.removeAttribute('rel')
 }
 
-function textWalker(target: Element, rendered = false) {
+function textWalker(target: Element) {
 	return document.createTreeWalker(target, NodeFilter.SHOW_TEXT, {
 		acceptNode(node) {
-			if (rendered && node.parentElement?.closest('.link-scramble-source')) return NodeFilter.FILTER_ACCEPT
 			return node.textContent?.trim() && !node.parentElement?.closest('svg, .sr-only, [aria-hidden="true"]')
 				? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
 		},
 	})
-}
-
-function externalIcon() {
-	const ns = 'http://www.w3.org/2000/svg'
-	const icon = document.createElementNS(ns, 'svg')
-	icon.classList.add('external-link-icon')
-	icon.setAttribute('viewBox', '0 0 10 10')
-	icon.setAttribute('aria-hidden', 'true')
-	icon.setAttribute('focusable', 'false')
-	const path = document.createElementNS(ns, 'path')
-	path.setAttribute('d', 'M2 8L8 2M8 2H3.5M8 2V6.5')
-	path.setAttribute('fill', 'none')
-	path.setAttribute('stroke', 'currentColor')
-	path.setAttribute('stroke-width', '1.2')
-	icon.append(path)
-	return icon
-}
-
-function removeExternalTail(link: HTMLAnchorElement) {
-	link.querySelector('.external-link-icon')?.remove()
-	const tail = link.querySelector('.external-link-tail')
-	if (!tail) return
-	const parent = tail.parentElement
-	tail.replaceWith(...tail.childNodes)
-	parent?.normalize()
-}
-
-function lastRenderedText(link: HTMLAnchorElement) {
-	const walker = textWalker(link, true)
-	let last: Text | null = null
-	while (walker.nextNode()) last = walker.currentNode as Text
-	return last
-}
-
-function syncExternalIcon(link: HTMLAnchorElement, external: boolean) {
-	let content = link.querySelector<HTMLSpanElement>(':scope > .external-link-content')
-	let last = lastRenderedText(link)
-	if (!external || !last) {
-		removeExternalTail(link)
-		if (content) content.replaceWith(...content.childNodes)
-		return
-	}
-	const tail = link.querySelector('.external-link-tail')
-	if (tail?.contains(last) && tail.querySelector('.external-link-icon')) return
-	removeExternalTail(link)
-	last = lastRenderedText(link)
-	if (!last) return
-	const display = getComputedStyle(link).display
-	if (display.includes('flex') && !content) {
-		content = document.createElement('span')
-		content.className = 'external-link-content'
-		content.append(...link.childNodes)
-		link.append(content)
-	}
-	const ending = document.createElement('span')
-	ending.className = 'external-link-tail'
-	const cell = last.parentElement?.closest('.link-scramble-char')
-	if (cell) {
-		cell.before(ending)
-		ending.append(cell)
-	} else {
-		const segment = Array.from(graphemes.segment(last.data.trimEnd())).at(-1)
-		if (!segment) return
-		const suffix = last.splitText(segment.index)
-		if (suffix.length > segment.segment.length) suffix.splitText(segment.segment.length)
-		suffix.before(ending)
-		ending.append(suffix)
-	}
-	ending.append(externalIcon())
 }
 
 type ScrambleCharacter = {
@@ -233,7 +163,6 @@ function attachScramble(link: HTMLAnchorElement): ScrambleCharacter[] {
 function enhance(link: HTMLAnchorElement) {
 	const external = isExternal(link)
 	applyExternalAttrs(link, external)
-	syncExternalIcon(link, external)
 }
 
 function attachAll() {
@@ -247,9 +176,7 @@ document.addEventListener(
 		if (!link || reducedMotion.matches || !scrambleQuery.matches) return
 		if (e.relatedTarget instanceof Node && link.contains(e.relatedTarget)) return
 		if (playing.has(link)) return
-		removeExternalTail(link)
 		const chars = attachScramble(link)
-		syncExternalIcon(link, isExternal(link))
 		if (chars.length) scramble(link, chars)
 	},
 	{ passive: true },

@@ -19,6 +19,14 @@ const {
 const fullTitle = title === site.name ? site.name : `${title} - ${site.name}`
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString()
 const imageUrl = new URL(image, Astro.site).toString()
+// Match external HTTP links before JavaScript runs, including links in post HTML.
+const internalOrigins = new Set([new URL(site.url).origin, new URL(site.url).origin.replace('https:', 'http:'), Astro.url.origin])
+const internalSelectors = [...internalOrigins].flatMap(origin =>
+	[origin, origin.replace(/^https?:/, '')].flatMap(url =>
+		[`[href="${url}"]`, ...['/', '?', '#'].map(separator => `[href^="${url}${separator}"]`)],
+	),
+).join(', ')
+const externalSelector = `a:is([href^="https://"], [href^="http://"], [href^="//"]):not(${internalSelectors}):not(:has(img, svg)):not(:empty):not(.sponsor-item)`
 ---
 
 <meta charset="utf-8" />
@@ -32,6 +40,23 @@ const imageUrl = new URL(image, Astro.site).toString()
 
 <link rel="icon" href="/favicon.ico" />
 <link rel="apple-touch-icon" href="/logo.png" />
+
+<style is:inline set:html={`${externalSelector}::after {
+	content: '';
+	display: inline-block;
+	flex: none;
+	width: 0.65em;
+	height: 0.65em;
+	margin-inline-start: 0.25em;
+	vertical-align: middle;
+	background-color: currentColor;
+	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M2 8L8 2M8 2H3.5M8 2V6.5' fill='none' stroke='black' stroke-width='1.2'/%3E%3C/svg%3E") center / contain no-repeat;
+	pointer-events: none;
+}
+${externalSelector}:is(.btn, .nav-link) { display: inline-block; align-content: center; }
+@supports (width: 1cap) {
+	${externalSelector}::after { vertical-align: calc(0.5cap - 0.325em); }
+}`} />
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content={site.name} />
