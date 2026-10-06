@@ -1,5 +1,9 @@
 ---
 import { nav, navExternal, site } from '@/consts'
+import { getImage } from 'astro:assets'
+import logo from '../../public/logo.png'
+
+const navLogo = await getImage({ src: logo, width: 62, height: 62, format: 'webp' })
 const path = Astro.url.pathname
 const navMain = nav.filter(n => n.label !== 'Join')
 const isActive = (href: string) => path === href || path.startsWith(`${href}/`)
@@ -8,7 +12,7 @@ const isActive = (href: string) => path === href || path.startsWith(`${href}/`)
 <header id="site-header" class="sticky top-0 z-30 border-b border-(--color-line) bg-(--color-bg)/95 backdrop-blur-sm">
 	<nav id="nav-row" class="container-tight flex items-center justify-between gap-4" aria-label="Primary navigation">
 		<a href="/" class="nav-brand flex items-center gap-2 text-(--color-fg) hover:text-(--color-fg-dim) transition-colors" aria-label={`${site.short} home`}>
-			<img src="/logo.png" alt="" class="h-7 w-7" width="28" height="28" />
+			<img src={navLogo.src} alt="" class="h-7 w-7" width="28" height="28" />
 			<span class="brand text-lg sm:text-xl">SLUGSEC</span>
 		</a>
 
