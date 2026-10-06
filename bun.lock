@@ -13,7 +13,7 @@
         "@iconify-json/lucide": "^1.2.139",
         "@iconify-json/simple-icons": "^1.2.98",
         "@microflash/remark-callout-directives": "^5.0.1",
-        "@paper-design/shaders-react": "^0.0.81",
+        "@paper-design/shaders": "0.0.81",
         "@tailwindcss/vite": "^4.3.3",
         "astro": "^7.3.5",
         "astro-expressive-code": "^0.44.2",
@@ -371,8 +371,6 @@
     "@oxc-resolver/binding-win32-x64-msvc": ["@oxc-resolver/binding-win32-x64-msvc@11.24.2", "", { "os": "win32", "cpu": "x64" }, "sha512-UqGPmo56KDfLlfXFAFIrNflHT8tFxWGEivWg3Zeyp4Uy2NlKN1FGPr6/BxcLGG3+kZ6Wp14g5Uj+n71boqZfiw=="],
 
     "@paper-design/shaders": ["@paper-design/shaders@0.0.81", "", {}, "sha512-jeGdyjMscZ2bxmQdo8lhwUufHUf4iq3s1ayjh8PXU7Go42Rw8E3I0It1FZdc3HuWt5J82m//DRWaxsRqRfA4Gg=="],
-
-    "@paper-design/shaders-react": ["@paper-design/shaders-react@0.0.81", "", { "dependencies": { "@paper-design/shaders": "0.0.81" }, "peerDependencies": { "@types/react": "^18 || ^19", "react": "^18 || ^19" }, "optionalPeers": ["@types/react"] }, "sha512-3FMkeZqj9sSvK/WkgekGu3crnOQd4R2iH8IT+jVBuQmq1m8p88VFvxh63s9bSt2exBwjBNaRfSo0FSCeNxqh3w=="],
 
     "@rolldown/binding-android-arm-eabi": ["@rolldown/binding-android-arm-eabi@1.2.12", "", { "os": "android", "cpu": "arm" }, "sha512-dB/a1214qKfHMXCpgqR4OZT+jS4kTyEXbQGJPqzobt5EwH5rX080pxE37alt3RzvR1bf1Yz/yGqRfrYAxuPw0A=="],
 

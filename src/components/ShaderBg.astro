@@ -1,0 +1,42 @@
+<div aria-hidden="true" class="fixed inset-0 -z-10 overflow-hidden bg-(--color-bg)">
+	<div id="shader-background" class="absolute inset-0" style="opacity: 0.85"></div>
+	<div class="pointer-events-none absolute inset-0" style="background: radial-gradient(ellipse at center top, transparent 0%, rgba(10,10,10,0.55) 65%, rgba(10,10,10,0.95) 100%)"></div>
+</div>
+
+<style>
+	#shader-background :global(canvas) {
+		animation: shader-reveal 80ms ease-out both;
+	}
+	@keyframes shader-reveal {
+		from { opacity: 0; }
+		to { opacity: 1; }
+	}
+</style>
+
+<script>
+	import { ShaderMount, ditheringFragmentShader, getShaderColorFromString, DitheringShapes, DitheringTypes } from '@paper-design/shaders'
+
+	const element = document.getElementById('shader-background')
+	const motion = window.matchMedia('(prefers-reduced-motion: reduce)')
+	const random = new Uint32Array(1)
+	window.crypto.getRandomValues(random)
+	const frame = random[0] % 1_000_000
+	let shader: ShaderMount | undefined
+
+	const update = () => {
+		shader?.dispose()
+		shader = undefined
+		if (!element) return
+		if (motion.matches) return
+		// Native screen density avoids the library's minimum 2x supersampling.
+		shader = new ShaderMount(element, ditheringFragmentShader, {
+			u_colorBack: getShaderColorFromString('#0a0a0a'),
+			u_colorFront: getShaderColorFromString('#262626'),
+			u_shape: DitheringShapes.simplex, u_type: DitheringTypes['4x4'], u_pxSize: 2,
+			u_fit: 0, u_scale: 1, u_rotation: 0, u_offsetX: 0, u_offsetY: 0,
+			u_originX: 0.5, u_originY: 0.5, u_worldWidth: 0, u_worldHeight: 0,
+		}, undefined, 0, frame, 1)
+	}
+	update()
+	motion.addEventListener('change', update)
+</script>

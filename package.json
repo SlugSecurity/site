@@ -22,7 +22,7 @@
 		"@iconify-json/lucide": "^1.2.139",
 		"@iconify-json/simple-icons": "^1.2.98",
 		"@microflash/remark-callout-directives": "^5.0.1",
-		"@paper-design/shaders-react": "^0.0.81",
+		"@paper-design/shaders": "0.0.81",
 		"@tailwindcss/vite": "^4.3.3",
 		"astro": "^7.3.5",
 		"astro-expressive-code": "^0.44.2",
