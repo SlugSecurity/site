@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config'
+import { defineConfig, sharpImageService } from 'astro/config'
 import { unified } from '@astrojs/markdown-remark'
 import react from '@astrojs/react'
 import mdx from '@astrojs/mdx'
@@ -87,6 +87,7 @@ const calloutOpts = {
 export default defineConfig({
 	site: 'https://slugsec.ucsc.edu',
 	compressHTML: true,
+	image: { service: sharpImageService({ webp: { lossless: true } }) },
 	integrations: [
 		expressiveCode({
 			themes: ['github-dark-default'],

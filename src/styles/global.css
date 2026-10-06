@@ -276,6 +276,20 @@ a {
 	text-decoration-color: var(--color-fg-dim);
 }
 
+.external-link-content { min-width: 0; }
+.external-link-tail { white-space: nowrap; }
+.external-link-icon {
+	display: inline-block;
+	width: 0.65em;
+	height: 0.65em;
+	margin-inline-start: 0.25em;
+	vertical-align: middle;
+	pointer-events: none;
+}
+@supports (width: 1cap) {
+	.external-link-icon { vertical-align: calc(0.5cap - 0.325em); }
+}
+
 .link-scramble-text { min-width: 0; }
 .link-scramble-text > .sr-only { user-select: none; }
 .link-scramble-text, .link-scramble-char, .link-scramble-source, .link-scramble-glyph {
