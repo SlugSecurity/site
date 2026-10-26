@@ -44,6 +44,8 @@ const externalSelector = `a:is([href^="https://"], [href^="http://"], [href^="//
 <link rel="icon" href="/favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href={touchIcon.src} />
 <link rel="preload" href="/_assets/fonts/Hacked/Hacked.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/_assets/fonts/PexicoMicro/PexicoMicro-Regular.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/_assets/fonts/HelveticaNeue/HelveticaNeueMedium.woff2" as="font" type="font/woff2" crossorigin />
 
 <style is:inline set:html={`${externalSelector}::after {
 	content: '';
@@ -80,12 +82,16 @@ ${externalSelector}:is(.btn, .nav-link) { gap: 0; }
 
 {import.meta.env.PROD && (
 	<>
-		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-YFR850WSX3"></script>
 		<script is:inline>
 			window.dataLayer = window.dataLayer || []
 			function gtag(){dataLayer.push(arguments)}
 			gtag('js', new Date())
 			gtag('config', 'G-YFR850WSX3')
+			window.addEventListener('load', () => {
+				const script = document.createElement('script')
+				script.src = 'https://www.googletagmanager.com/gtag/js?id=G-YFR850WSX3'
+				document.head.append(script)
+			})
 		</script>
 	</>
 )}
