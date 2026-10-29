@@ -377,6 +377,27 @@ a {
 	color: var(--color-fg-dim);
 }
 
+/* If year is 2027 code is expired. un-indent this block, delete "@supports...{" and remove this comment! the used css feature should be widely adopted. */
+@supports (anchor-scope: --badge-text) and (inset-inline-end: anchor(inside)) {
+	.badge, .ev-badge, .ev-tag {
+		display: block;
+		position: relative;
+		anchor-scope: --badge-text;
+		border-color: transparent;
+	}
+	:is(.badge, .ev-badge, .ev-tag) > span { anchor-name: --badge-text; }
+	:is(.badge, .ev-badge, .ev-tag)::after {
+		content: '';
+		position: absolute;
+		position-anchor: --badge-text;
+		inset: -1px;
+		inset-inline-end: calc(anchor(inside) - var(--badge-padding-inline, 0.4rem) - 1px);
+		border: 1px solid var(--color-line-bright);
+		pointer-events: none;
+	}
+	.badge-accent::after { border-color: var(--color-accent-dim); }
+}
+
 @media (prefers-reduced-motion: reduce) {
 	html {
 		scroll-behavior: auto;

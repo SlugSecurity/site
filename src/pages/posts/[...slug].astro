@@ -58,7 +58,7 @@ const hitsUrl = `https://hits.sh/slugsec.ucsc.edu/posts/${entry.id}.svg?style=fl
 					<div class="flex flex-wrap gap-2 mt-4">
 						{entry.data.tags.map(tag => (
 							<span class:list={['badge', tag === 'writeup' && 'badge-accent']}>
-								{tag}
+								<span>{tag}</span>
 							</span>
 						))}
 					</div>

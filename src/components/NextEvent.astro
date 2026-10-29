@@ -38,9 +38,9 @@ function fmtParts(iso: string) {
 								{event.location && <div class="mt-1"><span class="sr-only">Location: </span>{event.location}</div>}
 								{(event.private || event.competition || event.tags?.length || event.host) && (
 									<div class="flex flex-wrap items-center gap-1.5 mt-2">
-										{event.private && <span class="ev-badge ev-private">{badgeText(event.private, 'PRIVATE')}</span>}
-										{event.competition && <span class="ev-badge ev-comp">{badgeText(event.competition, 'COMPETITION')}</span>}
-										{event.tags?.map(tag => <span class="ev-tag">{tag}</span>)}
+										{event.private && <span class="ev-badge ev-private"><span>{badgeText(event.private, 'PRIVATE')}</span></span>}
+										{event.competition && <span class="ev-badge ev-comp"><span>{badgeText(event.competition, 'COMPETITION')}</span></span>}
+										{event.tags?.map(tag => <span class="ev-tag"><span>{tag}</span></span>)}
 										{event.host && <span>Host: {event.host}</span>}
 									</div>
 								)}
