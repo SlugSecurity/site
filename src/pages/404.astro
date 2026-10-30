@@ -26,10 +26,8 @@ const facts = [
 	<section class="container-prose pt-8 text-center">
 		<h1 class="text-7xl sm:text-9xl mb-2">404</h1>
 		<p class="text-(--color-fg-dim) mb-6">nothing here but us cats</p>
-		<button id="cat-toggle" type="button" class="btn btn-sm mb-5" aria-controls="cat-display" hidden>Play cat animation</button>
-		<div id="cat-display" class="flex justify-center">
-			<canvas id="cat-still" role="img" aria-label="A playful collage of cats." class="cat-media" hidden></canvas>
-			<img id="cat-404" alt="A playful animated collage of cats." data-cats={cats.join(',')} data-facts={facts.join('|')} class="cat-media" hidden />
+		<div class="flex justify-center">
+			<img id="cat-404" alt="A playful animated collage of cats." data-cats={cats.join(',')} data-facts={facts.join('|')} class="max-w-full max-h-[45vh]" />
 		</div>
 		<p id="cat-fact" class="text-base text-(--color-fg-dim) mt-4" hidden></p>
 		<p class="mt-6 text-base text-(--color-fg-dim)">
@@ -40,53 +38,13 @@ const facts = [
 
 <script>
 	const img = document.querySelector<HTMLImageElement>('#cat-404')
-	const canvas = document.querySelector<HTMLCanvasElement>('#cat-still')
-	const toggle = document.querySelector<HTMLButtonElement>('#cat-toggle')
 	const fact = document.getElementById('cat-fact')
-	const context = canvas?.getContext('2d')
-	if (img && canvas && context && toggle && fact) {
+	if (img && fact) {
 		const cats = (img.dataset.cats ?? '').split(',').filter(Boolean)
 		const facts = (img.dataset.facts ?? '').split('|').filter(Boolean)
 		const cat = cats[Math.floor(Math.random() * cats.length)]
-		const source = `/_assets/animated/404/${cat}`
-		let playing = false
-		const stop = () => {
-			playing = false
-			img.hidden = true
-			img.removeAttribute('src')
-			canvas.hidden = false
-			toggle.textContent = 'Play cat animation'
-		}
-		img.addEventListener('load', () => {
-			if (playing) return
-			canvas.width = img.naturalWidth
-			canvas.height = img.naturalHeight
-			context.drawImage(img, 0, 0)
-			stop()
-			toggle.hidden = false
-			fact.textContent = facts[Math.floor(Math.random() * facts.length)] ?? ''
-			fact.hidden = !fact.textContent
-		}, { once: true })
-		toggle.addEventListener('click', () => {
-			if (playing) {
-				stop()
-				return
-			}
-
-			playing = true
-			img.src = source
-			img.hidden = false
-			canvas.hidden = true
-			toggle.textContent = 'Stop cat animation'
-		})
-		window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', event => {
-			if (event.matches && playing) stop()
-		})
-		if (cat) img.src = source
+		if (cat) img.src = `/_assets/animated/404/${cat}`
+		fact.textContent = facts[Math.floor(Math.random() * facts.length)] ?? ''
+		fact.hidden = !fact.textContent
 	}
 </script>
-
-<style>
-	.cat-media { max-width: 100%; max-height: 45vh; width: auto; height: auto; object-fit: contain; }
-	.cat-media[hidden], #cat-toggle[hidden] { display: none; }
-</style>
