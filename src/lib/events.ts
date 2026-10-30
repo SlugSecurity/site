@@ -9,10 +9,6 @@ export type Event = {
 	start: string
 	end: string
 	url?: string
-	private?: string | boolean
-	competition?: string | boolean
-	host?: string
-	tags?: string[]
 }
 
 export const events = eventsData as Event[]
@@ -22,11 +18,6 @@ export function fmtTimeRange(startIso: string, endIso: string): string {
 	const startStr = new Date(startIso).toLocaleTimeString('en-US', opts)
 	const endStr = new Date(endIso).toLocaleTimeString('en-US', opts)
 	return `${startStr} - ${endStr}`
-}
-
-export function badgeText(v: string | boolean | undefined, fallback: string): string {
-	if (typeof v === 'string' && v.toLowerCase() !== 'true') return `${fallback} - ${v}`
-	return fallback
 }
 
 export function truncate(s: string | undefined, max = 220): string | undefined {

@@ -1,7 +1,6 @@
 import { writeFile, mkdir } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import ical, { type VEvent } from 'node-ical'
-import { parseMeta } from '../src/lib/event-metadata'
 import type { Event } from '../src/lib/events'
 import { calendar } from '../src/consts'
 
@@ -55,7 +54,7 @@ async function main() {
 		if (!raw || raw.type !== 'VEVENT') continue
 		const ev = raw as VEvent
 
-		const { meta, body } = parseMeta(stripHtml(ev.description))
+		const description = stripHtml(ev.description)
 		if (ev.rrule && ev.start && ev.end) {
 			const occurrences = ev.rrule.between(
 				new Date(now.getTime() - HORIZON_DAYS_PAST * 86400_000),
@@ -69,12 +68,11 @@ async function main() {
 				out.push({
 					uid: `${ev.uid}-${occ.toISOString()}`,
 					title: str(ev.summary) ?? '(untitled)',
-					description: body,
+					description,
 					location: str(ev.location),
 					start: occ.toISOString(),
 					end: new Date(occ.getTime() + duration).toISOString(),
 					url: str(ev.url),
-					...meta,
 				})
 			}
 			continue
@@ -87,12 +85,11 @@ async function main() {
 		out.push({
 			uid: ev.uid,
 			title: str(ev.summary) ?? '(untitled)',
-			description: body,
+			description,
 			location: str(ev.location),
 			start: start.toISOString(),
 			end: end.toISOString(),
 			url: str(ev.url),
-			...meta,
 		})
 	}
 

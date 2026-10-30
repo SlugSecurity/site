@@ -1,6 +1,6 @@
 ---
 import { calendar } from '@/consts'
-import { events, fmtTimeRange, badgeText, truncate } from '@/lib/events'
+import { events, fmtTimeRange, truncate } from '@/lib/events'
 
 const upcoming = events
 	.filter(e => new Date(e.end) > new Date())
@@ -36,14 +36,6 @@ function fmtParts(iso: string) {
 								</div>
 								<div class="mt-2"><span class="sr-only">Time: </span>{fmtTimeRange(event.start, event.end)}</div>
 								{event.location && <div class="mt-1"><span class="sr-only">Location: </span>{event.location}</div>}
-								{(event.private || event.competition || event.tags?.length || event.host) && (
-									<div class="flex flex-wrap items-center gap-1.5 mt-2">
-										{event.private && <span class="ev-badge ev-private"><span>{badgeText(event.private, 'PRIVATE')}</span></span>}
-										{event.competition && <span class="ev-badge ev-comp"><span>{badgeText(event.competition, 'COMPETITION')}</span></span>}
-										{event.tags?.map(tag => <span class="ev-tag"><span>{tag}</span></span>)}
-										{event.host && <span>Host: {event.host}</span>}
-									</div>
-								)}
 							</div>
 							<div class="event-content min-w-0">
 								<h3 class="card-title">{event.title}</h3>
