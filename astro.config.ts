@@ -1,6 +1,5 @@
 import { defineConfig, sharpImageService } from 'astro/config'
 import { unified } from '@astrojs/markdown-remark'
-import react from '@astrojs/react'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@tailwindcss/vite'
@@ -107,7 +106,6 @@ export default defineConfig({
 				},
 			},
 		}),
-		react(),
 		mdx(),
 		sitemap(),
 		icon({

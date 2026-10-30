@@ -208,14 +208,6 @@ a {
 	transition: border-color 120ms;
 }
 
-.panel-link {
-	display: block;
-	cursor: pointer;
-}
-.panel-link:hover {
-	border-color: var(--color-line-bright);
-}
-
 .btn {
 	display: inline-flex;
 	align-items: center;
@@ -327,26 +319,6 @@ a {
 }
 @supports (width: 1cap) {
 	.link-arrow svg { vertical-align: calc(0.5cap - 0.5em); }
-}
-
-.link-underline {
-	position: relative;
-	cursor: pointer;
-}
-.link-underline::after {
-	content: '';
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: -2px;
-	height: 1px;
-	background: currentColor;
-	transform: scaleX(0);
-	transform-origin: left;
-	transition: transform 180ms ease-out;
-}
-.link-underline:hover::after {
-	transform: scaleX(1);
 }
 
 .badge,
